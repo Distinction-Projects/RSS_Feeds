@@ -11,6 +11,12 @@
 - Local dev (.env): `NEWSDATA_API_KEY=...` (add `.env` to `.gitignore`).
 - GitHub: Settings -> Secrets and variables -> Actions -> New repository secret -> `NEWSDATA_API_KEY`.
 
+## Quick start (minimal tokens)
+This writes/updates `data/newsdata_dump.json` and skips duplicates across runs.
+```bash
+python3 newsdata_client.py --size 1 --category top --country us --language en
+```
+
 ## Implementation steps
 1. Add a small client module (e.g., `newsdata_client.py`) with base URL, timeouts, retries, and error handling.
 2. Implement fetch functions with pagination (`nextPage`) and rate limit handling.
