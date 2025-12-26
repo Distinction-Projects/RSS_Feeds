@@ -1,0 +1,1340 @@
+{
+  "schema_version": "1.0",
+  "description": "RSS feed catalog for news sources and discourse analysis metadata.",
+  "score_scales": {
+    "bias_score": {
+      "min": -1.0,
+      "max": 1.0,
+      "description": "Ideological tilt. -1 left, 0 center, 1 right."
+    },
+    "local_national_score": {
+      "min": 0.0,
+      "max": 1.0,
+      "description": "0 local, 0.5 regional, 1 national or international."
+    },
+    "descriptive_prescriptive_score": {
+      "min": 0.0,
+      "max": 1.0,
+      "description": "0 descriptive, 1 prescriptive or opinionated."
+    },
+    "factuality_score": {
+      "min": 0.0,
+      "max": 1.0,
+      "description": "0 low factuality, 1 high factuality."
+    },
+    "sensationalism_score": {
+      "min": 0.0,
+      "max": 1.0,
+      "description": "0 low sensationalism, 1 high sensationalism."
+    },
+    "subjectivity_score": {
+      "min": 0.0,
+      "max": 1.0,
+      "description": "0 objective, 1 subjective."
+    },
+    "emotive_language_score": {
+      "min": 0.0,
+      "max": 1.0,
+      "description": "0 neutral language, 1 highly emotive language."
+    },
+    "clickbait_score": {
+      "min": 0.0,
+      "max": 1.0,
+      "description": "0 not clickbait, 1 high clickbait."
+    },
+    "polarization_score": {
+      "min": 0.0,
+      "max": 1.0,
+      "description": "0 low polarization, 1 high polarization."
+    },
+    "civility_score": {
+      "min": 0.0,
+      "max": 1.0,
+      "description": "0 uncivil, 1 civil."
+    },
+    "toxicity_score": {
+      "min": 0.0,
+      "max": 1.0,
+      "description": "0 non-toxic, 1 highly toxic."
+    }
+  },
+  "sources": [
+    {
+      "id": "bbc-news",
+      "name": "BBC News",
+      "homepage_url": "https://www.bbc.com/news",
+      "country": "UK",
+      "language": "en",
+      "region": "Europe",
+      "scope": "international",
+      "ownership": "public",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Top Stories",
+          "url": "http://feeds.bbci.co.uk/news/rss.xml",
+          "topic_tags": ["general"]
+        },
+        {
+          "name": "World",
+          "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
+          "topic_tags": ["world"]
+        },
+        {
+          "name": "UK",
+          "url": "http://feeds.bbci.co.uk/news/uk/rss.xml",
+          "topic_tags": ["uk"]
+        },
+        {
+          "name": "Business",
+          "url": "http://feeds.bbci.co.uk/news/business/rss.xml",
+          "topic_tags": ["business"]
+        },
+        {
+          "name": "Technology",
+          "url": "http://feeds.bbci.co.uk/news/technology/rss.xml",
+          "topic_tags": ["technology"]
+        },
+        {
+          "name": "Science and Environment",
+          "url": "http://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
+          "topic_tags": ["science", "environment"]
+        },
+        {
+          "name": "Health",
+          "url": "http://feeds.bbci.co.uk/news/health/rss.xml",
+          "topic_tags": ["health"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "cnn",
+      "name": "CNN",
+      "homepage_url": "https://www.cnn.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "international",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Top Stories",
+          "url": "http://rss.cnn.com/rss/edition.rss",
+          "topic_tags": ["general"]
+        },
+        {
+          "name": "World",
+          "url": "http://rss.cnn.com/rss/edition_world.rss",
+          "topic_tags": ["world"]
+        },
+        {
+          "name": "Business",
+          "url": "http://rss.cnn.com/rss/edition_business.rss",
+          "topic_tags": ["business"]
+        },
+        {
+          "name": "Technology",
+          "url": "http://rss.cnn.com/rss/edition_technology.rss",
+          "topic_tags": ["technology"]
+        },
+        {
+          "name": "Space",
+          "url": "http://rss.cnn.com/rss/edition_space.rss",
+          "topic_tags": ["science", "space"]
+        },
+        {
+          "name": "Health",
+          "url": "http://rss.cnn.com/rss/edition_health.rss",
+          "topic_tags": ["health"]
+        },
+        {
+          "name": "Entertainment",
+          "url": "http://rss.cnn.com/rss/edition_entertainment.rss",
+          "topic_tags": ["entertainment"]
+        },
+        {
+          "name": "Sport",
+          "url": "http://rss.cnn.com/rss/edition_sport.rss",
+          "topic_tags": ["sports"]
+        },
+        {
+          "name": "Travel",
+          "url": "http://rss.cnn.com/rss/edition_travel.rss",
+          "topic_tags": ["travel"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "reuters",
+      "name": "Reuters",
+      "homepage_url": "https://www.reuters.com",
+      "country": "UK",
+      "language": "en",
+      "region": "Europe",
+      "scope": "international",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Top News",
+          "url": "https://feeds.reuters.com/reuters/topNews",
+          "topic_tags": ["general"]
+        },
+        {
+          "name": "World",
+          "url": "https://feeds.reuters.com/reuters/worldNews",
+          "topic_tags": ["world"]
+        },
+        {
+          "name": "Business",
+          "url": "https://feeds.reuters.com/reuters/businessNews",
+          "topic_tags": ["business"]
+        },
+        {
+          "name": "Technology",
+          "url": "https://feeds.reuters.com/reuters/technologyNews",
+          "topic_tags": ["technology"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "the-guardian",
+      "name": "The Guardian",
+      "homepage_url": "https://www.theguardian.com",
+      "country": "UK",
+      "language": "en",
+      "region": "Europe",
+      "scope": "international",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "World",
+          "url": "https://www.theguardian.com/world/rss",
+          "topic_tags": ["world"]
+        },
+        {
+          "name": "US",
+          "url": "https://www.theguardian.com/us/rss",
+          "topic_tags": ["us"]
+        },
+        {
+          "name": "UK",
+          "url": "https://www.theguardian.com/uk/rss",
+          "topic_tags": ["uk"]
+        },
+        {
+          "name": "Business",
+          "url": "https://www.theguardian.com/business/rss",
+          "topic_tags": ["business"]
+        },
+        {
+          "name": "Technology",
+          "url": "https://www.theguardian.com/technology/rss",
+          "topic_tags": ["technology"]
+        },
+        {
+          "name": "Science",
+          "url": "https://www.theguardian.com/science/rss",
+          "topic_tags": ["science"]
+        },
+        {
+          "name": "Environment",
+          "url": "https://www.theguardian.com/environment/rss",
+          "topic_tags": ["environment"]
+        },
+        {
+          "name": "Politics",
+          "url": "https://www.theguardian.com/politics/rss",
+          "topic_tags": ["politics"]
+        },
+        {
+          "name": "Sport",
+          "url": "https://www.theguardian.com/sport/rss",
+          "topic_tags": ["sports"]
+        },
+        {
+          "name": "Comment",
+          "url": "https://www.theguardian.com/commentisfree/rss",
+          "topic_tags": ["opinion"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "new-york-times",
+      "name": "The New York Times",
+      "homepage_url": "https://www.nytimes.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Home Page",
+          "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+          "topic_tags": ["general"]
+        },
+        {
+          "name": "World",
+          "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+          "topic_tags": ["world"]
+        },
+        {
+          "name": "US",
+          "url": "https://rss.nytimes.com/services/xml/rss/nyt/US.xml",
+          "topic_tags": ["us"]
+        },
+        {
+          "name": "Business",
+          "url": "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml",
+          "topic_tags": ["business"]
+        },
+        {
+          "name": "Technology",
+          "url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+          "topic_tags": ["technology"]
+        },
+        {
+          "name": "Science",
+          "url": "https://rss.nytimes.com/services/xml/rss/nyt/Science.xml",
+          "topic_tags": ["science"]
+        },
+        {
+          "name": "Health",
+          "url": "https://rss.nytimes.com/services/xml/rss/nyt/Health.xml",
+          "topic_tags": ["health"]
+        },
+        {
+          "name": "Sports",
+          "url": "https://rss.nytimes.com/services/xml/rss/nyt/Sports.xml",
+          "topic_tags": ["sports"]
+        },
+        {
+          "name": "Politics",
+          "url": "https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml",
+          "topic_tags": ["politics"]
+        },
+        {
+          "name": "Opinion",
+          "url": "https://rss.nytimes.com/services/xml/rss/nyt/Opinion.xml",
+          "topic_tags": ["opinion"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "washington-post",
+      "name": "The Washington Post",
+      "homepage_url": "https://www.washingtonpost.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "National",
+          "url": "https://feeds.washingtonpost.com/rss/national",
+          "topic_tags": ["us"]
+        },
+        {
+          "name": "World",
+          "url": "https://feeds.washingtonpost.com/rss/world",
+          "topic_tags": ["world"]
+        },
+        {
+          "name": "Politics",
+          "url": "https://feeds.washingtonpost.com/rss/politics",
+          "topic_tags": ["politics"]
+        },
+        {
+          "name": "Business",
+          "url": "https://feeds.washingtonpost.com/rss/business",
+          "topic_tags": ["business"]
+        },
+        {
+          "name": "Technology",
+          "url": "https://feeds.washingtonpost.com/rss/technology",
+          "topic_tags": ["technology"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "wall-street-journal",
+      "name": "The Wall Street Journal",
+      "homepage_url": "https://www.wsj.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "World News",
+          "url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml",
+          "topic_tags": ["world"]
+        },
+        {
+          "name": "Markets",
+          "url": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+          "topic_tags": ["business", "markets"]
+        },
+        {
+          "name": "Politics",
+          "url": "https://feeds.a.dj.com/rss/RSSPolitics.xml",
+          "topic_tags": ["politics"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "financial-times",
+      "name": "Financial Times",
+      "homepage_url": "https://www.ft.com",
+      "country": "UK",
+      "language": "en",
+      "region": "Europe",
+      "scope": "international",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Top Stories",
+          "url": "https://www.ft.com/?format=rss",
+          "topic_tags": ["general"]
+        },
+        {
+          "name": "World",
+          "url": "https://www.ft.com/world?format=rss",
+          "topic_tags": ["world"]
+        },
+        {
+          "name": "Markets",
+          "url": "https://www.ft.com/markets?format=rss",
+          "topic_tags": ["business", "markets"]
+        },
+        {
+          "name": "Technology",
+          "url": "https://www.ft.com/technology?format=rss",
+          "topic_tags": ["technology"]
+        },
+        {
+          "name": "Companies",
+          "url": "https://www.ft.com/companies?format=rss",
+          "topic_tags": ["business"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "usa-today",
+      "name": "USA Today",
+      "homepage_url": "https://www.usatoday.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Top Stories",
+          "url": "https://rssfeeds.usatoday.com/usatoday-NewsTopStories",
+          "topic_tags": ["general"]
+        },
+        {
+          "name": "World",
+          "url": "https://rssfeeds.usatoday.com/usatoday-World",
+          "topic_tags": ["world"]
+        },
+        {
+          "name": "Money",
+          "url": "https://rssfeeds.usatoday.com/usatoday-Money",
+          "topic_tags": ["business"]
+        },
+        {
+          "name": "Tech",
+          "url": "https://rssfeeds.usatoday.com/usatoday-Tech",
+          "topic_tags": ["technology"]
+        },
+        {
+          "name": "Sports",
+          "url": "https://rssfeeds.usatoday.com/usatoday-Sports",
+          "topic_tags": ["sports"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "npr",
+      "name": "NPR",
+      "homepage_url": "https://www.npr.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "public",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "News",
+          "url": "https://feeds.npr.org/1001/rss.xml",
+          "topic_tags": ["general"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "pbs-newshour",
+      "name": "PBS NewsHour",
+      "homepage_url": "https://www.pbs.org/newshour",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "public",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.pbs.org/newshour/feeds/rss/",
+          "topic_tags": ["general"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "fox-news",
+      "name": "Fox News",
+      "homepage_url": "https://www.foxnews.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Latest",
+          "url": "http://feeds.foxnews.com/foxnews/latest",
+          "topic_tags": ["general"]
+        },
+        {
+          "name": "World",
+          "url": "http://feeds.foxnews.com/foxnews/world",
+          "topic_tags": ["world"]
+        },
+        {
+          "name": "Politics",
+          "url": "http://feeds.foxnews.com/foxnews/politics",
+          "topic_tags": ["politics"]
+        },
+        {
+          "name": "Business",
+          "url": "http://feeds.foxnews.com/foxnews/business",
+          "topic_tags": ["business"]
+        },
+        {
+          "name": "Tech",
+          "url": "http://feeds.foxnews.com/foxnews/tech",
+          "topic_tags": ["technology"]
+        },
+        {
+          "name": "Science",
+          "url": "http://feeds.foxnews.com/foxnews/science",
+          "topic_tags": ["science"]
+        },
+        {
+          "name": "Health",
+          "url": "http://feeds.foxnews.com/foxnews/health",
+          "topic_tags": ["health"]
+        },
+        {
+          "name": "Sports",
+          "url": "http://feeds.foxnews.com/foxnews/sports",
+          "topic_tags": ["sports"]
+        },
+        {
+          "name": "Entertainment",
+          "url": "http://feeds.foxnews.com/foxnews/entertainment",
+          "topic_tags": ["entertainment"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "nbc-news",
+      "name": "NBC News",
+      "homepage_url": "https://www.nbcnews.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Top Stories",
+          "url": "http://feeds.nbcnews.com/nbcnews/public/news",
+          "topic_tags": ["general"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "cbs-news",
+      "name": "CBS News",
+      "homepage_url": "https://www.cbsnews.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Top Stories",
+          "url": "https://www.cbsnews.com/latest/rss/main",
+          "topic_tags": ["general"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "abc-news",
+      "name": "ABC News",
+      "homepage_url": "https://abcnews.go.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Top Stories",
+          "url": "https://abcnews.go.com/abcnews/topstories",
+          "topic_tags": ["general"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "al-jazeera",
+      "name": "Al Jazeera",
+      "homepage_url": "https://www.aljazeera.com",
+      "country": "Qatar",
+      "language": "en",
+      "region": "Middle East",
+      "scope": "international",
+      "ownership": "public",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All News",
+          "url": "https://www.aljazeera.com/xml/rss/all.xml",
+          "topic_tags": ["general"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "dw",
+      "name": "DW",
+      "homepage_url": "https://www.dw.com",
+      "country": "Germany",
+      "language": "en",
+      "region": "Europe",
+      "scope": "international",
+      "ownership": "public",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Top Stories",
+          "url": "https://rss.dw.com/rdf/rss-en-all",
+          "topic_tags": ["general"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "france24",
+      "name": "France 24",
+      "homepage_url": "https://www.france24.com",
+      "country": "France",
+      "language": "en",
+      "region": "Europe",
+      "scope": "international",
+      "ownership": "public",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Top Stories",
+          "url": "https://www.france24.com/en/rss",
+          "topic_tags": ["general"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "cbc-news",
+      "name": "CBC News",
+      "homepage_url": "https://www.cbc.ca/news",
+      "country": "Canada",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "public",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Top Stories",
+          "url": "https://www.cbc.ca/cmlink/rss-topstories",
+          "topic_tags": ["general"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "abc-australia",
+      "name": "ABC News (Australia)",
+      "homepage_url": "https://www.abc.net.au/news",
+      "country": "Australia",
+      "language": "en",
+      "region": "Oceania",
+      "scope": "national",
+      "ownership": "public",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Top Stories",
+          "url": "https://www.abc.net.au/news/feed/51120/rss.xml",
+          "topic_tags": ["general"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "the-verge",
+      "name": "The Verge",
+      "homepage_url": "https://www.theverge.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.theverge.com/rss/index.xml",
+          "topic_tags": ["technology"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "wired",
+      "name": "Wired",
+      "homepage_url": "https://www.wired.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.wired.com/feed/rss",
+          "topic_tags": ["technology"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "ars-technica",
+      "name": "Ars Technica",
+      "homepage_url": "https://arstechnica.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "http://feeds.arstechnica.com/arstechnica/index",
+          "topic_tags": ["technology"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "techcrunch",
+      "name": "TechCrunch",
+      "homepage_url": "https://techcrunch.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://techcrunch.com/feed/",
+          "topic_tags": ["technology", "business"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "engadget",
+      "name": "Engadget",
+      "homepage_url": "https://www.engadget.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.engadget.com/rss.xml",
+          "topic_tags": ["technology"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "hacker-news",
+      "name": "Hacker News",
+      "homepage_url": "https://news.ycombinator.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "international",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Front Page",
+          "url": "https://news.ycombinator.com/rss",
+          "topic_tags": ["technology", "startups"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "sciencedaily",
+      "name": "ScienceDaily",
+      "homepage_url": "https://www.sciencedaily.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "international",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Science",
+          "url": "https://www.sciencedaily.com/rss/all.xml",
+          "topic_tags": ["science"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "vox",
+      "name": "Vox",
+      "homepage_url": "https://www.vox.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.vox.com/rss/index.xml",
+          "topic_tags": ["general"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "the-atlantic",
+      "name": "The Atlantic",
+      "homepage_url": "https://www.theatlantic.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.theatlantic.com/feed/all/",
+          "topic_tags": ["general"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "the-new-yorker",
+      "name": "The New Yorker",
+      "homepage_url": "https://www.newyorker.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Everything",
+          "url": "https://www.newyorker.com/feed/everything",
+          "topic_tags": ["general"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    },
+    {
+      "id": "politico",
+      "name": "Politico",
+      "homepage_url": "https://www.politico.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Politics",
+          "url": "https://www.politico.com/rss/politics08.xml",
+          "topic_tags": ["politics"]
+        }
+      ],
+      "verified": false,
+      "notes": ""
+    }
+  ]
+}
