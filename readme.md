@@ -3,6 +3,7 @@
 Catalog and tooling for ingesting RSS feeds and NewsData API results.
 
 ## Update Flow (Mermaid)
+
 ```mermaid
 flowchart TD
     A[rss_feeds.json\nFeed catalog] -->|catalog changes| B[Future RSS fetcher]
