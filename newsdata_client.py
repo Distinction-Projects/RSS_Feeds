@@ -43,7 +43,6 @@ def load_api_key():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     candidate_paths = [
         os.path.join(script_dir, ".env"),
-        os.path.join(script_dir, "RSS_Feeds", ".env"),
     ]
 
     for path in candidate_paths:

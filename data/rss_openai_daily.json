@@ -1,0 +1,575 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-01-14T22:33:29Z",
+  "catalog_path": "feed_catalog/rss_feeds.json",
+  "request": {
+    "max_sources": 10,
+    "feeds_per_source": 1,
+    "max_items_per_feed": 3,
+    "source_ids": []
+  },
+  "openai": {
+    "model": "gpt-4o-mini",
+    "response_id": "chatcmpl-Cy3iqTarR25fCr76ts0KkgmqvjK6s",
+    "usage": {
+      "prompt_tokens": 3306,
+      "completion_tokens": 1533,
+      "total_tokens": 4839,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    }
+  },
+  "items": [
+    {
+      "id": "d2923c8f3bc5",
+      "title": "Denmark warns of 'fundamental disagreement' after White House talks on Greenland",
+      "link": "https://www.bbc.com/news/articles/cx20vzz0g8vo?at_medium=RSS&at_campaign=rss",
+      "summary": "There was no major breakthrough during the meeting, and President Trump reiterated his interest in acquiring the island shortly afterwards.",
+      "published": "Wed, 14 Jan 2026 21:52:49 GMT",
+      "source_id": "bbc-news",
+      "source_name": "BBC News",
+      "feed_name": "Top Stories",
+      "feed_url": "http://feeds.bbci.co.uk/news/rss.xml",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "Denmark expresses a 'fundamental disagreement' with the U.S. over Greenland following talks with President Trump, who remains interested in acquiring the territory.",
+      "ai_tags": [
+        "Denmark",
+        "Greenland",
+        "Trump",
+        "U.S. relations",
+        "politics"
+      ]
+    },
+    {
+      "id": "6c61b6724601",
+      "title": "US and UK pulling some personnel from Qatar base as US considers Iran action",
+      "link": "https://www.bbc.com/news/articles/c701xywwxw8o?at_medium=RSS&at_campaign=rss",
+      "summary": "US officials say it is a \"precautionary measure\" and comes as Donald Trump weighs up whether to take action against Iran.",
+      "published": "Wed, 14 Jan 2026 21:45:19 GMT",
+      "source_id": "bbc-news",
+      "source_name": "BBC News",
+      "feed_name": "Top Stories",
+      "feed_url": "http://feeds.bbci.co.uk/news/rss.xml",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "The U.S. and U.K. are withdrawing some personnel from a military base in Qatar as tensions rise regarding potential actions against Iran.",
+      "ai_tags": [
+        "U.S.",
+        "UK",
+        "Qatar",
+        "Iran",
+        "military"
+      ]
+    },
+    {
+      "id": "a3b8a35061de",
+      "title": "'I carried my wife's body for an hour and a half' - BBC hears stories of protesters killed in Iran",
+      "link": "https://www.bbc.com/news/articles/c8e54zp5j6no?at_medium=RSS&at_campaign=rss",
+      "summary": "BBC Persian has received dozens of accounts from inside Iran. Defiant despite potential repercussions, the witnesses said they wanted to ensure the rest of the world knew of the violence against the protesters.",
+      "published": "Wed, 14 Jan 2026 20:35:49 GMT",
+      "source_id": "bbc-news",
+      "source_name": "BBC News",
+      "feed_name": "Top Stories",
+      "feed_url": "http://feeds.bbci.co.uk/news/rss.xml",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "BBC Persian reports on accounts from Iran detailing the violence faced by protesters, highlighting the risks taken by witnesses to share their stories.",
+      "ai_tags": [
+        "Iran",
+        "protests",
+        "violence",
+        "human rights",
+        "journalism"
+      ]
+    },
+    {
+      "id": "7a9f5a7209e3",
+      "title": "Trump pleads not guilty to 34 felony counts",
+      "link": "https://edition.cnn.com/webview/politics/live-news/trump-indictment-stormy-daniels-news-04-03-23/index.html",
+      "summary": "",
+      "published": "",
+      "source_id": "cnn",
+      "source_name": "CNN",
+      "feed_name": "Top Stories",
+      "feed_url": "http://rss.cnn.com/rss/edition.rss",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "Trump has pleaded not guilty to 34 felony counts related to various charges.",
+      "ai_tags": [
+        "Trump",
+        "indictment",
+        "legal",
+        "politics"
+      ]
+    },
+    {
+      "id": "ce5126b5a80d",
+      "title": "Haberman reveals why Trump attacked judge and his family in speech",
+      "link": "https://www.cnn.com/videos/politics/2023/04/05/maggie-haberman-donald-trump-speech-indictment-reaction-sot-cnntm-vpx.cnn",
+      "summary": "CNN political contributor Maggie Haberman explains the reasoning behind Donald Trump's attacks on the judge and his family during a speech at his Mar-a-Lago resort after he was arraigned on felony charges.",
+      "published": "Wed, 05 Apr 2023 13:30:09 GMT",
+      "source_id": "cnn",
+      "source_name": "CNN",
+      "feed_name": "Top Stories",
+      "feed_url": "http://rss.cnn.com/rss/edition.rss",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "Maggie Haberman discusses Trump's attacks on a judge and his family during a speech following his arraignment on felony charges.",
+      "ai_tags": [
+        "Trump",
+        "judiciary",
+        "speech",
+        "politics"
+      ]
+    },
+    {
+      "id": "a998994f8b6f",
+      "title": "What to know about the Trump indictment on the eve of his court appearance",
+      "link": "https://www.cnn.com/collections/intl-trump-040223/",
+      "summary": "",
+      "published": "Wed, 05 Apr 2023 22:50:06 GMT",
+      "source_id": "cnn",
+      "source_name": "CNN",
+      "feed_name": "Top Stories",
+      "feed_url": "http://rss.cnn.com/rss/edition.rss",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "An overview of the Trump indictment is provided ahead of his court appearance.",
+      "ai_tags": [
+        "Trump",
+        "indictment",
+        "legal",
+        "politics"
+      ]
+    },
+    {
+      "id": "02fde24f9e1b",
+      "title": "Trump administration ends temporary protected status for Somalis in US",
+      "link": "https://www.theguardian.com/us-news/2026/jan/13/trump-administration-ends-tps-somalia",
+      "summary": "Critics condemn \u2018bigoted attack\u2019 as Trump bids to revoke citizenship of naturalized immigrants convicted of fraud The Trump administration is terminating temporary protected status (TPS) for Somalis living in the United States, giving hundreds of people two months to leave the country or face deportation.The homeland security secretary, Kristi Noem, said in a statement that conditions in the east African country had improved sufficiently and that Somalis no longer qualified for the designatio...",
+      "published": "Tue, 13 Jan 2026 22:59:07 GMT",
+      "source_id": "the-guardian",
+      "source_name": "The Guardian",
+      "feed_name": "World",
+      "feed_url": "https://www.theguardian.com/world/rss",
+      "topic_tags": [
+        "world"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "The Trump administration is ending temporary protected status for Somalis in the U.S., prompting criticism from various groups.",
+      "ai_tags": [
+        "Trump",
+        "immigration",
+        "Somalia",
+        "policy"
+      ]
+    },
+    {
+      "id": "0e37bcd785e1",
+      "title": "Quarter of developing countries poorer than in 2019, World Bank finds",
+      "link": "https://www.theguardian.com/business/2026/jan/13/developing-countries-poorer-world-bank-report",
+      "summary": "Global growth \u2018downshifted\u2019 since Covid pandemic and sub-Saharan Africa particularly affected, report saysBusiness live \u2013 latest updatesA quarter of countries in the developing world are poorer than they were in 2019 before the Covid pandemic, the World Bank has found.The Washington-based organisation said a large group of low-income countries, many in sub-Saharan Africa, had suffered a negative shock in the six years to the end of last year. Continue reading...",
+      "published": "Tue, 13 Jan 2026 14:30:04 GMT",
+      "source_id": "the-guardian",
+      "source_name": "The Guardian",
+      "feed_name": "World",
+      "feed_url": "https://www.theguardian.com/world/rss",
+      "topic_tags": [
+        "world"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "A World Bank report reveals that a quarter of developing countries are poorer than they were in 2019, with sub-Saharan Africa particularly affected.",
+      "ai_tags": [
+        "World Bank",
+        "economy",
+        "developing countries",
+        "poverty"
+      ]
+    },
+    {
+      "id": "c39eaa7a8b84",
+      "title": "Author Chimamanda Ngozi Adichie accuses Lagos hospital of negligence after son\u2019s death",
+      "link": "https://www.theguardian.com/books/2026/jan/12/chimamanda-ngozi-adichie-accuses-lagos-hospital-negligence-son-death",
+      "summary": "Lawyers for Adichie and her husband serve Euracare hospital with legal notice after death of 21-month-oldThe Nigerian author Chimamanda Ngozi Adichie has accused a Lagos hospital of negligence after the death of one of her 21-month-old twin boys.Nkanu Nnamdi died on 6 January after a brief illness. He was one of twin boys born to Adichie and Ivara Esege, a doctor, in 2024 by surrogacy, eight years after the birth of their first child, a girl. Continue reading...",
+      "published": "Mon, 12 Jan 2026 14:26:57 GMT",
+      "source_id": "the-guardian",
+      "source_name": "The Guardian",
+      "feed_name": "World",
+      "feed_url": "https://www.theguardian.com/world/rss",
+      "topic_tags": [
+        "world"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "Chimamanda Ngozi Adichie accuses a Lagos hospital of negligence following the death of her 21-month-old son.",
+      "ai_tags": [
+        "Adichie",
+        "negligence",
+        "healthcare",
+        "Nigeria"
+      ]
+    },
+    {
+      "id": "5c1764a0e738",
+      "title": "Why Greenland Matters for a Warming World",
+      "link": "https://www.nytimes.com/2026/01/14/world/europe/greenland-climate.html",
+      "summary": "The fate of the world\u2019s largest island has outsize importance for billions of people on the planet, because as the climate warms, Greenland is losing ice. That has consequences.",
+      "published": "Wed, 14 Jan 2026 15:16:10 +0000",
+      "source_id": "new-york-times",
+      "source_name": "The New York Times",
+      "feed_name": "Home Page",
+      "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "The significance of Greenland is highlighted as climate change causes the island to lose ice, impacting global populations.",
+      "ai_tags": [
+        "Greenland",
+        "climate change",
+        "environment",
+        "global impact"
+      ]
+    },
+    {
+      "id": "7aa7a653cd2f",
+      "title": "\u2018We\u2019re Not Stupid\u2019: What Greenlanders Would Say to Trump",
+      "link": "https://www.nytimes.com/2026/01/14/world/americas/greenland-fear-trump-us-takeover.html",
+      "summary": "A visit to Greenland reveals a swirl of feelings as people nervously await talks with the Trump administration about the island\u2019s future.",
+      "published": "Wed, 14 Jan 2026 14:30:56 +0000",
+      "source_id": "new-york-times",
+      "source_name": "The New York Times",
+      "feed_name": "Home Page",
+      "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "Greenlanders express mixed feelings as they await discussions with the Trump administration regarding the future of their island.",
+      "ai_tags": [
+        "Greenland",
+        "Trump",
+        "politics",
+        "public opinion"
+      ]
+    },
+    {
+      "id": "05a6abd2315e",
+      "title": "Trump\u2019s Threats to Greenland Raise Serious Questions for NATO",
+      "link": "https://www.nytimes.com/2026/01/14/world/europe/trump-greenland-nato.html",
+      "summary": "The treaty that created NATO did not contemplate an attack by one ally on another. A seizure of Greenland by President Trump would test the endurance of the mutual-defense pact.",
+      "published": "Wed, 14 Jan 2026 16:48:51 +0000",
+      "source_id": "new-york-times",
+      "source_name": "The New York Times",
+      "feed_name": "Home Page",
+      "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "Trump's threats regarding Greenland raise concerns about NATO's mutual-defense pact.",
+      "ai_tags": [
+        "Trump",
+        "Greenland",
+        "NATO",
+        "international relations"
+      ]
+    },
+    {
+      "id": "35ce5984c4c2",
+      "title": "Trump administration opens 18 new probes over trans athletes",
+      "link": "https://www.washingtonpost.com/education/2026/01/14/trump-administration-trans-athletes-investigations/",
+      "summary": "New York City\u2019s school system and 14 other districts face investigations for allowing transgender athletes to compete in girls\u2019 and women\u2019s sports. Three colleges also face probes.",
+      "published": "Wed, 14 Jan 2026 22:30:36 +0000",
+      "source_id": "washington-post",
+      "source_name": "The Washington Post",
+      "feed_name": "National",
+      "feed_url": "https://feeds.washingtonpost.com/rss/national",
+      "topic_tags": [
+        "us"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "The Trump administration has initiated investigations into several school districts and colleges regarding transgender athletes' participation in sports.",
+      "ai_tags": [
+        "Trump",
+        "transgender",
+        "sports",
+        "education"
+      ]
+    },
+    {
+      "id": "6c4de487f6bd",
+      "title": "Family of shooting victim hires George Floyd attorney as clashes with ICE spike",
+      "link": "https://www.washingtonpost.com/nation/2026/01/14/minneapolis-shooting-victim-ice-lawyer/",
+      "summary": "Attorneys for Ren\u00e9e Good, her partner and immediate family promise transparency for public as they investigate the killing of the mother of three by an ICE officer.",
+      "published": "Wed, 14 Jan 2026 17:02:55 +0000",
+      "source_id": "washington-post",
+      "source_name": "The Washington Post",
+      "feed_name": "National",
+      "feed_url": "https://feeds.washingtonpost.com/rss/national",
+      "topic_tags": [
+        "us"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "The family of a shooting victim has hired George Floyd's attorney as tensions rise following clashes with ICE.",
+      "ai_tags": [
+        "shooting",
+        "ICE",
+        "legal",
+        "advocacy"
+      ]
+    },
+    {
+      "id": "a6770596a64b",
+      "title": "She made a Facebook comment about her mayor. Then the police arrived.",
+      "link": "https://www.washingtonpost.com/nation/2026/01/14/miami-beach-facebook-comment-police/",
+      "summary": "Raquel Pacheco says she was asserting her right to free speech. Miami Beach police said they dispatched officers to assess whether there was a safety threat.",
+      "published": "Wed, 14 Jan 2026 13:40:15 +0000",
+      "source_id": "washington-post",
+      "source_name": "The Washington Post",
+      "feed_name": "National",
+      "feed_url": "https://feeds.washingtonpost.com/rss/national",
+      "topic_tags": [
+        "us"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "A Miami Beach resident claims her free speech rights were violated when police responded to her Facebook comment about the mayor.",
+      "ai_tags": [
+        "free speech",
+        "Miami Beach",
+        "police",
+        "social media"
+      ]
+    },
+    {
+      "id": "2485e25ca957",
+      "title": "Palestinians Stream Back to Northern Gaza on Foot",
+      "link": "https://www.wsj.com/articles/palestinians-flock-back-to-northern-gaza-on-foot-after-hostage-release-breakthrough-3f60e2db",
+      "summary": "Israel allowed displaced Gazans to begin crossing a military zone that bisects the enclave after a deadlock over hostage releases was broken.",
+      "published": "Mon, 27 Jan 2025 14:23:00 -0500",
+      "source_id": "wall-street-journal",
+      "source_name": "The Wall Street Journal",
+      "feed_name": "World News",
+      "feed_url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml",
+      "topic_tags": [
+        "world"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "Displaced Palestinians are returning to northern Gaza after a breakthrough in negotiations over hostages.",
+      "ai_tags": [
+        "Gaza",
+        "Palestinians",
+        "conflict",
+        "hostages"
+      ]
+    },
+    {
+      "id": "7c214e14125c",
+      "title": "Leading China Property Developer Reports Huge loss, in Sign of Widening Real-Estate Woes",
+      "link": "https://www.wsj.com/articles/even-chinas-property-stalwart-isnt-immune-from-the-crisis-19799863",
+      "summary": "Troubles at Vanke raise questions about the continued spread of the property crisis and whether the Chinese state will step in.",
+      "published": "Mon, 27 Jan 2025 12:32:00 -0500",
+      "source_id": "wall-street-journal",
+      "source_name": "The Wall Street Journal",
+      "feed_name": "World News",
+      "feed_url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml",
+      "topic_tags": [
+        "world"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "A leading Chinese property developer reports significant losses, indicating ongoing challenges in the real estate sector.",
+      "ai_tags": [
+        "China",
+        "real estate",
+        "economy",
+        "business"
+      ]
+    },
+    {
+      "id": "0689d2bf67e8",
+      "title": "Freed Israeli Hostages Still Had Shrapnel in Their Bodies From Oct. 7 Attack",
+      "link": "https://www.wsj.com/articles/freed-israeli-hostages-still-had-shrapnel-in-their-bodies-from-oct-7-attack-3de8cd1e",
+      "summary": "Some of the women were held alone for extended periods and spent eight months in tunnels, an Israeli medical official said.",
+      "published": "Mon, 27 Jan 2025 12:12:00 -0500",
+      "source_id": "wall-street-journal",
+      "source_name": "The Wall Street Journal",
+      "feed_name": "World News",
+      "feed_url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml",
+      "topic_tags": [
+        "world"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "Freed Israeli hostages are reported to still have shrapnel in their bodies from the October 7 attack.",
+      "ai_tags": [
+        "Israel",
+        "hostages",
+        "conflict",
+        "medical"
+      ]
+    },
+    {
+      "id": "f46cd203f5ce",
+      "title": "Trump says he has received assurances \u2018killing in Iran is stopping\u2019",
+      "link": "https://www.ft.com/content/c698ff51-7854-4cf9-a92b-0c06e2a1a182",
+      "summary": "President declines to rule out military action after Washington evacuated personnel from Qatar command centre",
+      "published": "Wed, 14 Jan 2026 21:49:27 GMT",
+      "source_id": "financial-times",
+      "source_name": "Financial Times",
+      "feed_name": "Top Stories",
+      "feed_url": "https://www.ft.com/?format=rss",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "Trump states he has received assurances that violence in Iran is decreasing, while not ruling out military action.",
+      "ai_tags": [
+        "Trump",
+        "Iran",
+        "military",
+        "politics"
+      ]
+    },
+    {
+      "id": "abb2316671ef",
+      "title": "The historic bazaar where Iran\u2019s protests began",
+      "link": "https://www.ft.com/content/3f9608df-913f-455d-ac67-76a91286764b",
+      "summary": "Tehran\u2019s Grand Bazaar, whose shopkeepers helped bring Islamist clerics to power in 1979, once again became a hotspot for anti-regime rallies",
+      "published": "Wed, 14 Jan 2026 18:12:40 GMT",
+      "source_id": "financial-times",
+      "source_name": "Financial Times",
+      "feed_name": "Top Stories",
+      "feed_url": "https://www.ft.com/?format=rss",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "Tehran's Grand Bazaar has become a focal point for anti-regime protests, echoing its historical significance.",
+      "ai_tags": [
+        "Iran",
+        "protests",
+        "history",
+        "politics"
+      ]
+    },
+    {
+      "id": "6ef4673ccab9",
+      "title": "The dangers of a trigger-happy US president",
+      "link": "https://www.ft.com/content/64917371-c076-449d-aa93-f15ee03037a5",
+      "summary": "American intervention in Iran carries far greater risks than in Venezuela",
+      "published": "Wed, 14 Jan 2026 18:29:53 GMT",
+      "source_id": "financial-times",
+      "source_name": "Financial Times",
+      "feed_name": "Top Stories",
+      "feed_url": "https://www.ft.com/?format=rss",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "The risks of U.S. military intervention in Iran are highlighted as greater than in other regions.",
+      "ai_tags": [
+        "U.S.",
+        "Iran",
+        "military",
+        "foreign policy"
+      ]
+    },
+    {
+      "id": "b5fad5606177",
+      "title": "Denmark says there's a 'fundamental disagreement' with Trump over Greenland",
+      "link": "https://www.npr.org/2026/01/14/g-s1-106011/greenland-denmark-trump",
+      "summary": "The two sides agreed to create a working group to discuss ways to work through differences as President Trump continues to call for a U.S. takeover of Denmark's Arctic territory of Greenland.",
+      "published": "Wed, 14 Jan 2026 14:57:20 -0500",
+      "source_id": "npr",
+      "source_name": "NPR",
+      "feed_name": "News",
+      "feed_url": "https://feeds.npr.org/1001/rss.xml",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "Denmark and the U.S. acknowledge a 'fundamental disagreement' over Greenland while forming a working group to address their differences.",
+      "ai_tags": [
+        "Denmark",
+        "Greenland",
+        "Trump",
+        "U.S. relations"
+      ]
+    },
+    {
+      "id": "a0f50fcc0c73",
+      "title": "Kitchen countertop workers are dying. Some lawmakers want to ban their lawsuits",
+      "link": "https://www.npr.org/2026/01/14/nx-s1-5674884/kitchen-countertop-workers-are-dying-some-lawmakers-want-to-ban-their-lawsuits",
+      "summary": "Some safety experts want California to stop the cutting of quartz countertops saying it can't be done safely. Lawmakers, meanwhile, contemplate a ban on workers' lawsuits against quartz manufacturers.",
+      "published": "Wed, 14 Jan 2026 14:29:34 -0500",
+      "source_id": "npr",
+      "source_name": "NPR",
+      "feed_name": "News",
+      "feed_url": "https://feeds.npr.org/1001/rss.xml",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "California lawmakers are considering banning lawsuits from workers exposed to dangerous quartz countertop cutting practices.",
+      "ai_tags": [
+        "California",
+        "workers' rights",
+        "health and safety",
+        "legislation"
+      ]
+    },
+    {
+      "id": "feda35b0eabe",
+      "title": "Candidates have legal standing to challenge election laws, the Supreme Court rules",
+      "link": "https://www.npr.org/2026/01/14/nx-s1-5677318/supreme-court-bost-decision-candidate-standing",
+      "summary": "In a case related to Illinois state law about the return of mail ballots, the U.S. Supreme Court says political candidates have the legal standing to challenge election policies.",
+      "published": "Wed, 14 Jan 2026 14:28:46 -0500",
+      "source_id": "npr",
+      "source_name": "NPR",
+      "feed_name": "News",
+      "feed_url": "https://feeds.npr.org/1001/rss.xml",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-01-14T22:33:29Z",
+      "ai_summary": "The U.S. Supreme Court rules that political candidates have the standing to challenge election laws.",
+      "ai_tags": [
+        "Supreme Court",
+        "elections",
+        "law",
+        "politics"
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "feed_url": "https://feeds.reuters.com/reuters/topNews",
+      "source_id": "reuters",
+      "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "feed_url": "https://rssfeeds.usatoday.com/usatoday-NewsTopStories",
+      "source_id": "usa-today",
+      "error": "Feed parse error: <unknown>:2:0: syntax error"
+    }
+  ]
+}
