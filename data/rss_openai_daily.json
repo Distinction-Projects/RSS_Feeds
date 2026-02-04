@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-02-04T21:50:39Z",
+  "generated_at": "2026-02-04T21:56:51Z",
   "catalog_path": "feed_catalog/rss_feeds.json",
   "request": {
     "max_sources": 10,
@@ -10,11 +10,11 @@
   },
   "openai": {
     "model": "gpt-4o-mini",
-    "response_id": "chatcmpl-D5f3pX7pRAFi1Uoe62GPAVbMTpFD7",
+    "response_id": "chatcmpl-D5f9qFo8mff10thWIvQAodBn4kuRW",
     "usage": {
-      "completion_tokens": 1600,
+      "completion_tokens": 775,
       "prompt_tokens": 3310,
-      "total_tokens": 4910,
+      "total_tokens": 4085,
       "completion_tokens_details": {
         "accepted_prediction_tokens": 0,
         "audio_tokens": 0,
@@ -23,7 +23,7 @@
       },
       "prompt_tokens_details": {
         "audio_tokens": 0,
-        "cached_tokens": 0
+        "cached_tokens": 3072
       }
     }
   },
@@ -41,13 +41,13 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
+      "fetched_at": "2026-02-04T21:56:51Z",
       "ai_summary": "The PM is forced to back down over a plan to withhold some documents about the ex-minister's appointment as US ambassador.",
       "ai_tags": [
         "politics",
         "Labour",
-        "documents",
-        "Mandelson"
+        "Mandelson",
+        "UK"
       ]
     },
     {
@@ -63,13 +63,13 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "The former prince has previously questioned whether the picture had been doctored and claimed he had never met Giuffre.",
+      "fetched_at": "2026-02-04T21:56:51Z",
+      "ai_summary": "An email appears to confirm the authenticity of a photo involving Andrew and Virginia Giuffre, which the former prince had previously questioned.",
       "ai_tags": [
-        "Andrew",
+        "royalty",
+        "legal",
         "Giuffre",
-        "photo",
-        "royalty"
+        "Andrew"
       ]
     },
     {
@@ -85,13 +85,13 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "\"Border tsar\" Tom Homan said about 2,000 would remain, and the US government is equipping more officers with body-worn cameras.",
+      "fetched_at": "2026-02-04T21:56:51Z",
+      "ai_summary": "\"Border tsar\" Tom Homan announced that 700 federal agents will be withdrawn from Minnesota, leaving about 2,000 in place.",
       "ai_tags": [
-        "Trump",
         "immigration",
-        "federal agents",
-        "Minnesota"
+        "law enforcement",
+        "Minnesota",
+        "federal agents"
       ]
     },
     {
@@ -107,13 +107,7 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "Trump pleads not guilty to 34 felony counts.",
-      "ai_tags": [
-        "Trump",
-        "indictment",
-        "legal"
-      ]
+      "fetched_at": "2026-02-04T21:56:51Z"
     },
     {
       "id": "ce5126b5a80d",
@@ -128,14 +122,7 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "CNN political contributor Maggie Haberman explains the reasoning behind Donald Trump's attacks on the judge and his family during a speech at his Mar-a-Lago resort after he was arraigned on felony charges.",
-      "ai_tags": [
-        "Trump",
-        "speech",
-        "judge",
-        "legal"
-      ]
+      "fetched_at": "2026-02-04T21:56:51Z"
     },
     {
       "id": "a998994f8b6f",
@@ -150,13 +137,7 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "What to know about the Trump indictment on the eve of his court appearance.",
-      "ai_tags": [
-        "Trump",
-        "indictment",
-        "legal"
-      ]
+      "fetched_at": "2026-02-04T21:56:51Z"
     },
     {
       "id": "6c7c9e207c22",
@@ -171,13 +152,13 @@
       "topic_tags": [
         "world"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "More than 160 people have been killed in two villages in western Nigeria in the country\u2019s deadliest armed assaults this year.",
+      "fetched_at": "2026-02-04T21:56:51Z",
+      "ai_summary": "Over 160 people have been killed in two villages in western Nigeria in the deadliest armed assaults this year.",
       "ai_tags": [
         "Nigeria",
         "violence",
         "jihadists",
-        "attacks"
+        "security"
       ]
     },
     {
@@ -193,13 +174,13 @@
       "topic_tags": [
         "world"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "Bobi Wine, Uganda\u2019s most prominent opposition figure, remains in hiding nearly three weeks after a disputed election.",
+      "fetched_at": "2026-02-04T21:56:51Z",
+      "ai_summary": "Ugandan opposition leader Bobi Wine remains in hiding as tensions escalate following a disputed election.",
       "ai_tags": [
         "Uganda",
-        "opposition",
+        "politics",
         "Bobi Wine",
-        "politics"
+        "elections"
       ]
     },
     {
@@ -215,13 +196,13 @@
       "topic_tags": [
         "world"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "Ifunanya Nwangene died in hospital after being bitten in her Abuja home, raising questions about the availability of effective antivenoms.",
+      "fetched_at": "2026-02-04T21:56:51Z",
+      "ai_summary": "The death of Nigerian singer Ifunanya Nwangene from a snakebite raises concerns about the availability of effective antivenoms.",
       "ai_tags": [
         "Nigeria",
         "health",
         "snakebite",
-        "fatalities"
+        "music"
       ]
     },
     {
@@ -237,13 +218,13 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "Federal agencies are delaying approvals for renewable energy projects on both federal land and private property at a time when electricity demand is going up.",
+      "fetched_at": "2026-02-04T21:56:51Z",
+      "ai_summary": "Federal agencies are delaying approvals for renewable energy projects amid rising electricity demand.",
       "ai_tags": [
         "energy",
-        "renewable",
-        "projects",
-        "government"
+        "renewables",
+        "policy",
+        "environment"
       ]
     },
     {
@@ -259,8 +240,8 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "The state\u2019s Republican Party had asked the justices to step in and block the new congressional maps, which give an advantage to Democrats, before the midterms.",
+      "fetched_at": "2026-02-04T21:56:51Z",
+      "ai_summary": "The Supreme Court has allowed California to use its new congressional map, which favors Democrats, for the upcoming midterms.",
       "ai_tags": [
         "Supreme Court",
         "California",
@@ -281,13 +262,13 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "Some top state election officials worry that the federal government has become hostile to them and their work.",
+      "fetched_at": "2026-02-04T21:56:51Z",
+      "ai_summary": "State election officials express concern over Trump's call to nationalize elections, fearing federal hostility.",
       "ai_tags": [
         "Trump",
         "elections",
-        "state officials",
-        "politics"
+        "politics",
+        "federalism"
       ]
     },
     {
@@ -303,13 +284,13 @@
       "topic_tags": [
         "us"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "Two school districts and a teachers union allege that the immigration crackdown has spilled onto campuses and interrupted the functioning of schools across the state.",
+      "fetched_at": "2026-02-04T21:56:51Z",
+      "ai_summary": "Minnesota teachers and school districts are suing to prevent ICE from operating on school property.",
       "ai_tags": [
-        "Minnesota",
         "education",
-        "ICE",
-        "lawsuit"
+        "immigration",
+        "lawsuit",
+        "Minnesota"
       ]
     },
     {
@@ -325,14 +306,7 @@
       "topic_tags": [
         "us"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "The reduction is a significant scale back of the Department of Homeland Security\u2019s presence in Minnesota and comes after two U.S. citizens were fatally shot.",
-      "ai_tags": [
-        "ICE",
-        "Minnesota",
-        "immigration",
-        "security"
-      ]
+      "fetched_at": "2026-02-04T21:56:51Z"
     },
     {
       "id": "c5a04f1b14ac",
@@ -347,14 +321,7 @@
       "topic_tags": [
         "us"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "Experts say the U.S. needs an additional 2 million to 20 million homes to fix the shortfall, underscoring the challenge of meeting the nation\u2019s housing needs.",
-      "ai_tags": [
-        "housing",
-        "crisis",
-        "U.S.",
-        "real estate"
-      ]
+      "fetched_at": "2026-02-04T21:56:51Z"
     },
     {
       "id": "2485e25ca957",
@@ -369,14 +336,7 @@
       "topic_tags": [
         "world"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "Israel allowed displaced Gazans to begin crossing a military zone that bisects the enclave after a deadlock over hostage releases was broken.",
-      "ai_tags": [
-        "Gaza",
-        "Israel",
-        "displacement",
-        "hostages"
-      ]
+      "fetched_at": "2026-02-04T21:56:51Z"
     },
     {
       "id": "7c214e14125c",
@@ -391,14 +351,7 @@
       "topic_tags": [
         "world"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "Troubles at Vanke raise questions about the continued spread of the property crisis and whether the Chinese state will step in.",
-      "ai_tags": [
-        "China",
-        "real estate",
-        "crisis",
-        "economy"
-      ]
+      "fetched_at": "2026-02-04T21:56:51Z"
     },
     {
       "id": "0689d2bf67e8",
@@ -413,14 +366,7 @@
       "topic_tags": [
         "world"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "Some of the women were held alone for extended periods and spent eight months in tunnels, an Israeli medical official said.",
-      "ai_tags": [
-        "Israel",
-        "hostages",
-        "attack",
-        "medical"
-      ]
+      "fetched_at": "2026-02-04T21:56:51Z"
     },
     {
       "id": "597abfccac72",
@@ -435,14 +381,7 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "PM agrees to parliamentary oversight of release of documents about peer\u2019s appointment as ambassador to US.",
-      "ai_tags": [
-        "politics",
-        "Mandelson",
-        "documents",
-        "UK"
-      ]
+      "fetched_at": "2026-02-04T21:56:51Z"
     },
     {
       "id": "ba254d4024c3",
@@ -457,14 +396,7 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "Aides to Andrew Mountbatten-Windsor worked with convicted sex offender on planned agreement with US investment bank.",
-      "ai_tags": [
-        "Andrew",
-        "Epstein",
-        "deal",
-        "finance"
-      ]
+      "fetched_at": "2026-02-04T21:56:51Z"
     },
     {
       "id": "d36474383bd8",
@@ -479,14 +411,7 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "Billionaire trader\u2019s firm had been in discussions with former UK minister after he was fired as ambassador to the US.",
-      "ai_tags": [
-        "finance",
-        "Mandelson",
-        "advisory",
-        "business"
-      ]
+      "fetched_at": "2026-02-04T21:56:51Z"
     },
     {
       "id": "35d0cc4a24b2",
@@ -501,12 +426,13 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "A new message board for artificial intelligence agents has prompted some strange conversations, and existential questions about the inner lives of bots.",
+      "fetched_at": "2026-02-04T21:56:51Z",
+      "ai_summary": "A new social media platform for AI bots, called Moltbook, has sparked unusual conversations and questions about AI consciousness.",
       "ai_tags": [
+        "technology",
         "AI",
         "social media",
-        "technology"
+        "innovation"
       ]
     },
     {
@@ -522,14 +448,7 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "The Supreme Court has cleared the way for California to use its new congressional map for this year's midterm election.",
-      "ai_tags": [
-        "Supreme Court",
-        "California",
-        "politics",
-        "redistricting"
-      ]
+      "fetched_at": "2026-02-04T21:56:51Z"
     },
     {
       "id": "a5f9aa1883bb",
@@ -544,13 +463,13 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-02-04T21:50:39Z",
-      "ai_summary": "The Atlantic writer Robert Kagan says as Trump violates norms, laws and the Constitution, including his call to nationalize elections, \"we're on the edge of the consolidation of dictatorship.\"",
+      "fetched_at": "2026-02-04T21:56:51Z",
+      "ai_summary": "Writer Robert Kagan warns that the U.S. may be on the brink of dictatorship as Trump undermines democratic norms.",
       "ai_tags": [
-        "Trump",
-        "dictatorship",
         "politics",
-        "government"
+        "Trump",
+        "democracy",
+        "dictatorship"
       ]
     }
   ],
@@ -558,7 +477,7 @@
     {
       "feed_url": "https://feeds.reuters.com/reuters/topNews",
       "source_id": "reuters",
-      "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+      "error": "<urlopen error [Errno -2] Name or service not known>"
     },
     {
       "feed_url": "https://rssfeeds.usatoday.com/usatoday-NewsTopStories",
