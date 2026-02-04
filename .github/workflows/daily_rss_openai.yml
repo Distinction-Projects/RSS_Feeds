@@ -40,12 +40,15 @@ jobs:
 
       - name: Commit digest
         run: |
-          if git status --porcelain | grep -q "data/rss_openai_daily.json"; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add data/rss_openai_daily.json
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Always stage the daily digest plus any new archive files.
+          git add data/rss_openai_daily.json data/history/rss_openai_daily_*.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
             git commit -m "Update RSS OpenAI digest"
             git push
-          else
-            echo "No changes to commit."
           fi
