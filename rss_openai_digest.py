@@ -6,16 +6,15 @@ import html
 import json
 import os
 import sys
-import urllib.error
 import urllib.request
 from html.parser import HTMLParser
 
 import feedparser
+from openai import OpenAI
 
 DEFAULT_CATALOG = os.path.join("feed_catalog", "rss_feeds.json")
 DEFAULT_OUTPUT = os.path.join("data", "rss_openai_daily.json")
 DEFAULT_ARCHIVE_DIR = os.path.join("data", "history")
-OPENAI_ENDPOINT = "https://api.openai.com/v1/chat/completions"
 ENV_OPENAI_KEY = "OPENAI_API_KEY"
 ENV_OPENAI_MODEL = "OPENAI_MODEL"
 ENV_PATHS = [".env"]
@@ -204,37 +203,35 @@ def extract_json(text):
     return ""
 
 
+def usage_to_dict(usage):
+    if usage is None:
+        return None
+    if isinstance(usage, dict):
+        return usage
+    if hasattr(usage, "model_dump"):
+        return usage.model_dump()
+    if hasattr(usage, "dict"):
+        return usage.dict()
+    return {"value": str(usage)}
+
+
 def call_openai(api_key, model, items, timeout):
     messages = build_openai_messages(items)
-    payload = {
-        "model": model,
-        "messages": messages,
-        "temperature": 0.2,
-        "response_format": {"type": "json_object"},
-    }
-    data = json.dumps(payload).encode("utf-8")
-    request = urllib.request.Request(
-        OPENAI_ENDPOINT,
-        data=data,
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-        },
-    )
+    client = OpenAI(api_key=api_key, timeout=timeout)
     try:
-        with urllib.request.urlopen(request, timeout=timeout) as response:
-            result = json.load(response)
-    except urllib.error.HTTPError as exc:
-        body = exc.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"OpenAI HTTP {exc.code}: {body}") from exc
+        result = client.chat.completions.create(
+            model=model,
+            messages=messages,
+            temperature=0.2,
+            response_format={"type": "json_object"},
+        )
     except Exception as exc:
         raise RuntimeError(f"OpenAI request failed: {type(exc).__name__}: {exc}") from exc
 
-    content = (
-        result.get("choices", [{}])[0]
-        .get("message", {})
-        .get("content", "")
-    )
+    choice = result.choices[0] if result.choices else None
+    content = ""
+    if choice and choice.message:
+        content = choice.message.content or ""
     raw = extract_json(content)
     if not raw:
         raise RuntimeError("OpenAI returned empty content.")
@@ -244,7 +241,7 @@ def call_openai(api_key, model, items, timeout):
     except json.JSONDecodeError as exc:
         raise RuntimeError(f"Failed to parse OpenAI JSON: {exc}") from exc
 
-    return parsed, result.get("id"), result.get("usage")
+    return parsed, getattr(result, "id", None), usage_to_dict(getattr(result, "usage", None))
 
 
 def parse_args():

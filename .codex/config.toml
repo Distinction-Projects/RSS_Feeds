@@ -1,0 +1,31 @@
+# Project-level Codex agent configuration for RSS_Feeds.
+# Keep the agent running with full workspace/network access and
+# delay compaction until we reach very large conversations.
+
+sandbox_mode = "danger-full-access"
+approval_policy = "never"
+
+# Give the agent more room to ingest the repository docs before
+# it starts compacting history, and treat AGENTS/CONTINUITY/STRUCTURE as high-priority.
+project_doc_max_bytes = 131072
+project_doc_fallback_filenames = ["AGENTS.md", "CONTINUITY.md", "STRUCTURE.md"]
+project_doc_paths = [
+  "STRUCTURE.md",
+  ".github/STRUCTURE.md",
+  ".github/workflows/STRUCTURE.md",
+  "data/STRUCTURE.md",
+  "data/history/STRUCTURE.md",
+  "feed_catalog/STRUCTURE.md",
+]
+
+model = "gpt-5.2-codex"
+model_reasoning_effort = "high"
+model_reasoning_summary = "auto"
+model_supports_reasoning_summary = true
+model_auto_compact_token_limit = 240000
+
+[profiles.keep_full_context]
+project_doc_max_bytes = 262144
+model_auto_compact_token_limit = 320000
+model_reasoning_effort = "high"
+model_reasoning_summary = "concise"
