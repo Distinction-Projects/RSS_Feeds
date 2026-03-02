@@ -101,8 +101,10 @@ def _now_utc() -> datetime:
     return datetime.now(timezone.utc)
 
 
-def _clean_text(value: str) -> str:
-    return re.sub(r"\s+", " ", value).strip()
+def _clean_text(value: Any) -> str:
+    if value is None:
+        return ""
+    return re.sub(r"\s+", " ", str(value)).strip()
 
 
 def _as_datetime_optional(value: Any) -> datetime | None:
@@ -226,7 +228,9 @@ def _extract_lead_paragraph(paragraphs: list[str]) -> str | None:
     return paragraphs[0] if paragraphs else None
 
 
-def _fetch_html(url: str, timeout_seconds: float, user_agent: str) -> tuple[str, int | None, str | None, str]:
+def _fetch_html(
+    url: str, timeout_seconds: float, user_agent: str
+) -> tuple[str, int | None, str | None, str]:
     request = Request(
         url,
         headers={
@@ -267,7 +271,9 @@ def scrape_article(url: str, timeout_seconds: float, user_agent: str) -> Scraped
     description = _pick_meta(meta, DESCRIPTION_META_KEYS)
     author = _pick_meta(meta, AUTHOR_META_KEYS)
     published_at = _as_datetime_optional(_pick_meta(meta, PUBLISHED_META_KEYS))
-    canonical_url = _first_non_empty([_extract_canonical_url(soup), _pick_meta(meta, CANONICAL_META_KEYS)])
+    canonical_url = _first_non_empty(
+        [_extract_canonical_url(soup), _pick_meta(meta, CANONICAL_META_KEYS)]
+    )
     language = _extract_language(soup, meta)
 
     paragraphs = _extract_paragraphs(soup)
@@ -323,7 +329,9 @@ def scrape_experiment_data(
             continue
 
         try:
-            item.scraped = scrape_article(item.link, timeout_seconds=timeout_seconds, user_agent=user_agent)
+            item.scraped = scrape_article(
+                item.link, timeout_seconds=timeout_seconds, user_agent=user_agent
+            )
             item.scrape_error = None
             success += 1
         except (HTTPError, URLError, TimeoutError, ValueError) as exc:

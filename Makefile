@@ -4,14 +4,29 @@ PY := $(VENV)/bin/python
 PIP := $(VENV)/bin/pip
 RUFF := $(VENV)/bin/ruff
 MYPY := $(VENV)/bin/mypy
+RSSCTL := $(PY) -m rss_pipeline.cli
+
 EXPERIMENT ?= data/rss_openai_daily.json
 LENSES ?= lenses
 SCORES ?= data/scores.json
 HIGH_SCORES ?= data/high_scoring_articles.json
 ANALYSIS_DIR ?= data/analysis
-QUALITY_PATHS ?= load_experiment.py lens.py serialization_utils.py tests/test_serialization_contracts.py
 
-.PHONY: venv install install-dev install-notebooks lint format-check typecheck test-serialization check-offline rss-openai digest-summary digest-scrape score-openai post-openai newsdata-test clean-venv
+QUALITY_PATHS ?= \
+	load_experiment.py \
+	lens.py \
+	serialization_utils.py \
+	rss_pipeline \
+	run_pre_openai.py \
+	run_post_openai.py \
+	score_news_item.py \
+	rss_openai_digest.py \
+	newsdata_client.py \
+	newsdata_test.py \
+	tests/test_serialization_contracts.py \
+	tests/test_cache_sqlite.py
+
+.PHONY: venv install install-dev install-notebooks lint format-check typecheck validate-all check-offline digest-build digest-archive digest-summary digest-scrape score-openai post-openai newsdata-test newsdata-fetch clean-venv
 
 venv:
 	@$(PYTHON) -m venv $(VENV)
@@ -34,44 +49,50 @@ format-check: install-dev
 typecheck: install-dev
 	@$(MYPY)
 
-test-serialization: install-dev
-	@$(PY) load_experiment.py --self-test
-	@$(PY) lens.py --self-test
-	@$(PY) -m unittest -v tests/test_serialization_contracts.py
+validate-all: install-dev
+	@$(RSSCTL) validate all
 
-check-offline: lint format-check typecheck test-serialization
+check-offline: lint format-check typecheck validate-all
 
-rss-openai: install
-	@$(PY) rss_openai_digest.py \
+digest-build: install
+	@$(RSSCTL) digest build \
 		--output data/rss_openai_daily.json \
 		--max-sources 10 \
 		--feeds-per-source 1 \
 		--max-items-per-feed 3
 
+rss-openai: digest-build
+
+digest-archive: install
+	@$(RSSCTL) digest archive --output data/rss_openai_daily.json --archive-dir data/history
+
 digest-summary: install
 	@$(PY) load_experiment.py $(EXPERIMENT)
 
 digest-scrape: install
-	@$(PY) run_pre_openai.py \
+	@$(RSSCTL) pre-openai \
 		--experiment $(EXPERIMENT) \
 		--scrape \
 		--scrape-output data/rss_openai_daily_scraped.json
 
 score-openai: install
-	@$(PY) score_news_item.py \
+	@$(RSSCTL) score run \
 		--lenses $(LENSES) \
 		--experiment $(EXPERIMENT) \
 		--output $(SCORES) \
 		--high-scores-output $(HIGH_SCORES)
 
 post-openai: install
-	@$(PY) run_post_openai.py \
+	@$(RSSCTL) analysis run \
 		--scores $(SCORES) \
 		--lenses $(LENSES) \
 		--output-root $(ANALYSIS_DIR)
 
 newsdata-test: install
-	@$(PY) newsdata_test.py
+	@$(RSSCTL) newsdata test
+
+newsdata-fetch: install
+	@$(RSSCTL) newsdata fetch
 
 clean-venv:
-	@rm -rf $(VENV)
+	@python3 -c "import shutil, pathlib; p = pathlib.Path('$(VENV)'); shutil.rmtree(p) if p.exists() else None"

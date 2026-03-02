@@ -3,3 +3,4 @@ openai>=1.0.0,<2
 beautifulsoup4>=4.12,<5
 numpy>=1.26,<3
 pydantic>=2.7,<3
+typer>=0.16,<1

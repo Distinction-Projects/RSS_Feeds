@@ -9,3 +9,4 @@ data/analysis/
 data/scores.json
 data/high_scoring_articles.json
 data/rss_openai_daily_scraped.json
+data/cache/

@@ -11,7 +11,7 @@ select = ["E", "F", "I", "UP", "B"]
 ignore = ["E501"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["analysis_module"]
+known-first-party = ["analysis_module", "rss_pipeline"]
 
 [tool.mypy]
 python_version = "3.10"
@@ -25,5 +25,13 @@ files = [
   "load_experiment.py",
   "lens.py",
   "serialization_utils.py",
+  "rss_pipeline",
+  "run_pre_openai.py",
+  "run_post_openai.py",
+  "score_news_item.py",
+  "rss_openai_digest.py",
+  "newsdata_client.py",
+  "newsdata_test.py",
   "tests/test_serialization_contracts.py",
+  "tests/test_cache_sqlite.py",
 ]
