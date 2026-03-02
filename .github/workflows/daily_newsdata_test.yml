@@ -1,6 +1,8 @@
 name: Daily NewsData Test
 
 on:
+  schedule:
+    - cron: "35 12 * * *"
   workflow_dispatch:
 
 jobs:

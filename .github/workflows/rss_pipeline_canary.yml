@@ -35,6 +35,8 @@ jobs:
           python3 -m rss_pipeline.cli score run --help
           python3 -m rss_pipeline.cli analysis --help
           python3 -m rss_pipeline.cli analysis run --help
+          python3 -m rss_pipeline.cli publish --help
+          python3 -m rss_pipeline.cli publish build --help
           python3 -m rss_pipeline.cli validate --help
           python3 -m rss_pipeline.cli validate all --help
           ruff check load_experiment.py lens.py serialization_utils.py rss_pipeline run_pre_openai.py run_post_openai.py score_news_item.py rss_openai_digest.py newsdata_client.py newsdata_test.py tests/test_serialization_contracts.py tests/test_cache_sqlite.py
@@ -58,8 +60,18 @@ jobs:
             --source-permutations 50 \
             --source-random-seed 42
 
+      - name: Build precomputed JSON canary (fixtures, no API)
+        run: |
+          python3 -m rss_pipeline.cli publish build \
+            --digest tests/fixtures/canonical_digest.json \
+            --scores tests/fixtures/valid_scores.json \
+            --high-scores tests/fixtures/valid_high_scores.json \
+            --analysis-root "$CANARY_OUTPUT" \
+            --output "$CANARY_OUTPUT/rss_openai_precomputed.json"
+
       - name: Verify canary outputs
         run: |
           test -f "$CANARY_OUTPUT/matrix/lens_article_matrix.csv"
           test -f "$CANARY_OUTPUT/lens_stats/lens_summary.json"
           test -f "$CANARY_OUTPUT/report/source_differentiation_summary.json"
+          test -f "$CANARY_OUTPUT/rss_openai_precomputed.json"

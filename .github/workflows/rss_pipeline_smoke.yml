@@ -31,6 +31,7 @@ jobs:
           python3 -m rss_pipeline.cli newsdata test --help
           python3 -m rss_pipeline.cli score run --help
           python3 -m rss_pipeline.cli analysis run --help
+          python3 -m rss_pipeline.cli publish build --help
           python3 -m rss_pipeline.cli validate all --help
 
       - name: Ruff lint

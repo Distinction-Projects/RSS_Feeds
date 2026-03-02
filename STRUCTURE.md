@@ -23,6 +23,7 @@
 - `pipeline_digest.py`: RSS fetch/scrape/summarize pipeline.
 - `pipeline_score.py`: rubric scoring pipeline.
 - `pipeline_analysis.py`: pre/post analysis orchestration.
+- `pipeline_publish.py`: app-consumable precomputed JSON export.
 - `pipeline_newsdata.py`: NewsData fetch/test pipeline.
 - `env.py`, `process.py`, `time_utils.py`: shared utility layer.
 
@@ -42,6 +43,7 @@
 - Scores: `data/scores.json`
 - High-score output: `data/high_scoring_articles.json`
 - Analysis output root: `data/analysis/`
+- Precomputed app export: `data/processed/rss_openai_precomputed.json`
 
 ## Analysis/scoring assets
 - `analysis_module/`: shared stats/reporting helpers.
@@ -57,5 +59,5 @@
 ## Workflows
 - `.github/workflows/rss_pipeline_smoke.yml`: push/PR/manual smoke checks.
 - `.github/workflows/rss_pipeline_canary.yml`: manual canary (no OpenAI calls).
-- `.github/workflows/daily_rss_openai.yml`: manual digest run + commit.
-- `.github/workflows/daily_newsdata_test.yml`: manual NewsData test run.
+- `.github/workflows/daily_rss_openai.yml`: scheduled digest + scoring + analysis + precomputed export + commit.
+- `.github/workflows/daily_newsdata_test.yml`: scheduled NewsData test run.

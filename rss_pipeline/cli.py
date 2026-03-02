@@ -7,11 +7,12 @@ from typing import Annotated
 
 import typer
 
-from .config import AnalysisRunConfig, DigestBuildConfig, ScoreRunConfig
+from .config import AnalysisRunConfig, DigestBuildConfig, PublishBuildConfig, ScoreRunConfig
 from .logging import configure_logging
 from .pipeline_analysis import run_analysis, run_pre_openai
 from .pipeline_digest import archive_existing_digest, build_digest
 from .pipeline_newsdata import NewsDataError, fetch_and_append, test_connection
+from .pipeline_publish import build_precomputed_payload
 from .pipeline_score import run_scoring
 
 app = typer.Typer(help="RSS pipeline CLI", no_args_is_help=True)
@@ -19,12 +20,14 @@ digest_app = typer.Typer(help="Digest workflows", no_args_is_help=True)
 newsdata_app = typer.Typer(help="NewsData workflows", no_args_is_help=True)
 score_app = typer.Typer(help="Scoring workflows", no_args_is_help=True)
 analysis_app = typer.Typer(help="Analysis workflows", no_args_is_help=True)
+publish_app = typer.Typer(help="Precomputed export workflows", no_args_is_help=True)
 validate_app = typer.Typer(help="Validation workflows", no_args_is_help=True)
 
 app.add_typer(digest_app, name="digest")
 app.add_typer(newsdata_app, name="newsdata")
 app.add_typer(score_app, name="score")
 app.add_typer(analysis_app, name="analysis")
+app.add_typer(publish_app, name="publish")
 app.add_typer(validate_app, name="validate")
 
 
@@ -247,6 +250,32 @@ def analysis_run(
     typer.echo(f"report: {outputs['report']}")
 
 
+@publish_app.command("build")
+def publish_build(
+    digest: Annotated[Path, typer.Option("--digest")] = Path("data/rss_openai_daily.json"),
+    scores: Annotated[Path, typer.Option("--scores")] = Path("data/scores.json"),
+    high_scores: Annotated[Path, typer.Option("--high-scores")] = Path(
+        "data/high_scoring_articles.json"
+    ),
+    analysis_root: Annotated[Path, typer.Option("--analysis-root")] = Path("data/analysis"),
+    output: Annotated[Path, typer.Option("--output")] = Path(
+        "data/processed/rss_openai_precomputed.json"
+    ),
+    max_articles: Annotated[int | None, typer.Option("--max-articles")] = None,
+) -> None:
+    config = PublishBuildConfig(
+        digest=digest,
+        scores=scores,
+        high_scores=high_scores,
+        analysis_root=analysis_root,
+        output=output,
+        max_articles=max_articles,
+    )
+    result = build_precomputed_payload(config, repo_root=REPO_ROOT)
+    typer.echo(f"Precomputed output: {result['output']}")
+    typer.echo(f"Articles: {result['articles']}")
+
+
 @validate_app.command("all")
 def validate_all() -> None:
     commands = [
@@ -261,6 +290,23 @@ def validate_all() -> None:
             "tests/test_cache_sqlite.py",
         ],
         [sys.executable, str(REPO_ROOT / "load_experiment.py"), "data/rss_openai_daily.json"],
+        [
+            sys.executable,
+            "-m",
+            "rss_pipeline.cli",
+            "publish",
+            "build",
+            "--digest",
+            "tests/fixtures/canonical_digest.json",
+            "--scores",
+            "tests/fixtures/valid_scores.json",
+            "--high-scores",
+            "tests/fixtures/valid_high_scores.json",
+            "--analysis-root",
+            "tests/fixtures",
+            "--output",
+            "/tmp/rss_pipeline_validate_precomputed.json",
+        ],
     ]
     for command in commands:
         typer.echo("$ " + " ".join(command))

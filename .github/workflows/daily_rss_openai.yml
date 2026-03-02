@@ -1,6 +1,8 @@
 name: Daily RSS OpenAI Digest
 
 on:
+  schedule:
+    - cron: "10 13 * * *"
   workflow_dispatch:
 
 permissions:
@@ -40,16 +42,57 @@ jobs:
             --cache-path data/cache/openai_cache.sqlite \
             --prompt-audit-dir data/analysis/prompt_audit
 
-      - name: Commit digest
+      - name: Run scoring precompute
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+        run: |
+          python3 -m rss_pipeline.cli score run \
+            --experiment data/rss_openai_daily.json \
+            --lenses lenses \
+            --output data/scores.json \
+            --high-scores-output data/high_scoring_articles.json \
+            --cache-path data/cache/openai_cache.sqlite \
+            --prompt-audit-dir data/analysis/prompt_audit \
+            --replace-output
+
+      - name: Run analysis precompute
+        run: |
+          python3 -m rss_pipeline.cli analysis run \
+            --scores data/scores.json \
+            --lenses lenses \
+            --output-root data/analysis \
+            --source-permutations 1000 \
+            --source-random-seed 42
+
+      - name: Build app-consumable precomputed JSON
+        run: |
+          python3 -m rss_pipeline.cli publish build \
+            --digest data/rss_openai_daily.json \
+            --scores data/scores.json \
+            --high-scores data/high_scoring_articles.json \
+            --analysis-root data/analysis \
+            --output data/processed/rss_openai_precomputed.json
+
+      - name: Upload processed JSON artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rss-openai-precomputed
+          path: data/processed/rss_openai_precomputed.json
+
+      - name: Commit digest and processed artifacts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add data/rss_openai_daily.json data/history/rss_openai_daily_*.json
+          git add \
+            data/rss_openai_daily.json \
+            data/history/rss_openai_daily_*.json \
+            data/processed/rss_openai_precomputed.json
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Update RSS OpenAI digest"
+            git commit -m "Update RSS precomputed pipeline artifacts"
             git push
           fi

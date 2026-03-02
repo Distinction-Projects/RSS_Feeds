@@ -26,7 +26,7 @@ QUALITY_PATHS ?= \
 	tests/test_serialization_contracts.py \
 	tests/test_cache_sqlite.py
 
-.PHONY: venv install install-dev install-notebooks lint format-check typecheck validate-all check-offline digest-build digest-archive digest-summary digest-scrape score-openai post-openai newsdata-test newsdata-fetch clean-venv
+.PHONY: venv install install-dev install-notebooks lint format-check typecheck validate-all check-offline digest-build digest-archive digest-summary digest-scrape score-openai post-openai publish-build newsdata-test newsdata-fetch clean-venv
 
 venv:
 	@$(PYTHON) -m venv $(VENV)
@@ -87,6 +87,14 @@ post-openai: install
 		--scores $(SCORES) \
 		--lenses $(LENSES) \
 		--output-root $(ANALYSIS_DIR)
+
+publish-build: install
+	@$(RSSCTL) publish build \
+		--digest $(EXPERIMENT) \
+		--scores $(SCORES) \
+		--high-scores $(HIGH_SCORES) \
+		--analysis-root $(ANALYSIS_DIR) \
+		--output data/processed/rss_openai_precomputed.json
 
 newsdata-test: install
 	@$(RSSCTL) newsdata test

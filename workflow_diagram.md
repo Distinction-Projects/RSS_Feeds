@@ -1,27 +1,35 @@
 # RSS_Feeds Workflow Diagrams
 
-## 1) GitHub Actions Topology (Migration Phase)
+## 1) GitHub Actions Topology
 ```mermaid
 flowchart LR
   subgraph Triggered["Triggered On push/pull_request/dispatch"]
     Smoke["rss_pipeline_smoke.yml"]
   end
 
-  subgraph ManualOnly["Manual Dispatch Only"]
+  subgraph ScheduledDaily["Scheduled Daily + Manual Dispatch"]
     DailyDigest["daily_rss_openai.yml"]
     NewsData["daily_newsdata_test.yml"]
+  end
+
+  subgraph ManualOnly["Manual Dispatch Only"]
     Canary["rss_pipeline_canary.yml"]
   end
 
   Smoke --> SmokeChecks["ruff + format + mypy + rssctl validate all"]
 
   DailyDigest --> DigestRun["rssctl digest build"]
+  DigestRun --> ScoreRun["rssctl score run"]
+  ScoreRun --> AnalysisRun["rssctl analysis run"]
+  AnalysisRun --> PublishRun["rssctl publish build"]
   DigestRun --> DigestOut["data/rss_openai_daily.json"]
   DigestRun --> DigestHist["data/history/rss_openai_daily_YYYY-MM-DD.json"]
   DigestRun --> CacheDB["data/cache/openai_cache.sqlite"]
   DigestRun --> PromptAudit["data/analysis/prompt_audit/<run_id>.json"]
-  DigestOut --> DigestCommit["commit + push digest/history"]
+  PublishRun --> Processed["data/processed/rss_openai_precomputed.json"]
+  DigestOut --> DigestCommit["commit + push digest/history/processed"]
   DigestHist --> DigestCommit
+  Processed --> DigestCommit
 
   NewsData --> NewsDataRun["rssctl newsdata test"]
   NewsDataRun --> NewsDataLogs["Actions logs"]
@@ -52,6 +60,10 @@ flowchart TD
 
   Scores --> Analysis["rssctl analysis run"]
   Analysis --> AnalysisOut["data/analysis/"]
+  AnalysisOut --> Publish["rssctl publish build"]
+  High --> Publish
+  Daily --> Publish
+  Publish --> Processed["data/processed/rss_openai_precomputed.json"]
 
   NewsDataFetch["rssctl newsdata fetch"] --> NewsDataDump["data/newsdata_dump.json"]
 ```

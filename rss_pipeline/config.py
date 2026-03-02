@@ -9,6 +9,7 @@ DEFAULT_HISTORY_DIR = Path("data/history")
 DEFAULT_SCORES_OUTPUT = Path("data/scores.json")
 DEFAULT_HIGH_SCORES_OUTPUT = Path("data/high_scoring_articles.json")
 DEFAULT_ANALYSIS_OUTPUT = Path("data/analysis")
+DEFAULT_PROCESSED_OUTPUT = Path("data/processed/rss_openai_precomputed.json")
 DEFAULT_CACHE_PATH = Path("data/cache/openai_cache.sqlite")
 DEFAULT_PROMPT_AUDIT_DIR = Path("data/analysis/prompt_audit")
 DEFAULT_OPENAI_MODEL = "gpt-4.1-mini"
@@ -65,3 +66,13 @@ class AnalysisRunConfig:
     rubric_aggregation: str = "latest"
     source_permutations: int = 1000
     source_random_seed: int = 42
+
+
+@dataclass(slots=True)
+class PublishBuildConfig:
+    digest: Path = DEFAULT_DIGEST_OUTPUT
+    scores: Path = DEFAULT_SCORES_OUTPUT
+    high_scores: Path = DEFAULT_HIGH_SCORES_OUTPUT
+    analysis_root: Path = DEFAULT_ANALYSIS_OUTPUT
+    output: Path = DEFAULT_PROCESSED_OUTPUT
+    max_articles: int | None = None

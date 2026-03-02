@@ -14,6 +14,7 @@ Package-first RSS + OpenAI pipeline with a single CLI: `rssctl`.
 ## Core generated outputs
 - Daily digest: `data/rss_openai_daily.json`
 - Daily archive snapshots: `data/history/rss_openai_daily_YYYY-MM-DD.json`
+- Daily app-consumable precomputed JSON: `data/processed/rss_openai_precomputed.json`
 - OpenAI SQLite cache: `data/cache/openai_cache.sqlite`
 - Prompt audit exports: `data/analysis/prompt_audit/<run_id>.json`
 - Rubric scores: `data/scores.json`
@@ -34,6 +35,7 @@ Commands:
 - `rssctl newsdata fetch`
 - `rssctl score run`
 - `rssctl analysis run`
+- `rssctl publish build`
 - `rssctl validate all`
 
 ## Typical run order
@@ -41,6 +43,7 @@ Commands:
 python3 -m rss_pipeline.cli digest build
 python3 -m rss_pipeline.cli score run
 python3 -m rss_pipeline.cli analysis run
+python3 -m rss_pipeline.cli publish build
 ```
 
 ## Compatibility wrappers
@@ -62,12 +65,21 @@ Legacy root scripts remain as thin wrappers into `rssctl`:
 - Secrets are read from env / `.env`; secrets are not persisted in outputs.
 
 ## Workflows
-During this migration phase, scheduled workflows are paused (manual dispatch only):
-- `.github/workflows/daily_rss_openai.yml`
-- `.github/workflows/daily_newsdata_test.yml`
+Scheduled daily workflows:
+- `.github/workflows/daily_rss_openai.yml`:
+  digest + scoring + analysis + app precomputed export + commit
+- `.github/workflows/daily_newsdata_test.yml`:
+  NewsData connectivity test
+
+Manual canary workflow:
 - `.github/workflows/rss_pipeline_canary.yml`
 
 Smoke CI remains active on push/PR via `.github/workflows/rss_pipeline_smoke.yml`.
+
+## Downstream repo contract
+- For cross-repo consumption, read `data/processed/rss_openai_precomputed.json`.
+- This file is refreshed by the daily RSS workflow and committed to `main`.
+- It contains merged digest metadata, per-article scoring summaries, and analysis summaries in one payload.
 
 ## Validation
 ```bash

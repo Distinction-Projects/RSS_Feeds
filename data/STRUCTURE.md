@@ -2,9 +2,10 @@
 
 ## File structure
 - rss_openai_daily.json (latest RSS/OpenAI digest output)
+- processed/rss_openai_precomputed.json (downstream app-consumable precomputed payload)
 - history/ (archived daily snapshots)
 
 ## Methods/functions to use
-- rss_openai_digest.main() writes rss_openai_daily.json and (by default) archives to data/history/.
-- rss_openai_digest.call_openai() is responsible for ai_summary/ai_tags in items.
-- Avoid manual edits; regenerate via rss_openai_digest.py so schema_version, generated_at, and request metadata stay consistent.
+- `python3 -m rss_pipeline.cli digest build` writes `rss_openai_daily.json` and archives to `data/history/` by default.
+- `python3 -m rss_pipeline.cli publish build` writes `processed/rss_openai_precomputed.json` from digest + scoring + analysis artifacts.
+- Avoid manual edits; regenerate via `rssctl` commands so schema metadata and run audit data stay consistent.
