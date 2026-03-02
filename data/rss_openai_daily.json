@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-03-02T13:35:16Z",
+  "generated_at": "2026-03-02T16:26:45Z",
   "catalog_path": "feed_catalog/rss_feeds.json",
   "request": {
     "max_sources": 10,
@@ -8,13 +8,23 @@
     "max_items_per_feed": 3,
     "source_ids": []
   },
+  "scrape": {
+    "enabled": true,
+    "attempts": 29,
+    "success": 20,
+    "failed": 9,
+    "skipped": 0,
+    "limit": null,
+    "timeout_seconds": 12.0,
+    "sleep_seconds": 0.25
+  },
   "openai": {
     "model": "gpt-4o-mini",
-    "response_id": "chatcmpl-DExiijZ24LSzonct9hDmveaMK9ZSo",
+    "response_id": "chatcmpl-DF0PG2CUEpkW5BGMCkzbw7lZpFQ1h",
     "usage": {
-      "completion_tokens": 1423,
-      "prompt_tokens": 3235,
-      "total_tokens": 4658,
+      "completion_tokens": 604,
+      "prompt_tokens": 5361,
+      "total_tokens": 5965,
       "completion_tokens_details": {
         "accepted_prediction_tokens": 0,
         "audio_tokens": 0,
@@ -29,11 +39,11 @@
   },
   "items": [
     {
-      "id": "e3948141e8a1",
-      "title": "Two drones headed to RAF base intercepted, Cyprus says",
-      "link": "https://www.bbc.com/news/articles/cm2r0q310e3o?at_medium=RSS&at_campaign=rss",
-      "summary": "No casualties were reported and the base sustained \"minimal damage\", the Ministry of Defence said.",
-      "published": "Mon, 02 Mar 2026 13:00:08 GMT",
+      "id": "74281cb2c8f0",
+      "title": "Will petrol and diesel prices go up now?",
+      "link": "https://www.bbc.com/news/articles/c20zgjzz0e4o?at_medium=RSS&at_campaign=rss",
+      "summary": "If oil prices remain high for some time, the knock-on effects could affect the costs of fuel and food",
+      "published": "Mon, 02 Mar 2026 13:44:51 GMT",
       "source_id": "bbc-news",
       "source_name": "BBC News",
       "feed_name": "Top Stories",
@@ -41,13 +51,43 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Two drones were intercepted while heading to a RAF base in Cyprus, causing minimal damage and no reported casualties.",
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:26:56.239208+00:00",
+        "final_url": "https://www.bbc.com/news/articles/c20zgjzz0e4o?at_medium=RSS&at_campaign=rss",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Will petrol and diesel prices go up because of the Iran war?",
+        "description": "If oil prices remain high for some time, the knock-on effects could affect the costs of fuel and food",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.bbc.com/news/articles/c20zgjzz0e4o",
+        "language": "en-GB",
+        "h1": "Will petrol and diesel prices go up now?",
+        "lead_paragraph": "The jump in the price of oil triggered by the conflict in the Middle East has raised the possibility of higher fuel costs for motorists.",
+        "paragraph_count": 36,
+        "word_count": 858,
+        "top_keywords": [
+          "prices",
+          "price",
+          "will",
+          "petrol",
+          "diesel",
+          "iran",
+          "conflict",
+          "fuel",
+          "costs",
+          "jump",
+          "higher",
+          "through"
+        ]
+      },
+      "scrape_error": null,
+      "ai_summary": "High oil prices due to the conflict in the Middle East may lead to increased fuel and food costs.",
       "ai_tags": [
-        "drones",
-        "military",
-        "Cyprus",
-        "defense"
+        "oil prices",
+        "fuel costs",
+        "Middle East conflict"
       ]
     },
     {
@@ -63,12 +103,42 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Prime Minister Starmer is navigating a complex diplomatic landscape as he seeks to establish a unique UK stance on an ongoing conflict.",
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:26:56.570030+00:00",
+        "final_url": "https://www.bbc.com/news/articles/c0rj4nvw07do?at_medium=RSS&at_campaign=rss",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Starmer seeks to carve out distinct UK approach to this conflict",
+        "description": "This is delicate terrain for the prime minister both in the UK and among international leaders too.",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.bbc.com/news/articles/c0rj4nvw07do",
+        "language": "en-GB",
+        "h1": "Starmer seeks to carve out distinct UK approach to this conflict",
+        "lead_paragraph": "\"Engaging in armed conflict in breach of international law is a precarious business.\"",
+        "paragraph_count": 33,
+        "word_count": 1075,
+        "top_keywords": [
+          "british",
+          "keir",
+          "government",
+          "strikes",
+          "iran",
+          "starmer",
+          "approach",
+          "conflict",
+          "iraq",
+          "prime",
+          "minister",
+          "carve"
+        ]
+      },
+      "scrape_error": null,
+      "ai_summary": "Prime Minister Starmer is navigating a complex situation regarding the UK's stance on the ongoing conflict.",
       "ai_tags": [
-        "politics",
-        "UK",
-        "diplomacy",
+        "UK politics",
+        "international relations",
         "conflict"
       ]
     },
@@ -85,13 +155,44 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "In retaliation for strikes against it, Iran has launched attacks on Israel and a British base in Cyprus.",
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:26:56.904311+00:00",
+        "final_url": "https://www.bbc.com/news/articles/cx2dyz6p3weo?at_medium=RSS&at_campaign=rss",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Why did US and Israel attack Iran and how long could the war last?",
+        "description": "Iran has carried out strikes against Israel, across the Gulf and against a British base in Cyprus in retaliation.",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.bbc.com/news/articles/cx2dyz6p3weo",
+        "language": "en-GB",
+        "h1": "Why did US and Israel attack Iran and how long could the war last?",
+        "lead_paragraph": "Conflict has spread across the Middle East after Iran's Supreme Leader Ayatollah Ali Khamenei was killed during strikes launched by the US and Israel on Saturday, which were followed by a call from US President Donald Trump for Iranians to overthrow the government.",
+        "paragraph_count": 58,
+        "word_count": 1493,
+        "top_keywords": [
+          "israel",
+          "iran",
+          "killed",
+          "iran's",
+          "strikes",
+          "iranian",
+          "irgc",
+          "trump",
+          "been",
+          "long",
+          "last",
+          "across"
+        ]
+      },
+      "scrape_error": null,
+      "ai_summary": "Iran has retaliated against US and Israeli strikes, escalating tensions in the region.",
       "ai_tags": [
         "Iran",
+        "US",
         "Israel",
-        "military",
-        "conflict"
+        "military conflict"
       ]
     },
     {
@@ -107,13 +208,30 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Trump has pleaded not guilty to 34 felony counts related to his legal issues.",
-      "ai_tags": [
-        "Trump",
-        "legal",
-        "politics"
-      ]
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:26:57.229100+00:00",
+        "final_url": "https://edition.cnn.com/webview/politics/live-news/trump-indictment-stormy-daniels-news-04-03-23/index.html",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "April 3, 2023 Trump indictment news | CNN Politics",
+        "description": "Former President Donald Trump has been indicted by a Manhattan grand jury, marking the first time in US history that a current or former president has faced criminal charges.",
+        "author": "Aditi Sangal,Mike Hayes,Maureen Chowdhury,Amir Vera,Shania Shelton",
+        "published_at": "2023-04-03T11:50:17+00:00",
+        "canonical_url": "https://www.cnn.com/politics/live-news/trump-indictment-stormy-daniels-news-04-03-23",
+        "language": "en",
+        "h1": null,
+        "lead_paragraph": null,
+        "paragraph_count": 0,
+        "word_count": 0,
+        "top_keywords": [
+          "april",
+          "trump",
+          "indictment",
+          "politics"
+        ]
+      },
+      "scrape_error": null
     },
     {
       "id": "ce5126b5a80d",
@@ -128,13 +246,34 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Maggie Haberman discusses the motivations behind Trump's recent attacks on a judge and his family during a speech.",
-      "ai_tags": [
-        "Trump",
-        "politics",
-        "judiciary"
-      ]
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:26:57.595036+00:00",
+        "final_url": "https://www.cnn.com/videos/politics/2023/04/05/maggie-haberman-donald-trump-speech-indictment-reaction-sot-cnntm-vpx.cnn",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Haberman reveals why Trump attacked judge and his family in speech | CNN Politics",
+        "description": "CNN political contributor Maggie Haberman explains the reasoning behind Donald Trump\u2019s attacks on the judge and his family during a speech at his Mar-a-Lago resort after he was arraigned on felony charges.",
+        "author": null,
+        "published_at": "2023-04-05T13:23:08+00:00",
+        "canonical_url": "https://www.cnn.com/videos/politics/2023/04/05/maggie-haberman-donald-trump-speech-indictment-reaction-sot-cnntm-vpx.cnn",
+        "language": "en",
+        "h1": null,
+        "lead_paragraph": null,
+        "paragraph_count": 0,
+        "word_count": 0,
+        "top_keywords": [
+          "haberman",
+          "reveals",
+          "trump",
+          "attacked",
+          "judge",
+          "family",
+          "speech",
+          "politics"
+        ]
+      },
+      "scrape_error": null
     },
     {
       "id": "a998994f8b6f",
@@ -149,13 +288,9 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Information regarding Trump's indictment is highlighted ahead of his court appearance.",
-      "ai_tags": [
-        "Trump",
-        "legal",
-        "politics"
-      ]
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": null,
+      "scrape_error": "HTTP Error 404: Not Found"
     },
     {
       "id": "ba3660884d58",
@@ -170,13 +305,44 @@
       "topic_tags": [
         "world"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Ghana's foreign minister reports that at least 55 Ghanaians have died after being recruited by Russia to fight in Ukraine.",
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:26:59.330882+00:00",
+        "final_url": "https://www.theguardian.com/world/2026/feb/27/ghana-men-killed-fight-russia-ukraine",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Ghana says at least 55 of its people killed after Russia \u2018lured\u2019 them to fight Ukraine",
+        "description": "Foreign minister says 272 Ghanaians are thought to have been drawn into battle since 2022, after he visited Kyiv",
+        "author": "Guardian staff and agencies in Accra",
+        "published_at": "2026-02-27T16:42:39+00:00",
+        "canonical_url": "https://www.theguardian.com/world/2026/feb/27/ghana-men-killed-fight-russia-ukraine",
+        "language": "en",
+        "h1": "Ghana says at least 55 of its people killed after Russia \u2018lured\u2019 them to fight Ukraine",
+        "lead_paragraph": "Foreign minister says 272 Ghanaians are thought to have been drawn into battle since 2022, after he visited Kyiv",
+        "paragraph_count": 12,
+        "word_count": 430,
+        "top_keywords": [
+          "russia",
+          "foreign",
+          "been",
+          "minister",
+          "south",
+          "ukraine",
+          "african",
+          "ghana",
+          "ghanaians",
+          "recruitment",
+          "people",
+          "killed"
+        ]
+      },
+      "scrape_error": null,
+      "ai_summary": "Ghana's foreign minister reports that at least 55 Ghanaians have died after being recruited to fight in Ukraine.",
       "ai_tags": [
         "Ghana",
         "Ukraine",
-        "Russia",
-        "war"
+        "war casualties",
+        "recruitment"
       ]
     },
     {
@@ -192,13 +358,44 @@
       "topic_tags": [
         "world"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Concerns are rising over perceived inequities in U.S. health funding agreements with African nations, prompting backlash.",
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:26:59.652068+00:00",
+        "final_url": "https://www.theguardian.com/global-development/2026/feb/27/rising-anger-over-lop-sided-immoral-us-health-funding-pacts-africa-countries",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Rising anger over \u2018lop-sided\u2019 and \u2018immoral\u2019 US health funding pacts with African countries",
+        "description": "Zimbabwe refuses to sign agreement and Kenya faces a court case over data sharing as new aid deals come under scrutiny",
+        "author": "https://www.theguardian.com/profile/kat-lay",
+        "published_at": "2026-02-27T07:00:34+00:00",
+        "canonical_url": "https://www.theguardian.com/global-development/2026/feb/27/rising-anger-over-lop-sided-immoral-us-health-funding-pacts-africa-countries",
+        "language": "en",
+        "h1": "Rising anger over \u2018lop-sided\u2019 and \u2018immoral\u2019 US health funding pacts with African countries",
+        "lead_paragraph": "Zimbabwe refuses to sign agreement and Kenya faces a court case over data sharing as new aid deals come under scrutiny",
+        "paragraph_count": 30,
+        "word_count": 1180,
+        "top_keywords": [
+          "health",
+          "countries",
+          "african",
+          "zimbabwe",
+          "data",
+          "deals",
+          "been",
+          "country",
+          "lop-sided",
+          "immoral",
+          "funding",
+          "administration"
+        ]
+      },
+      "scrape_error": null,
+      "ai_summary": "Bilateral health agreements between the US and African countries are facing backlash for being perceived as unfair.",
       "ai_tags": [
-        "health",
-        "Africa",
         "US",
-        "politics"
+        "Africa",
+        "health agreements",
+        "international relations"
       ]
     },
     {
@@ -214,14 +411,62 @@
       "topic_tags": [
         "world"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Two women in Uganda face potential life sentences for allegedly kissing in public, under strict anti-LGBTQ+ laws.",
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:26:59.968952+00:00",
+        "final_url": "https://www.theguardian.com/global-development/2026/feb/26/women-arrested-uganda-kissing-public-lgbtq-laws",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Two women arrested in Uganda for allegedly kissing in public could face life sentence",
+        "description": "Wendy Faith and Alesi Diana Denise were taken into custody under laws that have outraged LGBTQ+ community and rights activists",
+        "author": "https://www.theguardian.com/profile/samuel-okiror",
+        "published_at": "2026-02-26T08:00:23+00:00",
+        "canonical_url": "https://www.theguardian.com/global-development/2026/feb/26/women-arrested-uganda-kissing-public-lgbtq-laws",
+        "language": "en",
+        "h1": "Two women arrested in Uganda for allegedly kissing in public could face life sentence",
+        "lead_paragraph": "Wendy Faith and Alesi Diana Denise were taken into custody under laws that have outraged LGBTQ+ community and rights activists",
+        "paragraph_count": 19,
+        "word_count": 678,
+        "top_keywords": [
+          "uganda",
+          "lgbtq",
+          "women",
+          "arrested",
+          "allegedly",
+          "kissing",
+          "life",
+          "custody",
+          "community",
+          "been",
+          "country",
+          "police"
+        ]
+      },
+      "scrape_error": null,
+      "ai_summary": "Two women in Uganda have been arrested for allegedly kissing in public, facing severe legal consequences.",
       "ai_tags": [
         "Uganda",
         "LGBTQ+",
-        "law",
-        "human rights"
+        "human rights",
+        "arrest"
       ]
+    },
+    {
+      "id": "45e2f04ced06",
+      "title": "Live Updates: U.S. Sending More Forces as Mideast Conflict Widens",
+      "link": "https://www.nytimes.com/live/2026/03/02/world/iran-us-israel-attack-trump",
+      "summary": "",
+      "published": "Mon, 02 Mar 2026 16:03:06 +0000",
+      "source_id": "new-york-times",
+      "source_name": "The New York Times",
+      "feed_name": "Home Page",
+      "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": null,
+      "scrape_error": "HTTP Error 403: Forbidden"
     },
     {
       "id": "0a8176986686",
@@ -236,14 +481,9 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "European leaders feel sidelined as President Trump takes a hard stance on Iran, impacting their diplomatic roles.",
-      "ai_tags": [
-        "Trump",
-        "Iran",
-        "Europe",
-        "diplomacy"
-      ]
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": null,
+      "scrape_error": "HTTP Error 403: Forbidden"
     },
     {
       "id": "1736233fb19f",
@@ -258,36 +498,9 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Three U.S. planes were shot down in Kuwait due to friendly fire, coinciding with a drone attack on the U.S. Embassy.",
-      "ai_tags": [
-        "military",
-        "Kuwait",
-        "Iran",
-        "US"
-      ]
-    },
-    {
-      "id": "fbd76988384e",
-      "title": "Trump Says More U.S. Casualties Are \u2018Likely\u2019 in War With Iran, and Oil Prices Jump After Attack",
-      "link": "https://www.nytimes.com/2026/03/02/podcasts/the-headlines/trump-iran-oil-prices-jump.html",
-      "summary": "Plus, what to know about the A.I. videos that kids are watching.",
-      "published": "Mon, 02 Mar 2026 11:00:22 +0000",
-      "source_id": "new-york-times",
-      "source_name": "The New York Times",
-      "feed_name": "Home Page",
-      "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "topic_tags": [
-        "general"
-      ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Trump warns that more U.S. casualties are likely in the ongoing war with Iran, leading to a spike in oil prices.",
-      "ai_tags": [
-        "Trump",
-        "Iran",
-        "oil",
-        "economy"
-      ]
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": null,
+      "scrape_error": "HTTP Error 403: Forbidden"
     },
     {
       "id": "8ce06920d7d5",
@@ -302,14 +515,9 @@
       "topic_tags": [
         "us"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "The Iranian diaspora in the U.S. expresses mixed emotions as they watch the U.S.-Israeli military actions unfold.",
-      "ai_tags": [
-        "Iran",
-        "US",
-        "military",
-        "diaspora"
-      ]
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": null,
+      "scrape_error": "The read operation timed out"
     },
     {
       "id": "d2803cf347cc",
@@ -324,14 +532,9 @@
       "topic_tags": [
         "us"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Protests erupted across the U.S. in response to the recent U.S.-Israeli strikes on Iran.",
-      "ai_tags": [
-        "protests",
-        "Iran",
-        "US",
-        "conflict"
-      ]
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": null,
+      "scrape_error": "The read operation timed out"
     },
     {
       "id": "2485e25ca957",
@@ -346,14 +549,9 @@
       "topic_tags": [
         "world"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Displaced Palestinians are returning to northern Gaza after a breakthrough in hostage negotiations.",
-      "ai_tags": [
-        "Gaza",
-        "Israel",
-        "hostage",
-        "conflict"
-      ]
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": null,
+      "scrape_error": "HTTP Error 401: HTTP Forbidden"
     },
     {
       "id": "7c214e14125c",
@@ -368,13 +566,9 @@
       "topic_tags": [
         "world"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "A leading Chinese property developer reports significant losses, indicating ongoing issues in the real estate sector.",
-      "ai_tags": [
-        "China",
-        "real estate",
-        "economy"
-      ]
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": null,
+      "scrape_error": "HTTP Error 401: HTTP Forbidden"
     },
     {
       "id": "0689d2bf67e8",
@@ -389,20 +583,16 @@
       "topic_tags": [
         "world"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Freed Israeli hostages still have shrapnel in their bodies from the October 7 attack, highlighting the trauma they endured.",
-      "ai_tags": [
-        "Israel",
-        "hostages",
-        "conflict"
-      ]
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": null,
+      "scrape_error": "HTTP Error 401: HTTP Forbidden"
     },
     {
       "id": "74a9b9a5747b",
-      "title": "Gas prices soar as Iranian attacks shut down Qatari production",
+      "title": "Gas prices soar as Iranian attacks force shutdown of Qatari production",
       "link": "https://www.ft.com/content/dac7a77d-e0f4-4f52-a3d4-55b145e67347",
-      "summary": "Retaliatory strikes also hit Saudi Arabia refinery",
-      "published": "Mon, 02 Mar 2026 12:18:38 GMT",
+      "summary": "Saudi Arabia also closes an oil refinery after strike",
+      "published": "Mon, 02 Mar 2026 16:12:41 GMT",
       "source_id": "financial-times",
       "source_name": "Financial Times",
       "feed_name": "Top Stories",
@@ -410,18 +600,42 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Gas prices are rising as Iranian attacks disrupt Qatari production and impact the region's oil supply.",
-      "ai_tags": [
-        "Iran",
-        "oil",
-        "economy",
-        "energy"
-      ]
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:27:27.836973+00:00",
+        "final_url": "https://www.ft.com/content/dac7a77d-e0f4-4f52-a3d4-55b145e67347",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Gas prices soar as Iranian attacks force shutdown of Qatari production",
+        "description": "Saudi Arabia also closes an oil refinery after strike",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.ft.com/content/dac7a77d-e0f4-4f52-a3d4-55b145e67347",
+        "language": "en-GB",
+        "h1": "Gas prices soar as Iranian attacks force shutdown of Qatari production",
+        "lead_paragraph": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
+        "paragraph_count": 9,
+        "word_count": 109,
+        "top_keywords": [
+          "access",
+          "digital",
+          "complete",
+          "quality",
+          "journalism",
+          "your",
+          "device",
+          "year",
+          "upfront",
+          "save",
+          "prices",
+          "soar"
+        ]
+      },
+      "scrape_error": null
     },
     {
       "id": "dd54cefcba82",
-      "title": "Watch live: Hegseth says Iran war will not be \u2018endless\u2019 after three US jets downed in Kuwait",
+      "title": "Hegseth says Iran war will not be \u2018endless\u2019 after three US jets downed in Kuwait",
       "link": "https://www.ft.com/content/91cae073-71db-46ea-a950-62b17faf1882",
       "summary": "Oil price surges and stocks fall as conflict intensifies",
       "published": "Sun, 01 Mar 2026 23:05:12 GMT",
@@ -432,14 +646,38 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Live coverage discusses the implications of the downing of U.S. jets in Kuwait amid escalating conflict.",
-      "ai_tags": [
-        "military",
-        "Kuwait",
-        "Iran",
-        "US"
-      ]
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:27:28.768824+00:00",
+        "final_url": "https://www.ft.com/content/91cae073-71db-46ea-a950-62b17faf1882",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Iran conflict: Hegseth says war will not be \u2018endless\u2019 after three jets downed in Kuwait",
+        "description": "Oil price surges and stocks fall as conflict intensifies",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.ft.com/content/91cae073-71db-46ea-a950-62b17faf1882",
+        "language": "en-GB",
+        "h1": "Iran conflict: Hegseth says war will not be \u2018endless\u2019 after three jets downed in Kuwait",
+        "lead_paragraph": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
+        "paragraph_count": 9,
+        "word_count": 109,
+        "top_keywords": [
+          "access",
+          "digital",
+          "complete",
+          "quality",
+          "journalism",
+          "your",
+          "device",
+          "year",
+          "upfront",
+          "save",
+          "iran",
+          "conflict"
+        ]
+      },
+      "scrape_error": null
     },
     {
       "id": "5936afa388d0",
@@ -454,13 +692,90 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Iran has adopted a new strategy of launching missile and drone attacks against Israel while targeting Gulf locations.",
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:27:29.864787+00:00",
+        "final_url": "https://www.ft.com/content/f2eae858-a5a4-4c49-9526-e1757a2d55e2",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Military briefing: Iran\u2019s new retaliation strategy",
+        "description": "Islamic republic launches \u2018drizzle\u2019 of missiles and drones against Israel while firing barrages at targets around the Gulf",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.ft.com/content/f2eae858-a5a4-4c49-9526-e1757a2d55e2",
+        "language": "en-GB",
+        "h1": "Military briefing: Iran\u2019s new retaliation strategy",
+        "lead_paragraph": "Get 2 months free with an annual subscription at was $59.88 now $49 . Access to eight surprising articles a day, hand-picked by FT editors. For seamless reading, access content via the FT Edit page on FT.com and receive the FT Edit newsletter.",
+        "paragraph_count": 9,
+        "word_count": 149,
+        "top_keywords": [
+          "access",
+          "digital",
+          "your",
+          "quality",
+          "journalism",
+          "content",
+          "edit",
+          "complete",
+          "device",
+          "year",
+          "upfront",
+          "save"
+        ]
+      },
+      "scrape_error": null
+    },
+    {
+      "id": "0ae7713a8d2a",
+      "title": "Oil prices surge and stocks fall amid fears over Iran war",
+      "link": "https://www.npr.org/2026/03/02/nx-s1-5732287/iran-war-oil-gasoline-prices",
+      "summary": "Global oil prices are in the high $70s as traffic through Strait of Hormuz comes to a halt. Some analysts have warned they could top $100 a barrel if the stoppage is prolonged.",
+      "published": "Mon, 02 Mar 2026 09:42:13 -0500",
+      "source_id": "npr",
+      "source_name": "NPR",
+      "feed_name": "News",
+      "feed_url": "https://feeds.npr.org/1001/rss.xml",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:27:30.415581+00:00",
+        "final_url": "https://www.npr.org/2026/03/02/nx-s1-5732287/iran-war-oil-gasoline-prices",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Oil prices surge and stocks fall amid fears over Iran war",
+        "description": "Global oil prices are in the high $70s as traffic through Strait of Hormuz comes to a halt. Some analysts have warned they could top $100 a barrel if the stoppage is prolonged.",
+        "author": null,
+        "published_at": "2026-03-02T00:00:00",
+        "canonical_url": "https://www.npr.org/2026/03/02/nx-s1-5732287/iran-war-oil-gasoline-prices",
+        "language": "en",
+        "h1": "Oil prices surge and stocks fall amid fears over Iran war",
+        "lead_paragraph": "Conflict in the Middle East has been escalating. These stories provide context for current developments and the history that led up to them.",
+        "paragraph_count": 15,
+        "word_count": 479,
+        "top_keywords": [
+          "prices",
+          "strait",
+          "iran",
+          "global",
+          "natural",
+          "been",
+          "through",
+          "hormuz",
+          "tanker",
+          "israel",
+          "crude",
+          "trading"
+        ]
+      },
+      "scrape_error": null,
+      "ai_summary": "President Trump is expected to address the ongoing conflict with Iran during a Medal of Honor ceremony.",
       "ai_tags": [
+        "Trump",
         "Iran",
         "military",
-        "Israel",
-        "conflict"
+        "ceremony"
       ]
     },
     {
@@ -476,14 +791,38 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Hegseth asserts that the U.S. did not initiate the war with Iran, but under Trump, they aim to conclude it.",
-      "ai_tags": [
-        "Trump",
-        "Iran",
-        "military",
-        "politics"
-      ]
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:27:30.880989+00:00",
+        "final_url": "https://www.npr.org/2026/03/02/nx-s1-5732258/us-iran-hegseth-caine",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Hegseth: 'We didn't start this war but under President Trump we're finishing it'",
+        "description": "The remarks are the first to reporters since the U.S.-Israeli military operations against Iran began Saturday despite weeks of talks designed to stave off a conflict.",
+        "author": null,
+        "published_at": "2026-03-02T00:00:00",
+        "canonical_url": "https://www.npr.org/2026/03/02/nx-s1-5732258/us-iran-hegseth-caine",
+        "language": "en",
+        "h1": "Hegseth: 'We didn't start this war but under President Trump we're finishing it'",
+        "lead_paragraph": "Conflict in the Middle East has been escalating. These stories provide context for current developments and the history that led up to them.",
+        "paragraph_count": 18,
+        "word_count": 431,
+        "top_keywords": [
+          "iran",
+          "hegseth",
+          "conflict",
+          "caine",
+          "military",
+          "will",
+          "didn't",
+          "start",
+          "president",
+          "trump",
+          "we're",
+          "finishing"
+        ]
+      },
+      "scrape_error": null
     },
     {
       "id": "89c5a2f90c60",
@@ -498,48 +837,336 @@
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "The conflict between the U.S., Israel, and Iran is escalating, with implications for Latino support for the GOP in Texas primaries.",
-      "ai_tags": [
-        "Iran",
-        "US",
-        "Israel",
-        "politics"
-      ]
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:27:31.392686+00:00",
+        "final_url": "https://www.npr.org/2026/03/02/g-s1-112159/up-first-newsletter-iran-israel-us-trump-texas-latinos-gun-law-marijuana",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "U.S., Israel's war with Iran widens. And, Texas primaries test Latino support for GOP",
+        "description": "Israel trades fire with Hezbollah, widening the U.S. and Israel's war with Iran into Lebanon. And, Texas primaries could test if Latino support for the GOP remains strong after 2024's gains.",
+        "author": null,
+        "published_at": "2026-03-02T00:00:00",
+        "canonical_url": "https://www.npr.org/2026/03/02/g-s1-112159/up-first-newsletter-iran-israel-us-trump-texas-latinos-gun-law-marijuana",
+        "language": "en",
+        "h1": "U.S., Israel's war with Iran widens. And, Texas primaries test Latino support for GOP",
+        "lead_paragraph": "Good morning. You're reading the Up First newsletter. Subscribe here to get it delivered to your inbox, and listen to the Up First podcast for all the news you need to start your day.",
+        "paragraph_count": 22,
+        "word_count": 894,
+        "top_keywords": [
+          "seat",
+          "iran",
+          "texas",
+          "latino",
+          "here",
+          "your",
+          "hide",
+          "caption",
+          "used",
+          "safety",
+          "seats",
+          "correctly"
+        ]
+      },
+      "scrape_error": null
     },
     {
-      "id": "72a19eea9537",
-      "title": "Ivermectin is making a post-pandemic comeback, among cancer patients",
-      "link": "https://www.npr.org/2026/03/02/nx-s1-5729102/ivermectin-politics-treatment-cancer-evidence",
-      "summary": "The anti-parasitic drug became a household name during the COVID-19 pandemic, and it is now being embraced as an alternative treatment for cancer. It is as politically polarizing as ever.",
-      "published": "Mon, 02 Mar 2026 07:00:00 -0500",
-      "source_id": "npr",
-      "source_name": "NPR",
-      "feed_name": "News",
-      "feed_url": "https://feeds.npr.org/1001/rss.xml",
+      "id": "27cb228863e1",
+      "title": "Trump has spent years deriding foreign entanglements. Now, he's taken the U.S. to war with Iran",
+      "link": "https://www.pbs.org/newshour/politics/trump-has-spent-years-deriding-foreign-entanglements-now-hes-taken-the-u-s-to-war-with-iran",
+      "summary": "Even Trump's closest advisers have been unable to point to any specific imminent threat to the U.S. from Iran that required urgent action.",
+      "published": "Mon, 02 Mar 2026 11:01:19 -0500",
+      "source_id": "pbs-newshour",
+      "source_name": "PBS NewsHour",
+      "feed_name": "Headlines",
+      "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines",
       "topic_tags": [
         "general"
       ],
-      "fetched_at": "2026-03-02T13:35:16Z",
-      "ai_summary": "Ivermectin is gaining attention as a potential alternative treatment for cancer, following its controversial use during the pandemic.",
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:27:31.831584+00:00",
+        "final_url": "https://www.pbs.org/newshour/politics/trump-has-spent-years-deriding-foreign-entanglements-now-hes-taken-the-u-s-to-war-with-iran",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Trump has spent years deriding foreign entanglements. Now, he's taken the U.S. to war with Iran",
+        "description": "Even Trump's closest advisers have been unable to point to any specific imminent threat to the U.S. from Iran that required urgent action.",
+        "author": null,
+        "published_at": "2026-03-02T11:01:19-05:00",
+        "canonical_url": "https://www.pbs.org/newshour/politics/trump-has-spent-years-deriding-foreign-entanglements-now-hes-taken-the-u-s-to-war-with-iran",
+        "language": "en-us",
+        "h1": "Trump has spent years deriding foreign entanglements. Now, he's taken the U.S. to war with Iran",
+        "lead_paragraph": "Stand up for truly independent, trusted news.",
+        "paragraph_count": 48,
+        "word_count": 1009,
+        "top_keywords": [
+          "iran",
+          "trump",
+          "middle",
+          "military",
+          "years",
+          "foreign",
+          "entanglements",
+          "taken",
+          "matthew",
+          "associated",
+          "press",
+          "your"
+        ]
+      },
+      "scrape_error": null
+    },
+    {
+      "id": "ae042d1afbe0",
+      "title": "WATCH LIVE: Trump may address war with Iran at Medal of Honor ceremony",
+      "link": "https://www.pbs.org/newshour/politics/watch-live-trump-may-address-war-with-iran-at-medal-of-honor-ceremony",
+      "summary": "President Donald Trump is awarding the medal to three U.S. Army soldiers who served in World War II, Vietnam and Afghanistan, respectively.",
+      "published": "Mon, 02 Mar 2026 11:01:09 -0500",
+      "source_id": "pbs-newshour",
+      "source_name": "PBS NewsHour",
+      "feed_name": "Headlines",
+      "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:27:32.249573+00:00",
+        "final_url": "https://www.pbs.org/newshour/politics/watch-live-trump-may-address-war-with-iran-at-medal-of-honor-ceremony",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "WATCH LIVE: Trump may address war with Iran at Medal of Honor ceremony",
+        "description": "President Donald Trump is awarding the medal to three U.S. Army soldiers who served in World War II, Vietnam and Afghanistan, respectively.",
+        "author": null,
+        "published_at": "2026-03-02T11:01:09-05:00",
+        "canonical_url": "https://www.pbs.org/newshour/politics/watch-live-trump-may-address-war-with-iran-at-medal-of-honor-ceremony",
+        "language": "en-us",
+        "h1": "WATCH LIVE: Trump may address war with Iran at Medal of Honor ceremony",
+        "lead_paragraph": "Stand up for truly independent, trusted news.",
+        "paragraph_count": 29,
+        "word_count": 228,
+        "top_keywords": [
+          "trump",
+          "iran",
+          "ceremony",
+          "associated",
+          "press",
+          "watch",
+          "live",
+          "address",
+          "medal",
+          "trusted",
+          "molly",
+          "finnegan"
+        ]
+      },
+      "scrape_error": null
+    },
+    {
+      "id": "f5644ccf7d0b",
+      "title": "What to know about the joint U.S.-Israeli attacks on Iran",
+      "link": "https://www.pbs.org/newshour/world/what-to-know-about-the-joint-u-s-israeli-attacks-on-iran",
+      "summary": "In a video posted Sunday, President Donald Trump said that the operation in Iran \u2014 which he described as \"one of the most complex, most overwhelming military offensives the world has ever seen\" \u2014 will continue until \"all of our objectives\" are achieved.",
+      "published": "Mon, 02 Mar 2026 10:52:52 -0500",
+      "source_id": "pbs-newshour",
+      "source_name": "PBS NewsHour",
+      "feed_name": "Headlines",
+      "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:27:32.609806+00:00",
+        "final_url": "https://www.pbs.org/newshour/world/what-to-know-about-the-joint-u-s-israeli-attacks-on-iran",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "What to know about the joint U.S.-Israeli attacks on Iran",
+        "description": "In a video posted Sunday, President Donald Trump said that the operation in Iran \u2014 which he described as \"one of the most complex, most overwhelming military offensives the world has ever seen\" \u2014 will continue until \"all of our objectives\" are achieved.",
+        "author": null,
+        "published_at": "2026-03-02T10:52:52-05:00",
+        "canonical_url": "https://www.pbs.org/newshour/world/what-to-know-about-the-joint-u-s-israeli-attacks-on-iran",
+        "language": "en-us",
+        "h1": "What to know about the joint U.S.-Israeli attacks on Iran",
+        "lead_paragraph": "Stand up for truly independent, trusted news.",
+        "paragraph_count": 62,
+        "word_count": 1419,
+        "top_keywords": [
+          "attacks",
+          "iran",
+          "israeli",
+          "associated",
+          "press",
+          "joint",
+          "foster",
+          "klug",
+          "angela",
+          "charlton",
+          "expanded",
+          "monday"
+        ]
+      },
+      "scrape_error": null,
+      "ai_summary": "President Trump described the recent military operation in Iran as one of the most complex offensives in history.",
       "ai_tags": [
-        "health",
-        "cancer",
-        "treatment",
-        "politics"
+        "Trump",
+        "Iran",
+        "military operation",
+        "offensive"
+      ]
+    },
+    {
+      "id": "7a65b0d6d44d",
+      "title": "Adams unloads on Mamdani over Iran, says he\u2019s choosing \u2018tyrants over victims\u2019",
+      "link": "https://www.foxnews.com/politics/adams-unloads-mamdani-over-iran-says-hes-choosing-tyrants-over-victims",
+      "summary": "Former NYC Mayor Eric Adams criticizes successor Zohran Mamdani over Iran strikes response, calling critics of military action \"morally hollow\" defenders.",
+      "published": "Mon, 02 Mar 2026 11:05:58 -0500",
+      "source_id": "fox-news",
+      "source_name": "Fox News",
+      "feed_name": "Latest",
+      "feed_url": "http://feeds.foxnews.com/foxnews/latest",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:27:32.982418+00:00",
+        "final_url": "https://www.foxnews.com/politics/adams-unloads-mamdani-over-iran-says-hes-choosing-tyrants-over-victims",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Adams unloads on Mamdani over Iran, says he\u2019s choosing \u2018tyrants over victims\u2019",
+        "description": "Former NYC mayor Eric Adams criticizes his Democratic socialist successor Zohran Mamdani over response to U.S.-Israeli strikes on Iran, saying politicians defend Iranian regime.",
+        "author": "Charles Creitz",
+        "published_at": "2026-03-02T00:00:00",
+        "canonical_url": "https://www.foxnews.com/politics/adams-unloads-mamdani-over-iran-says-hes-choosing-tyrants-over-victims",
+        "language": "en",
+        "h1": "Adams unloads on Mamdani over Iran, says he\u2019s choosing \u2018tyrants over victims\u2019",
+        "lead_paragraph": "This material may not be published, broadcast, rewritten, or redistributed. \u00a92026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
+        "paragraph_count": 30,
+        "word_count": 858,
+        "top_keywords": [
+          "adams",
+          "mamdani",
+          "york",
+          "mayor",
+          "iranian",
+          "people",
+          "city",
+          "eric",
+          "zohran",
+          "will",
+          "regime",
+          "images"
+        ]
+      },
+      "scrape_error": null
+    },
+    {
+      "id": "59cdb042fbdb",
+      "title": "1 in 4 Americans back Trump\u2019s Iran strikes, most say he\u2019s too quick to use force: poll",
+      "link": "https://www.foxnews.com/politics/1-4-americans-back-trumps-iran-strikes-most-say-hes-too-quick-use-force-poll",
+      "summary": "New poll shows 27% of Americans approve U.S. military strikes on Iran ordered by Trump, with Republicans supporting 55%-32% while Democrats oppose 73%-7%.",
+      "published": "Mon, 02 Mar 2026 11:05:53 -0500",
+      "source_id": "fox-news",
+      "source_name": "Fox News",
+      "feed_name": "Latest",
+      "feed_url": "http://feeds.foxnews.com/foxnews/latest",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:27:33.349733+00:00",
+        "final_url": "https://www.foxnews.com/politics/1-4-americans-back-trumps-iran-strikes-most-say-hes-too-quick-use-force-poll",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "1 in 4 Americans back Trump\u2019s Iran strikes, most say he\u2019s too quick to use force: poll",
+        "description": "Operation Epic Fury, the joint U.S.-Israeli military operation against Iran ordered by President Donald Trump, has divided Americans along partisan lines according to a weekend poll.",
+        "author": "Paul Steinhauser",
+        "published_at": "2026-03-02T00:00:00",
+        "canonical_url": "https://www.foxnews.com/politics/1-4-americans-back-trumps-iran-strikes-most-say-hes-too-quick-use-force-poll",
+        "language": "en",
+        "h1": "1 in 4 Americans back Trump\u2019s Iran strikes, most say he\u2019s too quick to use force: poll",
+        "lead_paragraph": "This material may not be published, broadcast, rewritten, or redistributed. \u00a92026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
+        "paragraph_count": 27,
+        "word_count": 806,
+        "top_keywords": [
+          "military",
+          "iran",
+          "strikes",
+          "operation",
+          "trump",
+          "americans",
+          "poll",
+          "israeli",
+          "force",
+          "data",
+          "provided",
+          "factset"
+        ]
+      },
+      "scrape_error": null,
+      "ai_summary": "A new poll indicates that 27% of Americans support Trump's military strikes on Iran, with significant partisan divides.",
+      "ai_tags": [
+        "poll",
+        "Trump",
+        "Iran",
+        "public opinion"
+      ]
+    },
+    {
+      "id": "f61712379adf",
+      "title": "Liberal CNN guest apologizes after falsely claiming Trump called for Democrats to be 'killed'",
+      "link": "https://www.foxnews.com/media/liberal-cnn-guest-apologizes-after-falsely-claiming-trump-called-democrats-killed",
+      "summary": "Podcast host and TikToker Leigh McGowan faced strong pushback on CNN Friday for an inaccurate claim about President Donald Trump's State of the Union, prompting her to apologize.",
+      "published": "Mon, 02 Mar 2026 10:42:54 -0500",
+      "source_id": "fox-news",
+      "source_name": "Fox News",
+      "feed_name": "Latest",
+      "feed_url": "http://feeds.foxnews.com/foxnews/latest",
+      "topic_tags": [
+        "general"
+      ],
+      "fetched_at": "2026-03-02T16:26:45Z",
+      "scraped": {
+        "fetched_at": "2026-03-02T16:27:33.713663+00:00",
+        "final_url": "https://www.foxnews.com/media/liberal-cnn-guest-apologizes-after-falsely-claiming-trump-called-democrats-killed",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Liberal CNN guest apologizes after falsely claiming Trump called for Democrats to be 'killed'",
+        "description": "Liberal podcast host Leigh McGowan apologized during a panel discussion on CNN after falsely claiming President Donald Trump said Democrats should be \"killed.\"",
+        "author": "Hanna Panreck",
+        "published_at": "2026-03-02T00:00:00",
+        "canonical_url": "https://www.foxnews.com/media/liberal-cnn-guest-apologizes-after-falsely-claiming-trump-called-democrats-killed",
+        "language": "en",
+        "h1": "Liberal CNN guest apologizes after falsely claiming Trump called for Democrats to be 'killed'",
+        "lead_paragraph": "This material may not be published, broadcast, rewritten, or redistributed. \u00a92026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
+        "paragraph_count": 31,
+        "word_count": 773,
+        "top_keywords": [
+          "mcgowan",
+          "president",
+          "trump",
+          "democrats",
+          "killed",
+          "government",
+          "called",
+          "leigh",
+          "apologized",
+          "during",
+          "anthropic",
+          "liberal"
+        ]
+      },
+      "scrape_error": null,
+      "ai_summary": "A CNN guest apologized for inaccurately claiming that Trump called for violence against Democrats.",
+      "ai_tags": [
+        "CNN",
+        "Trump",
+        "media",
+        "apology"
       ]
     }
   ],
-  "errors": [
-    {
-      "feed_url": "https://feeds.reuters.com/reuters/topNews",
-      "source_id": "reuters",
-      "error": "<urlopen error [Errno -2] Name or service not known>"
-    },
-    {
-      "feed_url": "https://rssfeeds.usatoday.com/usatoday-NewsTopStories",
-      "source_id": "usa-today",
-      "error": "Feed parse error: <unknown>:2:0: syntax error"
-    }
-  ]
+  "errors": []
 }
