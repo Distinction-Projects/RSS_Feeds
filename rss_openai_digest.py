@@ -102,13 +102,17 @@ def select_feeds(catalog, max_sources, feeds_per_source, source_ids):
     selected_sources = 0
     sources = catalog.get("sources") or []
     for source in sources:
+        if source.get("enabled") is False:
+            continue
         if source_ids and source.get("id") not in source_ids:
             continue
-        if selected_sources >= max_sources:
-            break
-        selected_sources += 1
         feed_list = source.get("feeds") or []
-        for feed in feed_list[:feeds_per_source]:
+        selected_feed_count = 0
+        for feed in feed_list:
+            if feed.get("enabled") is False:
+                continue
+            if selected_feed_count >= feeds_per_source:
+                break
             feeds.append(
                 {
                     "source_id": source.get("id"),
@@ -118,6 +122,12 @@ def select_feeds(catalog, max_sources, feeds_per_source, source_ids):
                     "topic_tags": feed.get("topic_tags") or [],
                 }
             )
+            selected_feed_count += 1
+        if selected_feed_count == 0:
+            continue
+        selected_sources += 1
+        if selected_sources >= max_sources:
+            break
     return feeds
 
 
