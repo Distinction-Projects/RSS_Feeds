@@ -1,56 +1,61 @@
-# Repository Structure (Root)
+# Repository Structure
 
-## File structure
-- AGENTS.md (agent mission + conventions)
-- CONTINUITY.md (running summary for compacted context)
-- Makefile
-- pyproject.toml (Ruff + MyPy configuration)
-- readme.md (overview + RSS/OpenAI workflow)
-- requirements.txt
-- requirements-dev.txt (dev toolchain dependencies: Ruff + MyPy)
-- serialization_utils.py (shared Pydantic TypeAdapter cache + strict JSON validation/dump helpers)
-- rss_openai_digest.py (RSS fetch + OpenAI summarize)
-- load_experiment.py (schema-tolerant loader + summary stats for digest files)
-- scrape_experiment_links.py (optional page scrape enrichment for digest items)
-- run_pre_openai.py (pre-OpenAI orchestration)
-- lens.py (lens/rubric/score models + JSON helpers)
-- score_news_item.py (OpenAI rubric scoring over digest items)
-- run_post_openai.py (post-OpenAI analysis orchestration)
-- build_lens_article_matrix.py (matrix output builder)
-- analyze_lens_scores.py (lens covariance/correlation outputs)
-- analysis_report.py (full HTML analysis report)
-- workflow_diagram.md (analysis/scoring workflow diagram)
-- newsdata_client.py (NewsData fetch + dump append)
-- newsdata_test.py (NewsData smoke test)
-- newsdata.md (NewsData plan + quick start)
-- mermaid.md (diagram notes)
-- analysis_module/ (shared analysis helpers)
-- lenses/ (lens definitions + ignore list)
-- notebooks/ (optional exploratory notebooks for analysis)
-- requirements-notebooks.txt (optional notebook dependencies)
-- feed_catalog/ (RSS feed definitions)
-- data/ (daily output + history)
-- tests/ (offline contract tests + deterministic fixtures)
-- .github/ (GitHub workflows)
-- .codex/ (Codex agent config)
+## Root
+- `readme.md`: usage, contracts, CLI entrypoints.
+- `Makefile`: local install/validation/pipeline commands.
+- `pyproject.toml`: Ruff + MyPy config.
+- `requirements.txt`, `requirements-dev.txt`, `requirements-notebooks.txt`.
+- `CONTINUITY.md`: compact milestone log.
 
-## Methods/functions to use
-- rss_openai_digest.py: prefer these entry points/helpers when changing RSS/OpenAI behavior:
-  - main(), parse_args() for CLI behavior and orchestration.
-  - load_catalog(), select_feeds() for catalog handling and filtering.
-  - fetch_feed_items(), item_id() for RSS retrieval + stable IDs.
-  - build_openai_messages(), call_openai(), extract_json(), usage_to_dict() for OpenAI request/response flow.
-  - strip_html(), compact_text(), utc_now(), load_env_value(), read_env_file() for utilities.
-- newsdata_client.py: use these when updating NewsData ingestion:
-  - main(), parse_args() for CLI behavior.
-  - load_api_key(), read_env_file() for credentials.
-  - fetch_newsdata() for API calls.
-  - load_dump(), save_dump(), article_key() for dedupe and persistence.
-  - utc_now() for timestamps.
-- newsdata_test.py: main() is the workflow entry point; keep it aligned with the workflow.
-- load_experiment.py: use `load_experiment()`, `load_experiments()`, `ExperimentData.from_payload()` for schema-flexible parsing of RSS digest JSON.
-  - Canonical JSON API for dataclasses: `from_json(..., strict=False|True)` and `to_json(...)`.
-- scrape_experiment_links.py: use `scrape_experiment_data()` and `scrape_article()` to enrich items with normalized page metadata/content stats.
-- lens.py: use `load_lens()`, `load_lenses()`, `load_scores()`, plus dataclass JSON APIs (`from_json`, `to_json`) for strict/compat serialization paths.
-- score_news_item.py: use `main()` CLI for rubric scoring, or `score_news_item_with_lens()` when integrating programmatically.
-- Makefile quality gates: use `make lint`, `make format-check`, `make typecheck`, and `make check-offline` for deterministic non-OpenAI validation.
+## Package-first runtime (`rss_pipeline/`)
+- `cli.py`: Typer CLI (`rssctl`).
+- `config.py`: runtime defaults and config dataclasses.
+- `errors.py`: pipeline error types.
+- `logging.py`: shared logging setup.
+- `workflow_runtime.py`: run IDs, timestamps, runtime context.
+- `artifact_store.py`: JSON writes, archive writes, audit exports.
+- `cache_sqlite.py`: SQLite cache + audit persistence.
+- `openai_client.py`: official OpenAI SDK wrapper with cache/audit wiring.
+- `prompt_builder.py`: digest and scoring prompt builders.
+- `models_digest.py`: V2 digest dataclasses.
+- `models_lens.py`: lens model exports.
+- `models_score.py`: score model exports.
+- `pipeline_digest.py`: RSS fetch/scrape/summarize pipeline.
+- `pipeline_score.py`: rubric scoring pipeline.
+- `pipeline_analysis.py`: pre/post analysis orchestration.
+- `pipeline_newsdata.py`: NewsData fetch/test pipeline.
+- `env.py`, `process.py`, `time_utils.py`: shared utility layer.
+
+## Legacy wrappers (thin delegators)
+- `rss_openai_digest.py` -> `rssctl digest build`
+- `score_news_item.py` -> `rssctl score run`
+- `run_pre_openai.py` -> `rssctl pre-openai`
+- `run_post_openai.py` -> `rssctl analysis run`
+- `newsdata_client.py` -> `rssctl newsdata fetch`
+- `newsdata_test.py` -> `rssctl newsdata test`
+
+## Data contracts
+- Canonical digest: `data/rss_openai_daily.json` (`schema_version: 2.0`)
+- History snapshots: `data/history/rss_openai_daily_YYYY-MM-DD.json`
+- Cache DB: `data/cache/openai_cache.sqlite`
+- Prompt audit exports: `data/analysis/prompt_audit/`
+- Scores: `data/scores.json`
+- High-score output: `data/high_scoring_articles.json`
+- Analysis output root: `data/analysis/`
+
+## Analysis/scoring assets
+- `analysis_module/`: shared stats/reporting helpers.
+- `lenses/`: lens/rubric definitions.
+- `lens.py`: dataclasses + validation + JSON serialization APIs.
+- `load_experiment.py`: digest loader (compat + strict JSON paths).
+- `serialization_utils.py`: shared `TypeAdapter` helpers.
+
+## Tests and fixtures
+- `tests/test_serialization_contracts.py`: deterministic offline serialization/invariant checks.
+- `tests/fixtures/`: canonical + legacy digest fixtures, lens fixture, score fixtures.
+
+## Workflows
+- `.github/workflows/rss_pipeline_smoke.yml`: push/PR/manual smoke checks.
+- `.github/workflows/rss_pipeline_canary.yml`: manual canary (no OpenAI calls).
+- `.github/workflows/daily_rss_openai.yml`: manual digest run + commit.
+- `.github/workflows/daily_newsdata_test.yml`: manual NewsData test run.
