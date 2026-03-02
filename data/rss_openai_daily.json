@@ -1,13 +1,13 @@
 {
   "schema_version": "2.0",
   "run": {
-    "id": "digest-20260302T203830-998d18eecb",
-    "generated_at": "2026-03-02T20:38:30Z",
-    "duration_seconds": 25.132,
+    "id": "digest-20260302T204238-1f9342fd6a",
+    "generated_at": "2026-03-02T20:42:38Z",
+    "duration_seconds": 73.843,
     "command": "/home/runner/work/RSS_Feeds/RSS_Feeds/rss_pipeline/cli.py digest build --output data/rss_openai_daily.json --max-sources 10 --feeds-per-source 1 --max-items-per-feed 3 --skip-seen --scrape-timeout-seconds 12 --scrape-sleep-seconds 0.25 --cache-path data/cache/openai_cache.sqlite --prompt-audit-dir data/analysis/prompt_audit",
     "tool_version": "rss_pipeline/2.0"
   },
-  "generated_at": "2026-03-02T20:38:30Z",
+  "generated_at": "2026-03-02T20:42:38Z",
   "request": {
     "catalog_path": "feed_catalog/rss_feeds.json",
     "skip_seen_items": true,
@@ -115,11 +115,11 @@
   "openai": {
     "enabled": true,
     "model": "gpt-4o-mini",
-    "response_id": "chatcmpl-DF4KNrFb2qcW3OVtEZpeHB8kIAuHy",
+    "response_id": "chatcmpl-DF4OzTCQenAQUHXBlR7oTsK6sj4Yl",
     "usage": {
-      "completion_tokens": 522,
-      "prompt_tokens": 1714,
-      "total_tokens": 2236,
+      "completion_tokens": 858,
+      "prompt_tokens": 2128,
+      "total_tokens": 2986,
       "completion_tokens_details": {
         "accepted_prediction_tokens": 0,
         "audio_tokens": 0,
@@ -144,11 +144,11 @@
   },
   "items": [
     {
-      "id": "da8550cbf5de",
-      "title": "What is behind the strategy to take out Iran's leadership?",
-      "link": "https://www.bbc.com/news/articles/cly8gqj9r6go?at_medium=RSS&at_campaign=rss",
-      "summary": "Security correspondent Gordon Corera looks at what is likely to happen now that joint US and Israeli attacks have taken out some of the Iran's most senior leadership.",
-      "published": "Mon, 02 Mar 2026 19:52:20 GMT",
+      "id": "103582f78729",
+      "title": "Starmer criticises Trump, saying UK 'does not believe in regime change from skies'",
+      "link": "https://www.bbc.com/news/articles/cj0dnq2v0e2o?at_medium=RSS&at_campaign=rss",
+      "summary": "The PM told MPs that Trump had expressed his disagreement with the decision not to get involved in the initial strikes.",
+      "published": "Mon, 02 Mar 2026 19:32:13 GMT",
       "source": {
         "id": "bbc-news",
         "name": "BBC News"
@@ -161,45 +161,44 @@
         "general"
       ],
       "scraped": {
-        "fetched_at": "2026-03-02T20:38:43.469642+00:00",
-        "final_url": "https://www.bbc.com/news/articles/cly8gqj9r6go?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-03-02T20:42:51.058552+00:00",
+        "final_url": "https://www.bbc.com/news/articles/cj0dnq2v0e2o?at_medium=RSS&at_campaign=rss",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "What is behind the strategy to take out Iran's leadership?",
-        "description": "Security correspondent Gordon Corera looks at what is likely to happen now that joint US and Israeli attacks have taken out some of the Iran's most senior leadership.",
+        "title": "Starmer criticises Trump over Iran strikes, as he defends UK position",
+        "description": "The PM told MPs that Trump had expressed his disagreement with the decision not to get involved in the initial strikes.",
         "author": null,
         "published_at": null,
-        "canonical_url": "https://www.bbc.com/news/articles/cly8gqj9r6go",
+        "canonical_url": "https://www.bbc.com/news/articles/cj0dnq2v0e2o",
         "language": "en-GB",
-        "h1": "What is behind the strategy to take out Iran's leadership?",
-        "lead_paragraph": "The US and Israel have said they have air superiority over parts of Iran, allowing their jets to strike targets at will.",
+        "h1": "Starmer criticises Trump over Iran strikes, as he defends UK position",
+        "lead_paragraph": "Sir Keir Starmer has told MPs that the government \"does not believe in regime change from the skies\", putting him at odds with President Trump over the joint US-Israeli strikes on Iran.",
         "paragraph_count": 34,
-        "word_count": 838,
+        "word_count": 941,
         "top_keywords": [
-          "iran's",
-          "behind",
-          "strategy",
-          "israel",
-          "superiority",
+          "strikes",
           "iran",
-          "strike",
-          "intelligence",
-          "multiple",
-          "iranian",
-          "leaders",
-          "struck"
+          "keir",
+          "decision",
+          "bases",
+          "trump",
+          "told",
+          "british",
+          "starmer",
+          "president",
+          "initial",
+          "attacks"
         ]
       },
       "scrape_error": null,
-      "ai_summary": "Joint US and Israeli attacks have targeted Iran's senior leadership, raising questions about the future of the country's governance.",
+      "ai_summary": "Sir Keir Starmer criticized President Trump for advocating military intervention in Iran, asserting that the UK does not support regime change through airstrikes.",
       "ai_tags": [
+        "UK Politics",
+        "Trump",
         "Iran",
-        "US",
-        "Israel",
-        "military",
-        "leadership"
+        "Military Intervention"
       ],
-      "fetched_at": "2026-03-02T20:38:30Z",
+      "fetched_at": "2026-03-02T20:42:38Z",
       "audit": {
         "provenance": {
           "source_id": "bbc-news",
@@ -208,10 +207,10 @@
           "feed_url": "http://feeds.bbci.co.uk/news/rss.xml"
         },
         "openai": {
-          "cache_key": "a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "prompt_hash": "e750e051f58443dd5f7f4e31f65dc02d3ca6e095a0ef9a5df05ede6a00b7c54e",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T203830-998d18eecb/a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "response_hash": "0af9800bccb2c8676082b61647598808b79b5ae226a9c2375f50241dff1f4808"
+          "cache_key": "193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "prompt_hash": "a84cbee25cb94b730cc89e8eb71c041c4b42671cfaf47880190269ccd2d1c7db",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T204238-1f9342fd6a/193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "response_hash": "d65e18909d7ea86d2243ad3721df65ded5045bd5f4284a92f1700191fbb2b643"
         }
       },
       "source_id": "bbc-news",
@@ -220,11 +219,587 @@
       "feed_url": "http://feeds.bbci.co.uk/news/rss.xml"
     },
     {
-      "id": "38bfaafb58d2",
-      "title": "Some Middle East flights resume, but thousands of travelers are still stranded by war",
-      "link": "https://www.npr.org/2026/03/02/nx-s1-5732784/iran-war-flights-travelers-stranded",
-      "summary": "Limited flights out of the Middle East resumed on Monday. But hundreds of thousands of travelers are still stranded in the region after attacks on Iran by the U.S. and Israel.",
-      "published": "Mon, 02 Mar 2026 14:29:03 -0500",
+      "id": "ee2513f1eb13",
+      "title": "Three days in, we still have no idea where this war is heading",
+      "link": "https://www.bbc.com/news/articles/c178z0p902vo?at_medium=RSS&at_campaign=rss",
+      "summary": "It's hard to predict how the war will end - but those fighting know how they would like it to.",
+      "published": "Mon, 02 Mar 2026 18:48:02 GMT",
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "feed": {
+        "name": "Top Stories",
+        "url": "http://feeds.bbci.co.uk/news/rss.xml"
+      },
+      "topic_tags": [
+        "general"
+      ],
+      "scraped": {
+        "fetched_at": "2026-03-02T20:42:51.407662+00:00",
+        "final_url": "https://www.bbc.com/news/articles/c178z0p902vo?at_medium=RSS&at_campaign=rss",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Bowen: Three days in, we still have no idea where this war is heading",
+        "description": "It's hard to predict how the war will end - but those fighting know how they would like it to.",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.bbc.com/news/articles/c178z0p902vo",
+        "language": "en-GB",
+        "h1": "Three days in, we still have no idea where this war is heading",
+        "lead_paragraph": "It is only day three of the new war between the United States, Israel and Iran.",
+        "paragraph_count": 51,
+        "word_count": 2064,
+        "top_keywords": [
+          "will",
+          "trump",
+          "been",
+          "people",
+          "president",
+          "three",
+          "iran",
+          "iran's",
+          "missiles",
+          "going",
+          "regime",
+          "take"
+        ]
+      },
+      "scrape_error": null,
+      "ai_summary": "As the conflict between the United States, Israel, and Iran enters its third day, the outcome remains uncertain for those involved.",
+      "ai_tags": [
+        "War",
+        "Iran",
+        "US",
+        "Israel"
+      ],
+      "fetched_at": "2026-03-02T20:42:38Z",
+      "audit": {
+        "provenance": {
+          "source_id": "bbc-news",
+          "source_name": "BBC News",
+          "feed_name": "Top Stories",
+          "feed_url": "http://feeds.bbci.co.uk/news/rss.xml"
+        },
+        "openai": {
+          "cache_key": "193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "prompt_hash": "a84cbee25cb94b730cc89e8eb71c041c4b42671cfaf47880190269ccd2d1c7db",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T204238-1f9342fd6a/193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "response_hash": "d65e18909d7ea86d2243ad3721df65ded5045bd5f4284a92f1700191fbb2b643"
+        }
+      },
+      "source_id": "bbc-news",
+      "source_name": "BBC News",
+      "feed_name": "Top Stories",
+      "feed_url": "http://feeds.bbci.co.uk/news/rss.xml"
+    },
+    {
+      "id": "148a5fac2b97",
+      "title": "How Trump Decided to Go to War With Iran",
+      "link": "https://www.nytimes.com/2026/03/02/us/politics/trump-war-iran-israel.html",
+      "summary": "President Trump\u2019s embrace of military action in Iran was spurred by an Israeli leader determined to end diplomatic negotiations. Few of the president\u2019s advisers voiced opposition.",
+      "published": "Mon, 02 Mar 2026 19:52:23 +0000",
+      "source": {
+        "id": "new-york-times",
+        "name": "The New York Times"
+      },
+      "feed": {
+        "name": "Home Page",
+        "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+      },
+      "topic_tags": [
+        "general"
+      ],
+      "scraped": null,
+      "scrape_error": "HTTP Error 403: Forbidden",
+      "ai_summary": "President Trump's decision to engage militarily in Iran was influenced by an Israeli leader focused on ending diplomatic talks, with few advisers opposing the move.",
+      "ai_tags": [
+        "Trump",
+        "Iran",
+        "Military Action",
+        "Diplomacy"
+      ],
+      "fetched_at": "2026-03-02T20:42:38Z",
+      "audit": {
+        "provenance": {
+          "source_id": "new-york-times",
+          "source_name": "The New York Times",
+          "feed_name": "Home Page",
+          "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+        },
+        "openai": {
+          "cache_key": "193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "prompt_hash": "a84cbee25cb94b730cc89e8eb71c041c4b42671cfaf47880190269ccd2d1c7db",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T204238-1f9342fd6a/193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "response_hash": "d65e18909d7ea86d2243ad3721df65ded5045bd5f4284a92f1700191fbb2b643"
+        }
+      },
+      "source_id": "new-york-times",
+      "source_name": "The New York Times",
+      "feed_name": "Home Page",
+      "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+    },
+    {
+      "id": "0a8176986686",
+      "title": "As Trump Bombs Iran, America\u2019s Allies Watch Fitfully From Sidelines",
+      "link": "https://www.nytimes.com/2026/03/02/world/europe/trump-iran-europe.html",
+      "summary": "Disregarded by President Trump over Iran, Europe\u2019s leaders are adapting to a world in which they are little more than bystanders.",
+      "published": "Mon, 02 Mar 2026 12:07:45 +0000",
+      "source": {
+        "id": "new-york-times",
+        "name": "The New York Times"
+      },
+      "feed": {
+        "name": "Home Page",
+        "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+      },
+      "topic_tags": [
+        "general"
+      ],
+      "scraped": null,
+      "scrape_error": "HTTP Error 403: Forbidden",
+      "ai_summary": "European leaders are feeling sidelined as President Trump proceeds with military actions in Iran without their involvement.",
+      "ai_tags": [
+        "Trump",
+        "Iran",
+        "Europe",
+        "International Relations"
+      ],
+      "fetched_at": "2026-03-02T20:42:38Z",
+      "audit": {
+        "provenance": {
+          "source_id": "new-york-times",
+          "source_name": "The New York Times",
+          "feed_name": "Home Page",
+          "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+        },
+        "openai": {
+          "cache_key": "193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "prompt_hash": "a84cbee25cb94b730cc89e8eb71c041c4b42671cfaf47880190269ccd2d1c7db",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T204238-1f9342fd6a/193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "response_hash": "d65e18909d7ea86d2243ad3721df65ded5045bd5f4284a92f1700191fbb2b643"
+        }
+      },
+      "source_id": "new-york-times",
+      "source_name": "The New York Times",
+      "feed_name": "Home Page",
+      "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+    },
+    {
+      "id": "1736233fb19f",
+      "title": "3 U.S. Planes Are Shot Down in \u2018Friendly Fire\u2019 in Kuwait, U.S. Military Says",
+      "link": "https://www.nytimes.com/2026/03/02/world/middleeast/iran-kuwait-us-attack-planes.html",
+      "summary": "Separately, a drone attack hit the U.S. Embassy compound in the Persian Gulf state, as Iran continues to target American assets across the Middle East.",
+      "published": "Mon, 02 Mar 2026 12:38:02 +0000",
+      "source": {
+        "id": "new-york-times",
+        "name": "The New York Times"
+      },
+      "feed": {
+        "name": "Home Page",
+        "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+      },
+      "topic_tags": [
+        "general"
+      ],
+      "scraped": null,
+      "scrape_error": "HTTP Error 403: Forbidden",
+      "ai_summary": "The U.S. military reported that three American planes were shot down in Kuwait due to friendly fire amid ongoing tensions with Iran.",
+      "ai_tags": [
+        "US Military",
+        "Iran",
+        "Kuwait",
+        "Friendly Fire"
+      ],
+      "fetched_at": "2026-03-02T20:42:38Z",
+      "audit": {
+        "provenance": {
+          "source_id": "new-york-times",
+          "source_name": "The New York Times",
+          "feed_name": "Home Page",
+          "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+        },
+        "openai": {
+          "cache_key": "193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "prompt_hash": "a84cbee25cb94b730cc89e8eb71c041c4b42671cfaf47880190269ccd2d1c7db",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T204238-1f9342fd6a/193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "response_hash": "d65e18909d7ea86d2243ad3721df65ded5045bd5f4284a92f1700191fbb2b643"
+        }
+      },
+      "source_id": "new-york-times",
+      "source_name": "The New York Times",
+      "feed_name": "Home Page",
+      "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+    },
+    {
+      "id": "81053d35c827",
+      "title": "Confidential database reveals which items NPS thinks may \u2018disparage\u2019 America",
+      "link": "https://www.washingtonpost.com/climate-environment/2026/03/02/national-parks-signs-censorship-slavery/",
+      "summary": "An internal government database reviewed by The Washington Post demonstrates the vast scope of the Trump administration\u2019s ongoing effort to revise or remove information on African American history, climate change and other topics at hundreds of national park sites.",
+      "published": "Mon, 02 Mar 2026 18:49:08 +0000",
+      "source": {
+        "id": "washington-post",
+        "name": "The Washington Post"
+      },
+      "feed": {
+        "name": "National",
+        "url": "https://feeds.washingtonpost.com/rss/national"
+      },
+      "topic_tags": [
+        "us"
+      ],
+      "scraped": null,
+      "scrape_error": "The read operation timed out",
+      "ai_summary": "A confidential database reveals the Trump administration's efforts to censor information on various topics, including African American history and climate change, at national parks.",
+      "ai_tags": [
+        "Censorship",
+        "Trump",
+        "History",
+        "National Parks"
+      ],
+      "fetched_at": "2026-03-02T20:42:38Z",
+      "audit": {
+        "provenance": {
+          "source_id": "washington-post",
+          "source_name": "The Washington Post",
+          "feed_name": "National",
+          "feed_url": "https://feeds.washingtonpost.com/rss/national"
+        },
+        "openai": {
+          "cache_key": "193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "prompt_hash": "a84cbee25cb94b730cc89e8eb71c041c4b42671cfaf47880190269ccd2d1c7db",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T204238-1f9342fd6a/193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "response_hash": "d65e18909d7ea86d2243ad3721df65ded5045bd5f4284a92f1700191fbb2b643"
+        }
+      },
+      "source_id": "washington-post",
+      "source_name": "The Washington Post",
+      "feed_name": "National",
+      "feed_url": "https://feeds.washingtonpost.com/rss/national"
+    },
+    {
+      "id": "8ce06920d7d5",
+      "title": "Mix of joy, unease grips Iranian diaspora watching U.S.-Israeli strikes from afar",
+      "link": "https://www.washingtonpost.com/nation/2026/03/01/iranian-americans-reaction-military-strikes/",
+      "summary": "Across the United States, Iranian Americans expressed frustration, hope, dread and \u2014 above all \u2014 concern for relatives still in Iran after the joint U.S.-Israeli attacks.",
+      "published": "Sun, 01 Mar 2026 16:17:53 +0000",
+      "source": {
+        "id": "washington-post",
+        "name": "The Washington Post"
+      },
+      "feed": {
+        "name": "National",
+        "url": "https://feeds.washingtonpost.com/rss/national"
+      },
+      "topic_tags": [
+        "us"
+      ],
+      "scraped": null,
+      "scrape_error": "The read operation timed out",
+      "ai_summary": "The Iranian diaspora in the U.S. is experiencing mixed emotions of joy and concern as they watch the U.S.-Israeli military strikes unfold.",
+      "ai_tags": [
+        "Iranian Americans",
+        "Military Strikes",
+        "Emotions",
+        "Diaspora"
+      ],
+      "fetched_at": "2026-03-02T20:42:38Z",
+      "audit": {
+        "provenance": {
+          "source_id": "washington-post",
+          "source_name": "The Washington Post",
+          "feed_name": "National",
+          "feed_url": "https://feeds.washingtonpost.com/rss/national"
+        },
+        "openai": {
+          "cache_key": "193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "prompt_hash": "a84cbee25cb94b730cc89e8eb71c041c4b42671cfaf47880190269ccd2d1c7db",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T204238-1f9342fd6a/193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "response_hash": "d65e18909d7ea86d2243ad3721df65ded5045bd5f4284a92f1700191fbb2b643"
+        }
+      },
+      "source_id": "washington-post",
+      "source_name": "The Washington Post",
+      "feed_name": "National",
+      "feed_url": "https://feeds.washingtonpost.com/rss/national"
+    },
+    {
+      "id": "d22490f0f3cf",
+      "title": "In Black History Month, Trump casts racial progress as largely settled",
+      "link": "https://www.washingtonpost.com/politics/2026/03/01/donald-trump-black-history-month/",
+      "summary": "The centennial of what became Black History Month offered a microcosm of President Donald Trump\u2019s views on race and progress.",
+      "published": "Sun, 01 Mar 2026 10:00:30 +0000",
+      "source": {
+        "id": "washington-post",
+        "name": "The Washington Post"
+      },
+      "feed": {
+        "name": "National",
+        "url": "https://feeds.washingtonpost.com/rss/national"
+      },
+      "topic_tags": [
+        "us"
+      ],
+      "scraped": null,
+      "scrape_error": "The read operation timed out",
+      "ai_summary": "During Black History Month, President Trump characterized racial progress as largely achieved, reflecting his views on race.",
+      "ai_tags": [
+        "Trump",
+        "Race",
+        "Black History Month",
+        "Progress"
+      ],
+      "fetched_at": "2026-03-02T20:42:38Z",
+      "audit": {
+        "provenance": {
+          "source_id": "washington-post",
+          "source_name": "The Washington Post",
+          "feed_name": "National",
+          "feed_url": "https://feeds.washingtonpost.com/rss/national"
+        },
+        "openai": {
+          "cache_key": "193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "prompt_hash": "a84cbee25cb94b730cc89e8eb71c041c4b42671cfaf47880190269ccd2d1c7db",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T204238-1f9342fd6a/193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "response_hash": "d65e18909d7ea86d2243ad3721df65ded5045bd5f4284a92f1700191fbb2b643"
+        }
+      },
+      "source_id": "washington-post",
+      "source_name": "The Washington Post",
+      "feed_name": "National",
+      "feed_url": "https://feeds.washingtonpost.com/rss/national"
+    },
+    {
+      "id": "dd54cefcba82",
+      "title": "Trump vows to do \u2018whatever it takes\u2019 in Iran as US sends more troops to Middle East",
+      "link": "https://www.ft.com/content/91cae073-71db-46ea-a950-62b17faf1882",
+      "summary": "Oil and US dollar rally as conflict intensifies",
+      "published": "Mon, 02 Mar 2026 16:47:01 GMT",
+      "source": {
+        "id": "financial-times",
+        "name": "Financial Times"
+      },
+      "feed": {
+        "name": "Top Stories",
+        "url": "https://www.ft.com/?format=rss"
+      },
+      "topic_tags": [
+        "general"
+      ],
+      "scraped": {
+        "fetched_at": "2026-03-02T20:43:30.448775+00:00",
+        "final_url": "https://www.ft.com/content/91cae073-71db-46ea-a950-62b17faf1882",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Iran conflict: Trump vows to do \u2018whatever it takes\u2019 in Iran as US deploys more troops to Middle East",
+        "description": "Oil and US dollar rally as conflict intensifies",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.ft.com/content/91cae073-71db-46ea-a950-62b17faf1882",
+        "language": "en-GB",
+        "h1": "Iran conflict: Trump vows to do \u2018whatever it takes\u2019 in Iran as US deploys more troops to Middle East",
+        "lead_paragraph": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
+        "paragraph_count": 9,
+        "word_count": 109,
+        "top_keywords": [
+          "access",
+          "digital",
+          "complete",
+          "quality",
+          "journalism",
+          "your",
+          "iran",
+          "device",
+          "year",
+          "upfront",
+          "save",
+          "conflict"
+        ]
+      },
+      "scrape_error": null,
+      "ai_summary": "President Trump pledged to take all necessary actions in Iran as the U.S. increases troop deployment to the Middle East amid rising oil prices.",
+      "ai_tags": [
+        "Trump",
+        "Iran",
+        "Military Deployment",
+        "Oil Prices"
+      ],
+      "fetched_at": "2026-03-02T20:42:38Z",
+      "audit": {
+        "provenance": {
+          "source_id": "financial-times",
+          "source_name": "Financial Times",
+          "feed_name": "Top Stories",
+          "feed_url": "https://www.ft.com/?format=rss"
+        },
+        "openai": {
+          "cache_key": "193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "prompt_hash": "a84cbee25cb94b730cc89e8eb71c041c4b42671cfaf47880190269ccd2d1c7db",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T204238-1f9342fd6a/193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "response_hash": "d65e18909d7ea86d2243ad3721df65ded5045bd5f4284a92f1700191fbb2b643"
+        }
+      },
+      "source_id": "financial-times",
+      "source_name": "Financial Times",
+      "feed_name": "Top Stories",
+      "feed_url": "https://www.ft.com/?format=rss"
+    },
+    {
+      "id": "60313a6e3275",
+      "title": "Inside the plan to kill Ali Khamenei",
+      "link": "https://www.ft.com/content/bf998c69-ab46-4fa3-aae4-8f18f7387836",
+      "summary": "Israel spent years hacking Tehran\u2019s traffic cameras and monitoring bodyguards ahead of the assassination of Iran\u2019s supreme leader",
+      "published": "Mon, 02 Mar 2026 17:14:30 GMT",
+      "source": {
+        "id": "financial-times",
+        "name": "Financial Times"
+      },
+      "feed": {
+        "name": "Top Stories",
+        "url": "https://www.ft.com/?format=rss"
+      },
+      "topic_tags": [
+        "general"
+      ],
+      "scraped": {
+        "fetched_at": "2026-03-02T20:43:31.061867+00:00",
+        "final_url": "https://www.ft.com/content/bf998c69-ab46-4fa3-aae4-8f18f7387836",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Inside the plan to kill Ali Khamenei",
+        "description": "Israel spent years hacking Tehran\u2019s traffic cameras and monitoring bodyguards ahead of the assassination of Iran\u2019s supreme leader",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.ft.com/content/bf998c69-ab46-4fa3-aae4-8f18f7387836",
+        "language": "en-GB",
+        "h1": "Inside the plan to kill Ali Khamenei",
+        "lead_paragraph": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
+        "paragraph_count": 9,
+        "word_count": 109,
+        "top_keywords": [
+          "access",
+          "digital",
+          "complete",
+          "quality",
+          "journalism",
+          "your",
+          "device",
+          "year",
+          "upfront",
+          "save",
+          "inside",
+          "plan"
+        ]
+      },
+      "scrape_error": null,
+      "ai_summary": "Israel has been preparing for the assassination of Iran's supreme leader by monitoring Tehran's security measures over several years.",
+      "ai_tags": [
+        "Israel",
+        "Iran",
+        "Assassination",
+        "Security"
+      ],
+      "fetched_at": "2026-03-02T20:42:38Z",
+      "audit": {
+        "provenance": {
+          "source_id": "financial-times",
+          "source_name": "Financial Times",
+          "feed_name": "Top Stories",
+          "feed_url": "https://www.ft.com/?format=rss"
+        },
+        "openai": {
+          "cache_key": "193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "prompt_hash": "a84cbee25cb94b730cc89e8eb71c041c4b42671cfaf47880190269ccd2d1c7db",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T204238-1f9342fd6a/193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "response_hash": "d65e18909d7ea86d2243ad3721df65ded5045bd5f4284a92f1700191fbb2b643"
+        }
+      },
+      "source_id": "financial-times",
+      "source_name": "Financial Times",
+      "feed_name": "Top Stories",
+      "feed_url": "https://www.ft.com/?format=rss"
+    },
+    {
+      "id": "74a9b9a5747b",
+      "title": "Gas prices soar as Iranian attacks force shutdown of Qatari production",
+      "link": "https://www.ft.com/content/dac7a77d-e0f4-4f52-a3d4-55b145e67347",
+      "summary": "Saudi Arabia also closes an oil refinery after attack",
+      "published": "Mon, 02 Mar 2026 18:57:38 GMT",
+      "source": {
+        "id": "financial-times",
+        "name": "Financial Times"
+      },
+      "feed": {
+        "name": "Top Stories",
+        "url": "https://www.ft.com/?format=rss"
+      },
+      "topic_tags": [
+        "general"
+      ],
+      "scraped": {
+        "fetched_at": "2026-03-02T20:43:32.066802+00:00",
+        "final_url": "https://www.ft.com/content/dac7a77d-e0f4-4f52-a3d4-55b145e67347",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Gas prices soar as Iranian attacks force shutdown of Qatari production",
+        "description": "Saudi Arabia also closes an oil refinery after attack",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.ft.com/content/dac7a77d-e0f4-4f52-a3d4-55b145e67347",
+        "language": "en-GB",
+        "h1": "Gas prices soar as Iranian attacks force shutdown of Qatari production",
+        "lead_paragraph": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
+        "paragraph_count": 9,
+        "word_count": 109,
+        "top_keywords": [
+          "access",
+          "digital",
+          "complete",
+          "quality",
+          "journalism",
+          "your",
+          "device",
+          "year",
+          "upfront",
+          "save",
+          "prices",
+          "soar"
+        ]
+      },
+      "scrape_error": null,
+      "ai_summary": "Gas prices are rising sharply as Iranian attacks lead to the shutdown of Qatari oil production and a Saudi refinery.",
+      "ai_tags": [
+        "Gas Prices",
+        "Iran",
+        "Oil Production",
+        "Middle East"
+      ],
+      "fetched_at": "2026-03-02T20:42:38Z",
+      "audit": {
+        "provenance": {
+          "source_id": "financial-times",
+          "source_name": "Financial Times",
+          "feed_name": "Top Stories",
+          "feed_url": "https://www.ft.com/?format=rss"
+        },
+        "openai": {
+          "cache_key": "193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "prompt_hash": "a84cbee25cb94b730cc89e8eb71c041c4b42671cfaf47880190269ccd2d1c7db",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T204238-1f9342fd6a/193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "response_hash": "d65e18909d7ea86d2243ad3721df65ded5045bd5f4284a92f1700191fbb2b643"
+        }
+      },
+      "source_id": "financial-times",
+      "source_name": "Financial Times",
+      "feed_name": "Top Stories",
+      "feed_url": "https://www.ft.com/?format=rss"
+    },
+    {
+      "id": "0ae7713a8d2a",
+      "title": "Oil prices surge amid fears over Iran war",
+      "link": "https://www.npr.org/2026/03/02/nx-s1-5732287/iran-war-oil-gasoline-prices",
+      "summary": "Global oil prices are in the high $70s as traffic through Strait of Hormuz comes to a halt. Some analysts have warned they could top $100 a barrel if the stoppage is prolonged.",
+      "published": "Mon, 02 Mar 2026 09:42:13 -0500",
       "source": {
         "id": "npr",
         "name": "NPR"
@@ -237,45 +812,44 @@
         "general"
       ],
       "scraped": {
-        "fetched_at": "2026-03-02T20:38:43.844703+00:00",
-        "final_url": "https://www.npr.org/2026/03/02/nx-s1-5732784/iran-war-flights-travelers-stranded",
+        "fetched_at": "2026-03-02T20:43:32.490302+00:00",
+        "final_url": "https://www.npr.org/2026/03/02/nx-s1-5732287/iran-war-oil-gasoline-prices",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "Some Middle East flights resume, but thousands of travelers are still stranded by war",
-        "description": "Limited flights out of the Middle East resumed on Monday. But hundreds of thousands of travelers are still stranded in the region after attacks on Iran by the U.S. and Israel.",
+        "title": "Oil prices surge amid fears over Iran war",
+        "description": "Global oil prices are in the high $70s as traffic through Strait of Hormuz comes to a halt. Some analysts have warned they could top $100 a barrel if the stoppage is prolonged.",
         "author": null,
         "published_at": "2026-03-02T00:00:00",
-        "canonical_url": "https://www.npr.org/2026/03/02/nx-s1-5732784/iran-war-flights-travelers-stranded",
+        "canonical_url": "https://www.npr.org/2026/03/02/nx-s1-5732287/iran-war-oil-gasoline-prices",
         "language": "en",
-        "h1": "Some Middle East flights resume, but thousands of travelers are still stranded by war",
+        "h1": "Oil prices surge amid fears over Iran war",
         "lead_paragraph": "Conflict in the Middle East has been escalating. These stories provide context for current developments and the history that led up to them.",
-        "paragraph_count": 20,
-        "word_count": 702,
+        "paragraph_count": 15,
+        "word_count": 483,
         "top_keywords": [
-          "flights",
-          "middle",
-          "east",
-          "monday",
-          "dubai",
-          "airports",
-          "canceled",
-          "resume",
-          "travelers",
-          "airlines",
-          "major",
-          "region"
+          "prices",
+          "strait",
+          "iran",
+          "global",
+          "natural",
+          "through",
+          "been",
+          "hormuz",
+          "tanker",
+          "israel",
+          "crude",
+          "trading"
         ]
       },
       "scrape_error": null,
-      "ai_summary": "Limited flights have resumed from the Middle East, but many travelers remain stranded due to ongoing conflict.",
+      "ai_summary": "Global oil prices have surged amid escalating fears regarding the ongoing conflict in Iran, with predictions they may exceed $100 per barrel.",
       "ai_tags": [
-        "Middle East",
-        "travel",
-        "conflict",
+        "Oil Prices",
         "Iran",
-        "stranded"
+        "Conflict",
+        "Economy"
       ],
-      "fetched_at": "2026-03-02T20:38:30Z",
+      "fetched_at": "2026-03-02T20:42:38Z",
       "audit": {
         "provenance": {
           "source_id": "npr",
@@ -284,10 +858,10 @@
           "feed_url": "https://feeds.npr.org/1001/rss.xml"
         },
         "openai": {
-          "cache_key": "a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "prompt_hash": "e750e051f58443dd5f7f4e31f65dc02d3ca6e095a0ef9a5df05ede6a00b7c54e",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T203830-998d18eecb/a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "response_hash": "0af9800bccb2c8676082b61647598808b79b5ae226a9c2375f50241dff1f4808"
+          "cache_key": "193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "prompt_hash": "a84cbee25cb94b730cc89e8eb71c041c4b42671cfaf47880190269ccd2d1c7db",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T204238-1f9342fd6a/193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "response_hash": "d65e18909d7ea86d2243ad3721df65ded5045bd5f4284a92f1700191fbb2b643"
         }
       },
       "source_id": "npr",
@@ -296,466 +870,88 @@
       "feed_url": "https://feeds.npr.org/1001/rss.xml"
     },
     {
-      "id": "0894507f06b0",
-      "title": "Some celebrate in Iran after supreme leader's death, but deep fear and uncertainty remain",
-      "link": "https://www.pbs.org/newshour/world/some-celebrate-in-iran-after-supreme-leaders-death-but-deep-fear-and-uncertainty-remain",
-      "summary": "The death of Ayatollah Ali Khamenei stunned Iranians and stirred a mix of complex emotions in a divided nation.",
-      "published": "Mon, 02 Mar 2026 15:25:29 -0500",
+      "id": "c0785184d811",
+      "title": "Trump defends Iran strikes, offers objectives for military operation",
+      "link": "https://www.npr.org/2026/03/02/nx-s1-5732258/us-iran-hegseth-caine",
+      "summary": "His remarks are the first public ones to reporters since the U.S.-Israeli military operation against Iran began Saturday despite weeks of talks designed to stave off a conflict.",
+      "published": "Mon, 02 Mar 2026 08:15:29 -0500",
       "source": {
-        "id": "pbs-newshour",
-        "name": "PBS NewsHour"
+        "id": "npr",
+        "name": "NPR"
       },
       "feed": {
-        "name": "Headlines",
-        "url": "https://www.pbs.org/newshour/feeds/rss/headlines"
+        "name": "News",
+        "url": "https://feeds.npr.org/1001/rss.xml"
       },
       "topic_tags": [
         "general"
       ],
       "scraped": {
-        "fetched_at": "2026-03-02T20:38:44.191189+00:00",
-        "final_url": "https://www.pbs.org/newshour/world/some-celebrate-in-iran-after-supreme-leaders-death-but-deep-fear-and-uncertainty-remain",
+        "fetched_at": "2026-03-02T20:43:32.836735+00:00",
+        "final_url": "https://www.npr.org/2026/03/02/nx-s1-5732258/us-iran-hegseth-caine",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "Some celebrate in Iran after supreme leader's death, but deep fear and uncertainty remain",
-        "description": "The death of Ayatollah Ali Khamenei stunned Iranians and stirred a mix of complex emotions in a divided nation.",
+        "title": "Trump defends Iran strikes, offers objectives for military operation",
+        "description": "His remarks are the first public ones to reporters since the U.S.-Israeli military operation against Iran began Saturday despite weeks of talks designed to stave off a conflict.",
         "author": null,
-        "published_at": "2026-03-02T15:25:29-05:00",
-        "canonical_url": "https://www.pbs.org/newshour/world/some-celebrate-in-iran-after-supreme-leaders-death-but-deep-fear-and-uncertainty-remain",
-        "language": "en-us",
-        "h1": "Some celebrate in Iran after supreme leader's death, but deep fear and uncertainty remain",
-        "lead_paragraph": "Stand up for truly independent, trusted news.",
-        "paragraph_count": 70,
-        "word_count": 1733,
-        "top_keywords": [
-          "associated",
-          "press",
-          "iran",
-          "death",
-          "iranians",
-          "supreme",
-          "fear",
-          "uncertainty",
-          "amir-hussein",
-          "radjy",
-          "sarah",
-          "deeb"
-        ]
-      },
-      "scrape_error": null,
-      "ai_summary": "The death of Iran's supreme leader has elicited mixed reactions among the populace, reflecting a divided nation.",
-      "ai_tags": [
-        "Iran",
-        "leadership",
-        "death",
-        "public reaction"
-      ],
-      "fetched_at": "2026-03-02T20:38:30Z",
-      "audit": {
-        "provenance": {
-          "source_id": "pbs-newshour",
-          "source_name": "PBS NewsHour",
-          "feed_name": "Headlines",
-          "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
-        },
-        "openai": {
-          "cache_key": "a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "prompt_hash": "e750e051f58443dd5f7f4e31f65dc02d3ca6e095a0ef9a5df05ede6a00b7c54e",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T203830-998d18eecb/a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "response_hash": "0af9800bccb2c8676082b61647598808b79b5ae226a9c2375f50241dff1f4808"
-        }
-      },
-      "source_id": "pbs-newshour",
-      "source_name": "PBS NewsHour",
-      "feed_name": "Headlines",
-      "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
-    },
-    {
-      "id": "c4eee6624e5d",
-      "title": "5 things you should consider before asking an AI chatbot for health advice",
-      "link": "https://www.pbs.org/newshour/health/5-things-you-should-consider-before-asking-an-ai-chatbot-for-health-advice",
-      "summary": "Tech companies are pushing new health chatbots, but experts say you still need to talk to your doctor.",
-      "published": "Mon, 02 Mar 2026 15:07:24 -0500",
-      "source": {
-        "id": "pbs-newshour",
-        "name": "PBS NewsHour"
-      },
-      "feed": {
-        "name": "Headlines",
-        "url": "https://www.pbs.org/newshour/feeds/rss/headlines"
-      },
-      "topic_tags": [
-        "general"
-      ],
-      "scraped": {
-        "fetched_at": "2026-03-02T20:38:44.537761+00:00",
-        "final_url": "https://www.pbs.org/newshour/health/5-things-you-should-consider-before-asking-an-ai-chatbot-for-health-advice",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "5 things you should consider before asking an AI chatbot for health advice",
-        "description": "Tech companies are pushing new health chatbots, but experts say you still need to talk to your doctor.",
-        "author": null,
-        "published_at": "2026-03-02T15:07:24-05:00",
-        "canonical_url": "https://www.pbs.org/newshour/health/5-things-you-should-consider-before-asking-an-ai-chatbot-for-health-advice",
-        "language": "en-us",
-        "h1": "5 things you should consider before asking an AI chatbot for health advice",
-        "lead_paragraph": "Stand up for truly independent, trusted news.",
-        "paragraph_count": 52,
-        "word_count": 1097,
-        "top_keywords": [
-          "health",
-          "chatbot",
-          "advice",
-          "medical",
-          "things",
-          "your",
-          "programs",
-          "consider",
-          "matthew",
-          "perrone",
-          "associated",
-          "press"
-        ]
-      },
-      "scrape_error": null,
-      "ai_summary": "Experts advise caution when using AI chatbots for health advice, emphasizing the importance of consulting a doctor.",
-      "ai_tags": [
-        "health",
-        "AI",
-        "chatbots",
-        "advice",
-        "technology"
-      ],
-      "fetched_at": "2026-03-02T20:38:30Z",
-      "audit": {
-        "provenance": {
-          "source_id": "pbs-newshour",
-          "source_name": "PBS NewsHour",
-          "feed_name": "Headlines",
-          "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
-        },
-        "openai": {
-          "cache_key": "a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "prompt_hash": "e750e051f58443dd5f7f4e31f65dc02d3ca6e095a0ef9a5df05ede6a00b7c54e",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T203830-998d18eecb/a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "response_hash": "0af9800bccb2c8676082b61647598808b79b5ae226a9c2375f50241dff1f4808"
-        }
-      },
-      "source_id": "pbs-newshour",
-      "source_name": "PBS NewsHour",
-      "feed_name": "Headlines",
-      "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
-    },
-    {
-      "id": "6f62bdad09c0",
-      "title": "Arizona Sen. Gallego endorses Maine Senate hopeful Graham Platner",
-      "link": "https://www.pbs.org/newshour/politics/arizona-sen-gallego-endorses-maine-senate-hopeful-graham-platner",
-      "summary": "Maine Democrat Graham Platner has picked up another Senate endorsement in his bid to flip a key Senate seat blue.",
-      "published": "Mon, 02 Mar 2026 14:56:51 -0500",
-      "source": {
-        "id": "pbs-newshour",
-        "name": "PBS NewsHour"
-      },
-      "feed": {
-        "name": "Headlines",
-        "url": "https://www.pbs.org/newshour/feeds/rss/headlines"
-      },
-      "topic_tags": [
-        "general"
-      ],
-      "scraped": {
-        "fetched_at": "2026-03-02T20:38:44.908011+00:00",
-        "final_url": "https://www.pbs.org/newshour/politics/arizona-sen-gallego-endorses-maine-senate-hopeful-graham-platner",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "Arizona Sen. Gallego endorses Maine Senate hopeful Graham Platner",
-        "description": "Maine Democrat Graham Platner has picked up another Senate endorsement in his bid to flip a key Senate seat blue.",
-        "author": null,
-        "published_at": "2026-03-02T14:56:51-05:00",
-        "canonical_url": "https://www.pbs.org/newshour/politics/arizona-sen-gallego-endorses-maine-senate-hopeful-graham-platner",
-        "language": "en-us",
-        "h1": "Arizona Sen. Gallego endorses Maine Senate hopeful Graham Platner",
-        "lead_paragraph": "Stand up for truly independent, trusted news.",
-        "paragraph_count": 34,
-        "word_count": 578,
-        "top_keywords": [
-          "maine",
-          "platner",
-          "senate",
-          "graham",
-          "arizona",
-          "gallego",
-          "democrat",
-          "another",
-          "independent",
-          "patrick",
-          "whittle",
-          "associated"
-        ]
-      },
-      "scrape_error": null,
-      "ai_summary": "Arizona Senator Gallego has endorsed Maine Senate candidate Graham Platner in a bid to secure a Democratic seat.",
-      "ai_tags": [
-        "politics",
-        "Senate",
-        "endorsement",
-        "Democrats",
-        "Maine"
-      ],
-      "fetched_at": "2026-03-02T20:38:30Z",
-      "audit": {
-        "provenance": {
-          "source_id": "pbs-newshour",
-          "source_name": "PBS NewsHour",
-          "feed_name": "Headlines",
-          "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
-        },
-        "openai": {
-          "cache_key": "a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "prompt_hash": "e750e051f58443dd5f7f4e31f65dc02d3ca6e095a0ef9a5df05ede6a00b7c54e",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T203830-998d18eecb/a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "response_hash": "0af9800bccb2c8676082b61647598808b79b5ae226a9c2375f50241dff1f4808"
-        }
-      },
-      "source_id": "pbs-newshour",
-      "source_name": "PBS NewsHour",
-      "feed_name": "Headlines",
-      "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
-    },
-    {
-      "id": "72179a9bb605",
-      "title": "Man accused of luring UGA student with \u2018walk home\u2019 ruse before brutal assault: police",
-      "link": "https://www.foxnews.com/us/man-accused-luring-uga-student-walk-home-ruse-before-brutal-assault-police",
-      "summary": "A 19-year-old man is charged with raping a UGA student in downtown Athens after allegedly offering to walk her home safely from a bar, police said.",
-      "published": "Mon, 02 Mar 2026 15:34:28 -0500",
-      "source": {
-        "id": "fox-news",
-        "name": "Fox News"
-      },
-      "feed": {
-        "name": "Latest",
-        "url": "http://feeds.foxnews.com/foxnews/latest"
-      },
-      "topic_tags": [
-        "general"
-      ],
-      "scraped": {
-        "fetched_at": "2026-03-02T20:38:45.334395+00:00",
-        "final_url": "https://www.foxnews.com/us/man-accused-luring-uga-student-walk-home-ruse-before-brutal-assault-police",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "Man accused of luring UGA student with \u2018walk home\u2019 ruse before brutal assault: police",
-        "description": "University of Georgia student rape case leads to arrest of Tydarius Wingfield, 19, who allegedly assaulted victim behind Athens building, police said.",
-        "author": "Stepheny Price",
         "published_at": "2026-03-02T00:00:00",
-        "canonical_url": "https://www.foxnews.com/us/man-accused-luring-uga-student-walk-home-ruse-before-brutal-assault-police",
+        "canonical_url": "https://www.npr.org/2026/03/02/nx-s1-5732258/us-iran-hegseth-caine",
         "language": "en",
-        "h1": "Man accused of luring UGA student with \u2018walk home\u2019 ruse before brutal assault: police",
-        "lead_paragraph": "This material may not be published, broadcast, rewritten, or redistributed. \u00a92026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
-        "paragraph_count": 34,
-        "word_count": 1007,
+        "h1": "Trump defends Iran strikes, offers objectives for military operation",
+        "lead_paragraph": "Conflict in the Middle East has been escalating. These stories provide context for current developments and the history that led up to them.",
+        "paragraph_count": 23,
+        "word_count": 613,
         "top_keywords": [
-          "student",
-          "wingfield",
-          "georgia",
-          "downtown",
-          "police",
-          "university",
-          "battery",
-          "walk",
-          "home",
-          "assault",
-          "athens",
-          "rape"
-        ]
-      },
-      "scrape_error": null,
-      "ai_summary": "A 19-year-old man has been charged with raping a University of Georgia student after allegedly offering to walk her home.",
-      "ai_tags": [
-        "crime",
-        "UGA",
-        "sexual assault",
-        "law enforcement"
-      ],
-      "fetched_at": "2026-03-02T20:38:30Z",
-      "audit": {
-        "provenance": {
-          "source_id": "fox-news",
-          "source_name": "Fox News",
-          "feed_name": "Latest",
-          "feed_url": "http://feeds.foxnews.com/foxnews/latest"
-        },
-        "openai": {
-          "cache_key": "a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "prompt_hash": "e750e051f58443dd5f7f4e31f65dc02d3ca6e095a0ef9a5df05ede6a00b7c54e",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T203830-998d18eecb/a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "response_hash": "0af9800bccb2c8676082b61647598808b79b5ae226a9c2375f50241dff1f4808"
-        }
-      },
-      "source_id": "fox-news",
-      "source_name": "Fox News",
-      "feed_name": "Latest",
-      "feed_url": "http://feeds.foxnews.com/foxnews/latest"
-    },
-    {
-      "id": "a01967e5acdb",
-      "title": "Eric Dane's cause of death revealed after ALS battle",
-      "link": "https://www.foxnews.com/entertainment/eric-danes-cause-death-revealed-after-als-battle",
-      "summary": "Eric Dane's cause of death revealed as respiratory failure from ALS. The \"Grey's Anatomy\" star died at 53, leaving behind his wife and two daughters.",
-      "published": "Mon, 02 Mar 2026 15:33:12 -0500",
-      "source": {
-        "id": "fox-news",
-        "name": "Fox News"
-      },
-      "feed": {
-        "name": "Latest",
-        "url": "http://feeds.foxnews.com/foxnews/latest"
-      },
-      "topic_tags": [
-        "general"
-      ],
-      "scraped": {
-        "fetched_at": "2026-03-02T20:38:45.751497+00:00",
-        "final_url": "https://www.foxnews.com/entertainment/eric-danes-cause-death-revealed-after-als-battle",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "Eric Dane's cause of death revealed after ALS battle",
-        "description": "\"Euphoria\" star Eric Dane cause of death revealed as respiratory failure with ALS listed as secondary cause. The \"Grey's Anatomy\" actor died Feb. 19 at age 53.",
-        "author": "Lauryn Overhultz,Christina Dugan Ramirez",
-        "published_at": "2026-03-02T00:00:00",
-        "canonical_url": "https://www.foxnews.com/entertainment/eric-danes-cause-death-revealed-after-als-battle",
-        "language": "en",
-        "h1": "Eric Dane's cause of death revealed after ALS battle",
-        "lead_paragraph": "This material may not be published, broadcast, rewritten, or redistributed. \u00a92026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
-        "paragraph_count": 36,
-        "word_count": 899,
-        "top_keywords": [
-          "eric",
-          "death",
-          "dane's",
-          "cause",
-          "statement",
-          "revealed",
-          "digital",
-          "dane",
-          "died",
-          "battle",
-          "data",
-          "provided"
-        ]
-      },
-      "scrape_error": null,
-      "ai_summary": "Eric Dane's death has been attributed to respiratory failure caused by ALS, leaving behind his family.",
-      "ai_tags": [
-        "obituary",
-        "ALS",
-        "Eric Dane",
-        "health"
-      ],
-      "fetched_at": "2026-03-02T20:38:30Z",
-      "audit": {
-        "provenance": {
-          "source_id": "fox-news",
-          "source_name": "Fox News",
-          "feed_name": "Latest",
-          "feed_url": "http://feeds.foxnews.com/foxnews/latest"
-        },
-        "openai": {
-          "cache_key": "a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "prompt_hash": "e750e051f58443dd5f7f4e31f65dc02d3ca6e095a0ef9a5df05ede6a00b7c54e",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T203830-998d18eecb/a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "response_hash": "0af9800bccb2c8676082b61647598808b79b5ae226a9c2375f50241dff1f4808"
-        }
-      },
-      "source_id": "fox-news",
-      "source_name": "Fox News",
-      "feed_name": "Latest",
-      "feed_url": "http://feeds.foxnews.com/foxnews/latest"
-    },
-    {
-      "id": "c21b125b35b4",
-      "title": "Melania Trump makes history, pushes for \u2018peace through education\u2019 amid Iran firestorm",
-      "link": "https://www.foxnews.com/politics/melania-trump-makes-history-pushes-peace-through-education-amid-iran-firestorm",
-      "summary": "First lady Melania Trump presided over the United Nations Security Council meeting Monday, declaring that the United States \u201cstands with all of the children throughout the world,\" in a historic speech calling for \u201cpeace through education,\" amid the U.S. military involvement in Iran.",
-      "published": "Mon, 02 Mar 2026 15:21:02 -0500",
-      "source": {
-        "id": "fox-news",
-        "name": "Fox News"
-      },
-      "feed": {
-        "name": "Latest",
-        "url": "http://feeds.foxnews.com/foxnews/latest"
-      },
-      "topic_tags": [
-        "general"
-      ],
-      "scraped": {
-        "fetched_at": "2026-03-02T20:38:46.161263+00:00",
-        "final_url": "https://www.foxnews.com/politics/melania-trump-makes-history-pushes-peace-through-education-amid-iran-firestorm",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "Melania Trump makes history, pushes for \u2018peace through education\u2019 amid Iran firestorm",
-        "description": "First Lady Melania Trump presided over the United Nations Security Council meeting Monday, declaring that the United States \u201cstands with all of the children throughout the world.\"",
-        "author": "Brooke Singman",
-        "published_at": "2026-03-02T00:00:00",
-        "canonical_url": "https://www.foxnews.com/politics/melania-trump-makes-history-pushes-peace-through-education-amid-iran-firestorm",
-        "language": "en",
-        "h1": "Melania Trump makes history, pushes for \u2018peace through education\u2019 amid Iran firestorm",
-        "lead_paragraph": "This material may not be published, broadcast, rewritten, or redistributed. \u00a92026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
-        "paragraph_count": 49,
-        "word_count": 1419,
-        "top_keywords": [
-          "united",
-          "lady",
-          "security",
-          "council",
-          "military",
           "trump",
-          "peace",
-          "iran",
-          "nations",
-          "states",
           "operation",
-          "melania"
+          "iran",
+          "strikes",
+          "military",
+          "conflict",
+          "four",
+          "monday",
+          "iran's",
+          "objectives",
+          "middle",
+          "president"
         ]
       },
       "scrape_error": null,
-      "ai_summary": "First Lady Melania Trump called for 'peace through education' during a historic UN Security Council meeting amid tensions in Iran.",
+      "ai_summary": "President Trump defended the military strikes against Iran, outlining the objectives of the operation during his first public comments since the conflict began.",
       "ai_tags": [
-        "Melania Trump",
-        "UN",
-        "education",
+        "Trump",
         "Iran",
-        "peace"
+        "Military Operation",
+        "Defense"
       ],
-      "fetched_at": "2026-03-02T20:38:30Z",
+      "fetched_at": "2026-03-02T20:42:38Z",
       "audit": {
         "provenance": {
-          "source_id": "fox-news",
-          "source_name": "Fox News",
-          "feed_name": "Latest",
-          "feed_url": "http://feeds.foxnews.com/foxnews/latest"
+          "source_id": "npr",
+          "source_name": "NPR",
+          "feed_name": "News",
+          "feed_url": "https://feeds.npr.org/1001/rss.xml"
         },
         "openai": {
-          "cache_key": "a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "prompt_hash": "e750e051f58443dd5f7f4e31f65dc02d3ca6e095a0ef9a5df05ede6a00b7c54e",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T203830-998d18eecb/a490a1b0f1250b3454ccf2e7584adc7a050d0cc3ba3d38fa5109dcc451ea86d0",
-          "response_hash": "0af9800bccb2c8676082b61647598808b79b5ae226a9c2375f50241dff1f4808"
+          "cache_key": "193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "prompt_hash": "a84cbee25cb94b730cc89e8eb71c041c4b42671cfaf47880190269ccd2d1c7db",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T204238-1f9342fd6a/193a0ba14f001f7da9fc6f36f8471ef9a0613b30ffc3bd81fc8fc99c1f26b7ae",
+          "response_hash": "d65e18909d7ea86d2243ad3721df65ded5045bd5f4284a92f1700191fbb2b643"
         }
       },
-      "source_id": "fox-news",
-      "source_name": "Fox News",
-      "feed_name": "Latest",
-      "feed_url": "http://feeds.foxnews.com/foxnews/latest"
+      "source_id": "npr",
+      "source_name": "NPR",
+      "feed_name": "News",
+      "feed_url": "https://feeds.npr.org/1001/rss.xml"
     }
   ],
   "errors": [],
   "audit": {
     "scrape": {
       "enabled": true,
-      "attempts": 8,
-      "success": 8,
-      "failed": 0,
+      "attempts": 13,
+      "success": 7,
+      "failed": 6,
       "skipped": 0,
       "limit": null,
       "timeout_seconds": 12.0,
@@ -765,14 +961,14 @@
       "in_run_duplicates": 0,
       "seen_filter": {
         "enabled": true,
-        "loaded_keys": 1232,
-        "current_items": 30,
-        "history_items": 628,
+        "loaded_keys": 1193,
+        "current_items": 8,
+        "history_items": 606,
         "history_files": 26,
-        "skipped_seen": 22
+        "skipped_seen": 17
       }
     },
-    "prompt_export": "/home/runner/work/RSS_Feeds/RSS_Feeds/data/analysis/prompt_audit/digest-20260302T203830-998d18eecb.json",
+    "prompt_export": "/home/runner/work/RSS_Feeds/RSS_Feeds/data/analysis/prompt_audit/digest-20260302T204238-1f9342fd6a.json",
     "catalog_path": "/home/runner/work/RSS_Feeds/RSS_Feeds/feed_catalog/rss_feeds.json"
   }
 }
