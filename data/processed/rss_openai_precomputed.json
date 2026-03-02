@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-03-02T19:17:53Z",
+  "generated_at": "2026-03-02T19:31:24Z",
   "contract": "rss_pipeline_precomputed",
   "digest": {
     "path": "data/rss_openai_daily.json",
     "schema_version": "2.0",
-    "generated_at": "2026-03-02T18:09:42Z",
-    "run_id": "digest-20260302T180942-2b3aadfff1",
+    "generated_at": "2026-03-02T19:20:10Z",
+    "run_id": "digest-20260302T192010-66848c79d4",
     "items_count": 30
   },
   "artifacts": {
@@ -16,509 +16,102 @@
   },
   "summary": {
     "articles": 30,
-    "scored_articles": 0,
-    "high_scoring_articles": 0
+    "scored_articles": 30,
+    "high_scoring_articles": 17
   },
   "analysis": {
-    "lens_summary": {},
-    "source_differentiation": {}
+    "lens_summary": {
+      "items_total": 30,
+      "aggregation": "latest",
+      "lenses": [
+        {
+          "name": "Credibility Lens",
+          "rubric_count": 2,
+          "max_total": 20.0,
+          "items_with_scores": 30
+        },
+        {
+          "name": "Emotional Intensity Lens",
+          "rubric_count": 2,
+          "max_total": 20.0,
+          "items_with_scores": 30
+        },
+        {
+          "name": "Entity-Level Sentiment Lens",
+          "rubric_count": 2,
+          "max_total": 20.0,
+          "items_with_scores": 30
+        },
+        {
+          "name": "Linguistic Quality Lens",
+          "rubric_count": 1,
+          "max_total": 10.0,
+          "items_with_scores": 30
+        },
+        {
+          "name": "Objectivity vs Opinion Lens",
+          "rubric_count": 2,
+          "max_total": 20.0,
+          "items_with_scores": 30
+        },
+        {
+          "name": "Sentiment Clarity Lens",
+          "rubric_count": 2,
+          "max_total": 20.0,
+          "items_with_scores": 30
+        }
+      ]
+    },
+    "source_differentiation": {
+      "status": "ok",
+      "reason": "",
+      "n_articles": 30,
+      "n_lenses": 6,
+      "n_sources": 10,
+      "source_counts": {
+        "The Wall Street Journal": 3,
+        "The New York Times": 3,
+        "NPR": 3,
+        "The Guardian": 3,
+        "BBC News": 3,
+        "PBS NewsHour": 3,
+        "Fox News": 3,
+        "Financial Times": 3,
+        "CNN": 3,
+        "The Washington Post": 3
+      },
+      "permutations": 1000,
+      "multivariate": {
+        "f_stat": 11.528943837454474,
+        "r_squared": 0.8383975429735688,
+        "df_between": 9,
+        "df_within": 20,
+        "ss_between": 7.518312499999999,
+        "ss_within": 1.4491666666666667,
+        "p_perm": 0.000999000999000999
+      },
+      "classification": {
+        "accuracy": 0.3,
+        "baseline_accuracy": 0.1,
+        "evaluated": 30,
+        "total": 30,
+        "p_perm": 0.005994005994005994
+      }
+    }
   },
   "articles": [
-    {
-      "id": "103582f78729",
-      "title": "Starmer criticises Trump over Iran strikes, as he defends UK position",
-      "link": "https://www.bbc.com/news/articles/cj0dnq2v0e2o?at_medium=RSS&at_campaign=rss",
-      "published": "Mon, 02 Mar 2026 17:22:19 GMT",
-      "summary": "The PM told MPs that Trump had expressed his disagreement with the decision not to get involved in the initial strikes.",
-      "ai_summary": "Sir Keir Starmer criticized President Trump over the US-Israeli strikes on Iran, asserting the UK government's stance against regime change from the skies.",
-      "ai_tags": [
-        "UK Politics",
-        "Iran",
-        "Trump",
-        "Starmer"
-      ],
-      "topic_tags": [
-        "general"
-      ],
-      "source": {
-        "id": "bbc-news",
-        "name": "BBC News"
-      },
-      "feed": {
-        "name": "Top Stories",
-        "url": "http://feeds.bbci.co.uk/news/rss.xml"
-      },
-      "scraped": {
-        "fetched_at": "2026-03-02T18:09:53.132579+00:00",
-        "final_url": "https://www.bbc.com/news/articles/cj0dnq2v0e2o?at_medium=RSS&at_campaign=rss",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "Starmer criticises Trump over Iran strikes, as he defends UK position",
-        "description": "The PM told MPs that Trump had expressed his disagreement with the decision not to get involved in the initial strikes.",
-        "author": null,
-        "published_at": null,
-        "canonical_url": "https://www.bbc.com/news/articles/cj0dnq2v0e2o",
-        "language": "en-GB",
-        "h1": "Starmer criticises Trump over Iran strikes, as he defends UK position",
-        "lead_paragraph": "Sir Keir Starmer has told MPs that the government \"does not believe in regime change from the skies\", putting him at odds with President Trump over the joint US-Israeli strikes on Iran.",
-        "paragraph_count": 16,
-        "word_count": 446,
-        "top_keywords": [
-          "strikes",
-          "bases",
-          "iran",
-          "british",
-          "trump",
-          "told",
-          "decision",
-          "starmer",
-          "keir",
-          "president",
-          "initial",
-          "attacks"
-        ]
-      },
-      "scrape_error": null,
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "bbc-news",
-          "source_name": "BBC News",
-          "feed_name": "Top Stories",
-          "feed_url": "http://feeds.bbci.co.uk/news/rss.xml"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "74281cb2c8f0",
-      "title": "Will petrol and diesel prices go up now?",
-      "link": "https://www.bbc.com/news/articles/c20zgjzz0e4o?at_medium=RSS&at_campaign=rss",
-      "published": "Mon, 02 Mar 2026 13:44:51 GMT",
-      "summary": "If oil prices remain high for some time, the knock-on effects could affect the costs of fuel and food",
-      "ai_summary": "High oil prices due to the Iran conflict may lead to increased costs for fuel and food.",
-      "ai_tags": [
-        "Oil Prices",
-        "Economy",
-        "Iran",
-        "Fuel Costs"
-      ],
-      "topic_tags": [
-        "general"
-      ],
-      "source": {
-        "id": "bbc-news",
-        "name": "BBC News"
-      },
-      "feed": {
-        "name": "Top Stories",
-        "url": "http://feeds.bbci.co.uk/news/rss.xml"
-      },
-      "scraped": {
-        "fetched_at": "2026-03-02T18:09:53.458579+00:00",
-        "final_url": "https://www.bbc.com/news/articles/c20zgjzz0e4o?at_medium=RSS&at_campaign=rss",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "Will petrol and diesel prices go up because of the Iran war?",
-        "description": "If oil prices remain high for some time, the knock-on effects could affect the costs of fuel and food",
-        "author": null,
-        "published_at": null,
-        "canonical_url": "https://www.bbc.com/news/articles/c20zgjzz0e4o",
-        "language": "en-GB",
-        "h1": "Will petrol and diesel prices go up now?",
-        "lead_paragraph": "The jump in the price of oil triggered by the conflict in the Middle East has raised the possibility of higher fuel costs for motorists.",
-        "paragraph_count": 36,
-        "word_count": 858,
-        "top_keywords": [
-          "prices",
-          "price",
-          "will",
-          "petrol",
-          "diesel",
-          "iran",
-          "conflict",
-          "fuel",
-          "costs",
-          "jump",
-          "higher",
-          "through"
-        ]
-      },
-      "scrape_error": null,
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "bbc-news",
-          "source_name": "BBC News",
-          "feed_name": "Top Stories",
-          "feed_url": "http://feeds.bbci.co.uk/news/rss.xml"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "83bea5488de9",
-      "title": "Limited flights leave UAE but disruption continues amid Iran strikes",
-      "link": "https://www.bbc.com/news/articles/c3v7ele1k4zo?at_medium=RSS&at_campaign=rss",
-      "published": "Mon, 02 Mar 2026 16:25:37 GMT",
-      "summary": "The majority of flights to key Middle Eastern hubs have been cancelled for Monday as the conflict continues.",
-      "ai_summary": "Most flights from the UAE have been canceled as the conflict in Iran disrupts travel across the Middle East.",
-      "ai_tags": [
-        "Aviation",
-        "Iran",
-        "Middle East",
-        "Travel"
-      ],
-      "topic_tags": [
-        "general"
-      ],
-      "source": {
-        "id": "bbc-news",
-        "name": "BBC News"
-      },
-      "feed": {
-        "name": "Top Stories",
-        "url": "http://feeds.bbci.co.uk/news/rss.xml"
-      },
-      "scraped": {
-        "fetched_at": "2026-03-02T18:09:53.784521+00:00",
-        "final_url": "https://www.bbc.com/news/articles/c3v7ele1k4zo?at_medium=RSS&at_campaign=rss",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "Limited flights leave UAE while disruption continues amid Iran strikes",
-        "description": "The majority of flights to key Middle Eastern hubs have been cancelled for Monday as the conflict continues.",
-        "author": null,
-        "published_at": null,
-        "canonical_url": "https://www.bbc.com/news/articles/c3v7ele1k4zo",
-        "language": "en-GB",
-        "h1": "Limited flights leave UAE but disruption continues amid Iran strikes",
-        "lead_paragraph": "A limited number of flights have been able to leave the United Arab Emirates as departures across the Middle East continue to be disrupted by the joint Israeli and US war on Iran.",
-        "paragraph_count": 38,
-        "word_count": 1026,
-        "top_keywords": [
-          "flights",
-          "will",
-          "been",
-          "emirates",
-          "airline",
-          "monday",
-          "limited",
-          "disruption",
-          "united",
-          "arab",
-          "cancelled",
-          "according"
-        ]
-      },
-      "scrape_error": null,
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "bbc-news",
-          "source_name": "BBC News",
-          "feed_name": "Top Stories",
-          "feed_url": "http://feeds.bbci.co.uk/news/rss.xml"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "7a9f5a7209e3",
-      "title": "Trump pleads not guilty to 34 felony counts",
-      "link": "https://edition.cnn.com/webview/politics/live-news/trump-indictment-stormy-daniels-news-04-03-23/index.html",
-      "published": "",
-      "summary": "",
-      "ai_summary": "",
-      "ai_tags": [],
-      "topic_tags": [
-        "general"
-      ],
-      "source": {
-        "id": "cnn",
-        "name": "CNN"
-      },
-      "feed": {
-        "name": "Top Stories",
-        "url": "http://rss.cnn.com/rss/edition.rss"
-      },
-      "scraped": {
-        "fetched_at": "2026-03-02T18:09:54.136600+00:00",
-        "final_url": "https://edition.cnn.com/webview/politics/live-news/trump-indictment-stormy-daniels-news-04-03-23/index.html",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "April 3, 2023 Trump indictment news | CNN Politics",
-        "description": "Former President Donald Trump has been indicted by a Manhattan grand jury, marking the first time in US history that a current or former president has faced criminal charges.",
-        "author": "Aditi Sangal,Mike Hayes,Maureen Chowdhury,Amir Vera,Shania Shelton",
-        "published_at": "2023-04-03T11:50:17+00:00",
-        "canonical_url": "https://www.cnn.com/politics/live-news/trump-indictment-stormy-daniels-news-04-03-23",
-        "language": "en",
-        "h1": null,
-        "lead_paragraph": null,
-        "paragraph_count": 0,
-        "word_count": 0,
-        "top_keywords": [
-          "april",
-          "trump",
-          "indictment",
-          "politics"
-        ]
-      },
-      "scrape_error": null,
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "cnn",
-          "source_name": "CNN",
-          "feed_name": "Top Stories",
-          "feed_url": "http://rss.cnn.com/rss/edition.rss"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "ce5126b5a80d",
-      "title": "Haberman reveals why Trump attacked judge and his family in speech",
-      "link": "https://www.cnn.com/videos/politics/2023/04/05/maggie-haberman-donald-trump-speech-indictment-reaction-sot-cnntm-vpx.cnn",
-      "published": "Wed, 05 Apr 2023 13:30:09 GMT",
-      "summary": "CNN political contributor Maggie Haberman explains the reasoning behind Donald Trump's attacks on the judge and his family during a speech at his Mar-a-Lago resort after he was arraigned on felony charges.",
-      "ai_summary": "",
-      "ai_tags": [],
-      "topic_tags": [
-        "general"
-      ],
-      "source": {
-        "id": "cnn",
-        "name": "CNN"
-      },
-      "feed": {
-        "name": "Top Stories",
-        "url": "http://rss.cnn.com/rss/edition.rss"
-      },
-      "scraped": {
-        "fetched_at": "2026-03-02T18:09:54.445132+00:00",
-        "final_url": "https://www.cnn.com/videos/politics/2023/04/05/maggie-haberman-donald-trump-speech-indictment-reaction-sot-cnntm-vpx.cnn",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "Haberman reveals why Trump attacked judge and his family in speech | CNN Politics",
-        "description": "CNN political contributor Maggie Haberman explains the reasoning behind Donald Trump’s attacks on the judge and his family during a speech at his Mar-a-Lago resort after he was arraigned on felony charges.",
-        "author": null,
-        "published_at": "2023-04-05T13:23:08+00:00",
-        "canonical_url": "https://www.cnn.com/videos/politics/2023/04/05/maggie-haberman-donald-trump-speech-indictment-reaction-sot-cnntm-vpx.cnn",
-        "language": "en",
-        "h1": null,
-        "lead_paragraph": null,
-        "paragraph_count": 0,
-        "word_count": 0,
-        "top_keywords": [
-          "haberman",
-          "reveals",
-          "trump",
-          "attacked",
-          "judge",
-          "family",
-          "speech",
-          "politics"
-        ]
-      },
-      "scrape_error": null,
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "cnn",
-          "source_name": "CNN",
-          "feed_name": "Top Stories",
-          "feed_url": "http://rss.cnn.com/rss/edition.rss"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "a998994f8b6f",
-      "title": "What to know about the Trump indictment on the eve of his court appearance",
-      "link": "https://www.cnn.com/collections/intl-trump-040223/",
-      "published": "Wed, 05 Apr 2023 22:50:06 GMT",
-      "summary": "",
-      "ai_summary": "",
-      "ai_tags": [],
-      "topic_tags": [
-        "general"
-      ],
-      "source": {
-        "id": "cnn",
-        "name": "CNN"
-      },
-      "feed": {
-        "name": "Top Stories",
-        "url": "http://rss.cnn.com/rss/edition.rss"
-      },
-      "scraped": null,
-      "scrape_error": "HTTP Error 404: Not Found",
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "cnn",
-          "source_name": "CNN",
-          "feed_name": "Top Stories",
-          "feed_url": "http://rss.cnn.com/rss/edition.rss"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "ba3660884d58",
-      "title": "Ghana says at least 55 of its people killed after Russia ‘lured’ them to fight Ukraine",
-      "link": "https://www.theguardian.com/world/2026/feb/27/ghana-men-killed-fight-russia-ukraine",
-      "published": "Fri, 27 Feb 2026 16:42:39 GMT",
-      "summary": "Foreign minister says 272 Ghanaians are thought to have been drawn into battle since 2022, after he visited KyivAt least 55 Ghanaians have been killed in Russia’s war with Ukraine after being “lured into battle”, Ghana’s foreign minister has said after a visit to Kyiv in which officials raised the issue of Russian recruitment of African people.Reports of African men being attracted to Russia by promises of jobs and ending up on Ukraine’s frontlines have become more frequent in recent months, ...",
-      "ai_summary": "Ghana's foreign minister reported that at least 55 Ghanaians have died after being lured to fight in Ukraine by Russia.",
-      "ai_tags": [
-        "Ghana",
-        "Ukraine",
-        "Russia",
-        "Conflict"
-      ],
-      "topic_tags": [
-        "world"
-      ],
-      "source": {
-        "id": "the-guardian",
-        "name": "The Guardian"
-      },
-      "feed": {
-        "name": "World",
-        "url": "https://www.theguardian.com/world/rss"
-      },
-      "scraped": {
-        "fetched_at": "2026-03-02T18:09:55.841602+00:00",
-        "final_url": "https://www.theguardian.com/world/2026/feb/27/ghana-men-killed-fight-russia-ukraine",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "Ghana says at least 55 of its people killed after Russia ‘lured’ them to fight Ukraine",
-        "description": "Foreign minister says 272 Ghanaians are thought to have been drawn into battle since 2022, after he visited Kyiv",
-        "author": "Guardian staff and agencies in Accra",
-        "published_at": "2026-02-27T16:42:39+00:00",
-        "canonical_url": "https://www.theguardian.com/world/2026/feb/27/ghana-men-killed-fight-russia-ukraine",
-        "language": "en",
-        "h1": "Ghana says at least 55 of its people killed after Russia ‘lured’ them to fight Ukraine",
-        "lead_paragraph": "Foreign minister says 272 Ghanaians are thought to have been drawn into battle since 2022, after he visited Kyiv",
-        "paragraph_count": 12,
-        "word_count": 430,
-        "top_keywords": [
-          "russia",
-          "foreign",
-          "been",
-          "minister",
-          "south",
-          "ukraine",
-          "african",
-          "ghana",
-          "ghanaians",
-          "recruitment",
-          "people",
-          "killed"
-        ]
-      },
-      "scrape_error": null,
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "the-guardian",
-          "source_name": "The Guardian",
-          "feed_name": "World",
-          "feed_url": "https://www.theguardian.com/world/rss"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
     {
       "id": "0f7881121412",
       "title": "Rising anger over ‘lop-sided’ and ‘immoral’ US health funding pacts with African countries",
       "link": "https://www.theguardian.com/global-development/2026/feb/27/rising-anger-over-lop-sided-immoral-us-health-funding-pacts-africa-countries",
       "published": "Fri, 27 Feb 2026 07:00:34 GMT",
       "summary": "Zimbabwe refuses to sign agreement and Kenya faces a court case over data sharing as new aid deals come under scrutinyA series of bilateral health agreements being negotiated between African countries and the administration of President Donald Trump have been labelled “clearly lop-sided” and “immoral” amid growing outrage at US demands, including countries being forced to share biological resources and data.It emerged this week that Zimbabwe had halted negotiations with the US for $350m (£258...",
-      "ai_summary": "Zimbabwe and Kenya are facing backlash over US health funding agreements deemed unfair and immoral.",
+      "ai_summary": "Zimbabwe and Kenya are facing backlash over US health funding agreements deemed unfair and intrusive.",
       "ai_tags": [
         "US",
         "Africa",
         "Health Funding",
-        "Zimbabwe"
+        "International Relations"
       ],
       "topic_tags": [
         "world"
@@ -532,7 +125,7 @@
         "url": "https://www.theguardian.com/world/rss"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T18:09:56.375508+00:00",
+        "fetched_at": "2026-03-02T19:20:25.520933+00:00",
         "final_url": "https://www.theguardian.com/global-development/2026/feb/27/rising-anger-over-lop-sided-immoral-us-health-funding-pacts-africa-countries",
         "status_code": 200,
         "content_type": "text/html",
@@ -563,12 +156,23 @@
       },
       "scrape_error": null,
       "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
+        "value": 85.5,
+        "max_value": 110.0,
+        "percent": 77.7273,
+        "rubric_count": 11
       },
-      "high_score": null,
+      "high_score": {
+        "overall_score": 85.5,
+        "overall_percent": 77.72727272727272,
+        "lens_scores": {
+          "Credibility Lens": 14.5,
+          "Emotional Intensity Lens": 16.0,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 12.0,
+          "Sentiment Clarity Lens": 17.5
+        }
+      },
       "audit": {
         "provenance": {
           "source_id": "the-guardian",
@@ -577,10 +181,157 @@
           "feed_url": "https://www.theguardian.com/world/rss"
         },
         "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "103582f78729",
+      "title": "Starmer criticises Trump, saying UK 'does not believe in regime change from skies'",
+      "link": "https://www.bbc.com/news/articles/cj0dnq2v0e2o?at_medium=RSS&at_campaign=rss",
+      "published": "Mon, 02 Mar 2026 18:19:01 GMT",
+      "summary": "The PM told MPs that Trump had expressed his disagreement with the decision not to get involved in the initial strikes.",
+      "ai_summary": "PM Starmer criticized Trump for advocating military intervention in Iran, asserting that the UK does not support regime change through airstrikes.",
+      "ai_tags": [
+        "UK Politics",
+        "Trump",
+        "Iran",
+        "Military Intervention"
+      ],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "feed": {
+        "name": "Top Stories",
+        "url": "http://feeds.bbci.co.uk/news/rss.xml"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-02T19:20:22.419270+00:00",
+        "final_url": "https://www.bbc.com/news/articles/cj0dnq2v0e2o?at_medium=RSS&at_campaign=rss",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Starmer criticises Trump over Iran strikes, as he defends UK position",
+        "description": "The PM told MPs that Trump had expressed his disagreement with the decision not to get involved in the initial strikes.",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.bbc.com/news/articles/cj0dnq2v0e2o",
+        "language": "en-GB",
+        "h1": "Starmer criticises Trump over Iran strikes, as he defends UK position",
+        "lead_paragraph": "Sir Keir Starmer has told MPs that the government \"does not believe in regime change from the skies\", putting him at odds with President Trump over the joint US-Israeli strikes on Iran.",
+        "paragraph_count": 32,
+        "word_count": 891,
+        "top_keywords": [
+          "strikes",
+          "iran",
+          "keir",
+          "decision",
+          "bases",
+          "trump",
+          "told",
+          "british",
+          "starmer",
+          "president",
+          "initial",
+          "attacks"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 82.5,
+        "max_value": 110.0,
+        "percent": 75.0,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 82.5,
+        "overall_percent": 75.0,
+        "lens_scores": {
+          "Credibility Lens": 17.5,
+          "Emotional Intensity Lens": 9.5,
+          "Entity-Level Sentiment Lens": 17.5,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 11.0,
+          "Sentiment Clarity Lens": 18.5
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "bbc-news",
+          "source_name": "BBC News",
+          "feed_name": "Top Stories",
+          "feed_url": "http://feeds.bbci.co.uk/news/rss.xml"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "8ce06920d7d5",
+      "title": "Mix of joy, unease grips Iranian diaspora watching U.S.-Israeli strikes from afar",
+      "link": "https://www.washingtonpost.com/nation/2026/03/01/iranian-americans-reaction-military-strikes/",
+      "published": "Sun, 01 Mar 2026 16:17:53 +0000",
+      "summary": "Across the United States, Iranian Americans expressed frustration, hope, dread and — above all — concern for relatives still in Iran after the joint U.S.-Israeli attacks.",
+      "ai_summary": "Iranian Americans express mixed emotions as they watch the US-Israeli strikes on Iran from abroad, worrying for their families back home.",
+      "ai_tags": [
+        "Iran",
+        "US",
+        "Diaspora",
+        "Military Strikes"
+      ],
+      "topic_tags": [
+        "us"
+      ],
+      "source": {
+        "id": "washington-post",
+        "name": "The Washington Post"
+      },
+      "feed": {
+        "name": "National",
+        "url": "https://feeds.washingtonpost.com/rss/national"
+      },
+      "scraped": null,
+      "scrape_error": "The read operation timed out",
+      "score": {
+        "value": 82.5,
+        "max_value": 110.0,
+        "percent": 75.0,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 82.5,
+        "overall_percent": 75.0,
+        "lens_scores": {
+          "Credibility Lens": 15.0,
+          "Emotional Intensity Lens": 13.0,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 12.0,
+          "Sentiment Clarity Lens": 17.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "washington-post",
+          "source_name": "The Washington Post",
+          "feed_name": "National",
+          "feed_url": "https://feeds.washingtonpost.com/rss/national"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
         }
       }
     },
@@ -590,12 +341,12 @@
       "link": "https://www.theguardian.com/global-development/2026/feb/26/women-arrested-uganda-kissing-public-lgbtq-laws",
       "published": "Thu, 26 Feb 2026 08:00:23 GMT",
       "summary": "Wendy Faith and Alesi Diana Denise were taken into custody under laws that have outraged LGBTQ+ community and rights activistsTwo women have been arrested and detained in Uganda after allegedly kissing in public, an act of “same-sex activity” which can lead to a life sentence in the east African country.Wendy Faith, a 22-year-old musician known as Torrero Bae, and Alesi Diana Denise, 21, were taken into custody after police raided their rented room in Uganda’s north-west Arua City last week. ...",
-      "ai_summary": "Two women in Uganda were arrested for allegedly kissing in public, facing severe penalties under local laws.",
+      "ai_summary": "Two women in Uganda were arrested for allegedly kissing in public, potentially facing life sentences under strict anti-LGBTQ+ laws.",
       "ai_tags": [
         "Uganda",
         "LGBTQ+",
         "Human Rights",
-        "Arrest"
+        "Legal Issues"
       ],
       "topic_tags": [
         "world"
@@ -609,7 +360,7 @@
         "url": "https://www.theguardian.com/world/rss"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T18:09:56.822473+00:00",
+        "fetched_at": "2026-03-02T19:20:25.941567+00:00",
         "final_url": "https://www.theguardian.com/global-development/2026/feb/26/women-arrested-uganda-kissing-public-lgbtq-laws",
         "status_code": 200,
         "content_type": "text/html",
@@ -640,12 +391,23 @@
       },
       "scrape_error": null,
       "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
+        "value": 82.0,
+        "max_value": 110.0,
+        "percent": 74.5455,
+        "rubric_count": 11
       },
-      "high_score": null,
+      "high_score": {
+        "overall_score": 82.0,
+        "overall_percent": 74.54545454545455,
+        "lens_scores": {
+          "Credibility Lens": 14.0,
+          "Emotional Intensity Lens": 13.0,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 12.5,
+          "Sentiment Clarity Lens": 17.0
+        }
+      },
       "audit": {
         "provenance": {
           "source_id": "the-guardian",
@@ -654,10 +416,157 @@
           "feed_url": "https://www.theguardian.com/world/rss"
         },
         "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "81053d35c827",
+      "title": "National Park Service database flags hundreds of items that might ‘disparage’ America",
+      "link": "https://www.washingtonpost.com/climate-environment/2026/03/02/national-parks-signs-censorship-slavery/",
+      "published": "Mon, 02 Mar 2026 18:49:08 +0000",
+      "summary": "An internal government database reviewed by The Washington Post demonstrates the vast scope of the Trump administration’s ongoing effort to revise or remove information on African American history, climate change and other topics at hundreds of national park sites.",
+      "ai_summary": "An internal database reveals the Trump administration's efforts to censor information on African American history and climate change at national parks.",
+      "ai_tags": [
+        "Trump",
+        "Censorship",
+        "History",
+        "National Parks"
+      ],
+      "topic_tags": [
+        "us"
+      ],
+      "source": {
+        "id": "washington-post",
+        "name": "The Washington Post"
+      },
+      "feed": {
+        "name": "National",
+        "url": "https://feeds.washingtonpost.com/rss/national"
+      },
+      "scraped": null,
+      "scrape_error": "The read operation timed out",
+      "score": {
+        "value": 81.5,
+        "max_value": 110.0,
+        "percent": 74.0909,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 81.5,
+        "overall_percent": 74.0909090909091,
+        "lens_scores": {
+          "Credibility Lens": 14.0,
+          "Emotional Intensity Lens": 12.5,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 12.5,
+          "Sentiment Clarity Lens": 17.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "washington-post",
+          "source_name": "The Washington Post",
+          "feed_name": "National",
+          "feed_url": "https://feeds.washingtonpost.com/rss/national"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "ba3660884d58",
+      "title": "Ghana says at least 55 of its people killed after Russia ‘lured’ them to fight Ukraine",
+      "link": "https://www.theguardian.com/world/2026/feb/27/ghana-men-killed-fight-russia-ukraine",
+      "published": "Fri, 27 Feb 2026 16:42:39 GMT",
+      "summary": "Foreign minister says 272 Ghanaians are thought to have been drawn into battle since 2022, after he visited KyivAt least 55 Ghanaians have been killed in Russia’s war with Ukraine after being “lured into battle”, Ghana’s foreign minister has said after a visit to Kyiv in which officials raised the issue of Russian recruitment of African people.Reports of African men being attracted to Russia by promises of jobs and ending up on Ukraine’s frontlines have become more frequent in recent months, ...",
+      "ai_summary": "Ghana's foreign minister reported that at least 55 Ghanaians have died after being recruited by Russia to fight in Ukraine.",
+      "ai_tags": [
+        "Ghana",
+        "Ukraine",
+        "Russia",
+        "Recruitment"
+      ],
+      "topic_tags": [
+        "world"
+      ],
+      "source": {
+        "id": "the-guardian",
+        "name": "The Guardian"
+      },
+      "feed": {
+        "name": "World",
+        "url": "https://www.theguardian.com/world/rss"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-02T19:20:25.156984+00:00",
+        "final_url": "https://www.theguardian.com/world/2026/feb/27/ghana-men-killed-fight-russia-ukraine",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Ghana says at least 55 of its people killed after Russia ‘lured’ them to fight Ukraine",
+        "description": "Foreign minister says 272 Ghanaians are thought to have been drawn into battle since 2022, after he visited Kyiv",
+        "author": "Guardian staff and agencies in Accra",
+        "published_at": "2026-02-27T16:42:39+00:00",
+        "canonical_url": "https://www.theguardian.com/world/2026/feb/27/ghana-men-killed-fight-russia-ukraine",
+        "language": "en",
+        "h1": "Ghana says at least 55 of its people killed after Russia ‘lured’ them to fight Ukraine",
+        "lead_paragraph": "Foreign minister says 272 Ghanaians are thought to have been drawn into battle since 2022, after he visited Kyiv",
+        "paragraph_count": 12,
+        "word_count": 430,
+        "top_keywords": [
+          "russia",
+          "foreign",
+          "been",
+          "minister",
+          "south",
+          "ukraine",
+          "african",
+          "ghana",
+          "ghanaians",
+          "recruitment",
+          "people",
+          "killed"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 80.5,
+        "max_value": 110.0,
+        "percent": 73.1818,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 80.5,
+        "overall_percent": 73.18181818181819,
+        "lens_scores": {
+          "Credibility Lens": 14.0,
+          "Emotional Intensity Lens": 13.0,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 10.5,
+          "Sentiment Clarity Lens": 17.5
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "the-guardian",
+          "source_name": "The Guardian",
+          "feed_name": "World",
+          "feed_url": "https://www.theguardian.com/world/rss"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
         }
       }
     },
@@ -667,303 +576,135 @@
       "link": "https://www.nytimes.com/2026/03/02/world/europe/trump-iran-europe.html",
       "published": "Mon, 02 Mar 2026 12:07:45 +0000",
       "summary": "Disregarded by President Trump over Iran, Europe’s leaders are adapting to a world in which they are little more than bystanders.",
-      "ai_summary": "",
-      "ai_tags": [],
-      "topic_tags": [
-        "general"
-      ],
-      "source": {
-        "id": "new-york-times",
-        "name": "The New York Times"
-      },
-      "feed": {
-        "name": "Home Page",
-        "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-      },
-      "scraped": null,
-      "scrape_error": "HTTP Error 403: Forbidden",
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "new-york-times",
-          "source_name": "The New York Times",
-          "feed_name": "Home Page",
-          "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "1736233fb19f",
-      "title": "3 U.S. Planes Are Shot Down in ‘Friendly Fire’ in Kuwait, U.S. Military Says",
-      "link": "https://www.nytimes.com/2026/03/02/world/middleeast/iran-kuwait-us-attack-planes.html",
-      "published": "Mon, 02 Mar 2026 12:38:02 +0000",
-      "summary": "Separately, a drone attack hit the U.S. Embassy compound in the Persian Gulf state, as Iran continues to target American assets across the Middle East.",
-      "ai_summary": "",
-      "ai_tags": [],
-      "topic_tags": [
-        "general"
-      ],
-      "source": {
-        "id": "new-york-times",
-        "name": "The New York Times"
-      },
-      "feed": {
-        "name": "Home Page",
-        "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-      },
-      "scraped": null,
-      "scrape_error": "HTTP Error 403: Forbidden",
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "new-york-times",
-          "source_name": "The New York Times",
-          "feed_name": "Home Page",
-          "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "f4d71c100b36",
-      "title": "How the Bombing of Iran Is Affecting Lebanon, Kuwait and Other Countries",
-      "link": "https://www.nytimes.com/2026/03/02/world/middleeast/iran-attacks-damage-what-to-know.html",
-      "published": "Mon, 02 Mar 2026 14:14:28 +0000",
-      "summary": "The Middle East is facing deaths and destruction as Iran retaliates against a huge American-Israeli military campaign.",
-      "ai_summary": "",
-      "ai_tags": [],
-      "topic_tags": [
-        "general"
-      ],
-      "source": {
-        "id": "new-york-times",
-        "name": "The New York Times"
-      },
-      "feed": {
-        "name": "Home Page",
-        "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-      },
-      "scraped": null,
-      "scrape_error": "HTTP Error 403: Forbidden",
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "new-york-times",
-          "source_name": "The New York Times",
-          "feed_name": "Home Page",
-          "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "8ce06920d7d5",
-      "title": "Mix of joy, unease grips Iranian diaspora watching U.S.-Israeli strikes from afar",
-      "link": "https://www.washingtonpost.com/nation/2026/03/01/iranian-americans-reaction-military-strikes/",
-      "published": "Sun, 01 Mar 2026 16:17:53 +0000",
-      "summary": "Across the United States, Iranian Americans expressed frustration, hope, dread and — above all — concern for relatives still in Iran after the joint U.S.-Israeli attacks.",
-      "ai_summary": "",
-      "ai_tags": [],
-      "topic_tags": [
-        "us"
-      ],
-      "source": {
-        "id": "washington-post",
-        "name": "The Washington Post"
-      },
-      "feed": {
-        "name": "National",
-        "url": "https://feeds.washingtonpost.com/rss/national"
-      },
-      "scraped": null,
-      "scrape_error": "The read operation timed out",
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "washington-post",
-          "source_name": "The Washington Post",
-          "feed_name": "National",
-          "feed_url": "https://feeds.washingtonpost.com/rss/national"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "d22490f0f3cf",
-      "title": "In Black History Month, Trump casts racial progress as largely settled",
-      "link": "https://www.washingtonpost.com/politics/2026/03/01/donald-trump-black-history-month/",
-      "published": "Sun, 01 Mar 2026 10:00:30 +0000",
-      "summary": "The centennial of what became Black History Month offered a microcosm of President Donald Trump’s views on race and progress.",
-      "ai_summary": "",
-      "ai_tags": [],
-      "topic_tags": [
-        "us"
-      ],
-      "source": {
-        "id": "washington-post",
-        "name": "The Washington Post"
-      },
-      "feed": {
-        "name": "National",
-        "url": "https://feeds.washingtonpost.com/rss/national"
-      },
-      "scraped": null,
-      "scrape_error": "The read operation timed out",
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "washington-post",
-          "source_name": "The Washington Post",
-          "feed_name": "National",
-          "feed_url": "https://feeds.washingtonpost.com/rss/national"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "d2803cf347cc",
-      "title": "Outside White House, hundreds protest attack on Iran, urge end to conflict",
-      "link": "https://www.washingtonpost.com/dc-md-va/2026/02/28/dc-protest-israel-us-strike-iran/",
-      "published": "Sat, 28 Feb 2026 23:33:17 +0000",
-      "summary": "The protest near the White House was among the demonstrations that erupted across the country after Israel and the United States launched strikes on Iran.",
-      "ai_summary": "Protests erupted across the US against the military strikes on Iran, with demonstrators calling for an end to the conflict.",
+      "ai_summary": "European leaders feel sidelined as President Trump escalates military actions in Iran without their involvement.",
       "ai_tags": [
-        "Protests",
+        "Trump",
         "Iran",
-        "US Politics",
-        "Conflict"
+        "Europe",
+        "International Relations"
       ],
       "topic_tags": [
-        "us"
+        "general"
       ],
       "source": {
-        "id": "washington-post",
-        "name": "The Washington Post"
+        "id": "new-york-times",
+        "name": "The New York Times"
       },
       "feed": {
-        "name": "National",
-        "url": "https://feeds.washingtonpost.com/rss/national"
+        "name": "Home Page",
+        "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
       },
       "scraped": null,
-      "scrape_error": "The read operation timed out",
+      "scrape_error": "HTTP Error 403: Forbidden",
       "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
+        "value": 77.0,
+        "max_value": 110.0,
+        "percent": 70.0,
+        "rubric_count": 11
       },
-      "high_score": null,
+      "high_score": {
+        "overall_score": 77.0,
+        "overall_percent": 70.0,
+        "lens_scores": {
+          "Credibility Lens": 16.0,
+          "Emotional Intensity Lens": 9.5,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 10.0,
+          "Sentiment Clarity Lens": 16.0
+        }
+      },
       "audit": {
         "provenance": {
-          "source_id": "washington-post",
-          "source_name": "The Washington Post",
-          "feed_name": "National",
-          "feed_url": "https://feeds.washingtonpost.com/rss/national"
+          "source_id": "new-york-times",
+          "source_name": "The New York Times",
+          "feed_name": "Home Page",
+          "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
         },
         "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
         }
       }
     },
     {
-      "id": "2485e25ca957",
-      "title": "Palestinians Stream Back to Northern Gaza on Foot",
-      "link": "https://www.wsj.com/articles/palestinians-flock-back-to-northern-gaza-on-foot-after-hostage-release-breakthrough-3f60e2db",
-      "published": "Mon, 27 Jan 2025 14:23:00 -0500",
-      "summary": "Israel allowed displaced Gazans to begin crossing a military zone that bisects the enclave after a deadlock over hostage releases was broken.",
+      "id": "ce5126b5a80d",
+      "title": "Haberman reveals why Trump attacked judge and his family in speech",
+      "link": "https://www.cnn.com/videos/politics/2023/04/05/maggie-haberman-donald-trump-speech-indictment-reaction-sot-cnntm-vpx.cnn",
+      "published": "Wed, 05 Apr 2023 13:30:09 GMT",
+      "summary": "CNN political contributor Maggie Haberman explains the reasoning behind Donald Trump's attacks on the judge and his family during a speech at his Mar-a-Lago resort after he was arraigned on felony charges.",
       "ai_summary": "",
       "ai_tags": [],
       "topic_tags": [
-        "world"
+        "general"
       ],
       "source": {
-        "id": "wall-street-journal",
-        "name": "The Wall Street Journal"
+        "id": "cnn",
+        "name": "CNN"
       },
       "feed": {
-        "name": "World News",
-        "url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml"
+        "name": "Top Stories",
+        "url": "http://rss.cnn.com/rss/edition.rss"
       },
-      "scraped": null,
-      "scrape_error": "HTTP Error 401: HTTP Forbidden",
+      "scraped": {
+        "fetched_at": "2026-03-02T19:20:24.181652+00:00",
+        "final_url": "https://www.cnn.com/videos/politics/2023/04/05/maggie-haberman-donald-trump-speech-indictment-reaction-sot-cnntm-vpx.cnn",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Haberman reveals why Trump attacked judge and his family in speech | CNN Politics",
+        "description": "CNN political contributor Maggie Haberman explains the reasoning behind Donald Trump’s attacks on the judge and his family during a speech at his Mar-a-Lago resort after he was arraigned on felony charges.",
+        "author": null,
+        "published_at": "2023-04-05T13:23:08+00:00",
+        "canonical_url": "https://www.cnn.com/videos/politics/2023/04/05/maggie-haberman-donald-trump-speech-indictment-reaction-sot-cnntm-vpx.cnn",
+        "language": "en",
+        "h1": null,
+        "lead_paragraph": null,
+        "paragraph_count": 0,
+        "word_count": 0,
+        "top_keywords": [
+          "haberman",
+          "reveals",
+          "trump",
+          "attacked",
+          "judge",
+          "family",
+          "speech",
+          "politics"
+        ]
+      },
+      "scrape_error": null,
       "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
+        "value": 74.0,
+        "max_value": 110.0,
+        "percent": 67.2727,
+        "rubric_count": 11
       },
-      "high_score": null,
+      "high_score": {
+        "overall_score": 74.0,
+        "overall_percent": 67.27272727272727,
+        "lens_scores": {
+          "Credibility Lens": 14.0,
+          "Emotional Intensity Lens": 9.5,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 8.0,
+          "Sentiment Clarity Lens": 17.0
+        }
+      },
       "audit": {
         "provenance": {
-          "source_id": "wall-street-journal",
-          "source_name": "The Wall Street Journal",
-          "feed_name": "World News",
-          "feed_url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml"
+          "source_id": "cnn",
+          "source_name": "CNN",
+          "feed_name": "Top Stories",
+          "feed_url": "http://rss.cnn.com/rss/edition.rss"
         },
         "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
         }
       }
     },
@@ -989,12 +730,23 @@
       "scraped": null,
       "scrape_error": "HTTP Error 401: HTTP Forbidden",
       "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
+        "value": 74.0,
+        "max_value": 110.0,
+        "percent": 67.2727,
+        "rubric_count": 11
       },
-      "high_score": null,
+      "high_score": {
+        "overall_score": 74.0,
+        "overall_percent": 67.27272727272727,
+        "lens_scores": {
+          "Credibility Lens": 15.5,
+          "Emotional Intensity Lens": 6.5,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.0,
+          "Objectivity vs Opinion Lens": 11.5,
+          "Sentiment Clarity Lens": 15.5
+        }
+      },
       "audit": {
         "provenance": {
           "source_id": "wall-street-journal",
@@ -1003,10 +755,291 @@
           "feed_url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml"
         },
         "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "d22490f0f3cf",
+      "title": "In Black History Month, Trump casts racial progress as largely settled",
+      "link": "https://www.washingtonpost.com/politics/2026/03/01/donald-trump-black-history-month/",
+      "published": "Sun, 01 Mar 2026 10:00:30 +0000",
+      "summary": "The centennial of what became Black History Month offered a microcosm of President Donald Trump’s views on race and progress.",
+      "ai_summary": "During Black History Month, Trump characterized racial progress as largely achieved, reflecting his views on race relations.",
+      "ai_tags": [
+        "Trump",
+        "Race",
+        "Black History Month",
+        "Social Issues"
+      ],
+      "topic_tags": [
+        "us"
+      ],
+      "source": {
+        "id": "washington-post",
+        "name": "The Washington Post"
+      },
+      "feed": {
+        "name": "National",
+        "url": "https://feeds.washingtonpost.com/rss/national"
+      },
+      "scraped": null,
+      "scrape_error": "The read operation timed out",
+      "score": {
+        "value": 73.5,
+        "max_value": 110.0,
+        "percent": 66.8182,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 73.5,
+        "overall_percent": 66.81818181818183,
+        "lens_scores": {
+          "Credibility Lens": 15.5,
+          "Emotional Intensity Lens": 9.5,
+          "Entity-Level Sentiment Lens": 15.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 8.5,
+          "Sentiment Clarity Lens": 16.5
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "washington-post",
+          "source_name": "The Washington Post",
+          "feed_name": "National",
+          "feed_url": "https://feeds.washingtonpost.com/rss/national"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "148a5fac2b97",
+      "title": "How Trump Decided to Go to War With Iran",
+      "link": "https://www.nytimes.com/2026/03/02/us/politics/trump-war-iran-israel.html",
+      "published": "Mon, 02 Mar 2026 19:09:10 +0000",
+      "summary": "President Trump’s embrace of military action in Iran was spurred by an Israeli leader determined to end diplomatic negotiations. Few of the president’s advisers voiced opposition.",
+      "ai_summary": "President Trump's decision to engage militarily in Iran was influenced by Israeli leadership and met with little opposition from his advisors.",
+      "ai_tags": [
+        "Trump",
+        "Iran",
+        "Military Action",
+        "Israel"
+      ],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "new-york-times",
+        "name": "The New York Times"
+      },
+      "feed": {
+        "name": "Home Page",
+        "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+      },
+      "scraped": null,
+      "scrape_error": "HTTP Error 403: Forbidden",
+      "score": {
+        "value": 72.5,
+        "max_value": 110.0,
+        "percent": 65.9091,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 72.5,
+        "overall_percent": 65.9090909090909,
+        "lens_scores": {
+          "Credibility Lens": 13.5,
+          "Emotional Intensity Lens": 6.5,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 10.0,
+          "Sentiment Clarity Lens": 17.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "new-york-times",
+          "source_name": "The New York Times",
+          "feed_name": "Home Page",
+          "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "74281cb2c8f0",
+      "title": "Will petrol and diesel prices go up now?",
+      "link": "https://www.bbc.com/news/articles/c20zgjzz0e4o?at_medium=RSS&at_campaign=rss",
+      "published": "Mon, 02 Mar 2026 13:44:51 GMT",
+      "summary": "If oil prices remain high for some time, the knock-on effects could affect the costs of fuel and food",
+      "ai_summary": "Rising oil prices due to the conflict in the Middle East may lead to increased costs for fuel and food.",
+      "ai_tags": [
+        "Oil Prices",
+        "Economy",
+        "Middle East",
+        "Fuel Costs"
+      ],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "feed": {
+        "name": "Top Stories",
+        "url": "http://feeds.bbci.co.uk/news/rss.xml"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-02T19:20:23.141973+00:00",
+        "final_url": "https://www.bbc.com/news/articles/c20zgjzz0e4o?at_medium=RSS&at_campaign=rss",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Will petrol and diesel prices go up because of the Iran war?",
+        "description": "If oil prices remain high for some time, the knock-on effects could affect the costs of fuel and food",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.bbc.com/news/articles/c20zgjzz0e4o",
+        "language": "en-GB",
+        "h1": "Will petrol and diesel prices go up now?",
+        "lead_paragraph": "The jump in the price of oil triggered by the conflict in the Middle East has raised the possibility of higher fuel costs for motorists.",
+        "paragraph_count": 35,
+        "word_count": 837,
+        "top_keywords": [
+          "prices",
+          "will",
+          "petrol",
+          "price",
+          "diesel",
+          "conflict",
+          "fuel",
+          "costs",
+          "iran",
+          "jump",
+          "higher",
+          "through"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 72.0,
+        "max_value": 110.0,
+        "percent": 65.4545,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 72.0,
+        "overall_percent": 65.45454545454545,
+        "lens_scores": {
+          "Credibility Lens": 17.0,
+          "Emotional Intensity Lens": 5.5,
+          "Entity-Level Sentiment Lens": 15.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 10.5,
+          "Sentiment Clarity Lens": 15.5
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "bbc-news",
+          "source_name": "BBC News",
+          "feed_name": "Top Stories",
+          "feed_url": "http://feeds.bbci.co.uk/news/rss.xml"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "7a9f5a7209e3",
+      "title": "Trump pleads not guilty to 34 felony counts",
+      "link": "https://edition.cnn.com/webview/politics/live-news/trump-indictment-stormy-daniels-news-04-03-23/index.html",
+      "published": "",
+      "summary": "",
+      "ai_summary": "",
+      "ai_tags": [],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "feed": {
+        "name": "Top Stories",
+        "url": "http://rss.cnn.com/rss/edition.rss"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-02T19:20:23.544090+00:00",
+        "final_url": "https://edition.cnn.com/webview/politics/live-news/trump-indictment-stormy-daniels-news-04-03-23/index.html",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "April 3, 2023 Trump indictment news | CNN Politics",
+        "description": "Former President Donald Trump has been indicted by a Manhattan grand jury, marking the first time in US history that a current or former president has faced criminal charges.",
+        "author": "Aditi Sangal,Mike Hayes,Maureen Chowdhury,Amir Vera,Shania Shelton",
+        "published_at": "2023-04-03T11:50:17+00:00",
+        "canonical_url": "https://www.cnn.com/politics/live-news/trump-indictment-stormy-daniels-news-04-03-23",
+        "language": "en",
+        "h1": null,
+        "lead_paragraph": null,
+        "paragraph_count": 0,
+        "word_count": 0,
+        "top_keywords": [
+          "april",
+          "trump",
+          "indictment",
+          "politics"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 71.5,
+        "max_value": 110.0,
+        "percent": 65.0,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 71.5,
+        "overall_percent": 65.0,
+        "lens_scores": {
+          "Credibility Lens": 14.0,
+          "Emotional Intensity Lens": 4.5,
+          "Entity-Level Sentiment Lens": 16.5,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 11.0,
+          "Sentiment Clarity Lens": 17.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "cnn",
+          "source_name": "CNN",
+          "feed_name": "Top Stories",
+          "feed_url": "http://rss.cnn.com/rss/edition.rss"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
         }
       }
     },
@@ -1032,12 +1065,23 @@
       "scraped": null,
       "scrape_error": "HTTP Error 401: HTTP Forbidden",
       "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
+        "value": 71.5,
+        "max_value": 110.0,
+        "percent": 65.0,
+        "rubric_count": 11
       },
-      "high_score": null,
+      "high_score": {
+        "overall_score": 71.5,
+        "overall_percent": 65.0,
+        "lens_scores": {
+          "Credibility Lens": 16.5,
+          "Emotional Intensity Lens": 6.5,
+          "Entity-Level Sentiment Lens": 16.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 10.5,
+          "Sentiment Clarity Lens": 13.5
+        }
+      },
       "audit": {
         "provenance": {
           "source_id": "wall-street-journal",
@@ -1046,231 +1090,98 @@
           "feed_url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml"
         },
         "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
         }
       }
     },
     {
-      "id": "74a9b9a5747b",
-      "title": "Gas prices soar as Iranian attacks force shutdown of Qatari production",
-      "link": "https://www.ft.com/content/dac7a77d-e0f4-4f52-a3d4-55b145e67347",
-      "published": "Mon, 02 Mar 2026 16:12:41 GMT",
-      "summary": "Saudi Arabia also closes an oil refinery after strike",
-      "ai_summary": "",
-      "ai_tags": [],
-      "topic_tags": [
-        "general"
-      ],
-      "source": {
-        "id": "financial-times",
-        "name": "Financial Times"
-      },
-      "feed": {
-        "name": "Top Stories",
-        "url": "https://www.ft.com/?format=rss"
-      },
-      "scraped": {
-        "fetched_at": "2026-03-02T18:10:36.776959+00:00",
-        "final_url": "https://www.ft.com/content/dac7a77d-e0f4-4f52-a3d4-55b145e67347",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "Gas prices soar as Iranian attacks force shutdown of Qatari production",
-        "description": "Saudi Arabia also closes an oil refinery after strike",
-        "author": null,
-        "published_at": null,
-        "canonical_url": "https://www.ft.com/content/dac7a77d-e0f4-4f52-a3d4-55b145e67347",
-        "language": "en-GB",
-        "h1": "Gas prices soar as Iranian attacks force shutdown of Qatari production",
-        "lead_paragraph": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
-        "paragraph_count": 9,
-        "word_count": 109,
-        "top_keywords": [
-          "access",
-          "digital",
-          "complete",
-          "quality",
-          "journalism",
-          "your",
-          "device",
-          "year",
-          "upfront",
-          "save",
-          "prices",
-          "soar"
-        ]
-      },
-      "scrape_error": null,
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "financial-times",
-          "source_name": "Financial Times",
-          "feed_name": "Top Stories",
-          "feed_url": "https://www.ft.com/?format=rss"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "dd54cefcba82",
-      "title": "Trump vows to do ‘whatever it takes’ in Iran as US sends more troops to Middle East",
-      "link": "https://www.ft.com/content/91cae073-71db-46ea-a950-62b17faf1882",
-      "published": "Mon, 02 Mar 2026 16:47:01 GMT",
-      "summary": "Oil and US dollar rally as conflict intensifies",
-      "ai_summary": "President Trump stated that the US and Israel's military operation against Iran is a critical opportunity to address threats from Tehran.",
+      "id": "ee2513f1eb13",
+      "title": "Three days in, we still have no idea where this war is heading",
+      "link": "https://www.bbc.com/news/articles/c178z0p902vo?at_medium=RSS&at_campaign=rss",
+      "published": "Mon, 02 Mar 2026 18:48:02 GMT",
+      "summary": "It's hard to predict how the war will end - but those fighting know how they would like it to.",
+      "ai_summary": "As the conflict between the US, Israel, and Iran continues, the outcome of the war remains uncertain after three days of fighting.",
       "ai_tags": [
-        "Trump",
         "Iran",
-        "Military",
-        "US Politics"
+        "US",
+        "Israel",
+        "War"
       ],
       "topic_tags": [
         "general"
       ],
       "source": {
-        "id": "financial-times",
-        "name": "Financial Times"
+        "id": "bbc-news",
+        "name": "BBC News"
       },
       "feed": {
         "name": "Top Stories",
-        "url": "https://www.ft.com/?format=rss"
+        "url": "http://feeds.bbci.co.uk/news/rss.xml"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T18:10:37.683017+00:00",
-        "final_url": "https://www.ft.com/content/91cae073-71db-46ea-a950-62b17faf1882",
+        "fetched_at": "2026-03-02T19:20:22.788996+00:00",
+        "final_url": "https://www.bbc.com/news/articles/c178z0p902vo?at_medium=RSS&at_campaign=rss",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "Iran conflict: Trump vows to do ‘whatever it takes’ in Iran as US deploys more troops to Middle East",
-        "description": "Oil and US dollar rally as conflict intensifies",
+        "title": "Bowen: Three days in, we still have no idea where this war is heading",
+        "description": "It's hard to predict how the war will end - but those fighting know how they would like it to.",
         "author": null,
         "published_at": null,
-        "canonical_url": "https://www.ft.com/content/91cae073-71db-46ea-a950-62b17faf1882",
+        "canonical_url": "https://www.bbc.com/news/articles/c178z0p902vo",
         "language": "en-GB",
-        "h1": "Iran conflict: Trump vows to do ‘whatever it takes’ in Iran as US deploys more troops to Middle East",
-        "lead_paragraph": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
-        "paragraph_count": 9,
-        "word_count": 109,
+        "h1": "Three days in, we still have no idea where this war is heading",
+        "lead_paragraph": "It is only day three of the new war between the United States, Israel and Iran.",
+        "paragraph_count": 51,
+        "word_count": 2062,
         "top_keywords": [
-          "access",
-          "digital",
-          "complete",
-          "quality",
-          "journalism",
-          "your",
+          "will",
+          "trump",
+          "been",
+          "people",
+          "president",
+          "three",
           "iran",
-          "device",
-          "year",
-          "upfront",
-          "save",
-          "conflict"
+          "iran's",
+          "missiles",
+          "going",
+          "regime",
+          "take"
         ]
       },
       "scrape_error": null,
       "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
+        "value": 70.5,
+        "max_value": 110.0,
+        "percent": 64.0909,
+        "rubric_count": 11
       },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "financial-times",
-          "source_name": "Financial Times",
-          "feed_name": "Top Stories",
-          "feed_url": "https://www.ft.com/?format=rss"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
+      "high_score": {
+        "overall_score": 70.5,
+        "overall_percent": 64.0909090909091,
+        "lens_scores": {
+          "Credibility Lens": 15.5,
+          "Emotional Intensity Lens": 6.5,
+          "Entity-Level Sentiment Lens": 16.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 10.0,
+          "Sentiment Clarity Lens": 14.0
         }
-      }
-    },
-    {
-      "id": "60313a6e3275",
-      "title": "Inside the plan to kill Ali Khamenei",
-      "link": "https://www.ft.com/content/bf998c69-ab46-4fa3-aae4-8f18f7387836",
-      "published": "Mon, 02 Mar 2026 17:14:30 GMT",
-      "summary": "Israel spent years hacking Tehran’s traffic cameras and monitoring bodyguards ahead of the assassination of Iran’s supreme leader",
-      "ai_summary": "",
-      "ai_tags": [],
-      "topic_tags": [
-        "general"
-      ],
-      "source": {
-        "id": "financial-times",
-        "name": "Financial Times"
       },
-      "feed": {
-        "name": "Top Stories",
-        "url": "https://www.ft.com/?format=rss"
-      },
-      "scraped": {
-        "fetched_at": "2026-03-02T18:10:38.600363+00:00",
-        "final_url": "https://www.ft.com/content/bf998c69-ab46-4fa3-aae4-8f18f7387836",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "Inside the plan to kill Ali Khamenei",
-        "description": "Israel spent years hacking Tehran’s traffic cameras and monitoring bodyguards ahead of the assassination of Iran’s supreme leader",
-        "author": null,
-        "published_at": null,
-        "canonical_url": "https://www.ft.com/content/bf998c69-ab46-4fa3-aae4-8f18f7387836",
-        "language": "en-GB",
-        "h1": "Inside the plan to kill Ali Khamenei",
-        "lead_paragraph": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
-        "paragraph_count": 9,
-        "word_count": 109,
-        "top_keywords": [
-          "access",
-          "digital",
-          "complete",
-          "quality",
-          "journalism",
-          "your",
-          "device",
-          "year",
-          "upfront",
-          "save",
-          "inside",
-          "plan"
-        ]
-      },
-      "scrape_error": null,
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
       "audit": {
         "provenance": {
-          "source_id": "financial-times",
-          "source_name": "Financial Times",
+          "source_id": "bbc-news",
+          "source_name": "BBC News",
           "feed_name": "Top Stories",
-          "feed_url": "https://www.ft.com/?format=rss"
+          "feed_url": "http://feeds.bbci.co.uk/news/rss.xml"
         },
         "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
         }
       }
     },
@@ -1280,12 +1191,12 @@
       "link": "https://www.npr.org/2026/03/02/nx-s1-5732287/iran-war-oil-gasoline-prices",
       "published": "Mon, 02 Mar 2026 09:42:13 -0500",
       "summary": "Global oil prices are in the high $70s as traffic through Strait of Hormuz comes to a halt. Some analysts have warned they could top $100 a barrel if the stoppage is prolonged.",
-      "ai_summary": "Oil prices are surging amid fears of escalating conflict in Iran, with some analysts predicting prices could exceed $100 a barrel.",
+      "ai_summary": "Global oil prices have surged amid fears stemming from the ongoing conflict in Iran, with predictions they could exceed $100 a barrel.",
       "ai_tags": [
         "Oil Prices",
         "Iran",
-        "Economy",
-        "Conflict"
+        "Global Economy",
+        "Market Trends"
       ],
       "topic_tags": [
         "general"
@@ -1299,7 +1210,7 @@
         "url": "https://feeds.npr.org/1001/rss.xml"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T18:10:39.127783+00:00",
+        "fetched_at": "2026-03-02T19:21:08.725532+00:00",
         "final_url": "https://www.npr.org/2026/03/02/nx-s1-5732287/iran-war-oil-gasoline-prices",
         "status_code": 200,
         "content_type": "text/html",
@@ -1330,12 +1241,23 @@
       },
       "scrape_error": null,
       "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
+        "value": 69.5,
+        "max_value": 110.0,
+        "percent": 63.1818,
+        "rubric_count": 11
       },
-      "high_score": null,
+      "high_score": {
+        "overall_score": 69.5,
+        "overall_percent": 63.18181818181819,
+        "lens_scores": {
+          "Credibility Lens": 12.5,
+          "Emotional Intensity Lens": 12.5,
+          "Entity-Level Sentiment Lens": 15.0,
+          "Linguistic Quality Lens": 5.5,
+          "Objectivity vs Opinion Lens": 10.0,
+          "Sentiment Clarity Lens": 14.0
+        }
+      },
       "audit": {
         "provenance": {
           "source_id": "npr",
@@ -1344,10 +1266,155 @@
           "feed_url": "https://feeds.npr.org/1001/rss.xml"
         },
         "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "1736233fb19f",
+      "title": "3 U.S. Planes Are Shot Down in ‘Friendly Fire’ in Kuwait, U.S. Military Says",
+      "link": "https://www.nytimes.com/2026/03/02/world/middleeast/iran-kuwait-us-attack-planes.html",
+      "published": "Mon, 02 Mar 2026 12:38:02 +0000",
+      "summary": "Separately, a drone attack hit the U.S. Embassy compound in the Persian Gulf state, as Iran continues to target American assets across the Middle East.",
+      "ai_summary": "The US military reported that three American planes were shot down in Kuwait amid ongoing tensions with Iran.",
+      "ai_tags": [
+        "US Military",
+        "Iran",
+        "Kuwait",
+        "Tensions"
+      ],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "new-york-times",
+        "name": "The New York Times"
+      },
+      "feed": {
+        "name": "Home Page",
+        "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+      },
+      "scraped": null,
+      "scrape_error": "HTTP Error 403: Forbidden",
+      "score": {
+        "value": 69.0,
+        "max_value": 110.0,
+        "percent": 62.7273,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 69.0,
+        "overall_percent": 62.727272727272734,
+        "lens_scores": {
+          "Credibility Lens": 17.5,
+          "Emotional Intensity Lens": 6.0,
+          "Entity-Level Sentiment Lens": 13.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 11.0,
+          "Sentiment Clarity Lens": 13.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "new-york-times",
+          "source_name": "The New York Times",
+          "feed_name": "Home Page",
+          "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "2485e25ca957",
+      "title": "Palestinians Stream Back to Northern Gaza on Foot",
+      "link": "https://www.wsj.com/articles/palestinians-flock-back-to-northern-gaza-on-foot-after-hostage-release-breakthrough-3f60e2db",
+      "published": "Mon, 27 Jan 2025 14:23:00 -0500",
+      "summary": "Israel allowed displaced Gazans to begin crossing a military zone that bisects the enclave after a deadlock over hostage releases was broken.",
+      "ai_summary": "",
+      "ai_tags": [],
+      "topic_tags": [
+        "world"
+      ],
+      "source": {
+        "id": "wall-street-journal",
+        "name": "The Wall Street Journal"
+      },
+      "feed": {
+        "name": "World News",
+        "url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml"
+      },
+      "scraped": null,
+      "scrape_error": "HTTP Error 401: HTTP Forbidden",
+      "score": {
+        "value": 64.5,
+        "max_value": 110.0,
+        "percent": 58.6364,
+        "rubric_count": 11
+      },
+      "high_score": null,
+      "audit": {
+        "provenance": {
+          "source_id": "wall-street-journal",
+          "source_name": "The Wall Street Journal",
+          "feed_name": "World News",
+          "feed_url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "a998994f8b6f",
+      "title": "What to know about the Trump indictment on the eve of his court appearance",
+      "link": "https://www.cnn.com/collections/intl-trump-040223/",
+      "published": "Wed, 05 Apr 2023 22:50:06 GMT",
+      "summary": "",
+      "ai_summary": "",
+      "ai_tags": [],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "feed": {
+        "name": "Top Stories",
+        "url": "http://rss.cnn.com/rss/edition.rss"
+      },
+      "scraped": null,
+      "scrape_error": "HTTP Error 404: Not Found",
+      "score": {
+        "value": 63.5,
+        "max_value": 110.0,
+        "percent": 57.7273,
+        "rubric_count": 11
+      },
+      "high_score": null,
+      "audit": {
+        "provenance": {
+          "source_id": "cnn",
+          "source_name": "CNN",
+          "feed_name": "Top Stories",
+          "feed_url": "http://rss.cnn.com/rss/edition.rss"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
         }
       }
     },
@@ -1357,12 +1424,12 @@
       "link": "https://www.npr.org/2026/03/02/nx-s1-5732258/us-iran-hegseth-caine",
       "published": "Mon, 02 Mar 2026 08:15:29 -0500",
       "summary": "His remarks are the first public ones to reporters since the U.S.-Israeli military operations against Iran began Saturday despite weeks of talks designed to stave off a conflict.",
-      "ai_summary": "President Trump defended the military strikes on Iran, outlining the objectives of the operation.",
+      "ai_summary": "Trump defended the military strikes on Iran, outlining the objectives of the operation during his first public remarks since the conflict began.",
       "ai_tags": [
         "Trump",
         "Iran",
-        "Military",
-        "US Politics"
+        "Military Operations",
+        "Public Statements"
       ],
       "topic_tags": [
         "general"
@@ -1376,7 +1443,7 @@
         "url": "https://feeds.npr.org/1001/rss.xml"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T18:10:39.504686+00:00",
+        "fetched_at": "2026-03-02T19:21:09.168767+00:00",
         "final_url": "https://www.npr.org/2026/03/02/nx-s1-5732258/us-iran-hegseth-caine",
         "status_code": 200,
         "content_type": "text/html",
@@ -1407,10 +1474,10 @@
       },
       "scrape_error": null,
       "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
+        "value": 59.5,
+        "max_value": 110.0,
+        "percent": 54.0909,
+        "rubric_count": 11
       },
       "high_score": null,
       "audit": {
@@ -1421,10 +1488,87 @@
           "feed_url": "https://feeds.npr.org/1001/rss.xml"
         },
         "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "5f0796f52203",
+      "title": "'Sinners' wins top prize at the Actor Awards, shaking up Oscars season",
+      "link": "https://www.pbs.org/newshour/arts/sinners-wins-top-prize-at-the-actor-awards-shaking-up-oscars-season",
+      "published": "Mon, 02 Mar 2026 14:15:50 -0500",
+      "summary": "After a near awards-season sweep by \"One Battle After Another,\" \"Sinners\" won best ensemble at the Screen Actors Guild's 32nd Actor Awards on Sunday, shaking up the Oscar race.",
+      "ai_summary": "'Sinners' won the best ensemble award at the Actor Awards, disrupting the anticipated Oscar race.",
+      "ai_tags": [
+        "Film",
+        "Awards",
+        "Oscars",
+        "Entertainment"
+      ],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "pbs-newshour",
+        "name": "PBS NewsHour"
+      },
+      "feed": {
+        "name": "Headlines",
+        "url": "https://www.pbs.org/newshour/feeds/rss/headlines"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-02T19:21:09.979461+00:00",
+        "final_url": "https://www.pbs.org/newshour/arts/sinners-wins-top-prize-at-the-actor-awards-shaking-up-oscars-season",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "'Sinners' wins top prize at the Actor Awards, shaking up Oscars season",
+        "description": "After a near awards-season sweep by “One Battle After Another,” “Sinners” won best ensemble at the Screen Actors Guild’s 32nd Actor Awards on Sunday, shaking up the Oscar race.",
+        "author": null,
+        "published_at": "2026-03-02T14:15:50-05:00",
+        "canonical_url": "https://www.pbs.org/newshour/arts/sinners-wins-top-prize-at-the-actor-awards-shaking-up-oscars-season",
+        "language": "en-us",
+        "h1": "'Sinners' wins top prize at the Actor Awards, shaking up Oscars season",
+        "lead_paragraph": "Stand up for truly independent, trusted news.",
+        "paragraph_count": 47,
+        "word_count": 1275,
+        "top_keywords": [
+          "awards",
+          "actor",
+          "jordan",
+          "guild's",
+          "sinners",
+          "prize",
+          "angeles",
+          "outstanding",
+          "performance",
+          "award",
+          "shaking",
+          "oscars"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 54.5,
+        "max_value": 110.0,
+        "percent": 49.5455,
+        "rubric_count": 11
+      },
+      "high_score": null,
+      "audit": {
+        "provenance": {
+          "source_id": "pbs-newshour",
+          "source_name": "PBS NewsHour",
+          "feed_name": "Headlines",
+          "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
         }
       }
     },
@@ -1434,8 +1578,13 @@
       "link": "https://www.npr.org/2026/03/02/g-s1-112159/up-first-newsletter-iran-israel-us-trump-texas-latinos-gun-law-marijuana",
       "published": "Mon, 02 Mar 2026 07:34:31 -0500",
       "summary": "Israel trades fire with Hezbollah, widening the U.S. and Israel's war with Iran into Lebanon. And, Texas primaries could test if Latino support for the GOP remains strong after 2024's gains.",
-      "ai_summary": "",
-      "ai_tags": [],
+      "ai_summary": "The conflict between the US, Israel, and Iran has expanded, with Israel engaging Hezbollah, while Texas primaries may test Latino support for the GOP.",
+      "ai_tags": [
+        "US",
+        "Iran",
+        "Israel",
+        "Politics"
+      ],
       "topic_tags": [
         "general"
       ],
@@ -1448,7 +1597,7 @@
         "url": "https://feeds.npr.org/1001/rss.xml"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T18:10:39.897807+00:00",
+        "fetched_at": "2026-03-02T19:21:09.612117+00:00",
         "final_url": "https://www.npr.org/2026/03/02/g-s1-112159/up-first-newsletter-iran-israel-us-trump-texas-latinos-gun-law-marijuana",
         "status_code": 200,
         "content_type": "text/html",
@@ -1479,10 +1628,10 @@
       },
       "scrape_error": null,
       "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
+        "value": 53.0,
+        "max_value": 110.0,
+        "percent": 48.1818,
+        "rubric_count": 11
       },
       "high_score": null,
       "audit": {
@@ -1493,21 +1642,26 @@
           "feed_url": "https://feeds.npr.org/1001/rss.xml"
         },
         "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
         }
       }
     },
     {
-      "id": "8ee5e3c6051d",
-      "title": "Macron says France will increase its nuclear arsenal, allow temporary deployment of nuclear-armed jets to European allies",
-      "link": "https://www.pbs.org/newshour/world/macron-says-france-will-increase-its-nuclear-arsenal-allow-temporary-deployment-of-nuclear-armed-jets-to-european-allies",
-      "published": "Mon, 02 Mar 2026 12:59:08 -0500",
-      "summary": "Macron says the new strategy will \"provide for the temporary deployment of elements of our strategic air forces to allied countries.\"",
-      "ai_summary": "",
-      "ai_tags": [],
+      "id": "16ee6f041064",
+      "title": "Jesse Jackson returns home to South Carolina to lie in state",
+      "link": "https://www.pbs.org/newshour/nation/jesse-jackson-returns-home-to-south-carolina-to-lie-in-state",
+      "published": "Mon, 02 Mar 2026 13:55:17 -0500",
+      "summary": "The final full honors from the state where he was born is a far cry from his childhood in segregated Greenville.",
+      "ai_summary": "Jesse Jackson returned to South Carolina to lie in state, reflecting on his legacy and impact on civil rights.",
+      "ai_tags": [
+        "Jesse Jackson",
+        "Civil Rights",
+        "Legacy",
+        "South Carolina"
+      ],
       "topic_tags": [
         "general"
       ],
@@ -1520,41 +1674,118 @@
         "url": "https://www.pbs.org/newshour/feeds/rss/headlines"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T18:10:40.286460+00:00",
-        "final_url": "https://www.pbs.org/newshour/world/macron-says-france-will-increase-its-nuclear-arsenal-allow-temporary-deployment-of-nuclear-armed-jets-to-european-allies",
+        "fetched_at": "2026-03-02T19:21:10.342626+00:00",
+        "final_url": "https://www.pbs.org/newshour/nation/jesse-jackson-returns-home-to-south-carolina-to-lie-in-state",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "Macron says France will increase its nuclear arsenal, allow temporary deployment of nuclear-armed jets to European allies",
-        "description": "Macron says the new strategy will \"provide for the temporary deployment of elements of our strategic air forces to allied countries.\"",
+        "title": "Jesse Jackson returns home to South Carolina to lie in state",
+        "description": "The final full honors from the state where he was born is a far cry from his childhood in segregated Greenville.",
         "author": null,
-        "published_at": "2026-03-02T12:59:08-05:00",
-        "canonical_url": "https://www.pbs.org/newshour/world/macron-says-france-will-increase-its-nuclear-arsenal-allow-temporary-deployment-of-nuclear-armed-jets-to-european-allies",
+        "published_at": "2026-03-02T13:55:17-05:00",
+        "canonical_url": "https://www.pbs.org/newshour/nation/jesse-jackson-returns-home-to-south-carolina-to-lie-in-state",
         "language": "en-us",
-        "h1": "Macron says France will increase its nuclear arsenal, allow temporary deployment of nuclear-armed jets to European allies",
+        "h1": "Jesse Jackson returns home to South Carolina to lie in state",
         "lead_paragraph": "Stand up for truly independent, trusted news.",
-        "paragraph_count": 50,
-        "word_count": 1095,
+        "paragraph_count": 37,
+        "word_count": 747,
         "top_keywords": [
-          "macron",
-          "nuclear",
-          "france",
-          "allow",
+          "jackson",
+          "south",
+          "carolina",
+          "state",
+          "jesse",
+          "civil",
+          "rights",
+          "statehouse",
+          "well",
+          "home",
+          "jeffrey",
+          "collins"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 52.5,
+        "max_value": 110.0,
+        "percent": 47.7273,
+        "rubric_count": 11
+      },
+      "high_score": null,
+      "audit": {
+        "provenance": {
+          "source_id": "pbs-newshour",
+          "source_name": "PBS NewsHour",
+          "feed_name": "Headlines",
+          "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "efd4b8589040",
+      "title": "Gulf carriers resume some flights as Iran strikes and retaliation fuel travel chaos",
+      "link": "https://www.pbs.org/newshour/world/gulf-carriers-resume-some-flights-as-iran-strikes-and-retaliation-fuel-travel-chaos",
+      "published": "Mon, 02 Mar 2026 13:46:42 -0500",
+      "summary": "Several international airlines are resuming a small number of flights from the United Arab Emirates as war-driven airspace closures strand tens of thousands of travelers.",
+      "ai_summary": "Gulf airlines are resuming some flights as airspace closures due to the Iran conflict begin to ease.",
+      "ai_tags": [
+        "Travel",
+        "Iran",
+        "Airlines",
+        "Conflict"
+      ],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "pbs-newshour",
+        "name": "PBS NewsHour"
+      },
+      "feed": {
+        "name": "Headlines",
+        "url": "https://www.pbs.org/newshour/feeds/rss/headlines"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-02T19:21:10.704631+00:00",
+        "final_url": "https://www.pbs.org/newshour/world/gulf-carriers-resume-some-flights-as-iran-strikes-and-retaliation-fuel-travel-chaos",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Gulf carriers resume some flights as Iran strikes and retaliation fuel travel chaos",
+        "description": "Several international airlines are resuming a small number of flights from the United Arab Emirates as war-driven airspace closures strand tens of thousands of travelers.",
+        "author": null,
+        "published_at": "2026-03-02T13:46:42-05:00",
+        "canonical_url": "https://www.pbs.org/newshour/world/gulf-carriers-resume-some-flights-as-iran-strikes-and-retaliation-fuel-travel-chaos",
+        "language": "en-us",
+        "h1": "Gulf carriers resume some flights as Iran strikes and retaliation fuel travel chaos",
+        "lead_paragraph": "Stand up for truly independent, trusted news.",
+        "paragraph_count": 54,
+        "word_count": 1368,
+        "top_keywords": [
+          "flights",
+          "iran",
           "associated",
           "press",
-          "will",
-          "temporary",
-          "deployment",
-          "french",
-          "forces",
-          "increase"
+          "monday",
+          "emirates",
+          "carriers",
+          "kelvin",
+          "chan",
+          "adam",
+          "schreck",
+          "london"
         ]
       },
       "scrape_error": null,
       "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
+        "value": 48.5,
+        "max_value": 110.0,
+        "percent": 44.0909,
+        "rubric_count": 11
       },
       "high_score": null,
       "audit": {
@@ -1565,174 +1796,25 @@
           "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
         },
         "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
         }
       }
     },
     {
-      "id": "2d9b5e5759dd",
-      "title": "Where things stand as U.S.-Israeli attacks on Iran widen",
-      "link": "https://www.pbs.org/newshour/world/where-things-stand-as-u-s-israeli-attacks-on-iran-widen",
-      "published": "Mon, 02 Mar 2026 12:49:31 -0500",
-      "summary": "The Islamic Republic must now choose a supreme leader for the first time since 1989. President Donald Trump has urged Iranians to seize the moment and overthrow the theocracy that cracked down on nationwide protests earlier this year. There was no sign that was happening.",
-      "ai_summary": "",
-      "ai_tags": [],
-      "topic_tags": [
-        "general"
-      ],
-      "source": {
-        "id": "pbs-newshour",
-        "name": "PBS NewsHour"
-      },
-      "feed": {
-        "name": "Headlines",
-        "url": "https://www.pbs.org/newshour/feeds/rss/headlines"
-      },
-      "scraped": {
-        "fetched_at": "2026-03-02T18:10:40.654797+00:00",
-        "final_url": "https://www.pbs.org/newshour/world/where-things-stand-as-u-s-israeli-attacks-on-iran-widen",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "Where things stand as U.S.-Israeli attacks on Iran widen",
-        "description": "The Islamic Republic must now choose a supreme leader for the first time since 1989. President Donald Trump has urged Iranians to seize the moment and overthrow the theocracy that cracked down on nationwide protests earlier this year. There was no sign that was happening.",
-        "author": null,
-        "published_at": "2026-03-02T12:49:31-05:00",
-        "canonical_url": "https://www.pbs.org/newshour/world/where-things-stand-as-u-s-israeli-attacks-on-iran-widen",
-        "language": "en-us",
-        "h1": "Where things stand as U.S.-Israeli attacks on Iran widen",
-        "lead_paragraph": "Stand up for truly independent, trusted news.",
-        "paragraph_count": 58,
-        "word_count": 1250,
-        "top_keywords": [
-          "iran",
-          "israel",
-          "attacks",
-          "year",
-          "been",
-          "nuclear",
-          "stand",
-          "israeli",
-          "cara",
-          "anna",
-          "associated",
-          "press"
-        ]
-      },
-      "scrape_error": null,
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "pbs-newshour",
-          "source_name": "PBS NewsHour",
-          "feed_name": "Headlines",
-          "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "37784d55f801",
-      "title": "169 people killed, including women and children, after insurgents raid a village in a remote area of South Sudan",
-      "link": "https://www.pbs.org/newshour/world/169-people-killed-including-women-and-children-after-insurgents-raid-a-village-in-a-remote-area-of-south-sudan",
-      "published": "Mon, 02 Mar 2026 12:48:57 -0500",
-      "summary": "The killings are part of an escalating wave of violence gripping South Sudan as government forces loyal to President Salva Kiir battle armed men believed to be loyal to opposition leader Riek Machar.",
-      "ai_summary": "A violent raid in South Sudan resulted in the deaths of 169 people, including women and children, amid ongoing conflict.",
+      "id": "c49ac304f0d5",
+      "title": "NATO chief praises Trump’s Iran strikes, says key allies ‘all for one, one for all’",
+      "link": "https://www.foxnews.com/media/nato-chief-praises-trumps-iran-strikes-says-key-allies-all-one-one-all",
+      "published": "Mon, 02 Mar 2026 14:06:42 -0500",
+      "summary": "NATO Secretary General Mark Rutte praises President Trump for eliminating Khamenei and degrading Iran's capabilities as he claims European allies are supporting the effort.",
+      "ai_summary": "NATO's Secretary General praised Trump's military actions against Iran, asserting that European allies support the initiative.",
       "ai_tags": [
-        "South Sudan",
-        "Violence",
-        "Conflict",
-        "Human Rights"
-      ],
-      "topic_tags": [
-        "general"
-      ],
-      "source": {
-        "id": "pbs-newshour",
-        "name": "PBS NewsHour"
-      },
-      "feed": {
-        "name": "Headlines",
-        "url": "https://www.pbs.org/newshour/feeds/rss/headlines"
-      },
-      "scraped": {
-        "fetched_at": "2026-03-02T18:10:41.081214+00:00",
-        "final_url": "https://www.pbs.org/newshour/world/169-people-killed-including-women-and-children-after-insurgents-raid-a-village-in-a-remote-area-of-south-sudan",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "169 people killed, including women and children, after insurgents raid a village in a remote area of South Sudan",
-        "description": "The killings are part of an escalating wave of violence gripping South Sudan as government forces loyal to President Salva Kiir battle armed men believed to be loyal to opposition leader Riek Machar.",
-        "author": null,
-        "published_at": "2026-03-02T12:48:57-05:00",
-        "canonical_url": "https://www.pbs.org/newshour/world/169-people-killed-including-women-and-children-after-insurgents-raid-a-village-in-a-remote-area-of-south-sudan",
-        "language": "en-us",
-        "h1": "169 people killed, including women and children, after insurgents raid a village in a remote area of South Sudan",
-        "lead_paragraph": "Stand up for truly independent, trusted news.",
-        "paragraph_count": 39,
-        "word_count": 693,
-        "top_keywords": [
-          "south",
-          "sudan",
-          "civilians",
-          "people",
-          "area",
-          "violence",
-          "unmiss",
-          "statement",
-          "killed",
-          "including",
-          "women",
-          "children"
-        ]
-      },
-      "scrape_error": null,
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "pbs-newshour",
-          "source_name": "PBS NewsHour",
-          "feed_name": "Headlines",
-          "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "09a074925c2e",
-      "title": "Susan Sarandon says she was blacklisted over Gaza ceasefire calls",
-      "link": "https://www.foxnews.com/media/susan-sarandon-says-she-blacklisted-over-gaza-ceasefire-calls",
-      "published": "Mon, 02 Mar 2026 12:58:09 -0500",
-      "summary": "Susan Sarandon said she's been blacklisted in Hollywood after calling for a Gaza ceasefire. The actress was fired by her talent agency for speaking out.",
-      "ai_summary": "Actress Susan Sarandon claims she has been blacklisted in Hollywood for advocating a ceasefire in Gaza.",
-      "ai_tags": [
-        "Hollywood",
-        "Gaza",
-        "Activism",
-        "Susan Sarandon"
+        "NATO",
+        "Trump",
+        "Iran",
+        "International Relations"
       ],
       "topic_tags": [
         "general"
@@ -1746,113 +1828,41 @@
         "url": "http://feeds.foxnews.com/foxnews/latest"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T18:10:41.460568+00:00",
-        "final_url": "https://www.foxnews.com/media/susan-sarandon-says-she-blacklisted-over-gaza-ceasefire-calls",
+        "fetched_at": "2026-03-02T19:21:12.229601+00:00",
+        "final_url": "https://www.foxnews.com/media/nato-chief-praises-trumps-iran-strikes-says-key-allies-all-one-one-all",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "Susan Sarandon says she was blacklisted over Gaza ceasefire calls",
-        "description": "Actress Susan Sarandon claimed she has been blacklisted in Hollywood after advocating for a ceasefire in Gaza and making controversial remarks at a anti-Israel rally.",
-        "author": "Rachel del Guidice",
+        "title": "NATO chief praises Trump’s Iran strikes, says key allies ‘all for one, one for all’",
+        "description": "Mark Rutte claims European support for U.S. strikes on Iran following weekend conversations, as Tehran launches missile retaliation against Israel and Gulf states.",
+        "author": "Taylor Penley",
         "published_at": "2026-03-02T00:00:00",
-        "canonical_url": "https://www.foxnews.com/media/susan-sarandon-says-she-blacklisted-over-gaza-ceasefire-calls",
+        "canonical_url": "https://www.foxnews.com/media/nato-chief-praises-trumps-iran-strikes-says-key-allies-all-one-one-all",
         "language": "en",
-        "h1": "Susan Sarandon says she was blacklisted over Gaza ceasefire calls",
+        "h1": "NATO chief praises Trump’s Iran strikes, says key allies ‘all for one, one for all’",
         "lead_paragraph": "This material may not be published, broadcast, rewritten, or redistributed. ©2026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
-        "paragraph_count": 27,
-        "word_count": 894,
+        "paragraph_count": 25,
+        "word_count": 720,
         "top_keywords": [
-          "sarandon",
-          "susan",
-          "gaza",
-          "ceasefire",
-          "remarks",
-          "goya",
-          "blacklisted",
-          "calls",
-          "data",
-          "provided",
-          "factset",
-          "actress"
-        ]
-      },
-      "scrape_error": null,
-      "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
-      },
-      "high_score": null,
-      "audit": {
-        "provenance": {
-          "source_id": "fox-news",
-          "source_name": "Fox News",
-          "feed_name": "Latest",
-          "feed_url": "http://feeds.foxnews.com/foxnews/latest"
-        },
-        "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
-        }
-      }
-    },
-    {
-      "id": "0d4f00da4915",
-      "title": "Trump says US sank 10 ships in Iran strike, ‘last, best chance’ to act",
-      "link": "https://www.foxnews.com/politics/trump-says-us-sank-10-ships-iran-strike-last-best-chance-act",
-      "published": "Mon, 02 Mar 2026 12:45:04 -0500",
-      "summary": "President Donald Trump Monday said the United States and Israel’s joint military operation against Iran was \"our last, best chance to strike\" to \"eliminate the intolerable threats\" posed by Tehran.",
-      "ai_summary": "",
-      "ai_tags": [],
-      "topic_tags": [
-        "general"
-      ],
-      "source": {
-        "id": "fox-news",
-        "name": "Fox News"
-      },
-      "feed": {
-        "name": "Latest",
-        "url": "http://feeds.foxnews.com/foxnews/latest"
-      },
-      "scraped": {
-        "fetched_at": "2026-03-02T18:10:41.825638+00:00",
-        "final_url": "https://www.foxnews.com/politics/trump-says-us-sank-10-ships-iran-strike-last-best-chance-act",
-        "status_code": 200,
-        "content_type": "text/html",
-        "title": "Trump says US sank 10 ships in Iran strike, ‘last, best chance’ to act",
-        "description": "The United States and Israel launched the operation against Iran Saturday known as Operation Epic Fury.",
-        "author": "Brooke Singman",
-        "published_at": "2026-03-02T00:00:00",
-        "canonical_url": "https://www.foxnews.com/politics/trump-says-us-sank-10-ships-iran-strike-last-best-chance-act",
-        "language": "en",
-        "h1": "Trump says US sank 10 ships in Iran strike, ‘last, best chance’ to act",
-        "lead_paragraph": "This material may not be published, broadcast, rewritten, or redistributed. ©2026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
-        "paragraph_count": 40,
-        "word_count": 1174,
-        "top_keywords": [
-          "iran",
+          "rutte",
+          "nato",
           "trump",
-          "operation",
+          "iran",
+          "strikes",
           "president",
-          "israel",
-          "united",
-          "states",
-          "military",
-          "been",
-          "strike",
-          "last",
-          "best"
+          "mark",
+          "europe",
+          "secretary",
+          "general",
+          "missile",
+          "military"
         ]
       },
       "scrape_error": null,
       "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
+        "value": 42.0,
+        "max_value": 110.0,
+        "percent": 38.1818,
+        "rubric_count": 11
       },
       "high_score": null,
       "audit": {
@@ -1863,25 +1873,25 @@
           "feed_url": "http://feeds.foxnews.com/foxnews/latest"
         },
         "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
         }
       }
     },
     {
-      "id": "38beaf5a3521",
-      "title": "Randy Orton, Rhea Ripley enter WrestleMania 42 title picture with Elimination Chamber wins",
-      "link": "https://www.foxnews.com/sports/randy-orton-rhea-ripley-enter-wrestlemania-42-title-picture-elimination-chamber-wins",
-      "published": "Mon, 02 Mar 2026 12:39:24 -0500",
-      "summary": "Randy Orton and Rhea Ripley left their respective Elimination Chamber matches as No. 1 contenders on Saturday night. They will have title shots at WrestleMania 42",
-      "ai_summary": "Randy Orton and Rhea Ripley secured their spots as No. 1 contenders for titles at WrestleMania 42 after winning their Elimination Chamber matches.",
+      "id": "42a474b0cd85",
+      "title": "Israeli racing star 'nervous' as family deals with Iran's retaliatory strikes, expresses hope for region",
+      "link": "https://www.foxnews.com/sports/israeli-racing-star-nervous-family-deals-irans-retaliatory-strikes-expresses-hope-region",
+      "published": "Mon, 02 Mar 2026 14:12:47 -0500",
+      "summary": "Israeli pro racecar driver Alon Day talked to Fox News Digital about the U.S.-Israel military strikes on Iran and how his family back home are dealing with it.",
+      "ai_summary": "Israeli racing driver Alon Day expressed concern for his family amid the ongoing Iranian retaliatory strikes.",
       "ai_tags": [
-        "Wrestling",
-        "WrestleMania",
+        "Israel",
+        "Iran",
         "Sports",
-        "Orton"
+        "Personal Impact"
       ],
       "topic_tags": [
         "general"
@@ -1895,41 +1905,41 @@
         "url": "http://feeds.foxnews.com/foxnews/latest"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T18:10:42.234114+00:00",
-        "final_url": "https://www.foxnews.com/sports/randy-orton-rhea-ripley-enter-wrestlemania-42-title-picture-elimination-chamber-wins",
+        "fetched_at": "2026-03-02T19:21:11.180803+00:00",
+        "final_url": "https://www.foxnews.com/sports/israeli-racing-star-nervous-family-deals-irans-retaliatory-strikes-expresses-hope-region",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "Randy Orton, Rhea Ripley enter WrestleMania 42 title picture with Elimination Chamber wins",
-        "description": "Randy Orton and Rhea Ripley won their respective Elimination Chamber matches on Saturday night and have title matches set at WrestleMania 42.",
+        "title": "Israeli racing star 'nervous' as family deals with Iran's retaliatory strikes, expresses hope for region",
+        "description": "Former NASCAR drvier Alon Day opened up on his thoughts about the U.S. and Israel's joint operation in the Middle East, targeting Iran.",
         "author": "Ryan Gaydos",
         "published_at": "2026-03-02T00:00:00",
-        "canonical_url": "https://www.foxnews.com/sports/randy-orton-rhea-ripley-enter-wrestlemania-42-title-picture-elimination-chamber-wins",
+        "canonical_url": "https://www.foxnews.com/sports/israeli-racing-star-nervous-family-deals-irans-retaliatory-strikes-expresses-hope-region",
         "language": "en",
-        "h1": "Randy Orton, Rhea Ripley enter WrestleMania 42 title picture with Elimination Chamber wins",
+        "h1": "Israeli racing star 'nervous' as family deals with Iran's retaliatory strikes, expresses hope for region",
         "lead_paragraph": "This material may not be published, broadcast, rewritten, or redistributed. ©2026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
-        "paragraph_count": 24,
-        "word_count": 696,
+        "paragraph_count": 28,
+        "word_count": 953,
         "top_keywords": [
-          "orton",
-          "rhodes",
-          "chamber",
-          "ripley",
-          "elimination",
-          "eliminated",
-          "match",
-          "paul",
-          "randy",
-          "rhea",
-          "wrestlemania",
-          "title"
+          "israel",
+          "here",
+          "launched",
+          "iranian",
+          "family",
+          "strikes",
+          "digital",
+          "during",
+          "alon",
+          "nascar",
+          "military",
+          "united"
         ]
       },
       "scrape_error": null,
       "score": {
-        "value": 0.0,
-        "max_value": 0.0,
-        "percent": 0.0,
-        "rubric_count": 0
+        "value": 37.0,
+        "max_value": 110.0,
+        "percent": 33.6364,
+        "rubric_count": 11
       },
       "high_score": null,
       "audit": {
@@ -1940,10 +1950,303 @@
           "feed_url": "http://feeds.foxnews.com/foxnews/latest"
         },
         "openai": {
-          "cache_key": "fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "prompt_hash": "57a091c5343bc4fef4c772dd0844c24c64d89196a439903791185f77343d6a47",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T180942-2b3aadfff1/fa2252aed655588cd1afe5b40933166ae213c6e33a8b9911b1fc1c98bafbf4b2",
-          "response_hash": "833e4008e90ec0c5d0d92ed15955f0f634e912afdabfc13ede91445d61ba9533"
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "74a9b9a5747b",
+      "title": "Gas prices soar as Iranian attacks force shutdown of Qatari production",
+      "link": "https://www.ft.com/content/dac7a77d-e0f4-4f52-a3d4-55b145e67347",
+      "published": "Mon, 02 Mar 2026 18:57:38 GMT",
+      "summary": "Saudi Arabia also closes an oil refinery after attack",
+      "ai_summary": "Gas prices are expected to rise as Iranian attacks lead to the shutdown of Qatari oil production.",
+      "ai_tags": [
+        "Gas Prices",
+        "Iran",
+        "Oil Production",
+        "Economy"
+      ],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "financial-times",
+        "name": "Financial Times"
+      },
+      "feed": {
+        "name": "Top Stories",
+        "url": "https://www.ft.com/?format=rss"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-02T19:21:08.082340+00:00",
+        "final_url": "https://www.ft.com/content/dac7a77d-e0f4-4f52-a3d4-55b145e67347",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Gas prices soar as Iranian attacks force shutdown of Qatari production",
+        "description": "Saudi Arabia also closes an oil refinery after attack",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.ft.com/content/dac7a77d-e0f4-4f52-a3d4-55b145e67347",
+        "language": "en-GB",
+        "h1": "Gas prices soar as Iranian attacks force shutdown of Qatari production",
+        "lead_paragraph": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
+        "paragraph_count": 9,
+        "word_count": 109,
+        "top_keywords": [
+          "access",
+          "digital",
+          "complete",
+          "quality",
+          "journalism",
+          "your",
+          "device",
+          "year",
+          "upfront",
+          "save",
+          "prices",
+          "soar"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 30.5,
+        "max_value": 110.0,
+        "percent": 27.7273,
+        "rubric_count": 11
+      },
+      "high_score": null,
+      "audit": {
+        "provenance": {
+          "source_id": "financial-times",
+          "source_name": "Financial Times",
+          "feed_name": "Top Stories",
+          "feed_url": "https://www.ft.com/?format=rss"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "60313a6e3275",
+      "title": "Inside the plan to kill Ali Khamenei",
+      "link": "https://www.ft.com/content/bf998c69-ab46-4fa3-aae4-8f18f7387836",
+      "published": "Mon, 02 Mar 2026 17:14:30 GMT",
+      "summary": "Israel spent years hacking Tehran’s traffic cameras and monitoring bodyguards ahead of the assassination of Iran’s supreme leader",
+      "ai_summary": "",
+      "ai_tags": [],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "financial-times",
+        "name": "Financial Times"
+      },
+      "feed": {
+        "name": "Top Stories",
+        "url": "https://www.ft.com/?format=rss"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-02T19:21:07.036807+00:00",
+        "final_url": "https://www.ft.com/content/bf998c69-ab46-4fa3-aae4-8f18f7387836",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Inside the plan to kill Ali Khamenei",
+        "description": "Israel spent years hacking Tehran’s traffic cameras and monitoring bodyguards ahead of the assassination of Iran’s supreme leader",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.ft.com/content/bf998c69-ab46-4fa3-aae4-8f18f7387836",
+        "language": "en-GB",
+        "h1": "Inside the plan to kill Ali Khamenei",
+        "lead_paragraph": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
+        "paragraph_count": 9,
+        "word_count": 109,
+        "top_keywords": [
+          "access",
+          "digital",
+          "complete",
+          "quality",
+          "journalism",
+          "your",
+          "device",
+          "year",
+          "upfront",
+          "save",
+          "inside",
+          "plan"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 27.5,
+        "max_value": 110.0,
+        "percent": 25.0,
+        "rubric_count": 11
+      },
+      "high_score": null,
+      "audit": {
+        "provenance": {
+          "source_id": "financial-times",
+          "source_name": "Financial Times",
+          "feed_name": "Top Stories",
+          "feed_url": "https://www.ft.com/?format=rss"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "dd54cefcba82",
+      "title": "Trump vows to do ‘whatever it takes’ in Iran as US sends more troops to Middle East",
+      "link": "https://www.ft.com/content/91cae073-71db-46ea-a950-62b17faf1882",
+      "published": "Mon, 02 Mar 2026 16:47:01 GMT",
+      "summary": "Oil and US dollar rally as conflict intensifies",
+      "ai_summary": "",
+      "ai_tags": [],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "financial-times",
+        "name": "Financial Times"
+      },
+      "feed": {
+        "name": "Top Stories",
+        "url": "https://www.ft.com/?format=rss"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-02T19:21:06.123689+00:00",
+        "final_url": "https://www.ft.com/content/91cae073-71db-46ea-a950-62b17faf1882",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Iran conflict: Trump vows to do ‘whatever it takes’ in Iran as US deploys more troops to Middle East",
+        "description": "Oil and US dollar rally as conflict intensifies",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.ft.com/content/91cae073-71db-46ea-a950-62b17faf1882",
+        "language": "en-GB",
+        "h1": "Iran conflict: Trump vows to do ‘whatever it takes’ in Iran as US deploys more troops to Middle East",
+        "lead_paragraph": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
+        "paragraph_count": 9,
+        "word_count": 109,
+        "top_keywords": [
+          "access",
+          "digital",
+          "complete",
+          "quality",
+          "journalism",
+          "your",
+          "iran",
+          "device",
+          "year",
+          "upfront",
+          "save",
+          "conflict"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 21.5,
+        "max_value": 110.0,
+        "percent": 19.5455,
+        "rubric_count": 11
+      },
+      "high_score": null,
+      "audit": {
+        "provenance": {
+          "source_id": "financial-times",
+          "source_name": "Financial Times",
+          "feed_name": "Top Stories",
+          "feed_url": "https://www.ft.com/?format=rss"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
+        }
+      }
+    },
+    {
+      "id": "9b1b1a5fbe55",
+      "title": "Spring sports sideline essentials you'll actually use – from $8",
+      "link": "https://www.foxnews.com/deals/sideline-game-day-essentials",
+      "published": "Mon, 02 Mar 2026 14:09:06 -0500",
+      "summary": "Cheer them on in comfort with sideline gear like stadium seating, water bottles, outdoor blankets and more.",
+      "ai_summary": "",
+      "ai_tags": [],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "fox-news",
+        "name": "Fox News"
+      },
+      "feed": {
+        "name": "Latest",
+        "url": "http://feeds.foxnews.com/foxnews/latest"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-02T19:21:11.631334+00:00",
+        "final_url": "https://www.foxnews.com/deals/sideline-game-day-essentials",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Spring sports sideline essentials you'll actually use – from $8",
+        "description": "Cheer them on in comfort with sideline gear like stadium seating, water bottles, outdoor blankets and more.",
+        "author": "Christopher Murray",
+        "published_at": "2026-03-02T00:00:00",
+        "canonical_url": "https://www.foxnews.com/deals/sideline-game-day-essentials",
+        "language": "en",
+        "h1": "Spring sports sideline essentials you'll actually use – from $8",
+        "lead_paragraph": "This material may not be published, broadcast, rewritten, or redistributed. ©2026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
+        "paragraph_count": 50,
+        "word_count": 1125,
+        "top_keywords": [
+          "spring",
+          "your",
+          "bleachers",
+          "amazon",
+          "blanket",
+          "days",
+          "makes",
+          "keep",
+          "seat",
+          "heated",
+          "chair",
+          "sideline"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 10.5,
+        "max_value": 110.0,
+        "percent": 9.5455,
+        "rubric_count": 11
+      },
+      "high_score": null,
+      "audit": {
+        "provenance": {
+          "source_id": "fox-news",
+          "source_name": "Fox News",
+          "feed_name": "Latest",
+          "feed_url": "http://feeds.foxnews.com/foxnews/latest"
+        },
+        "openai": {
+          "cache_key": "d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "prompt_hash": "b8cea34c9100b93480845b62adf9e1f21c991796f170915c8efe0a1766dd81d1",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260302T192010-66848c79d4/d8a91e8ce909bde29c1544db5537c5016a6cb83cfade94309f4c6924d788a4e8",
+          "response_hash": "73dcb885cdb76511ab3900c750f5b50c4b61cfeef26d11d95a69cdf5fdfc86ce"
         }
       }
     }
