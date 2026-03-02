@@ -7,7 +7,9 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
-from typing import Any, TypedDict
+from typing import Any
+
+from typing_extensions import TypedDict
 
 from serialization_utils import dump_json, validate_json
 

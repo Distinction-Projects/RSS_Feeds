@@ -6,7 +6,9 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, TypedDict
+from typing import Any
+
+from typing_extensions import TypedDict
 
 from load_experiment import NewsItem
 from serialization_utils import dump_json, validate_json
