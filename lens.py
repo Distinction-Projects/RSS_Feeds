@@ -1,12 +1,18 @@
 from __future__ import annotations
 
 import json
+import sys
+from collections.abc import Iterable
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any, TypedDict
 
 from load_experiment import NewsItem
+from serialization_utils import dump_json, validate_json
+
+SELF_TEST_FLAG = "--self-test"
+HELP_FLAGS: tuple[str, ...] = ("-h", "--help")
 
 
 def _now_utc() -> datetime:
@@ -55,6 +61,49 @@ def _as_datetime(value: Any) -> datetime:
         return _now_utc()
 
 
+def _load_json_object(raw: str | bytes, *, context: str) -> dict[str, Any]:
+    payload = json.loads(raw)
+    if not isinstance(payload, dict):
+        raise ValueError(f"{context}: expected JSON object root for compat parsing.")
+    return payload
+
+
+class RubricQuestionJSON(TypedDict):
+    question: str
+
+
+class RubricJSON(TypedDict):
+    name: str
+    questions: list[RubricQuestionJSON]
+    expected_question_count: int
+    min_score_per_question: float
+    max_score_per_question: float
+    anticipated_total_score: float | None
+
+
+class LensJSON(TypedDict):
+    name: str
+    summary: str
+    instructions: str
+    system_prompt: str
+    user_prompt: str
+    rubrics: list[RubricJSON]
+
+
+class ScoreJSON(TypedDict):
+    rubric: RubricJSON
+    news_item: dict[str, Any]
+    question_scores: list[float]
+    value: float
+    max_value: float
+    reasoning: str
+    scored_at: str
+
+
+class LensesCollectionJSON(TypedDict):
+    lenses: list[LensJSON]
+
+
 @dataclass(slots=True)
 class RubricQuestion:
     """A single evaluative question inside a rubric."""
@@ -62,7 +111,7 @@ class RubricQuestion:
     question: str
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any] | str) -> "RubricQuestion":
+    def from_dict(cls, obj: dict[str, Any] | str) -> RubricQuestion:
         if isinstance(obj, str):
             return cls(question=_required_text(obj, "question"))
         if not isinstance(obj, dict):
@@ -71,6 +120,21 @@ class RubricQuestion:
 
     def to_dict(self) -> dict[str, Any]:
         return {"question": self.question}
+
+    @classmethod
+    def from_json(cls, raw: str | bytes, *, strict: bool = False) -> RubricQuestion:
+        if strict:
+            payload = validate_json(RubricQuestionJSON, raw, context="RubricQuestion")
+            return cls.from_dict(dict(payload))
+        return cls.from_dict(_load_json_object(raw, context="RubricQuestion"))
+
+    def to_json(self, *, indent: int | None = None) -> str:
+        return dump_json(
+            RubricQuestionJSON,
+            self.to_dict(),
+            indent=indent,
+            context="RubricQuestion",
+        )
 
 
 @dataclass(slots=True)
@@ -95,9 +159,7 @@ class Rubric:
         if self.expected_question_count <= 0:
             raise ValueError("Rubric.expected_question_count must be > 0.")
         if self.min_score_per_question > self.max_score_per_question:
-            raise ValueError(
-                "Rubric.min_score_per_question cannot exceed max_score_per_question."
-            )
+            raise ValueError("Rubric.min_score_per_question cannot exceed max_score_per_question.")
         if len(self.questions) != self.expected_question_count:
             raise ValueError(
                 "Rubric question count mismatch: "
@@ -108,12 +170,11 @@ class Rubric:
             max_total = self.max_score_per_question * self.expected_question_count
             if not (min_total <= self.anticipated_total_score <= max_total):
                 raise ValueError(
-                    "Rubric.anticipated_total_score must be within "
-                    f"[{min_total}, {max_total}]"
+                    f"Rubric.anticipated_total_score must be within [{min_total}, {max_total}]"
                 )
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> "Rubric":
+    def from_dict(cls, obj: dict[str, Any]) -> Rubric:
         if not isinstance(obj, dict):
             raise ValueError("Rubric must be an object.")
 
@@ -153,6 +214,21 @@ class Rubric:
             "max_score_per_question": self.max_score_per_question,
             "anticipated_total_score": self.anticipated_total_score,
         }
+
+    @classmethod
+    def from_json(cls, raw: str | bytes, *, strict: bool = False) -> Rubric:
+        if strict:
+            payload = validate_json(RubricJSON, raw, context="Rubric")
+            return cls.from_dict(dict(payload))
+        return cls.from_dict(_load_json_object(raw, context="Rubric"))
+
+    def to_json(self, *, indent: int | None = None) -> str:
+        return dump_json(
+            RubricJSON,
+            self.to_dict(),
+            indent=indent,
+            context="Rubric",
+        )
 
     @property
     def max_possible_score(self) -> float:
@@ -215,7 +291,7 @@ class Score:
         question_scores: list[float],
         reasoning: str = "",
         scored_at: datetime | None = None,
-    ) -> "Score":
+    ) -> Score:
         normalized_scores = [float(score) for score in question_scores]
         return cls(
             rubric=rubric,
@@ -228,7 +304,7 @@ class Score:
         )
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> "Score":
+    def from_dict(cls, obj: dict[str, Any]) -> Score:
         if not isinstance(obj, dict):
             raise ValueError("Score must be an object.")
 
@@ -263,6 +339,21 @@ class Score:
             "scored_at": self.scored_at.isoformat(),
         }
 
+    @classmethod
+    def from_json(cls, raw: str | bytes, *, strict: bool = False) -> Score:
+        if strict:
+            payload = validate_json(ScoreJSON, raw, context="Score")
+            return cls.from_dict(dict(payload))
+        return cls.from_dict(_load_json_object(raw, context="Score"))
+
+    def to_json(self, *, indent: int | None = None) -> str:
+        return dump_json(
+            ScoreJSON,
+            self.to_dict(),
+            indent=indent,
+            context="Score",
+        )
+
 
 @dataclass(slots=True)
 class Lens:
@@ -274,7 +365,7 @@ class Lens:
     rubrics: list[Rubric]
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> "Lens":
+    def from_dict(cls, obj: dict[str, Any]) -> Lens:
         if not isinstance(obj, dict):
             raise ValueError("Lens must be an object.")
 
@@ -301,6 +392,21 @@ class Lens:
             "rubrics": [rubric.to_dict() for rubric in self.rubrics],
         }
 
+    @classmethod
+    def from_json(cls, raw: str | bytes, *, strict: bool = False) -> Lens:
+        if strict:
+            payload = validate_json(LensJSON, raw, context="Lens")
+            return cls.from_dict(dict(payload))
+        return cls.from_dict(_load_json_object(raw, context="Lens"))
+
+    def to_json(self, *, indent: int | None = None) -> str:
+        return dump_json(
+            LensJSON,
+            self.to_dict(),
+            indent=indent,
+            context="Lens",
+        )
+
     def rubric_by_name(self, name: str) -> Rubric:
         for rubric in self.rubrics:
             if rubric.name == name:
@@ -317,7 +423,7 @@ def load_lens(path: str | Path) -> Lens:
 
 
 def save_lens(lens: Lens, path: str | Path) -> None:
-    Path(path).write_text(json.dumps(lens.to_dict(), indent=2), encoding="utf-8")
+    Path(path).write_text(lens.to_json(indent=2), encoding="utf-8")
 
 
 def _extract_lens_entries(payload: Any) -> list[dict[str, Any]]:
@@ -401,7 +507,15 @@ def load_lenses(path: str | Path) -> list[Lens]:
 
 def save_lenses(lenses: list[Lens], path: str | Path) -> None:
     payload = {"lenses": [lens.to_dict() for lens in lenses]}
-    Path(path).write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    Path(path).write_text(
+        dump_json(
+            LensesCollectionJSON,
+            payload,
+            indent=2,
+            context="LensesCollection",
+        ),
+        encoding="utf-8",
+    )
 
 
 def load_scores(path: str | Path) -> list[Score]:
@@ -413,7 +527,10 @@ def load_scores(path: str | Path) -> list[Score]:
 
 def save_scores(scores: list[Score], path: str | Path) -> None:
     payload = [score.to_dict() for score in scores]
-    Path(path).write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    Path(path).write_text(
+        dump_json(list[ScoreJSON], payload, indent=2, context="ScoreList"),
+        encoding="utf-8",
+    )
 
 
 def template_lens() -> Lens:
@@ -460,6 +577,129 @@ def template_lens() -> Lens:
     )
 
 
-if __name__ == "__main__":
+def _sample_news_item() -> NewsItem:
+    return NewsItem.from_dict(
+        {
+            "id": "sample-item-1",
+            "title": "Sample Article",
+            "link": "https://example.com/sample-article",
+            "summary": "Sample summary text.",
+            "published": "2026-03-01T12:00:00Z",
+            "source_id": "sample-source",
+            "source_name": "Sample Source",
+            "feed_name": "Sample Feed",
+            "feed_url": "https://example.com/feed.xml",
+            "topic_tags": ["sample", "test"],
+            "fetched_at": "2026-03-01T12:05:00Z",
+            "ai_summary": "AI summary",
+            "ai_tags": ["tag-a", "tag-b"],
+            "scraped": None,
+            "scrape_error": None,
+        }
+    )
+
+
+def run_self_tests() -> int:
+    failures: list[str] = []
+
+    sample_lens = template_lens()
+    sample_news = _sample_news_item()
+    sample_rubric = sample_lens.rubrics[0]
+    sample_score = Score.from_question_scores(
+        rubric=sample_rubric,
+        news_item=sample_news,
+        question_scores=[4.0, 3.5],
+        reasoning="Self-test score",
+        scored_at=datetime(2026, 3, 2, 0, 0, tzinfo=timezone.utc),
+    )
+
+    try:
+        lens_compat = Lens.from_json(sample_lens.to_json())
+        lens_strict = Lens.from_json(sample_lens.to_json(), strict=True)
+    except Exception as exc:
+        failures.append(f"Lens JSON round-trip failed: {exc}")
+    else:
+        if lens_compat.name != sample_lens.name:
+            failures.append(f"Lens compat name mismatch: {sample_lens.name} != {lens_compat.name}")
+        if lens_strict.name != sample_lens.name:
+            failures.append(f"Lens strict name mismatch: {sample_lens.name} != {lens_strict.name}")
+        if len(lens_strict.rubrics) != len(sample_lens.rubrics):
+            failures.append(
+                "Lens strict rubric count mismatch: "
+                f"{len(sample_lens.rubrics)} != {len(lens_strict.rubrics)}"
+            )
+
+    try:
+        score_compat = Score.from_json(sample_score.to_json())
+        score_strict = Score.from_json(sample_score.to_json(), strict=True)
+    except Exception as exc:
+        failures.append(f"Score JSON round-trip failed: {exc}")
+    else:
+        if abs(score_compat.value - sample_score.value) > 1e-9:
+            failures.append(
+                f"Score compat value mismatch: {sample_score.value} != {score_compat.value}"
+            )
+        if abs(score_strict.value - sample_score.value) > 1e-9:
+            failures.append(
+                f"Score strict value mismatch: {sample_score.value} != {score_strict.value}"
+            )
+        if score_strict.news_item.id != sample_score.news_item.id:
+            failures.append(
+                "Score strict news item id mismatch: "
+                f"{sample_score.news_item.id} != {score_strict.news_item.id}"
+            )
+
+    malformed_score = sample_score.to_dict()
+    malformed_score["question_scores"] = [5.0]  # Wrong length vs rubric expectation.
+    try:
+        Score.from_dict(malformed_score)
+        failures.append("Score invariant check unexpectedly accepted malformed question_scores.")
+    except ValueError:
+        pass
+    except Exception as exc:
+        failures.append(f"Malformed score raised unexpected error type: {exc}")
+
+    malformed_lens = sample_lens.to_dict()
+    malformed_lens.pop("name", None)
+    try:
+        Lens.from_json(json.dumps(malformed_lens), strict=True)
+        failures.append("Strict Lens validation unexpectedly accepted payload without name.")
+    except ValueError:
+        pass
+    except Exception as exc:
+        failures.append(f"Malformed Lens strict validation raised unexpected error type: {exc}")
+
+    if failures:
+        print(f"SELF-TEST FAILED ({len(failures)} issues)")
+        for failure in failures:
+            print(f"- {failure}")
+        return 1
+
+    print("SELF-TEST PASSED (lens/score serialization + invariants)")
+    return 0
+
+
+def _print_help() -> None:
+    print("usage: lens.py [--self-test]")
+    print()
+    print("When run with no arguments, prints a template lens JSON object.")
+    print()
+    print("options:")
+    print(f"  {SELF_TEST_FLAG}    Run built-in serialization and invariant tests")
+    print("  -h, --help     Show this help message and exit")
+
+
+def main(argv: list[str]) -> int:
+    if any(flag in argv for flag in HELP_FLAGS):
+        _print_help()
+        return 0
+    if SELF_TEST_FLAG in argv:
+        return run_self_tests()
+
     sample = template_lens()
-    print(json.dumps(sample.to_dict(), indent=2))
+    print(sample.to_json(indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv[1:]))

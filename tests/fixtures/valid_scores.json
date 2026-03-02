@@ -1,0 +1,48 @@
+[
+  {
+    "rubric": {
+      "name": "Evidence",
+      "questions": [
+        {
+          "question": "Are named sources cited?"
+        },
+        {
+          "question": "Are factual claims supported?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 7.0
+    },
+    "news_item": {
+      "id": "fixture-1",
+      "title": "Fixture Headline",
+      "link": "https://example.com/fixture-1",
+      "summary": "Fixture summary body.",
+      "published": "2026-03-01T12:00:00Z",
+      "source_id": "fixture-source",
+      "source_name": "Fixture Source",
+      "feed_name": "Fixture Feed",
+      "feed_url": "https://example.com/feed.xml",
+      "topic_tags": [
+        "policy"
+      ],
+      "fetched_at": "2026-03-01T12:05:00+00:00",
+      "ai_summary": "Fixture AI summary.",
+      "ai_tags": [
+        "policy"
+      ],
+      "scraped": null,
+      "scrape_error": null
+    },
+    "question_scores": [
+      4.0,
+      3.5
+    ],
+    "value": 7.5,
+    "max_value": 10.0,
+    "reasoning": "Fixture valid score.",
+    "scored_at": "2026-03-01T12:10:00+00:00"
+  }
+]

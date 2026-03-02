@@ -4,8 +4,11 @@
 - AGENTS.md (agent mission + conventions)
 - CONTINUITY.md (running summary for compacted context)
 - Makefile
+- pyproject.toml (Ruff + MyPy configuration)
 - readme.md (overview + RSS/OpenAI workflow)
 - requirements.txt
+- requirements-dev.txt (dev toolchain dependencies: Ruff + MyPy)
+- serialization_utils.py (shared Pydantic TypeAdapter cache + strict JSON validation/dump helpers)
 - rss_openai_digest.py (RSS fetch + OpenAI summarize)
 - load_experiment.py (schema-tolerant loader + summary stats for digest files)
 - scrape_experiment_links.py (optional page scrape enrichment for digest items)
@@ -27,6 +30,7 @@
 - requirements-notebooks.txt (optional notebook dependencies)
 - feed_catalog/ (RSS feed definitions)
 - data/ (daily output + history)
+- tests/ (offline contract tests + deterministic fixtures)
 - .github/ (GitHub workflows)
 - .codex/ (Codex agent config)
 
@@ -45,5 +49,8 @@
   - utc_now() for timestamps.
 - newsdata_test.py: main() is the workflow entry point; keep it aligned with the workflow.
 - load_experiment.py: use `load_experiment()`, `load_experiments()`, `ExperimentData.from_payload()` for schema-flexible parsing of RSS digest JSON.
+  - Canonical JSON API for dataclasses: `from_json(..., strict=False|True)` and `to_json(...)`.
 - scrape_experiment_links.py: use `scrape_experiment_data()` and `scrape_article()` to enrich items with normalized page metadata/content stats.
+- lens.py: use `load_lens()`, `load_lenses()`, `load_scores()`, plus dataclass JSON APIs (`from_json`, `to_json`) for strict/compat serialization paths.
 - score_news_item.py: use `main()` CLI for rubric scoring, or `score_news_item_with_lens()` when integrating programmatically.
+- Makefile quality gates: use `make lint`, `make format-check`, `make typecheck`, and `make check-offline` for deterministic non-OpenAI validation.

@@ -1,0 +1,67 @@
+name: RSS Pipeline Canary (No OpenAI)
+
+on:
+  schedule:
+    - cron: "30 9 * * *"
+  workflow_dispatch:
+
+jobs:
+  canary:
+    runs-on: ubuntu-latest
+    env:
+      CANARY_OUTPUT: /tmp/rss_pipeline_canary_${{ github.run_id }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r requirements-dev.txt
+
+      - name: Tooling checks (Ruff + MyPy)
+        run: |
+          ruff check \
+            load_experiment.py \
+            lens.py \
+            serialization_utils.py \
+            tests/test_serialization_contracts.py
+          ruff format --check \
+            load_experiment.py \
+            lens.py \
+            serialization_utils.py \
+            tests/test_serialization_contracts.py
+          mypy
+
+      - name: Serialization contract tests
+        run: python3 -m unittest -v tests/test_serialization_contracts.py
+
+      - name: Loader and lens self-tests
+        run: |
+          python3 load_experiment.py --self-test
+          python3 lens.py --self-test
+
+      - name: Pre-OpenAI canary (fixtures + snapshot)
+        run: |
+          python3 run_pre_openai.py --experiment tests/fixtures/canonical_digest.json
+          python3 run_pre_openai.py --experiment data/rss_openai_daily.json
+
+      - name: Post-OpenAI canary (fixture scores, no API)
+        run: |
+          python3 run_post_openai.py \
+            --scores tests/fixtures/valid_scores.json \
+            --lenses tests/fixtures/valid_lens.json \
+            --output-root "$CANARY_OUTPUT" \
+            --source-permutations 50 \
+            --source-random-seed 42
+
+      - name: Verify canary outputs
+        run: |
+          test -f "$CANARY_OUTPUT/matrix/lens_article_matrix.csv"
+          test -f "$CANARY_OUTPUT/lens_stats/lens_summary.json"
+          test -f "$CANARY_OUTPUT/report/source_differentiation_summary.json"

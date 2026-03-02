@@ -36,7 +36,9 @@ jobs:
             --output data/rss_openai_daily.json \
             --max-sources 10 \
             --feeds-per-source 1 \
-            --max-items-per-feed 3
+            --max-items-per-feed 3 \
+            --scrape-timeout-seconds 12 \
+            --scrape-sleep-seconds 0.25
 
       - name: Commit digest
         run: |

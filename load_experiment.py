@@ -2,11 +2,14 @@ from __future__ import annotations
 
 import json
 import sys
+from collections.abc import Iterable
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any, TypedDict
+
+from serialization_utils import dump_json, validate_json
 
 SELF_TEST_FLAG = "--self-test"
 HELP_FLAGS: tuple[str, ...] = ("-h", "--help")
@@ -89,6 +92,24 @@ SELF_TEST_CASES: tuple[dict[str, Any], ...] = (
                     "fetched_at": "2026-02-10T12:05:00Z",
                     "ai_summary": "AI summary A",
                     "ai_tags": ["finance"],
+                    "scraped": {
+                        "fetched_at": "2026-02-10T12:07:00Z",
+                        "final_url": "https://example.com/a1",
+                        "status_code": 200,
+                        "content_type": "text/html",
+                        "title": "Alpha Title",
+                        "description": "Alpha description",
+                        "author": "Reporter A",
+                        "published_at": "2026-02-10T11:00:00Z",
+                        "canonical_url": "https://example.com/a1",
+                        "language": "en",
+                        "h1": "Alpha H1",
+                        "lead_paragraph": "Alpha lead paragraph text.",
+                        "paragraph_count": 4,
+                        "word_count": 120,
+                        "top_keywords": ["alpha", "economy"],
+                    },
+                    "scrape_error": None,
                 },
                 {
                     "id": "b-1",
@@ -107,7 +128,13 @@ SELF_TEST_CASES: tuple[dict[str, Any], ...] = (
                 },
             ],
         },
-        "expect": {"items": 2, "sources": 2, "errors": 1, "first_id": "a-1"},
+        "expect": {
+            "items": 2,
+            "sources": 2,
+            "errors": 1,
+            "first_id": "a-1",
+            "first_scraped_lead": "Alpha lead paragraph text.",
+        },
     },
     {
         "name": "alternate_schema",
@@ -257,6 +284,63 @@ def _datetime_to_iso_optional(value: datetime | None) -> str | None:
     return value.isoformat()
 
 
+def _load_json_object(raw: str | bytes, *, context: str) -> dict[str, Any]:
+    payload = json.loads(raw)
+    if not isinstance(payload, dict):
+        raise ValueError(f"{context}: expected JSON object root for compat parsing.")
+    return payload
+
+
+class ScrapedArticleJSON(TypedDict):
+    fetched_at: str
+    final_url: str
+    status_code: int | None
+    content_type: str | None
+    title: str | None
+    description: str | None
+    author: str | None
+    published_at: str | None
+    canonical_url: str | None
+    language: str | None
+    h1: str | None
+    lead_paragraph: str | None
+    paragraph_count: int
+    word_count: int
+    top_keywords: list[str]
+
+
+class NewsItemJSON(TypedDict):
+    id: str
+    title: str
+    link: str
+    summary: str | None
+    published: str
+    source_id: str
+    source_name: str
+    feed_name: str
+    feed_url: str
+    topic_tags: list[str]
+    fetched_at: str
+    ai_summary: str
+    ai_tags: list[str]
+    scraped: ScrapedArticleJSON | None
+    scrape_error: str | None
+
+
+class NewsSummaryJSON(TypedDict):
+    generated_at: str
+    total_items: int
+    total_sources: int
+    total_errors: int
+
+
+class ExperimentDataJSON(TypedDict):
+    generated_at: str
+    summary: NewsSummaryJSON
+    items: list[NewsItemJSON]
+    errors: int
+
+
 @dataclass(slots=True)
 class ScrapedArticle:
     fetched_at: datetime
@@ -276,7 +360,7 @@ class ScrapedArticle:
     top_keywords: list[str]
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> "ScrapedArticle":
+    def from_dict(cls, obj: dict[str, Any]) -> ScrapedArticle:
         return cls(
             fetched_at=_as_datetime(_first_value(obj, ("fetched_at",), _now_utc())),
             final_url=_text(_first_value(obj, ("final_url", "url"))),
@@ -299,6 +383,13 @@ class ScrapedArticle:
             top_keywords=_as_text_list(_first_value(obj, ("top_keywords",), [])),
         )
 
+    @classmethod
+    def from_json(cls, raw: str | bytes, *, strict: bool = False) -> ScrapedArticle:
+        if strict:
+            payload = validate_json(ScrapedArticleJSON, raw, context="ScrapedArticle")
+            return cls.from_dict(dict(payload))
+        return cls.from_dict(_load_json_object(raw, context="ScrapedArticle"))
+
     def to_dict(self) -> dict[str, Any]:
         return {
             "fetched_at": self.fetched_at.isoformat(),
@@ -317,6 +408,14 @@ class ScrapedArticle:
             "word_count": self.word_count,
             "top_keywords": list(self.top_keywords),
         }
+
+    def to_json(self, *, indent: int | None = None) -> str:
+        return dump_json(
+            ScrapedArticleJSON,
+            self.to_dict(),
+            indent=indent,
+            context="ScrapedArticle",
+        )
 
 
 @dataclass(slots=True)
@@ -339,7 +438,7 @@ class NewsItem:
     scrape_error: str | None = None
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> "NewsItem":
+    def from_dict(cls, obj: dict[str, Any]) -> NewsItem:
         source = obj.get("source")
         source_obj = source if isinstance(source, dict) else {}
         feed = obj.get("feed")
@@ -384,11 +483,7 @@ class NewsItem:
             )
         )
         scraped_raw = obj.get("scraped")
-        scraped = (
-            ScrapedArticle.from_dict(scraped_raw)
-            if isinstance(scraped_raw, dict)
-            else None
-        )
+        scraped = ScrapedArticle.from_dict(scraped_raw) if isinstance(scraped_raw, dict) else None
 
         return cls(
             id=item_id,
@@ -409,6 +504,13 @@ class NewsItem:
             scrape_error=_optional_text(_first_value(obj, ("scrape_error",))),
         )
 
+    @classmethod
+    def from_json(cls, raw: str | bytes, *, strict: bool = False) -> NewsItem:
+        if strict:
+            payload = validate_json(NewsItemJSON, raw, context="NewsItem")
+            return cls.from_dict(dict(payload))
+        return cls.from_dict(_load_json_object(raw, context="NewsItem"))
+
     def to_dict(self) -> dict[str, Any]:
         return {
             "id": self.id,
@@ -428,6 +530,14 @@ class NewsItem:
             "scrape_error": self.scrape_error,
         }
 
+    def to_json(self, *, indent: int | None = None) -> str:
+        return dump_json(
+            NewsItemJSON,
+            self.to_dict(),
+            indent=indent,
+            context="NewsItem",
+        )
+
 
 @dataclass(slots=True)
 class NewsSummary:
@@ -435,6 +545,22 @@ class NewsSummary:
     total_items: int
     total_sources: int
     total_errors: int
+
+    @classmethod
+    def from_dict(cls, obj: dict[str, Any]) -> NewsSummary:
+        return cls(
+            generated_at=_as_datetime(_first_value(obj, ("generated_at",), _now_utc())),
+            total_items=int(_first_value(obj, ("total_items",), 0)),
+            total_sources=int(_first_value(obj, ("total_sources",), 0)),
+            total_errors=int(_first_value(obj, ("total_errors",), 0)),
+        )
+
+    @classmethod
+    def from_json(cls, raw: str | bytes, *, strict: bool = False) -> NewsSummary:
+        if strict:
+            payload = validate_json(NewsSummaryJSON, raw, context="NewsSummary")
+            return cls.from_dict(dict(payload))
+        return cls.from_dict(_load_json_object(raw, context="NewsSummary"))
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -444,6 +570,14 @@ class NewsSummary:
             "total_errors": self.total_errors,
         }
 
+    def to_json(self, *, indent: int | None = None) -> str:
+        return dump_json(
+            NewsSummaryJSON,
+            self.to_dict(),
+            indent=indent,
+            context="NewsSummary",
+        )
+
 
 @dataclass(slots=True)
 class ExperimentData:
@@ -451,7 +585,7 @@ class ExperimentData:
     summary: NewsSummary
 
     @classmethod
-    def from_payload(cls, payload: Any) -> "ExperimentData":
+    def from_payload(cls, payload: Any) -> ExperimentData:
         items_raw = _extract_items(payload)
         items = [NewsItem.from_dict(item) for item in items_raw]
         sources = {item.source_id for item in items}
@@ -469,8 +603,15 @@ class ExperimentData:
         )
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> "ExperimentData":
+    def from_dict(cls, obj: dict[str, Any]) -> ExperimentData:
         return cls.from_payload(obj)
+
+    @classmethod
+    def from_json(cls, raw: str | bytes, *, strict: bool = False) -> ExperimentData:
+        if strict:
+            payload = validate_json(ExperimentDataJSON, raw, context="ExperimentData")
+            return cls.from_dict(dict(payload))
+        return cls.from_payload(json.loads(raw))
 
     def items_by_source(self) -> dict[str, list[NewsItem]]:
         grouped: dict[str, list[NewsItem]] = {}
@@ -485,6 +626,14 @@ class ExperimentData:
             "items": [item.to_dict() for item in self.items],
             "errors": self.summary.total_errors,
         }
+
+    def to_json(self, *, indent: int | None = None) -> str:
+        return dump_json(
+            ExperimentDataJSON,
+            self.to_dict(),
+            indent=indent,
+            context="ExperimentData",
+        )
 
 
 def _looks_like_news_item(obj: dict[str, Any]) -> bool:
@@ -664,6 +813,125 @@ def run_self_tests() -> int:
                     f"got {data.items[0].ai_summary}"
                 )
 
+        first_scraped_lead_expected = expect.get("first_scraped_lead")
+        if first_scraped_lead_expected is not None:
+            if not data.items:
+                failures.append(
+                    f"{name}: expected first scraped lead={first_scraped_lead_expected}, got no items"
+                )
+            else:
+                scraped = data.items[0].scraped
+                actual_lead = scraped.lead_paragraph if scraped else None
+                if actual_lead != str(first_scraped_lead_expected):
+                    failures.append(
+                        f"{name}: expected first scraped lead={first_scraped_lead_expected}, "
+                        f"got {actual_lead}"
+                    )
+
+        # Enforce NewsItem JSON round-trip stability for stored payloads.
+        for index, item in enumerate(data.items):
+            try:
+                reparsed = NewsItem.from_dict(item.to_dict())
+            except Exception as exc:
+                failures.append(
+                    f"{name}: round-trip failed for item index {index} ({item.id}): {exc}"
+                )
+                continue
+
+            if reparsed.id != item.id:
+                failures.append(
+                    f"{name}: round-trip id mismatch for item index {index}: "
+                    f"{item.id} != {reparsed.id}"
+                )
+            if reparsed.ai_summary != item.ai_summary:
+                failures.append(
+                    f"{name}: round-trip ai_summary mismatch for item index {index}: "
+                    f"{item.ai_summary} != {reparsed.ai_summary}"
+                )
+            original_lead = item.scraped.lead_paragraph if item.scraped else None
+            reparsed_lead = reparsed.scraped.lead_paragraph if reparsed.scraped else None
+            if original_lead != reparsed_lead:
+                failures.append(
+                    f"{name}: round-trip scraped lead mismatch for item index {index}: "
+                    f"{original_lead} != {reparsed_lead}"
+                )
+
+            try:
+                json_reparsed = NewsItem.from_json(item.to_json())
+            except Exception as exc:
+                failures.append(
+                    f"{name}: compat JSON round-trip failed for item index {index} "
+                    f"({item.id}): {exc}"
+                )
+                continue
+
+            if json_reparsed.id != item.id:
+                failures.append(
+                    f"{name}: compat JSON round-trip id mismatch for item index {index}: "
+                    f"{item.id} != {json_reparsed.id}"
+                )
+
+            try:
+                strict_reparsed = NewsItem.from_json(item.to_json(), strict=True)
+            except Exception as exc:
+                failures.append(
+                    f"{name}: strict JSON round-trip failed for item index {index} "
+                    f"({item.id}): {exc}"
+                )
+            else:
+                if strict_reparsed.id != item.id:
+                    failures.append(
+                        f"{name}: strict JSON round-trip id mismatch for item index {index}: "
+                        f"{item.id} != {strict_reparsed.id}"
+                    )
+
+            malformed_payload = item.to_dict()
+            malformed_payload.pop("id", None)
+            malformed_json = json.dumps(malformed_payload)
+            try:
+                NewsItem.from_json(malformed_json, strict=True)
+                failures.append(
+                    f"{name}: strict validation unexpectedly accepted malformed NewsItem payload"
+                )
+            except ValueError:
+                pass
+            except Exception as exc:
+                failures.append(
+                    f"{name}: strict malformed validation raised unexpected error type: {exc}"
+                )
+
+        try:
+            data_reparsed_compat = ExperimentData.from_json(data.to_json())
+        except Exception as exc:
+            failures.append(f"{name}: ExperimentData compat JSON round-trip failed: {exc}")
+        else:
+            if data_reparsed_compat.summary.total_items != data.summary.total_items:
+                failures.append(
+                    f"{name}: ExperimentData compat JSON total_items mismatch: "
+                    f"{data.summary.total_items} != {data_reparsed_compat.summary.total_items}"
+                )
+            if data_reparsed_compat.summary.total_sources != data.summary.total_sources:
+                failures.append(
+                    f"{name}: ExperimentData compat JSON total_sources mismatch: "
+                    f"{data.summary.total_sources} != {data_reparsed_compat.summary.total_sources}"
+                )
+
+        try:
+            data_reparsed_strict = ExperimentData.from_json(data.to_json(), strict=True)
+        except Exception as exc:
+            failures.append(f"{name}: ExperimentData strict JSON round-trip failed: {exc}")
+        else:
+            if data_reparsed_strict.summary.total_items != data.summary.total_items:
+                failures.append(
+                    f"{name}: ExperimentData strict JSON total_items mismatch: "
+                    f"{data.summary.total_items} != {data_reparsed_strict.summary.total_items}"
+                )
+            if data_reparsed_strict.summary.total_sources != data.summary.total_sources:
+                failures.append(
+                    f"{name}: ExperimentData strict JSON total_sources mismatch: "
+                    f"{data.summary.total_sources} != {data_reparsed_strict.summary.total_sources}"
+                )
+
     if failures:
         print(f"SELF-TEST FAILED ({len(failures)} issues)")
         for failure in failures:
@@ -680,7 +948,9 @@ def _print_help() -> None:
     print("Load one or more experiment JSON files and print summary statistics.")
     print()
     print("arguments:")
-    print("  INPUT         File paths, directories, or glob patterns (default: data/rss_openai_daily.json)")
+    print(
+        "  INPUT         File paths, directories, or glob patterns (default: data/rss_openai_daily.json)"
+    )
     print()
     print("options:")
     print(f"  {SELF_TEST_FLAG}    Run built-in parser self-tests and exit")

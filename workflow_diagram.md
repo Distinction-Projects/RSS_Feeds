@@ -1,90 +1,68 @@
+# RSS_Feeds Workflow Diagrams
+
+## 1) GitHub Actions Topology
 ```mermaid
 flowchart LR
-  ext_feeds((RSS/News Feeds))
-  exp_json[/experiment.json/]
-  exp_scraped[/experiment_scraped.json/]
-  lenses[/lenses.json/]
-  scores[/scores.json/]
-  high_scores[/high_scoring_articles.json/]
-
-  load_py[[load_experiment.py]]
-  scrape_py[script: scrape_experiment_links.py]
-  score_py[script: score_news_item.py]
-  lens_py[[lens.py]]
-
-  article_pages((Article Web Pages))
-  openai((OpenAI Chat Completions API))
-
-  ext_feeds --> exp_json
-
-  exp_json --> load_py
-  load_py --> scrape_py
-  scrape_py -- "HTTP GET" --> article_pages
-  article_pages -- "HTML" --> scrape_py
-  scrape_py --> exp_scraped
-
-  exp_scraped -. "optional input" .-> load_py
-  lenses --> lens_py
-  lens_py --> score_py
-  load_py --> score_py
-  scores -. "append when not --replace-output" .-> score_py
-
-  score_py -- "API request" --> openai
-  openai -- "JSON scores" --> score_py
-  score_py --> scores
-  score_py --> high_scores
-```
-
-```mermaid
-sequenceDiagram
-  autonumber
-  participant Feeds as RSS/News Feeds
-  participant Exp as experiment.json
-  participant Scrape as scrape_experiment_links.py
-  participant Pages as Article Web Pages
-  participant ExpScraped as experiment_scraped.json
-  participant Score as score_news_item.py
-  participant Lenses as lenses.json
-  participant OpenAI as OpenAI Chat Completions API
-  participant Scores as scores.json
-  participant High as high_scoring_articles.json
-
-  Feeds->>Exp: Generate experiment data
-  Scrape->>Exp: Read items
-  loop For each item with link
-    Scrape->>Pages: HTTP GET article URL
-    Pages-->>Scrape: HTML response
-    Scrape->>ExpScraped: Store scraped fields
+  subgraph Triggered["Triggered On push/pull_request/dispatch"]
+    Smoke["rss_pipeline_smoke.yml"]
   end
 
-  Score->>Lenses: Load lenses + rubrics
-  Score->>ExpScraped: Load news items (or experiment.json)
-  loop For each news item + rubric
-    Score->>OpenAI: Score rubric prompt
-    OpenAI-->>Score: JSON scores
+  subgraph Scheduled["Scheduled (UTC) + dispatch"]
+    DailyDigest["daily_rss_openai.yml\n12:15 UTC"]
+    NewsData["daily_newsdata_test.yml\n12:00 UTC"]
+    Canary["rss_pipeline_canary.yml\n09:30 UTC"]
   end
-  Score->>Scores: Append or write scores
-  Score->>High: Write high-scoring items
+
+  Smoke --> SmokeChecks["Ruff + format + MyPy\nself-tests + unittest + py_compile"]
+
+  DailyDigest --> DigestRun["rss_openai_digest.py"]
+  DigestRun --> DigestOut["data/rss_openai_daily.json"]
+  DigestRun --> DigestHist["data/history/rss_openai_daily_YYYY-MM-DD.json"]
+  DigestOut --> DigestCommit["Commit + push digest/history"]
+  DigestHist --> DigestCommit
+
+  NewsData --> NewsDataRun["newsdata_test.py"]
+  NewsDataRun --> NewsDataLogs["Actions logs"]
+
+  Canary --> CanaryChecks["Ruff + format + MyPy\nunittest + self-tests"]
+  CanaryChecks --> CanaryPre["run_pre_openai.py (fixtures + snapshot)"]
+  CanaryPre --> CanaryPost["run_post_openai.py (fixture scores, no API)"]
+  CanaryPost --> CanaryVerify["Verify matrix/lens/report files"]
 ```
 
+## 2) Data Pipeline + OpenAI Call Points
 ```mermaid
 flowchart TD
-  start((Start))
-  load_exp[Load experiment.json]
-  decide_scrape{Need scraped data?}
-  scrape[Run scrape_experiment_links.py]
-  write_scraped[Write experiment_scraped.json]
-  load_scraped[Load experiment_scraped.json]
-  load_lenses[Load lenses.json]
-  score_items[Run score_news_item.py]
-  call_api[Call OpenAI API]
-  write_scores[Write scores.json]
-  write_high[Write high_scoring_articles.json]
-  end_node((End))
+  Catalog["feed_catalog/rss_feeds.json"] --> Digest["rss_openai_digest.py"]
+  Digest --> Fetch["Fetch RSS entries"]
+  Fetch --> Normalize["Normalize + dedupe items"]
+  Normalize --> Scrape["Scrape article URL (HTTP) -> item.scraped / item.scrape_error"]
+  Scrape --> Summarize["OpenAI call #1\nsummary + tags"]
+  Summarize --> Daily["data/rss_openai_daily.json"]
+  Daily --> History["data/history/rss_openai_daily_YYYY-MM-DD.json"]
 
-  start --> load_exp --> decide_scrape 
-  decide_scrape -- Yes --> scrape --> write_scraped --> load_scraped
-  decide_scrape -- No --> load_scraped
-  load_scraped --> load_lenses --> score_items
-  score_items --> call_api --> write_scores --> write_high --> end_node
+  Daily --> Loader["load_experiment.py / run_pre_openai.py"]
+  Loader --> Score["score_news_item.py + lenses/*.json"]
+  Score --> ScoreAPI["OpenAI call #2\nrubric scoring per item"]
+  ScoreAPI --> Scores["data/scores.json"]
+  ScoreAPI --> High["data/high_scoring_articles.json"]
+  Scores --> Post["run_post_openai.py"]
+  Post --> Analysis["data/analysis/"]
+
+  Daily -. optional re-scrape .-> Rescrape["scrape_experiment_links.py"]
+  Rescrape --> ScrapedOut["data/rss_openai_daily_scraped.json"]
+```
+
+## 3) Local/CI Quality Gate Flow
+```mermaid
+flowchart LR
+  Check["make check-offline"] --> Lint["ruff check"]
+  Check --> Format["ruff format --check"]
+  Check --> Types["mypy"]
+  Check --> SelfA["python load_experiment.py --self-test"]
+  Check --> SelfB["python lens.py --self-test"]
+  Check --> Contracts["python -m unittest -v tests/test_serialization_contracts.py"]
+
+  SmokeCI["rss_pipeline_smoke.yml"] --> Check
+  CanaryCI["rss_pipeline_canary.yml"] --> Check
 ```
