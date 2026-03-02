@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: daily-rss-openai-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   run-rss-openai:
     runs-on: ubuntu-latest
@@ -31,6 +35,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-openai-cache-${{ github.ref_name }}-
             ${{ runner.os }}-openai-cache-main-
+
+      - name: Show cache restore details
+        run: |
+          echo "Cache primary key: ${{ steps.openai_cache_restore.outputs.cache-primary-key }}"
+          echo "Cache matched key: ${{ steps.openai_cache_restore.outputs.cache-matched-key }}"
+          echo "Cache exact hit: ${{ steps.openai_cache_restore.outputs.cache-hit }}"
 
       - name: Install dependencies
         run: |
