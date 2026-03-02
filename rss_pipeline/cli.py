@@ -40,6 +40,7 @@ def digest_build(
     output: Annotated[Path, typer.Option("--output")] = Path("data/rss_openai_daily.json"),
     archive_dir: Annotated[Path, typer.Option("--archive-dir")] = Path("data/history"),
     no_archive: Annotated[bool, typer.Option("--no-archive")] = False,
+    skip_seen: Annotated[bool, typer.Option("--skip-seen/--no-skip-seen")] = True,
     max_sources: Annotated[int, typer.Option("--max-sources")] = 10,
     feeds_per_source: Annotated[int, typer.Option("--feeds-per-source")] = 1,
     max_items_per_feed: Annotated[int, typer.Option("--max-items-per-feed")] = 3,
@@ -76,6 +77,7 @@ def digest_build(
         output=output,
         archive_dir=archive_dir,
         archive_enabled=not no_archive,
+        skip_seen_items=skip_seen,
         max_sources=max_sources,
         feeds_per_source=feeds_per_source,
         max_items_per_feed=max_items_per_feed,
@@ -288,6 +290,7 @@ def validate_all() -> None:
             "-v",
             "tests/test_serialization_contracts.py",
             "tests/test_cache_sqlite.py",
+            "tests/test_digest_dedupe.py",
         ],
         [sys.executable, str(REPO_ROOT / "load_experiment.py"), "data/rss_openai_daily.json"],
         [

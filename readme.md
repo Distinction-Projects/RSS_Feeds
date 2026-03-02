@@ -46,6 +46,11 @@ python3 -m rss_pipeline.cli analysis run
 python3 -m rss_pipeline.cli publish build
 ```
 
+Default digest behavior is incremental:
+- `rssctl digest build` runs with seen-item filtering enabled by default (`--skip-seen`).
+- Seen keys are loaded from `data/rss_openai_daily.json` plus `data/history/rss_openai_daily_*.json`.
+- Already-seen items are dropped before scrape/OpenAI summarization.
+
 ## Compatibility wrappers
 Legacy root scripts remain as thin wrappers into `rssctl`:
 - `rss_openai_digest.py`
@@ -67,7 +72,8 @@ Legacy root scripts remain as thin wrappers into `rssctl`:
 ## Workflows
 Scheduled daily workflows:
 - `.github/workflows/daily_rss_openai.yml`:
-  digest + scoring + analysis + app precomputed export + commit
+  digest + app precomputed export + commit (with conditional scoring/analysis when new items exist)
+  and persistent GitHub Actions cache restore/save for `data/cache/openai_cache.sqlite`
 - `.github/workflows/daily_newsdata_test.yml`:
   NewsData connectivity test
 

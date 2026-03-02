@@ -24,7 +24,8 @@ QUALITY_PATHS ?= \
 	newsdata_client.py \
 	newsdata_test.py \
 	tests/test_serialization_contracts.py \
-	tests/test_cache_sqlite.py
+	tests/test_cache_sqlite.py \
+	tests/test_digest_dedupe.py
 
 .PHONY: venv install install-dev install-notebooks lint format-check typecheck validate-all check-offline digest-build digest-archive digest-summary digest-scrape score-openai post-openai publish-build newsdata-test newsdata-fetch clean-venv
 

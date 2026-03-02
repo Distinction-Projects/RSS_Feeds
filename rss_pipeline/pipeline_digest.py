@@ -8,6 +8,7 @@ import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 import feedparser
 
@@ -34,6 +35,16 @@ from .workflow_runtime import RunContext, command_line
 ENV_OPENAI_KEY = "OPENAI_API_KEY"
 ENV_OPENAI_MODEL = "OPENAI_MODEL"
 DEFAULT_OPENAI_MODEL = "gpt-4o-mini"
+TRACKING_QUERY_KEYS = {
+    "fbclid",
+    "gclid",
+    "igshid",
+    "mc_cid",
+    "mc_eid",
+    "mkt_tok",
+    "ref",
+}
+TRACKING_QUERY_PREFIXES = ("utm_",)
 
 
 class _HTMLStripper(HTMLParser):
@@ -125,6 +136,131 @@ def select_feeds(
 def item_id(source_id: str, link: str, title: str) -> str:
     digest = hashlib.sha1(f"{source_id}:{link or title}".encode()).hexdigest()
     return digest[:12]
+
+
+def normalize_link_for_dedupe(link: str) -> str:
+    value = link.strip()
+    if not value:
+        return ""
+
+    parsed = urlsplit(value)
+    if not parsed.scheme or not parsed.netloc:
+        return value
+
+    filtered_query = [
+        (key, item_value)
+        for key, item_value in parse_qsl(parsed.query, keep_blank_values=True)
+        if key.lower() not in TRACKING_QUERY_KEYS
+        and not any(key.lower().startswith(prefix) for prefix in TRACKING_QUERY_PREFIXES)
+    ]
+    normalized_path = parsed.path
+    if normalized_path.endswith("/") and normalized_path != "/":
+        normalized_path = normalized_path.rstrip("/")
+
+    normalized = parsed._replace(
+        scheme=parsed.scheme.lower(),
+        netloc=parsed.netloc.lower(),
+        path=normalized_path,
+        query=urlencode(filtered_query, doseq=True),
+        fragment="",
+    )
+    canonical = urlunsplit(normalized)
+    if canonical.endswith("/") and normalized.query == "":
+        return canonical[:-1]
+    return canonical
+
+
+def dedupe_keys_for_item(item: DigestItem) -> set[str]:
+    keys: set[str] = set()
+
+    item_id_value = item.id.strip()
+    if item_id_value:
+        keys.add(f"id:{item_id_value}")
+
+    normalized_link = normalize_link_for_dedupe(item.link)
+    if normalized_link:
+        keys.add(f"link:{normalized_link}")
+
+    title = " ".join(item.title.lower().split())
+    source_id = item.source.id.strip()
+    if title:
+        keys.add(f"title:{source_id}:{title}")
+
+    return keys
+
+
+def dedupe_keys_from_item_payload(payload: dict[str, Any]) -> set[str]:
+    keys: set[str] = set()
+
+    item_id_value = str(payload.get("id") or "").strip()
+    if item_id_value:
+        keys.add(f"id:{item_id_value}")
+
+    normalized_link = normalize_link_for_dedupe(str(payload.get("link") or ""))
+    if normalized_link:
+        keys.add(f"link:{normalized_link}")
+
+    source: dict[str, Any] = {}
+    source_raw = payload.get("source")
+    if isinstance(source_raw, dict):
+        source = source_raw
+    source_id = str(source.get("id") or payload.get("source_id") or "").strip()
+
+    title = " ".join(str(payload.get("title") or "").lower().split())
+    if title:
+        keys.add(f"title:{source_id}:{title}")
+
+    return keys
+
+
+def _load_json_object(path: Path) -> dict[str, Any] | None:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    if not isinstance(payload, dict):
+        return None
+    return payload
+
+
+def collect_seen_keys(
+    *,
+    output_path: Path,
+    history_dir: Path,
+) -> tuple[set[str], dict[str, int]]:
+    seen: set[str] = set()
+    current_items = 0
+    history_items = 0
+    history_files = 0
+
+    current_payload = _load_json_object(output_path)
+    if isinstance(current_payload, dict):
+        raw_items = current_payload.get("items")
+        if isinstance(raw_items, list):
+            for item in raw_items:
+                if isinstance(item, dict):
+                    seen.update(dedupe_keys_from_item_payload(item))
+                    current_items += 1
+
+    for path in sorted(history_dir.glob("rss_openai_daily_*.json")):
+        payload = _load_json_object(path)
+        if not isinstance(payload, dict):
+            continue
+        history_files += 1
+        raw_items = payload.get("items")
+        if not isinstance(raw_items, list):
+            continue
+        for item in raw_items:
+            if isinstance(item, dict):
+                seen.update(dedupe_keys_from_item_payload(item))
+                history_items += 1
+
+    return seen, {
+        "loaded_keys": len(seen),
+        "current_items": current_items,
+        "history_items": history_items,
+        "history_files": history_files,
+    }
 
 
 def fetch_feed_items(
@@ -265,7 +401,8 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
 
     items: list[DigestItem] = []
     errors: list[dict[str, Any]] = []
-    seen: set[str] = set()
+    seen_in_run: set[str] = set()
+    duplicate_in_run = 0
     user_agent = "RSS_Feeds/2.0 (+https://github.com)"
 
     for feed in feeds:
@@ -289,11 +426,39 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
 
         for item in feed_items:
             dedupe_key = item.link or item.title or item.id
-            if dedupe_key in seen:
+            if dedupe_key in seen_in_run:
+                duplicate_in_run += 1
                 continue
-            seen.add(dedupe_key)
+            seen_in_run.add(dedupe_key)
             item.fetched_at = context.generated_at
             items.append(item)
+
+    seen_filter_stats: dict[str, Any] = {
+        "enabled": config.skip_seen_items,
+        "loaded_keys": 0,
+        "current_items": 0,
+        "history_items": 0,
+        "history_files": 0,
+        "skipped_seen": 0,
+    }
+    if config.skip_seen_items:
+        seen_keys, loaded_stats = collect_seen_keys(
+            output_path=output_path, history_dir=archive_dir
+        )
+        seen_filter_stats.update(loaded_stats)
+        seen_filter_stats["loaded_keys"] = len(seen_keys)
+
+        filtered_items: list[DigestItem] = []
+        skipped_seen = 0
+        for item in items:
+            keys = dedupe_keys_for_item(item)
+            if keys and any(key in seen_keys for key in keys):
+                skipped_seen += 1
+                continue
+            seen_keys.update(keys)
+            filtered_items.append(item)
+        items = filtered_items
+        seen_filter_stats["skipped_seen"] = skipped_seen
 
     if config.scrape_enabled and items:
         scrape_stats = enrich_items_with_scrape(
@@ -397,6 +562,7 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
         ),
         request={
             "catalog_path": str(config.catalog),
+            "skip_seen_items": config.skip_seen_items,
             "max_sources": config.max_sources,
             "feeds_per_source": config.feeds_per_source,
             "max_items_per_feed": config.max_items_per_feed,
@@ -413,6 +579,10 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
         errors=errors,
         audit={
             "scrape": scrape_stats,
+            "dedupe": {
+                "in_run_duplicates": duplicate_in_run,
+                "seen_filter": seen_filter_stats,
+            },
             "prompt_export": prompt_export_path,
             "catalog_path": str(catalog_path),
         },

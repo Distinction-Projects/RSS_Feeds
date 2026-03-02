@@ -36,11 +36,11 @@ jobs:
 
       - name: Ruff lint
         run: |
-          ruff check load_experiment.py lens.py serialization_utils.py rss_pipeline run_pre_openai.py run_post_openai.py score_news_item.py rss_openai_digest.py newsdata_client.py newsdata_test.py tests/test_serialization_contracts.py tests/test_cache_sqlite.py
+          ruff check load_experiment.py lens.py serialization_utils.py rss_pipeline run_pre_openai.py run_post_openai.py score_news_item.py rss_openai_digest.py newsdata_client.py newsdata_test.py tests/test_serialization_contracts.py tests/test_cache_sqlite.py tests/test_digest_dedupe.py
 
       - name: Ruff format check
         run: |
-          ruff format --check load_experiment.py lens.py serialization_utils.py rss_pipeline run_pre_openai.py run_post_openai.py score_news_item.py rss_openai_digest.py newsdata_client.py newsdata_test.py tests/test_serialization_contracts.py tests/test_cache_sqlite.py
+          ruff format --check load_experiment.py lens.py serialization_utils.py rss_pipeline run_pre_openai.py run_post_openai.py score_news_item.py rss_openai_digest.py newsdata_client.py newsdata_test.py tests/test_serialization_contracts.py tests/test_cache_sqlite.py tests/test_digest_dedupe.py
 
       - name: MyPy
         run: mypy

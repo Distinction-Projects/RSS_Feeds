@@ -19,14 +19,19 @@ flowchart LR
   Smoke --> SmokeChecks["ruff + format + mypy + rssctl validate all"]
 
   DailyDigest --> DigestRun["rssctl digest build"]
-  DigestRun --> ScoreRun["rssctl score run"]
-  ScoreRun --> AnalysisRun["rssctl analysis run"]
-  AnalysisRun --> PublishRun["rssctl publish build"]
+  DailyDigest --> CacheRestore["restore data/cache (actions/cache)"]
+  CacheRestore --> DigestRun
+  DigestRun --> DigestCount["inspect digest item count"]
+  DigestCount --> ScoreRun["rssctl score run (if items > 0)"]
+  ScoreRun --> AnalysisRun["rssctl analysis run (if items > 0)"]
+  DigestCount --> PublishRun["rssctl publish build (always)"]
+  AnalysisRun --> PublishRun
   DigestRun --> DigestOut["data/rss_openai_daily.json"]
   DigestRun --> DigestHist["data/history/rss_openai_daily_YYYY-MM-DD.json"]
   DigestRun --> CacheDB["data/cache/openai_cache.sqlite"]
   DigestRun --> PromptAudit["data/analysis/prompt_audit/<run_id>.json"]
   PublishRun --> Processed["data/processed/rss_openai_precomputed.json"]
+  PublishRun --> CacheSave["save data/cache (actions/cache)"]
   DigestOut --> DigestCommit["commit + push digest/history/processed"]
   DigestHist --> DigestCommit
   Processed --> DigestCommit
@@ -44,8 +49,9 @@ flowchart LR
 flowchart TD
   Catalog["feed_catalog/rss_feeds.json"] --> Digest["rssctl digest build"]
   Digest --> Fetch["Fetch RSS entries"]
-  Fetch --> Normalize["Normalize + dedupe"]
-  Normalize --> Scrape["Scrape article URL -> item.scraped/item.scrape_error"]
+  Fetch --> Normalize["Normalize + in-run dedupe"]
+  Normalize --> SeenFilter["Seen-item filter (output + history)"]
+  SeenFilter --> Scrape["Scrape article URL -> item.scraped/item.scrape_error"]
   Scrape --> Summarize["OpenAI call (SDK)"]
   Summarize --> Cache[("SQLite: openai_cache/openai_calls/prompt_audit")]
   Summarize --> Daily["data/rss_openai_daily.json (schema 2.0)"]
@@ -74,6 +80,7 @@ flowchart LR
   Validate["rssctl validate all"] --> LoaderSelf["load_experiment.py --self-test"]
   Validate --> LensSelf["lens.py --self-test"]
   Validate --> Contracts["unittest serialization contracts"]
+  Validate --> DigestDedupe["unittest digest dedupe contracts"]
   Validate --> DigestParse["load_experiment.py data/rss_openai_daily.json"]
 
   MakeCheck["make check-offline"] --> Lint["ruff check"]

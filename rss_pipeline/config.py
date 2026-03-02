@@ -23,6 +23,7 @@ class DigestBuildConfig:
     output: Path = DEFAULT_DIGEST_OUTPUT
     archive_dir: Path = DEFAULT_HISTORY_DIR
     archive_enabled: bool = True
+    skip_seen_items: bool = True
     max_sources: int = 10
     feeds_per_source: int = 1
     max_items_per_feed: int = 3

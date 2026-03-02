@@ -22,6 +22,16 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Restore OpenAI cache DB
+        id: openai_cache_restore
+        uses: actions/cache/restore@v4
+        with:
+          path: data/cache
+          key: ${{ runner.os }}-openai-cache-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-openai-cache-${{ github.ref_name }}-
+            ${{ runner.os }}-openai-cache-main-
+
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
@@ -37,12 +47,30 @@ jobs:
             --max-sources 10 \
             --feeds-per-source 1 \
             --max-items-per-feed 3 \
+            --skip-seen \
             --scrape-timeout-seconds 12 \
             --scrape-sleep-seconds 0.25 \
             --cache-path data/cache/openai_cache.sqlite \
             --prompt-audit-dir data/analysis/prompt_audit
 
+      - name: Inspect digest item count
+        id: digest_meta
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          import os
+
+          payload = json.loads(Path("data/rss_openai_daily.json").read_text(encoding="utf-8"))
+          items = payload.get("items") if isinstance(payload, dict) else []
+          count = len(items) if isinstance(items, list) else 0
+          print(f"Digest items: {count}")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
+            f.write(f"items={count}\n")
+          PY
+
       - name: Run scoring precompute
+        if: steps.digest_meta.outputs.items != '0'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
@@ -57,6 +85,7 @@ jobs:
             --replace-output
 
       - name: Run analysis precompute
+        if: steps.digest_meta.outputs.items != '0'
         run: |
           python3 -m rss_pipeline.cli analysis run \
             --scores data/scores.json \
@@ -64,6 +93,10 @@ jobs:
             --output-root data/analysis \
             --source-permutations 1000 \
             --source-random-seed 42
+
+      - name: Skip scoring/analysis (no new articles)
+        if: steps.digest_meta.outputs.items == '0'
+        run: echo "No new digest items after seen-item filtering; skipping scoring and analysis."
 
       - name: Build app-consumable precomputed JSON
         run: |
@@ -79,6 +112,57 @@ jobs:
         with:
           name: rss-openai-precomputed
           path: data/processed/rss_openai_precomputed.json
+
+      - name: Cache telemetry
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import sqlite3
+          from pathlib import Path
+
+          db = Path("data/cache/openai_cache.sqlite")
+          if not db.exists():
+              print("OpenAI cache DB does not exist for this run.")
+              raise SystemExit(0)
+
+          with sqlite3.connect(db) as conn:
+              total_calls, hits, misses = conn.execute(
+                  """
+                  SELECT
+                    COUNT(*) AS calls,
+                    SUM(CASE WHEN cache_hit = 1 THEN 1 ELSE 0 END) AS hits,
+                    SUM(CASE WHEN cache_hit = 0 THEN 1 ELSE 0 END) AS misses
+                  FROM openai_calls
+                  """
+              ).fetchone()
+              cached_rows, total_hit_count = conn.execute(
+                  """
+                  SELECT
+                    COUNT(*) AS cache_rows,
+                    SUM(hit_count) AS total_hit_count
+                  FROM openai_cache
+                  """
+              ).fetchone()
+
+          total_calls = int(total_calls or 0)
+          hits = int(hits or 0)
+          misses = int(misses or 0)
+          cached_rows = int(cached_rows or 0)
+          total_hit_count = int(total_hit_count or 0)
+          hit_rate = (hits / total_calls * 100.0) if total_calls else 0.0
+
+          print(f"OpenAI calls logged: {total_calls}")
+          print(f"Cache hits/misses: {hits}/{misses} ({hit_rate:.1f}% hit rate)")
+          print(f"Cached response rows: {cached_rows}")
+          print(f"Lifetime cache retrievals: {total_hit_count}")
+          PY
+
+      - name: Save OpenAI cache DB
+        if: always() && hashFiles('data/cache/openai_cache.sqlite') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: data/cache
+          key: ${{ runner.os }}-openai-cache-${{ github.ref_name }}-${{ github.run_id }}
 
       - name: Commit digest and processed artifacts
         run: |
