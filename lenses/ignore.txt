@@ -1,0 +1,4 @@
+# One filename per line. Lines starting with # are ignored.
+bias-framing-lens.disabled.json
+emotional-manipulation-lens.disabled.json
+polarization-lens.disabled.json

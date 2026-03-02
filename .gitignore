@@ -3,3 +3,9 @@ __pycache__/
 *.pyc
 .DS_Store
 .env
+.cache/
+*.code-workspace
+data/analysis/
+data/scores.json
+data/high_scoring_articles.json
+data/rss_openai_daily_scraped.json

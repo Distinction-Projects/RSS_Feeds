@@ -50,3 +50,31 @@ flowchart TD
     F --> R3[OpenAI adds consistent summaries/tags]
     end
 ```
+
+## Integrated Analysis Pipeline (from `openaiapi_testing`)
+- This repo now includes the loader/scrape/scoring/analysis scripts so you can run the full experiment workflow directly against `data/rss_openai_daily.json`.
+- Source-of-truth policy: `RSS_Feeds` is the active repo for this pipeline; `openaiapi_testing` is treated as an archive/read-only snapshot during this consolidation phase.
+- Core files added: `load_experiment.py`, `scrape_experiment_links.py`, `run_pre_openai.py`, `score_news_item.py`, `run_post_openai.py`, `lens.py`, `analysis_module/`, `lenses/`.
+- Python requirement for these scripts is 3.10+.
+- Optional notebook assets are included under `notebooks/` with `requirements-notebooks.txt`.
+
+### Typical local run order
+```bash
+make rss-openai
+make digest-summary
+make digest-scrape
+make score-openai
+make post-openai
+```
+
+### Optional notebook setup
+```bash
+make install-notebooks
+```
+
+### Main inputs and outputs
+- Input digest: `data/rss_openai_daily.json`
+- Scraped enrichment output: `data/rss_openai_daily_scraped.json`
+- Score output: `data/scores.json`
+- High-score shortlist: `data/high_scoring_articles.json`
+- Analysis outputs: `data/analysis/`

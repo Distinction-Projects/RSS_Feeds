@@ -1,0 +1,39 @@
+{
+  "name": "Polarization Lens",
+  "summary": "Detect ideological extremity and us-vs-them framing.",
+  "instructions": "Analyze how the article frames ideological positions and group identities. Look for binary framings, portrayals of opposition, and in-group/out-group distinctions. Cite specific passages.",
+  "system_prompt": "You are a polarization analyst. Evaluate the article for ideological extremity and divisive framing using the rubric. Score based on linguistic and structural patterns, not political alignment.",
+  "user_prompt": "Evaluate this article using the polarization lens rubric.",
+  "rubrics": [
+    {
+      "name": "Binary Framing",
+      "questions": [
+        {
+          "question": "Does the article frame issues in morally absolute terms?"
+        },
+        {
+          "question": "Is political opposition portrayed as malicious or dangerous?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 8.5
+    },
+    {
+      "name": "Group Identity",
+      "questions": [
+        {
+          "question": "Does the article invoke strong in-group/out-group distinctions?"
+        },
+        {
+          "question": "Are collective labels used to generalize large populations?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 8.0
+    }
+  ]
+}

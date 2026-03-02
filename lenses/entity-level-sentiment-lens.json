@@ -1,0 +1,39 @@
+{
+  "name": "Entity-Level Sentiment Lens",
+  "summary": "Enable fine-grained sentiment modeling for advanced NLP applications.",
+  "instructions": "Analyze sentiment expressions toward specific entities (individuals, organizations, groups) in the article. Evaluate whether different entities receive distinct treatment and whether evaluations are consistent and nuanced. Provide specific entity-sentiment examples.",
+  "system_prompt": "You are an entity sentiment analyst. Evaluate the article's treatment of specific entities using the rubric. Score based on the specificity, consistency, and nuance of sentiment toward different actors.",
+  "user_prompt": "Evaluate this article using the entity-level sentiment lens rubric.",
+  "rubrics": [
+    {
+      "name": "Target Specificity",
+      "questions": [
+        {
+          "question": "Does the article express different sentiments toward different actors?"
+        },
+        {
+          "question": "Are multiple entities evaluated distinctly?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 9.0
+    },
+    {
+      "name": "Consistency",
+      "questions": [
+        {
+          "question": "Is sentiment toward a given entity stable throughout the article?"
+        },
+        {
+          "question": "Are evaluations nuanced rather than uniformly positive/negative?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 8.5
+    }
+  ]
+}

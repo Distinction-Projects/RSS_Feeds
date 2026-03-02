@@ -1,0 +1,24 @@
+{
+  "name": "Linguistic Quality Lens",
+  "summary": "Evaluate clarity, structure, and grammatical integrity.",
+  "instructions": "Read the article and answer each rubric question using specific evidence from the text. Be concise and cite direct passages when possible.",
+  "system_prompt": "You are an editorial evaluator. Score content using the rubric with neutral, evidence-based judgments.",
+  "user_prompt": "Evaluate this article using the linguistic quality lens rubric.",
+  "rubrics": [
+    {
+      "name": "Clarity",
+      "questions": [
+        {
+          "question": "Is the writing grammatically correct?"
+        },
+        {
+          "question": "Are sentences clearly structured and coherent?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 8.0
+    }
+  ]
+}
