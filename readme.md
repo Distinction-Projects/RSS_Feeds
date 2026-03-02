@@ -86,6 +86,7 @@ Smoke CI remains active on push/PR via `.github/workflows/rss_pipeline_smoke.yml
 - For cross-repo consumption, read `data/processed/rss_openai_precomputed.json`.
 - This file is refreshed by the daily RSS workflow and committed to `main`.
 - It contains merged digest metadata, per-article scoring summaries, and analysis summaries in one payload.
+- Integration details: `EXTERNAL_APP_JSON_CONTRACT.md`
 
 ## Validation
 ```bash
