@@ -1,8 +1,6 @@
 name: Daily NewsData Test
 
 on:
-  schedule:
-    - cron: "0 12 * * *"
   workflow_dispatch:
 
 jobs:
@@ -17,7 +15,12 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r requirements.txt
+
       - name: Run NewsData test
         env:
           NEWSDATA_API_KEY: ${{ secrets.NEWSDATA_API_KEY }}
-        run: python3 newsdata_test.py
+        run: python3 -m rss_pipeline.cli newsdata test

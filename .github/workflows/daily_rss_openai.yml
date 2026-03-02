@@ -1,8 +1,6 @@
 name: Daily RSS OpenAI Digest
 
 on:
-  schedule:
-    - cron: "15 12 * * *"
   workflow_dispatch:
 
 permissions:
@@ -32,20 +30,21 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
         run: |
-          python3 rss_openai_digest.py \
+          python3 -m rss_pipeline.cli digest build \
             --output data/rss_openai_daily.json \
             --max-sources 10 \
             --feeds-per-source 1 \
             --max-items-per-feed 3 \
             --scrape-timeout-seconds 12 \
-            --scrape-sleep-seconds 0.25
+            --scrape-sleep-seconds 0.25 \
+            --cache-path data/cache/openai_cache.sqlite \
+            --prompt-audit-dir data/analysis/prompt_audit
 
       - name: Commit digest
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Always stage the daily digest plus any new archive files.
           git add data/rss_openai_daily.json data/history/rss_openai_daily_*.json
 
           if git diff --cached --quiet; then

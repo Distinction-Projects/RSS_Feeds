@@ -22,36 +22,30 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install -r requirements-dev.txt
 
+      - name: CLI help smoke
+        run: |
+          python3 -m rss_pipeline.cli --help
+          python3 -m rss_pipeline.cli digest build --help
+          python3 -m rss_pipeline.cli digest archive --help
+          python3 -m rss_pipeline.cli newsdata fetch --help
+          python3 -m rss_pipeline.cli newsdata test --help
+          python3 -m rss_pipeline.cli score run --help
+          python3 -m rss_pipeline.cli analysis run --help
+          python3 -m rss_pipeline.cli validate all --help
+
       - name: Ruff lint
         run: |
-          ruff check \
-            load_experiment.py \
-            lens.py \
-            serialization_utils.py \
-            tests/test_serialization_contracts.py
+          ruff check load_experiment.py lens.py serialization_utils.py rss_pipeline run_pre_openai.py run_post_openai.py score_news_item.py rss_openai_digest.py newsdata_client.py newsdata_test.py tests/test_serialization_contracts.py tests/test_cache_sqlite.py
 
       - name: Ruff format check
         run: |
-          ruff format --check \
-            load_experiment.py \
-            lens.py \
-            serialization_utils.py \
-            tests/test_serialization_contracts.py
+          ruff format --check load_experiment.py lens.py serialization_utils.py rss_pipeline run_pre_openai.py run_post_openai.py score_news_item.py rss_openai_digest.py newsdata_client.py newsdata_test.py tests/test_serialization_contracts.py tests/test_cache_sqlite.py
 
       - name: MyPy
         run: mypy
 
-      - name: Loader self-test
-        run: python3 load_experiment.py --self-test
-
-      - name: Lens self-test
-        run: python3 lens.py --self-test
-
-      - name: Serialization contract tests
-        run: python3 -m unittest -v tests/test_serialization_contracts.py
-
-      - name: Digest parse smoke
-        run: python3 load_experiment.py data/rss_openai_daily.json
+      - name: Offline validation
+        run: python3 -m rss_pipeline.cli validate all
 
       - name: Syntax smoke
         run: |
@@ -65,6 +59,9 @@ jobs:
             analyze_lens_scores.py \
             analysis_report.py \
             lens.py \
+            rss_pipeline/*.py \
+            newsdata_client.py \
+            newsdata_test.py \
             analysis_module/__init__.py \
             analysis_module/core.py \
             analysis_module/explore.py

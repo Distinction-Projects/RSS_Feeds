@@ -1,8 +1,6 @@
 name: RSS Pipeline Canary (No OpenAI)
 
 on:
-  schedule:
-    - cron: "30 9 * * *"
   workflow_dispatch:
 
 jobs:
@@ -24,36 +22,36 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install -r requirements-dev.txt
 
-      - name: Tooling checks (Ruff + MyPy)
+      - name: CLI and tooling checks
         run: |
-          ruff check \
-            load_experiment.py \
-            lens.py \
-            serialization_utils.py \
-            tests/test_serialization_contracts.py
-          ruff format --check \
-            load_experiment.py \
-            lens.py \
-            serialization_utils.py \
-            tests/test_serialization_contracts.py
+          python3 -m rss_pipeline.cli --help
+          python3 -m rss_pipeline.cli digest --help
+          python3 -m rss_pipeline.cli digest build --help
+          python3 -m rss_pipeline.cli digest archive --help
+          python3 -m rss_pipeline.cli newsdata --help
+          python3 -m rss_pipeline.cli newsdata fetch --help
+          python3 -m rss_pipeline.cli newsdata test --help
+          python3 -m rss_pipeline.cli score --help
+          python3 -m rss_pipeline.cli score run --help
+          python3 -m rss_pipeline.cli analysis --help
+          python3 -m rss_pipeline.cli analysis run --help
+          python3 -m rss_pipeline.cli validate --help
+          python3 -m rss_pipeline.cli validate all --help
+          ruff check load_experiment.py lens.py serialization_utils.py rss_pipeline run_pre_openai.py run_post_openai.py score_news_item.py rss_openai_digest.py newsdata_client.py newsdata_test.py tests/test_serialization_contracts.py tests/test_cache_sqlite.py
+          ruff format --check load_experiment.py lens.py serialization_utils.py rss_pipeline run_pre_openai.py run_post_openai.py score_news_item.py rss_openai_digest.py newsdata_client.py newsdata_test.py tests/test_serialization_contracts.py tests/test_cache_sqlite.py
           mypy
 
-      - name: Serialization contract tests
-        run: python3 -m unittest -v tests/test_serialization_contracts.py
-
-      - name: Loader and lens self-tests
-        run: |
-          python3 load_experiment.py --self-test
-          python3 lens.py --self-test
+      - name: Offline validation
+        run: python3 -m rss_pipeline.cli validate all
 
       - name: Pre-OpenAI canary (fixtures + snapshot)
         run: |
-          python3 run_pre_openai.py --experiment tests/fixtures/canonical_digest.json
-          python3 run_pre_openai.py --experiment data/rss_openai_daily.json
+          python3 -m rss_pipeline.cli pre-openai --experiment tests/fixtures/canonical_digest.json
+          python3 -m rss_pipeline.cli pre-openai --experiment data/rss_openai_daily.json
 
       - name: Post-OpenAI canary (fixture scores, no API)
         run: |
-          python3 run_post_openai.py \
+          python3 -m rss_pipeline.cli analysis run \
             --scores tests/fixtures/valid_scores.json \
             --lenses tests/fixtures/valid_lens.json \
             --output-root "$CANARY_OUTPUT" \
