@@ -6,11 +6,18 @@ import html
 import json
 import os
 import sys
+import time
 import urllib.request
 from html.parser import HTMLParser
 
 import feedparser
 from openai import OpenAI
+from scrape_experiment_links import (
+    DEFAULT_SLEEP_SECONDS as DEFAULT_SCRAPE_SLEEP_SECONDS,
+    DEFAULT_USER_AGENT as DEFAULT_SCRAPE_USER_AGENT,
+    REQUEST_TIMEOUT_SECONDS as DEFAULT_SCRAPE_TIMEOUT_SECONDS,
+    scrape_article,
+)
 
 DEFAULT_CATALOG = os.path.join("feed_catalog", "rss_feeds.json")
 DEFAULT_OUTPUT = os.path.join("data", "rss_openai_daily.json")
@@ -52,7 +59,12 @@ def compact_text(value, limit):
 
 
 def utc_now():
-    return datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+    return (
+        datetime.datetime.now(datetime.timezone.utc)
+        .replace(microsecond=0)
+        .isoformat()
+        .replace("+00:00", "Z")
+    )
 
 
 def read_env_file(path, key_name):
@@ -102,13 +114,17 @@ def select_feeds(catalog, max_sources, feeds_per_source, source_ids):
     selected_sources = 0
     sources = catalog.get("sources") or []
     for source in sources:
+        if source.get("enabled") is False:
+            continue
         if source_ids and source.get("id") not in source_ids:
             continue
-        if selected_sources >= max_sources:
-            break
-        selected_sources += 1
         feed_list = source.get("feeds") or []
-        for feed in feed_list[:feeds_per_source]:
+        selected_feed_count = 0
+        for feed in feed_list:
+            if feed.get("enabled") is False:
+                continue
+            if selected_feed_count >= feeds_per_source:
+                break
             feeds.append(
                 {
                     "source_id": source.get("id"),
@@ -118,6 +134,12 @@ def select_feeds(catalog, max_sources, feeds_per_source, source_ids):
                     "topic_tags": feed.get("topic_tags") or [],
                 }
             )
+            selected_feed_count += 1
+        if selected_feed_count == 0:
+            continue
+        selected_sources += 1
+        if selected_sources >= max_sources:
+            break
     return feeds
 
 
@@ -173,14 +195,7 @@ def build_openai_messages(items):
     )
     payload = {
         "items": [
-            {
-                "id": item["id"],
-                "title": item["title"],
-                "source": item["source_name"],
-                "published": item["published"],
-                "summary": item["summary"],
-                "link": item["link"],
-            }
+            openai_item_payload(item)
             for item in items
         ]
     }
@@ -190,6 +205,84 @@ def build_openai_messages(items):
         + json.dumps(payload, ensure_ascii=True)
     )
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]
+
+
+def openai_item_payload(item):
+    payload = {
+        "id": item["id"],
+        "title": item["title"],
+        "source": item["source_name"],
+        "published": item["published"],
+        "summary": item["summary"],
+        "link": item["link"],
+    }
+    scraped = item.get("scraped")
+    if isinstance(scraped, dict):
+        scraped_title = compact_text((scraped.get("title") or "").strip(), 200)
+        scraped_lead = compact_text((scraped.get("lead_paragraph") or "").strip(), 350)
+        if scraped_title:
+            payload["scraped_title"] = scraped_title
+        if scraped_lead:
+            payload["scraped_lead_paragraph"] = scraped_lead
+    return payload
+
+
+def enrich_items_with_scrape(
+    items,
+    limit,
+    timeout_seconds,
+    sleep_seconds,
+    user_agent,
+):
+    attempts = 0
+    success = 0
+    failed = 0
+    skipped = 0
+
+    for item in items:
+        item["scraped"] = None
+        item["scrape_error"] = None
+
+    for item in items:
+        if limit is not None and attempts >= limit:
+            skipped += 1
+            continue
+
+        link = (item.get("link") or "").strip()
+        if not link:
+            item["scrape_error"] = "missing link"
+            failed += 1
+            attempts += 1
+            continue
+
+        try:
+            scraped = scrape_article(
+                link,
+                timeout_seconds=timeout_seconds,
+                user_agent=user_agent,
+            )
+            item["scraped"] = scraped.to_dict()
+            item["scrape_error"] = None
+            success += 1
+        except Exception as exc:
+            item["scraped"] = None
+            item["scrape_error"] = str(exc)
+            failed += 1
+
+        attempts += 1
+        if sleep_seconds > 0:
+            time.sleep(sleep_seconds)
+
+    return {
+        "enabled": True,
+        "attempts": attempts,
+        "success": success,
+        "failed": failed,
+        "skipped": skipped,
+        "limit": limit,
+        "timeout_seconds": timeout_seconds,
+        "sleep_seconds": sleep_seconds,
+    }
 
 
 def extract_json(text):
@@ -256,6 +349,34 @@ def parse_args():
     parser.add_argument("--timeout", type=int, default=30, help="HTTP timeout seconds")
     parser.add_argument("--source-ids", help="Comma-separated source IDs to include")
     parser.add_argument("--openai-model", help="OpenAI model override")
+    parser.add_argument(
+        "--skip-scrape",
+        action="store_true",
+        help="Skip article-page scraping before OpenAI summarization.",
+    )
+    parser.add_argument(
+        "--scrape-limit",
+        type=int,
+        default=None,
+        help="Optional max number of items to scrape.",
+    )
+    parser.add_argument(
+        "--scrape-timeout-seconds",
+        type=float,
+        default=DEFAULT_SCRAPE_TIMEOUT_SECONDS,
+        help="HTTP timeout per scraped article request.",
+    )
+    parser.add_argument(
+        "--scrape-sleep-seconds",
+        type=float,
+        default=DEFAULT_SCRAPE_SLEEP_SECONDS,
+        help="Delay between scrape requests.",
+    )
+    parser.add_argument(
+        "--scrape-user-agent",
+        default=DEFAULT_SCRAPE_USER_AGENT,
+        help="User-Agent for article scraping requests.",
+    )
     parser.add_argument("--skip-openai", action="store_true", help="Skip OpenAI call")
     return parser.parse_args()
 
@@ -310,10 +431,36 @@ def main():
             "max_items_per_feed": args.max_items_per_feed,
             "source_ids": source_ids,
         },
+        "scrape": None,
         "openai": None,
         "items": items,
         "errors": errors,
     }
+
+    if items and not args.skip_scrape:
+        scrape_stats = enrich_items_with_scrape(
+            items=items,
+            limit=args.scrape_limit,
+            timeout_seconds=args.scrape_timeout_seconds,
+            sleep_seconds=args.scrape_sleep_seconds,
+            user_agent=args.scrape_user_agent,
+        )
+    else:
+        for item in items:
+            item["scraped"] = None
+            item["scrape_error"] = None
+        scrape_stats = {
+            "enabled": False,
+            "attempts": 0,
+            "success": 0,
+            "failed": 0,
+            "skipped": len(items),
+            "limit": args.scrape_limit,
+            "timeout_seconds": args.scrape_timeout_seconds,
+            "sleep_seconds": args.scrape_sleep_seconds,
+        }
+
+    output["scrape"] = scrape_stats
 
     if items and not args.skip_openai:
         api_key = load_env_value(ENV_OPENAI_KEY)
@@ -357,6 +504,14 @@ def main():
             handle.write("\n")
 
     print(f"Wrote {len(items)} items to {args.output}")
+    print(
+        "Scrape stats: "
+        f"enabled={scrape_stats['enabled']} "
+        f"attempts={scrape_stats['attempts']} "
+        f"success={scrape_stats['success']} "
+        f"failed={scrape_stats['failed']} "
+        f"skipped={scrape_stats['skipped']}"
+    )
     if errors:
         print(f"Encountered {len(errors)} feed errors.", file=sys.stderr)
 

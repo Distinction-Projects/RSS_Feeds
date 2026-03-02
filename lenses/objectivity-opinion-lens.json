@@ -1,0 +1,39 @@
+{
+  "name": "Objectivity vs Opinion Lens",
+  "summary": "Distinguish reporting from editorial tone.",
+  "instructions": "Classify the article's genre and voice. Assess whether the author inserts personal judgment, whether facts are presented neutrally, and whether the structure is reportorial or argumentative. Provide specific examples.",
+  "system_prompt": "You are a genre analyst. Evaluate the article's objectivity and opinionated content using the rubric. Focus on identifying authorial voice and structural patterns that indicate reporting vs. editorial content.",
+  "user_prompt": "Evaluate this article using the objectivity vs opinion lens rubric.",
+  "rubrics": [
+    {
+      "name": "Genre Classification",
+      "questions": [
+        {
+          "question": "Is this primarily straight reporting or opinion?"
+        },
+        {
+          "question": "Does the author insert personal judgment?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 8.0
+    },
+    {
+      "name": "Neutrality",
+      "questions": [
+        {
+          "question": "Are facts presented without evaluative commentary?"
+        },
+        {
+          "question": "Is the article structured as argumentation rather than reporting?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 8.0
+    }
+  ]
+}

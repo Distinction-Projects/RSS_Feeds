@@ -1,0 +1,39 @@
+{
+  "name": "Sentiment Clarity Lens",
+  "summary": "Evaluate whether the article expresses clear, interpretable sentiment toward topics or actors.",
+  "instructions": "Read the article and answer each rubric question using specific evidence from the text. Be concise and cite direct passages when possible.",
+  "system_prompt": "You are an editorial evaluator. Score content using the rubric with neutral, evidence-based judgments.",
+  "user_prompt": "Evaluate this article using the sentiment clarity lens rubric.",
+  "rubrics": [
+    {
+      "name": "Tone Consistency",
+      "questions": [
+        {
+          "question": "Is the overall tone consistent throughout the article?"
+        },
+        {
+          "question": "Does the article avoid abrupt emotional shifts unrelated to topic transitions?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 6.0
+    },
+    {
+      "name": "Targeted Sentiment",
+      "questions": [
+        {
+          "question": "Is sentiment directed toward identifiable entities (people, policies, institutions)?"
+        },
+        {
+          "question": "Is it clear what or who the emotional tone applies to?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 6.0
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-03-01T13:10:02+00:00",
+  "summary": {
+    "generated_at": "2026-03-01T13:10:02+00:00",
+    "total_items": 1,
+    "total_sources": 1,
+    "total_errors": 0
+  },
+  "items": [
+    {
+      "id": "fixture-1",
+      "title": "Fixture Headline",
+      "link": "https://example.com/fixture-1",
+      "summary": "Fixture summary body.",
+      "published": "2026-03-01T12:00:00Z",
+      "source_id": "fixture-source",
+      "source_name": "Fixture Source",
+      "feed_name": "Fixture Feed",
+      "feed_url": "https://example.com/feed.xml",
+      "topic_tags": [
+        "policy",
+        "technology"
+      ],
+      "fetched_at": "2026-03-01T12:05:00+00:00",
+      "ai_summary": "Fixture AI summary.",
+      "ai_tags": [
+        "policy"
+      ],
+      "scraped": {
+        "fetched_at": "2026-03-01T12:06:00+00:00",
+        "final_url": "https://example.com/fixture-1",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Fixture Scraped Title",
+        "description": "Fixture scraped description.",
+        "author": "Fixture Reporter",
+        "published_at": "2026-03-01T12:00:00+00:00",
+        "canonical_url": "https://example.com/fixture-1",
+        "language": "en",
+        "h1": "Fixture H1",
+        "lead_paragraph": "Fixture lead paragraph.",
+        "paragraph_count": 3,
+        "word_count": 90,
+        "top_keywords": [
+          "fixture",
+          "policy"
+        ]
+      },
+      "scrape_error": null
+    }
+  ],
+  "errors": 0
+}

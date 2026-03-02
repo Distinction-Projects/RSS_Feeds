@@ -1,0 +1,39 @@
+{
+  "name": "Credibility Lens",
+  "summary": "Evaluate whether an article is factual, transparent, and evidence-backed.",
+  "instructions": "Read the article and answer each rubric question using specific evidence from the text. Be concise and cite direct passages when possible.",
+  "system_prompt": "You are an editorial evaluator. Score content using the rubric with neutral, evidence-based judgments.",
+  "user_prompt": "Evaluate this article using the credibility lens rubric.",
+  "rubrics": [
+    {
+      "name": "Evidence Quality",
+      "questions": [
+        {
+          "question": "Does the article cite named sources?"
+        },
+        {
+          "question": "Are key claims supported by verifiable evidence?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 8.0
+    },
+    {
+      "name": "Bias and Framing",
+      "questions": [
+        {
+          "question": "If the article expresses a specific viewpoint, does it address any counterpoints?"
+        },
+        {
+          "question": "Is emotionally loaded language used to sway interpretation?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 7.0
+    }
+  ]
+}

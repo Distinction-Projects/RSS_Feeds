@@ -1,0 +1,39 @@
+{
+  "name": "Emotional Intensity Lens",
+  "summary": "Capture sentiment strength for gradient modeling.",
+  "instructions": "Read the article and evaluate the intensity and explicitness of emotional language. Rate each question based on specific examples from the text.",
+  "system_prompt": "You are a sentiment analyst. Evaluate the emotional intensity and explicitness of language in the article using the rubric. Provide evidence-based scores focused on linguistic features, not your interpretation.",
+  "user_prompt": "Evaluate this article using the emotional intensity lens rubric.",
+  "rubrics": [
+    {
+      "name": "Explicitness",
+      "questions": [
+        {
+          "question": "Are evaluative adjectives or emotionally charged phrases used?"
+        },
+        {
+          "question": "Is sentiment expressed explicitly rather than implied?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 9.0
+    },
+    {
+      "name": "Intensity Level",
+      "questions": [
+        {
+          "question": "Is the emotional tone mild, moderate, or highly charged?"
+        },
+        {
+          "question": "Does the article escalate language to provoke outrage or fear?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 8.0
+    }
+  ]
+}

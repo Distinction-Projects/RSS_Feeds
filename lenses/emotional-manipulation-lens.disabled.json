@@ -1,0 +1,39 @@
+{
+  "name": "Emotional Manipulation Lens",
+  "summary": "Identify rhetorical techniques that distort sentiment signals.",
+  "instructions": "Examine the article for sensationalism and persuasion tactics. Evaluate headlines, fear-inducing language, rhetorical questions, and repetitive techniques. Identify specific instances of each technique.",
+  "system_prompt": "You are a rhetoric analyst. Evaluate the article's use of emotional manipulation techniques using the rubric. Score based on the presence and intensity of identified rhetorical strategies.",
+  "user_prompt": "Evaluate this article using the emotional manipulation lens rubric.",
+  "rubrics": [
+    {
+      "name": "Sensationalism",
+      "questions": [
+        {
+          "question": "Does the headline exaggerate or dramatize events?"
+        },
+        {
+          "question": "Are fear-inducing or alarmist phrases used?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 8.5
+    },
+    {
+      "name": "Persuasion Tactics",
+      "questions": [
+        {
+          "question": "Are rhetorical questions used to guide interpretation?"
+        },
+        {
+          "question": "Is repetition used to reinforce emotional reactions?"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0,
+      "anticipated_total_score": 8.0
+    }
+  ]
+}
