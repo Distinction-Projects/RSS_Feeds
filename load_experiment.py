@@ -106,6 +106,11 @@ SELF_TEST_CASES: tuple[dict[str, Any], ...] = (
                         "canonical_url": "https://example.com/a1",
                         "language": "en",
                         "h1": "Alpha H1",
+                        "body_text": (
+                            "Alpha lead paragraph text.\n\n"
+                            "Alpha supporting paragraph one.\n\n"
+                            "Alpha supporting paragraph two."
+                        ),
                         "lead_paragraph": "Alpha lead paragraph text.",
                         "paragraph_count": 4,
                         "word_count": 120,
@@ -305,6 +310,7 @@ class ScrapedArticleJSON(TypedDict):
     canonical_url: str | None
     language: str | None
     h1: str | None
+    body_text: str | None
     lead_paragraph: str | None
     paragraph_count: int
     word_count: int
@@ -356,6 +362,7 @@ class ScrapedArticle:
     canonical_url: str | None
     language: str | None
     h1: str | None
+    body_text: str | None
     lead_paragraph: str | None
     paragraph_count: int
     word_count: int
@@ -379,6 +386,7 @@ class ScrapedArticle:
             canonical_url=_optional_text(_first_value(obj, ("canonical_url",))),
             language=_optional_text(_first_value(obj, ("language",))),
             h1=_optional_text(_first_value(obj, ("h1",))),
+            body_text=_optional_text(_first_value(obj, ("body_text", "article_body", "full_text"))),
             lead_paragraph=_optional_text(_first_value(obj, ("lead_paragraph",))),
             paragraph_count=int(_first_value(obj, ("paragraph_count",), 0)),
             word_count=int(_first_value(obj, ("word_count",), 0)),
@@ -405,6 +413,7 @@ class ScrapedArticle:
             "canonical_url": self.canonical_url,
             "language": self.language,
             "h1": self.h1,
+            "body_text": self.body_text,
             "lead_paragraph": self.lead_paragraph,
             "paragraph_count": self.paragraph_count,
             "word_count": self.word_count,

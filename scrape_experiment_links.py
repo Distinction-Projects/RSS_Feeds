@@ -201,6 +201,12 @@ def _extract_paragraphs(soup: BeautifulSoup) -> list[str]:
     return paragraphs
 
 
+def _compose_body_text(paragraphs: list[str]) -> str | None:
+    if not paragraphs:
+        return None
+    return "\n\n".join(paragraphs)
+
+
 def _extract_keywords(title: str | None, paragraphs: list[str]) -> list[str]:
     text_parts: list[str] = []
     if title:
@@ -277,6 +283,7 @@ def scrape_article(url: str, timeout_seconds: float, user_agent: str) -> Scraped
     language = _extract_language(soup, meta)
 
     paragraphs = _extract_paragraphs(soup)
+    body_text = _compose_body_text(paragraphs)
     lead_paragraph = _extract_lead_paragraph(paragraphs)
     word_count = len(re.findall(r"\b\w+\b", " ".join(paragraphs)))
     top_keywords = _extract_keywords(title, paragraphs)
@@ -293,6 +300,7 @@ def scrape_article(url: str, timeout_seconds: float, user_agent: str) -> Scraped
         canonical_url=canonical_url,
         language=language,
         h1=_extract_h1(soup),
+        body_text=body_text,
         lead_paragraph=lead_paragraph,
         paragraph_count=len(paragraphs),
         word_count=word_count,

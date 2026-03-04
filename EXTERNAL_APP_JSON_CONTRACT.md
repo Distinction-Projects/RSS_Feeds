@@ -66,7 +66,10 @@ These are precomputed analysis outputs intended for direct rendering by another 
 - `topic_tags` (`array<string>`)
 - `source` (`object`): `{ "id": string, "name": string }`
 - `feed` (`object`): `{ "name": string, "url": string }`
-- `scraped` (`object|null`): normalized scrape result when available
+- `scraped` (`object|null`): normalized scrape result when available, including:
+  - `title`, `description`, `author`
+  - `lead_paragraph`, `paragraph_count`, `word_count`, `top_keywords`
+  - `body_text` (full extracted paragraph text joined into one string)
 - `scrape_error` (`string|null`)
 - `score` (`object`):
   - `value` (`number`)

@@ -35,6 +35,9 @@ class SerializationContractTests(unittest.TestCase):
         original_lead = item.scraped.lead_paragraph if item.scraped else None
         reparsed_lead = reparsed.scraped.lead_paragraph if reparsed.scraped else None
         self.assertEqual(original_lead, reparsed_lead)
+        original_body = item.scraped.body_text if item.scraped else None
+        reparsed_body = reparsed.scraped.body_text if reparsed.scraped else None
+        self.assertEqual(original_body, reparsed_body)
         self.assertEqual(item.scrape_error, reparsed.scrape_error)
 
     def test_newsitem_json_roundtrip_compat(self) -> None:
