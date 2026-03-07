@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-03-02T20:54:00Z",
+  "generated_at": "2026-03-07T13:53:33Z",
   "contract": "rss_pipeline_precomputed",
   "digest": {
     "path": "data/rss_openai_daily.json",
     "schema_version": "2.0",
-    "generated_at": "2026-03-02T20:51:24Z",
-    "run_id": "digest-20260302T205124-9267ba1da4",
-    "items_count": 9
+    "generated_at": "2026-03-07T13:45:52Z",
+    "run_id": "digest-20260307T134552-f31fc5aff7",
+    "items_count": 24
   },
   "artifacts": {
     "scores_path": "data/scores.json",
@@ -15,187 +15,188 @@
     "analysis_root": "data/analysis"
   },
   "summary": {
-    "articles": 9,
-    "scored_articles": 9,
-    "high_scoring_articles": 4
+    "articles": 24,
+    "scored_articles": 24,
+    "high_scoring_articles": 17
   },
   "analysis": {
     "lens_summary": {
-      "items_total": 9,
+      "items_total": 24,
       "aggregation": "latest",
       "lenses": [
         {
           "name": "Credibility Lens",
           "rubric_count": 2,
           "max_total": 20.0,
-          "items_with_scores": 9
+          "items_with_scores": 24
         },
         {
           "name": "Emotional Intensity Lens",
           "rubric_count": 2,
           "max_total": 20.0,
-          "items_with_scores": 9
+          "items_with_scores": 24
         },
         {
           "name": "Entity-Level Sentiment Lens",
           "rubric_count": 2,
           "max_total": 20.0,
-          "items_with_scores": 9
+          "items_with_scores": 24
         },
         {
           "name": "Linguistic Quality Lens",
           "rubric_count": 1,
           "max_total": 10.0,
-          "items_with_scores": 9
+          "items_with_scores": 24
         },
         {
           "name": "Objectivity vs Opinion Lens",
           "rubric_count": 2,
           "max_total": 20.0,
-          "items_with_scores": 9
+          "items_with_scores": 24
         },
         {
           "name": "Sentiment Clarity Lens",
           "rubric_count": 2,
           "max_total": 20.0,
-          "items_with_scores": 9
+          "items_with_scores": 24
         }
       ]
     },
     "source_differentiation": {
       "status": "ok",
       "reason": "",
-      "n_articles": 9,
+      "n_articles": 24,
       "n_lenses": 6,
-      "n_sources": 5,
+      "n_sources": 8,
       "source_counts": {
+        "The New York Times": 3,
+        "The Guardian": 3,
         "PBS NewsHour": 3,
+        "The Washington Post": 3,
+        "BBC News": 3,
+        "Financial Times": 3,
         "Fox News": 3,
-        "The New York Times": 1,
-        "NPR": 1,
-        "BBC News": 1
+        "NPR": 3
       },
       "permutations": 1000,
       "multivariate": {
-        "f_stat": 2.1768576472476338,
-        "r_squared": 0.6852235412983078,
-        "df_between": 4,
-        "df_within": 4,
-        "ss_between": 1.8838888888888894,
-        "ss_within": 0.8654166666666665,
-        "p_perm": 0.0979020979020979
+        "f_stat": 12.328609581948,
+        "r_squared": 0.8435976712701722,
+        "df_between": 7,
+        "df_within": 16,
+        "ss_between": 5.890442708333332,
+        "ss_within": 1.0920833333333333,
+        "p_perm": 0.000999000999000999
       },
       "classification": {
-        "accuracy": 0.5,
-        "baseline_accuracy": 0.3333333333333333,
-        "evaluated": 6,
-        "total": 9,
-        "p_perm": 0.16083916083916083
+        "accuracy": 0.3333333333333333,
+        "baseline_accuracy": 0.125,
+        "evaluated": 24,
+        "total": 24,
+        "p_perm": 0.02197802197802198
       }
     }
   },
   "articles": [
     {
-      "id": "0894507f06b0",
-      "title": "Some celebrate in Iran after supreme leader's death, but deep fear and uncertainty remain",
-      "link": "https://www.pbs.org/newshour/world/some-celebrate-in-iran-after-supreme-leaders-death-but-deep-fear-and-uncertainty-remain",
-      "published": "Mon, 02 Mar 2026 15:25:29 -0500",
-      "summary": "The death of Ayatollah Ali Khamenei stunned Iranians and stirred a mix of complex emotions in a divided nation.",
-      "ai_summary": "The death of Iran's supreme leader has elicited mixed reactions among the populace, highlighting national divisions.",
+      "id": "ecac86301033",
+      "title": "South Africa’s president calls Trump’s policy to offer refuge to white Afrikaners ‘racist’",
+      "link": "https://www.theguardian.com/world/2026/mar/05/south-africa-president-cyril-ramaphosa-calls-donald-trump-policy-white-afrikaners-racist",
+      "published": "Thu, 05 Mar 2026 16:23:57 GMT",
+      "summary": "US president is ‘truly uninformed’ for spreading claims of ‘white genocide’ in South Africa, Cyril Ramaphosa tells New York TimesSouth Africa’s president, Cyril Ramaphosa, has called Donald Trump’s policy of allowing white Afrikaners to apply for refugee status in the US “racist”, saying the US president was “truly uninformed” in a rare instance of direct criticism.Ramaphosa told the New York Times that last year’s Oval Office meeting with the US leader, when Trump turned down the lights and ...",
+      "ai_summary": "South Africa's president criticized Donald Trump's refugee policy for white Afrikaners, labeling it as racist.",
       "ai_tags": [
-        "Iran",
-        "Leadership",
-        "Death",
-        "Public Reaction"
+        "politics",
+        "racism",
+        "South Africa"
       ],
       "topic_tags": [
-        "general"
+        "world"
       ],
       "source": {
-        "id": "pbs-newshour",
-        "name": "PBS NewsHour"
+        "id": "the-guardian",
+        "name": "The Guardian"
       },
       "feed": {
-        "name": "Headlines",
-        "url": "https://www.pbs.org/newshour/feeds/rss/headlines"
+        "name": "World",
+        "url": "https://www.theguardian.com/world/rss"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T20:51:37.771475+00:00",
-        "final_url": "https://www.pbs.org/newshour/world/some-celebrate-in-iran-after-supreme-leaders-death-but-deep-fear-and-uncertainty-remain",
+        "fetched_at": "2026-03-07T13:46:06.835955+00:00",
+        "final_url": "https://www.theguardian.com/world/2026/mar/05/south-africa-president-cyril-ramaphosa-calls-donald-trump-policy-white-afrikaners-racist",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "Some celebrate in Iran after supreme leader's death, but deep fear and uncertainty remain",
-        "description": "The death of Ayatollah Ali Khamenei stunned Iranians and stirred a mix of complex emotions in a divided nation.",
-        "author": null,
-        "published_at": "2026-03-02T15:25:29-05:00",
-        "canonical_url": "https://www.pbs.org/newshour/world/some-celebrate-in-iran-after-supreme-leaders-death-but-deep-fear-and-uncertainty-remain",
-        "language": "en-us",
-        "h1": "Some celebrate in Iran after supreme leader's death, but deep fear and uncertainty remain",
-        "lead_paragraph": "Stand up for truly independent, trusted news.",
-        "paragraph_count": 70,
-        "word_count": 1733,
+        "title": "South Africa’s president calls Trump’s policy to offer refuge to white Afrikaners ‘racist’",
+        "description": "US president is ‘truly uninformed’ for spreading claims of ‘white genocide’ in South Africa, Cyril Ramaphosa tells New York Times",
+        "author": "https://www.theguardian.com/profile/rachel-savage",
+        "published_at": "2026-03-05T16:23:57+00:00",
+        "canonical_url": "https://www.theguardian.com/world/2026/mar/05/south-africa-president-cyril-ramaphosa-calls-donald-trump-policy-white-afrikaners-racist",
+        "language": "en",
+        "h1": "South Africa’s president calls Trump’s policy to offer refuge to white Afrikaners ‘racist’",
+        "body_text": "US president is ‘truly uninformed’ for spreading claims of ‘white genocide’ in South Africa, Cyril Ramaphosa tells New York Times\n\nSouth Africa’s president, Cyril Ramaphosa, has called Donald Trump’s policy of allowing white Afrikaners to apply for refugee status in the US “racist”, saying the US president was “truly uninformed” in a rare instance of direct criticism.\n\nRamaphosa told the New York Times that last year’s Oval Office meeting with the US leader, when Trump turned down the lights and played a video that he falsely claimed showed there was a “white genocide” in South Africa, was a “spectacle” and an “ambush”.\n\n“I just thought that he is so uninformed, truly uninformed,” Ramaphosa said. “I realised that he is looking at South Africa through a completely, sort of, foggy lens, without realising the real, real harm that apartheid did. In my view, he was just dismissive.”\n\nTrump has targeted South Africa since starting his second term in office in January 2025. He has spread false allegations that the country’s white minority are undergoing a “genocide” and that their land is being seized by the government.\n\nIn May, the US extended refugee status to Afrikaners – who once led the repressive minority apartheid government and who remain on average many times wealthier than Black South Africans – while slashing its refugee programme for people fleeing war and persecution.\n\nTrump refused to attend the G20 leaders meetings in Johannesburg in November and has banned South Africa from attending the US-hosted gathering in Miami later this year.\n\n“I do think the Afrikaner policy is racist,” Ramaphosa said. “It is that racist sort of demeanour that we want to be able to whittle down so that he can see the truth of the situation.”\n\nIn a statement to the New York Times, the White House said that Trump was calling attention to “the harrowing stories of Afrikaners”.\n\nIt said: “The South African government, at minimum, does not respond, but President Trump has a humanitarian heart. He will continue to speak the truth about these injustices.”\n\nRamaphosa said: “There’s no white genocide and there is no grabbing of land, of white people’s land. And white farmers are not being driven out of the country and badly treated.”\n\nSouth Africa’s president, who is due to step down as head of the African National Congress party next year and as the country’s leader in 2029, was unusually forthright about Trump.\n\nHe said: “We are rather amazed at the attention he gives to us. We are a small country, and we are no threat to the United States.”",
+        "lead_paragraph": "US president is ‘truly uninformed’ for spreading claims of ‘white genocide’ in South Africa, Cyril Ramaphosa tells New York Times",
+        "paragraph_count": 13,
+        "word_count": 437,
         "top_keywords": [
-          "associated",
-          "press",
-          "iran",
-          "death",
-          "iranians",
-          "supreme",
-          "fear",
-          "uncertainty",
-          "amir-hussein",
-          "radjy",
-          "sarah",
-          "deeb"
+          "south",
+          "white",
+          "africa",
+          "trump",
+          "president",
+          "ramaphosa",
+          "afrikaners",
+          "racist",
+          "uninformed",
+          "genocide",
+          "times",
+          "policy"
         ]
       },
       "scrape_error": null,
       "score": {
-        "value": 74.5,
+        "value": 85.0,
         "max_value": 110.0,
-        "percent": 67.7273,
+        "percent": 77.2727,
         "rubric_count": 11
       },
       "high_score": {
-        "overall_score": 74.5,
-        "overall_percent": 67.72727272727272,
+        "overall_score": 85.0,
+        "overall_percent": 77.27272727272727,
         "lens_scores": {
           "Credibility Lens": 16.0,
-          "Emotional Intensity Lens": 11.0,
-          "Entity-Level Sentiment Lens": 15.0,
-          "Linguistic Quality Lens": 3.5,
-          "Objectivity vs Opinion Lens": 12.0,
-          "Sentiment Clarity Lens": 17.0
+          "Emotional Intensity Lens": 14.0,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 11.0,
+          "Sentiment Clarity Lens": 18.5
         }
       },
       "audit": {
         "provenance": {
-          "source_id": "pbs-newshour",
-          "source_name": "PBS NewsHour",
-          "feed_name": "Headlines",
-          "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
+          "source_id": "the-guardian",
+          "source_name": "The Guardian",
+          "feed_name": "World",
+          "feed_url": "https://www.theguardian.com/world/rss"
         },
         "openai": {
-          "cache_key": "22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "prompt_hash": "8c95f051c0ccbd57e2462d2853ea87bd210575a1b4ef01999b13e664a52ba900",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T205124-9267ba1da4/22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "response_hash": "5e3399cf968bf5ad11f7e4afecf8c2ee936dfd6ca6e5709ead6fe6dbec9b1971"
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
         }
       }
     },
     {
-      "id": "da8550cbf5de",
-      "title": "What is behind the strategy to take out Iran's leadership?",
-      "link": "https://www.bbc.com/news/articles/cly8gqj9r6go?at_medium=RSS&at_campaign=rss",
-      "published": "Mon, 02 Mar 2026 19:52:20 GMT",
-      "summary": "Security correspondent Gordon Corera looks at what is likely to happen now that joint US and Israeli attacks have taken out some of the Iran's most senior leadership.",
-      "ai_summary": "Joint US and Israeli attacks have targeted Iran's senior leadership, raising questions about the future of the country's governance.",
+      "id": "5c847d18f342",
+      "title": "The legacy of Holly and Jessica's murders: Soham 'won't waste its breath' on Huntley",
+      "link": "https://www.bbc.com/news/articles/c9wnn8nn5p8o?at_medium=RSS&at_campaign=rss",
+      "published": "Sat, 07 Mar 2026 11:56:34 GMT",
+      "summary": "The trauma and aftermath of events in 2002 are still having an impact on the Cambridgeshire village.",
+      "ai_summary": "The community of Soham continues to feel the impact of the murders of Holly and Jessica, with residents expressing that Huntley is not worth their attention.",
       "ai_tags": [
-        "Iran",
-        "US",
-        "Israel",
-        "Leadership",
-        "Military"
+        "community",
+        "crime",
+        "Soham"
       ],
       "topic_tags": [
         "general"
@@ -209,52 +210,53 @@
         "url": "http://feeds.bbci.co.uk/news/rss.xml"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T20:51:36.280421+00:00",
-        "final_url": "https://www.bbc.com/news/articles/cly8gqj9r6go?at_medium=RSS&at_campaign=rss",
+        "fetched_at": "2026-03-07T13:46:04.879103+00:00",
+        "final_url": "https://www.bbc.com/news/articles/c9wnn8nn5p8o?at_medium=RSS&at_campaign=rss",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "What is behind the strategy to take out Iran's leadership?",
-        "description": "Security correspondent Gordon Corera looks at what is likely to happen now that joint US and Israeli attacks have taken out some of the Iran's most senior leadership.",
+        "title": "Ian Huntley 'not worth the breath' of the people of Soham",
+        "description": "The trauma and aftermath of events in 2002 are still having an impact on the Cambridgeshire village.",
         "author": null,
         "published_at": null,
-        "canonical_url": "https://www.bbc.com/news/articles/cly8gqj9r6go",
+        "canonical_url": "https://www.bbc.com/news/articles/c9wnn8nn5p8o",
         "language": "en-GB",
-        "h1": "What is behind the strategy to take out Iran's leadership?",
-        "lead_paragraph": "The US and Israel have said they have air superiority over parts of Iran, allowing their jets to strike targets at will.",
-        "paragraph_count": 34,
-        "word_count": 856,
+        "h1": "The legacy of Holly and Jessica's murders: Soham 'won't waste its breath' on Huntley",
+        "body_text": "The murders of Holly Wells and Jessica Chapman in 2002 put the Cambridgeshire town of Soham on the map, but for all the wrong reasons.\n\nIt joined Dunblane, Aberfan and Lockerbie, and later Southport, as towns forever associated with tragedy.\n\nFor many years, people living in Soham have not wanted to speak about the murders of the 10-year-old girls - or the man responsible, Ian Huntley.\n\nThe secrets of what happened to Holly and Jessica during their final moments inside 5 College Close have now been taken to the grave by Huntley, who has died aged 52 .\n\nWhy are people in Soham so reluctant to talk about him - and why will they not be marking his death?\n\nThe case of best friends Holly and Jessica vanishing after leaving a family barbecue in August 2002 gripped not just the tight-knit community in Soham, but the world.\n\nIt led to tireless searches of Soham and the flat countryside of The Fens, while a picture of them in matching red Manchester United shirts became ingrained on the nation's consciousness.\n\nThe searches ended in tragedy when, a fortnight after the girls disappeared, their bodies were found in a ditch about 10 miles (16km) away, near RAF Lakenheath in Suffolk.\n\nHuntley, a former school caretaker who had been feigning concern for the girls during TV interviews, was later identified as their killer and convicted .\n\nDebbie Tubby, a TV reporter for BBC Look East, spoke to Huntley before he was arrested and later gave evidence during his trial .\n\nShe revisited Soham to gauge how residents felt after Huntley was attacked in prison, but found many people simply wanted to move on and not talk about him.\n\n\"The town of Soham doesn't like media attention. It was inundated by press at the time,\" Tubby explains.\n\n\"I have spoken to a number of key people who were here 24 years ago.\n\n\"They remember us being in the town and they recognise the pressure the media put on Ian Huntley – but they don't want to be on camera.\n\n\"They say he's not worth their breath or time.\"\n\nThe father of Holly, Kevin Wells, told the BBC his family was told the news of Huntley's death earlier, but he did not want to comment on it.\n\nTrusted contacts, as well as the entire town council and a vicar, have all also declined to talk about him.\n\nAmong those who have spoken anonymously, some see Huntley's death as poetic justice, a blessing in disguise.\n\nFor others, it is a catastrophic failure by the Prison Service as he should be spending the full sentence - life with a minimum term of 40 years - behind bars.\n\nCharlotte Cane, the Liberal Democrat MP for Ely and East Cambridgeshire, said of Huntley: \"He clearly didn't want to serve his full life sentence; he clearly found it difficult.\n\n\"But, in many ways, I don't really care about him anymore.\n\n\"It's the people who suffered because of him, they're the people who matter.\"\n\nHuntley was convicted of the murders in 2003 and sentenced in 2005 .\n\nHe was taken to hospital in a critical condition after being attacked with a makeshift weapon on 26 February at a workshop inside HMP Frankland.\n\nThe BBC understands triple killer Anthony Russell, 43, is suspected of being his attacker.\n\nDr Anne Eyre, director of the Centre for Collective Trauma, believes that for some living in Soham, having Huntley back in the headlines will be deeply upsetting.\n\n\"It's like going back to day one,\" she says of their trauma.\n\n\"These are wide, long and deeply impacting events. That's why sometimes people prefer not to talk to others who aren't within the community itself.\"\n\nEyre says trauma can be passed on through generations, which may help to explain why people in Soham still do not speak to the media 24 years on.\n\nShe adds: \"Time doesn't necessarily make it a healer.\n\n\"If dealing with a traumatic experience is part of us making sense of who we are, it helps explain why this can have a lifelong impact.\n\n\"It becomes part of your narrative, story or identity.\"\n\nFollow Cambridgeshire news on BBC Sounds , Facebook , Instagram and X .\n\nHuntley, who killed two 10-year-old girls in Soham in 2002, has died in hospital after an attack in prison.\n\nThe convicted murderer has been in hospital since late February after being hit on the head in prison.\n\nBrian Farmer was the first reporter to interview the double murderer, before his subsequent arrest.\n\nJournalist Brian Farmer recalls the day an interview with murderer Ian Huntley raised deep suspicion.\n\nThe 52-year-old is serving a life sentence after being convicted of murdering schoolgirls Holly Wells and Jessica Chapman.\n\nCopyright 2026 BBC. All rights reserved. The BBC is not responsible for the content of external sites. Read about our approach to external linking.",
+        "lead_paragraph": "The murders of Holly Wells and Jessica Chapman in 2002 put the Cambridgeshire town of Soham on the map, but for all the wrong reasons.",
+        "paragraph_count": 39,
+        "word_count": 820,
         "top_keywords": [
-          "iran's",
-          "behind",
-          "strategy",
-          "israel",
-          "superiority",
-          "iran",
-          "strike",
-          "intelligence",
-          "multiple",
-          "iranian",
-          "leaders",
-          "struck"
+          "soham",
+          "huntley",
+          "people",
+          "holly",
+          "jessica",
+          "later",
+          "girls",
+          "during",
+          "murders",
+          "town",
+          "tragedy",
+          "many"
         ]
       },
       "scrape_error": null,
       "score": {
-        "value": 73.5,
+        "value": 80.0,
         "max_value": 110.0,
-        "percent": 66.8182,
+        "percent": 72.7273,
         "rubric_count": 11
       },
       "high_score": {
-        "overall_score": 73.5,
-        "overall_percent": 66.81818181818183,
+        "overall_score": 80.0,
+        "overall_percent": 72.72727272727273,
         "lens_scores": {
-          "Credibility Lens": 15.5,
-          "Emotional Intensity Lens": 5.5,
-          "Entity-Level Sentiment Lens": 16.0,
+          "Credibility Lens": 16.0,
+          "Emotional Intensity Lens": 11.0,
+          "Entity-Level Sentiment Lens": 17.0,
           "Linguistic Quality Lens": 8.5,
-          "Objectivity vs Opinion Lens": 12.0,
-          "Sentiment Clarity Lens": 16.0
+          "Objectivity vs Opinion Lens": 10.5,
+          "Sentiment Clarity Lens": 17.0
         }
       },
       "audit": {
@@ -265,26 +267,24 @@
           "feed_url": "http://feeds.bbci.co.uk/news/rss.xml"
         },
         "openai": {
-          "cache_key": "22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "prompt_hash": "8c95f051c0ccbd57e2462d2853ea87bd210575a1b4ef01999b13e664a52ba900",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T205124-9267ba1da4/22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "response_hash": "5e3399cf968bf5ad11f7e4afecf8c2ee936dfd6ca6e5709ead6fe6dbec9b1971"
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
         }
       }
     },
     {
-      "id": "1b43e9a41b94",
-      "title": "Maps: Where the U.S.-Led Strikes Hit Iran and Tehran’s Retaliation",
-      "link": "https://www.nytimes.com/2026/02/28/world/middleeast/us-israel-iran-attack-maps.html",
-      "published": "Mon, 02 Mar 2026 19:20:57 +0000",
-      "summary": "Maps show where U.S. and Israel have struck Iran, and where Iran has retaliated.",
-      "ai_summary": "Maps detail the locations of US and Israeli strikes in Iran and the subsequent Iranian retaliations.",
+      "id": "ab213dedf0c9",
+      "title": "Europe Didn’t Want War With Iran. But So Far, It Can’t Stay Out of It.",
+      "link": "https://www.nytimes.com/2026/03/07/world/europe/europe-iran-trump-war-dilemma.html",
+      "published": "Sat, 07 Mar 2026 10:02:02 +0000",
+      "summary": "From London to Rome and beyond, leaders are facing diplomatic headwinds and criticism at home as they take part in a conflict they did not seek.",
+      "ai_summary": "European leaders are grappling with diplomatic challenges as they navigate involvement in a conflict with Iran that they did not seek.",
       "ai_tags": [
+        "diplomacy",
         "Iran",
-        "US",
-        "Israel",
-        "Military",
-        "Maps"
+        "Europe"
       ],
       "topic_tags": [
         "general"
@@ -300,21 +300,21 @@
       "scraped": null,
       "scrape_error": "HTTP Error 403: Forbidden",
       "score": {
-        "value": 72.5,
+        "value": 79.5,
         "max_value": 110.0,
-        "percent": 65.9091,
+        "percent": 72.2727,
         "rubric_count": 11
       },
       "high_score": {
-        "overall_score": 72.5,
-        "overall_percent": 65.9090909090909,
+        "overall_score": 79.5,
+        "overall_percent": 72.27272727272728,
         "lens_scores": {
-          "Credibility Lens": 17.5,
-          "Emotional Intensity Lens": 3.0,
+          "Credibility Lens": 16.5,
+          "Emotional Intensity Lens": 9.0,
           "Entity-Level Sentiment Lens": 17.0,
           "Linguistic Quality Lens": 8.5,
-          "Objectivity vs Opinion Lens": 11.0,
-          "Sentiment Clarity Lens": 15.5
+          "Objectivity vs Opinion Lens": 11.5,
+          "Sentiment Clarity Lens": 17.0
         }
       },
       "audit": {
@@ -325,26 +325,21 @@
           "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
         },
         "openai": {
-          "cache_key": "22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "prompt_hash": "8c95f051c0ccbd57e2462d2853ea87bd210575a1b4ef01999b13e664a52ba900",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T205124-9267ba1da4/22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "response_hash": "5e3399cf968bf5ad11f7e4afecf8c2ee936dfd6ca6e5709ead6fe6dbec9b1971"
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
         }
       }
     },
     {
-      "id": "38bfaafb58d2",
-      "title": "Some Middle East flights resume, but thousands of travelers are still stranded by war",
-      "link": "https://www.npr.org/2026/03/02/nx-s1-5732784/iran-war-flights-travelers-stranded",
-      "published": "Mon, 02 Mar 2026 14:29:03 -0500",
-      "summary": "Limited flights out of the Middle East resumed on Monday. But hundreds of thousands of travelers are still stranded in the region after attacks on Iran by the U.S. and Israel.",
-      "ai_summary": "Limited flights have resumed in the Middle East, but many travelers remain stranded due to ongoing conflict.",
-      "ai_tags": [
-        "Travel",
-        "Middle East",
-        "Conflict",
-        "Iran"
-      ],
+      "id": "6561d7302072",
+      "title": "European leaders' views on the developing war in the Middle East",
+      "link": "https://www.npr.org/2026/03/07/nx-s1-5737624/how-european-leaders-are-reacting-to-the-developing-war-in-the-middle-east",
+      "published": "Sat, 07 Mar 2026 07:44:36 -0500",
+      "summary": "Europeans are divided over how to respond to the US/Israel war with Iran. German leaders have been measured, while Spain's prime minister has been critical of the Trump Administration and of Israel.",
+      "ai_summary": "",
+      "ai_tags": [],
       "topic_tags": [
         "general"
       ],
@@ -357,52 +352,53 @@
         "url": "https://feeds.npr.org/1001/rss.xml"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T20:51:37.173060+00:00",
-        "final_url": "https://www.npr.org/2026/03/02/nx-s1-5732784/iran-war-flights-travelers-stranded",
+        "fetched_at": "2026-03-07T13:46:48.952606+00:00",
+        "final_url": "https://www.npr.org/2026/03/07/nx-s1-5737624/how-european-leaders-are-reacting-to-the-developing-war-in-the-middle-east",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "Some Middle East flights resume, but thousands of travelers are still stranded by war",
-        "description": "Limited flights out of the Middle East resumed on Monday. But hundreds of thousands of travelers are still stranded in the region after attacks on Iran by the U.S. and Israel.",
+        "title": "European leaders' views on the developing war in the Middle East",
+        "description": "Europeans are divided over how to respond to the US/Israel war with Iran. German leaders have been measured, while Spain's prime minister has been critical of the Trump Administration and of Israel.",
         "author": null,
-        "published_at": "2026-03-02T00:00:00",
-        "canonical_url": "https://www.npr.org/2026/03/02/nx-s1-5732784/iran-war-flights-travelers-stranded",
+        "published_at": "2026-03-07T00:00:00",
+        "canonical_url": "https://www.npr.org/2026/03/07/nx-s1-5737624/how-european-leaders-are-reacting-to-the-developing-war-in-the-middle-east",
         "language": "en",
-        "h1": "Some Middle East flights resume, but thousands of travelers are still stranded by war",
-        "lead_paragraph": "Conflict in the Middle East has been escalating. These stories provide context for current developments and the history that led up to them.",
-        "paragraph_count": 20,
-        "word_count": 706,
+        "h1": "European leaders' views on the developing war in the Middle East",
+        "body_text": "By\n\nRob Schmitz\n\n,\n\nScott Simon\n\nEuropeans are divided over how to respond to the US/Israel war with Iran. German leaders have been measured, while Spain's prime minister has been critical of the Trump Administration and of Israel.\n\nSponsor Message\n\nBecome an NPR sponsor",
+        "lead_paragraph": "Europeans are divided over how to respond to the US/Israel war with Iran. German leaders have been measured, while Spain's prime minister has been critical of the Trump Administration and of Israel.",
+        "paragraph_count": 7,
+        "word_count": 45,
         "top_keywords": [
-          "flights",
+          "leaders",
+          "israel",
+          "been",
+          "sponsor",
+          "european",
+          "views",
+          "developing",
           "middle",
           "east",
-          "monday",
-          "dubai",
-          "airports",
-          "canceled",
-          "travelers",
-          "airlines",
-          "major",
-          "region",
-          "number"
+          "schmitz",
+          "scott",
+          "simon"
         ]
       },
       "scrape_error": null,
       "score": {
-        "value": 71.0,
+        "value": 77.0,
         "max_value": 110.0,
-        "percent": 64.5455,
+        "percent": 70.0,
         "rubric_count": 11
       },
       "high_score": {
-        "overall_score": 71.0,
-        "overall_percent": 64.54545454545455,
+        "overall_score": 77.0,
+        "overall_percent": 70.0,
         "lens_scores": {
-          "Credibility Lens": 13.0,
-          "Emotional Intensity Lens": 7.0,
+          "Credibility Lens": 15.5,
+          "Emotional Intensity Lens": 8.5,
           "Entity-Level Sentiment Lens": 17.0,
-          "Linguistic Quality Lens": 7.5,
-          "Objectivity vs Opinion Lens": 11.0,
-          "Sentiment Clarity Lens": 15.5
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 10.5,
+          "Sentiment Clarity Lens": 17.0
         }
       },
       "audit": {
@@ -413,25 +409,196 @@
           "feed_url": "https://feeds.npr.org/1001/rss.xml"
         },
         "openai": {
-          "cache_key": "22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "prompt_hash": "8c95f051c0ccbd57e2462d2853ea87bd210575a1b4ef01999b13e664a52ba900",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T205124-9267ba1da4/22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "response_hash": "5e3399cf968bf5ad11f7e4afecf8c2ee936dfd6ca6e5709ead6fe6dbec9b1971"
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
         }
       }
     },
     {
-      "id": "c4eee6624e5d",
-      "title": "5 things you should consider before asking an AI chatbot for health advice",
-      "link": "https://www.pbs.org/newshour/health/5-things-you-should-consider-before-asking-an-ai-chatbot-for-health-advice",
-      "published": "Mon, 02 Mar 2026 15:07:24 -0500",
-      "summary": "Tech companies are pushing new health chatbots, but experts say you still need to talk to your doctor.",
-      "ai_summary": "Experts advise caution when using AI chatbots for health advice, emphasizing the importance of consulting a doctor.",
+      "id": "b6d5befae2e9",
+      "title": "Three men deported by US file legal case against Eswatini over detention",
+      "link": "https://www.theguardian.com/world/2026/mar/05/three-men-deported-us-eswatini-legal-case-detention",
+      "published": "Thu, 05 Mar 2026 19:17:48 GMT",
+      "summary": "The men, sent to Africa after completing criminal sentences in the US, are from Cuba, Jamaica and Yemen Three men deported by the US to Eswatini – rather than their home countries – have filed a case against Eswatini’s government with the African Union’s human rights body, claiming their detention was an unlawful violation of their rights.Two of the claimants, from Cuba and Yemen, have been in prison in Eswatini, formerly Swaziland, for eight months. The third, Orville Etoria, was repatriated...",
+      "ai_summary": "Three men deported by the US to Eswatini have filed a legal case against the government, claiming unlawful detention.",
       "ai_tags": [
-        "Health",
-        "AI",
-        "Technology",
-        "Advice"
+        "legal",
+        "deportation",
+        "human rights"
+      ],
+      "topic_tags": [
+        "world"
+      ],
+      "source": {
+        "id": "the-guardian",
+        "name": "The Guardian"
+      },
+      "feed": {
+        "name": "World",
+        "url": "https://www.theguardian.com/world/rss"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-07T13:46:06.304581+00:00",
+        "final_url": "https://www.theguardian.com/world/2026/mar/05/three-men-deported-us-eswatini-legal-case-detention",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Three men deported by US file legal case against Eswatini over detention",
+        "description": "The men, sent to Africa after completing criminal sentences in the US, are from Cuba, Jamaica and Yemen",
+        "author": "https://www.theguardian.com/profile/rachel-savage",
+        "published_at": "2026-03-05T19:17:48+00:00",
+        "canonical_url": "https://www.theguardian.com/world/2026/mar/05/three-men-deported-us-eswatini-legal-case-detention",
+        "language": "en",
+        "h1": "Three men deported by US file legal case against Eswatini over detention",
+        "body_text": "The men, sent to Africa after completing criminal sentences in the US, are from Cuba, Jamaica and Yemen\n\nThree men deported by the US to Eswatini – rather than their home countries – have filed a case against Eswatini’s government with the African Union’s human rights body, claiming their detention was an unlawful violation of their rights.\n\nTwo of the claimants, from Cuba and Yemen, have been in prison in Eswatini, formerly Swaziland, for eight months . The third, Orville Etoria, was repatriated to his home country , Jamaica, in September.\n\nThey were among a group of five men deported by the US in July, with another 10 sent in October . Other than Etoria, all remained in prison in Eswatini, their lawyers said.\n\nThe US has labelled the men dangerous criminals but their lawyers said they have already served their sentences for any crimes committed in the US.\n\nThe men’s complaint was filed with the African Commission on Human and Peoples’ Rights (ACHPR), an African Union body that monitors member states’ compliance with regional human rights agreements.\n\nThe commission can demand that states uphold rights and refer cases to the African court on human and peoples’ rights, but neither body has enforcement powers.\n\nBeatrice Njeri, a lawyer with the Global Strategic Litigation Council , one of the organisations that brought the case on the deportees’ behalf, said: “The people in detention have committed no crime [in Eswatini] and continue to undergo various human rights violations … they are being held indefinitely.”\n\nNjeri said the men had still not been allowed to see their lawyers in person. She said one detainee had gone on a 30-day hunger strike late last year, resulting in signs of organ failure.\n\n“They’re totally frustrated with the situation,” she said. “They just want to go back – some of them home, some of them to the US.”\n\nThabile Mdluli, a spokesperson for Eswatini’s government, said: “The Kingdom of Eswatini reiterates its longstanding commitment to upholding human rights and its obligations under regional and international frameworks.\n\n“The government continues to ensure that the rights and dignity of the third-country nationals currently in the country are respected for the duration of their stay.\n\n“It is also important to clarify that these individuals are not detained or imprisoned. They are being accommodated in a secure environment while the necessary administrative and diplomatic processes relating to their repatriation are under way.”\n\nShe added that “it would be premature to indicate precisely when each individual will return to their respective countries of origin”.\n\nThe US has deported dozens of immigrants to third countries, as Donald Trump’s administration attempts to carry out mass deportations. US Immigration and Customs Enforcement (ICE) has detained more than 68,000 people in the US.\n\nOther African countries that have accepted third-country deportees from the US include Ghana, Rwanda, South Sudan and Uganda . The US agreed to pay Eswatini $5.1m (£3.8m) to take up to 160 third-country nationals, according to Reuters .\n\nIn February, Eswatini’s high court threw out a case from local NGOs that had argued the government’s imprisonment of the deportees was unconstitutional.\n\nThe court ruled that the applicants had no right to bring the legal challenge, as they did not have a direct interest in the matter.",
+        "lead_paragraph": "The men, sent to Africa after completing criminal sentences in the US, are from Cuba, Jamaica and Yemen",
+        "paragraph_count": 18,
+        "word_count": 549,
+        "top_keywords": [
+          "rights",
+          "eswatini",
+          "human",
+          "african",
+          "deported",
+          "case",
+          "detention",
+          "home",
+          "government",
+          "body",
+          "lawyers",
+          "three"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 76.5,
+        "max_value": 110.0,
+        "percent": 69.5455,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 76.5,
+        "overall_percent": 69.54545454545455,
+        "lens_scores": {
+          "Credibility Lens": 17.5,
+          "Emotional Intensity Lens": 6.5,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 11.0,
+          "Sentiment Clarity Lens": 16.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "the-guardian",
+          "source_name": "The Guardian",
+          "feed_name": "World",
+          "feed_url": "https://www.theguardian.com/world/rss"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "b3cbc68a85bd",
+      "title": "Opinion: The immorality of betting on war",
+      "link": "https://www.npr.org/2026/03/07/nx-s1-5731444/opinion-the-immorality-of-betting-on-war",
+      "published": "Sat, 07 Mar 2026 08:00:00 -0500",
+      "summary": "Traders on prediction markets bet on nearly anything. One made more than half a million dollars betting on the U.S. strike against Iran. But should people wager on human suffering?",
+      "ai_summary": "",
+      "ai_tags": [],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "npr",
+        "name": "NPR"
+      },
+      "feed": {
+        "name": "News",
+        "url": "https://feeds.npr.org/1001/rss.xml"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-07T13:46:48.158301+00:00",
+        "final_url": "https://www.npr.org/2026/03/07/nx-s1-5731444/opinion-the-immorality-of-betting-on-war",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Opinion: The immorality of betting on war",
+        "description": "Traders on prediction markets bet on nearly anything. One made more than half a million dollars betting on the U.S. strike against Iran. But should people wager on human suffering?",
+        "author": null,
+        "published_at": "2026-03-07T00:00:00",
+        "canonical_url": "https://www.npr.org/2026/03/07/nx-s1-5731444/opinion-the-immorality-of-betting-on-war",
+        "language": "en",
+        "h1": "Opinion: The immorality of betting on war",
+        "body_text": "Scott Simon\n\nIn this photo illustration, An app for Polymarket, an online prediction market site, is shown on February 25, 2026 in Chicago, Illinois. Online prediction market platforms allow people to place bets on wide-ranging subjects such as sports, finance, politics and currents events. Scott Olson/Getty Images hide caption\n\nYou can place a bet on just about anything these days. Not just who will win the Super Bowl, or the Kentucky Derby, but what we still call \"the news.\" Who will be elected? Will interest rates go up or down? You can even bet on weather events, and acts of war.\n\nAs NPR's Bobby Allyn has reported, an account on the prediction market Polymarket with the username \"Magamyman,\" made more than $500,000 by predicting the strike on Iran last Saturday that killed the Ayatollah Ali Khamenei.\n\nThis comes after an unnamed trader made hundreds of thousands predicting the ouster of Venezuelan leader Nicolas Maduro in January, just hours before the U.S. raid that captured him.\n\nPrediction markets are exchanges where people can place bets on the outcome of almost anything. It could be a Formula One race. But it could also be — and I quote the wording of an offering on Polymarket — \"Nuclear detonation by…?\n\nSenate Democrats have introduced a bill to ban members of Congress and senior administration officials — including the president and vice president — from putting money on specific events in these markets.\n\nRep. Mike Levin, a Democrat from California, wrote on X, \"Prediction markets cannot be a vehicle for profiting off advance knowledge of military action.\"\n\nBut even if the rest of us can legally make such bets, should we?\n\nI have been with families in refugee camps in Ethiopia, Kosovo, and Iraq, who had to run from their homes with just the clothes they wore, and a few family photos if they had time to grab them, as soldiers rushed into their towns. Those families risked their lives to leave, betting on an unknown future.\n\nI have been with people in Sarajevo who had to decide when to run across a street clutching food or medicine for their loved ones. They knew their steps might catch the eyes of snipers. We'd crouch alongside them behind a wall, where they often muttered a prayer and told us before running into the open, \"Here goes…\"\n\nWe saw quite a few brave people make it to safety; and quite a few brave people die trying.\n\nThe bets they placed were to risk their lives for those they loved. Prediction market users make their wartime gambits from someplace comfortable and safe, and hope to hit it big off of someone else's misfortune.\n\nSponsor Message\n\nBecome an NPR sponsor",
+        "lead_paragraph": "In this photo illustration, An app for Polymarket, an online prediction market site, is shown on February 25, 2026 in Chicago, Illinois. Online prediction market platforms allow people to place bets on wide-ranging subjects such as sports, finance, politics and currents events. Scott Olson/Getty Images hide caption",
+        "paragraph_count": 15,
+        "word_count": 455,
+        "top_keywords": [
+          "prediction",
+          "people",
+          "polymarket",
+          "market",
+          "place",
+          "bets",
+          "events",
+          "will",
+          "markets",
+          "betting",
+          "scott",
+          "online"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 76.5,
+        "max_value": 110.0,
+        "percent": 69.5455,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 76.5,
+        "overall_percent": 69.54545454545455,
+        "lens_scores": {
+          "Credibility Lens": 12.0,
+          "Emotional Intensity Lens": 12.5,
+          "Entity-Level Sentiment Lens": 16.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 10.5,
+          "Sentiment Clarity Lens": 17.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "npr",
+          "source_name": "NPR",
+          "feed_name": "News",
+          "feed_url": "https://feeds.npr.org/1001/rss.xml"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "12cfab09a8bb",
+      "title": "Hegseth's remarks highlight the government's reluctance to show human costs of war",
+      "link": "https://www.pbs.org/newshour/politics/hegseths-remarks-highlight-the-governments-reluctance-to-show-human-costs-of-war",
+      "published": "Fri, 06 Mar 2026 18:57:02 -0500",
+      "summary": "Remarks by Defense Secretary Pete Hegseth that the American press emphasizes U.S. casualties in the Iran war because it \"wants to make the president look bad\" are a reminder of something that has endured across many decades and conflicts: the tension and trepidation about news that reminds Americans of the human cost of war.",
+      "ai_summary": "Defense Secretary Pete Hegseth's comments highlight the government's reluctance to disclose the human costs of war.",
+      "ai_tags": [
+        "politics",
+        "war",
+        "media"
       ],
       "topic_tags": [
         "general"
@@ -445,40 +612,835 @@
         "url": "https://www.pbs.org/newshour/feeds/rss/headlines"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T20:51:38.360085+00:00",
-        "final_url": "https://www.pbs.org/newshour/health/5-things-you-should-consider-before-asking-an-ai-chatbot-for-health-advice",
+        "fetched_at": "2026-03-07T13:46:50.785907+00:00",
+        "final_url": "https://www.pbs.org/newshour/politics/hegseths-remarks-highlight-the-governments-reluctance-to-show-human-costs-of-war",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "5 things you should consider before asking an AI chatbot for health advice",
-        "description": "Tech companies are pushing new health chatbots, but experts say you still need to talk to your doctor.",
+        "title": "Hegseth's remarks highlight the government's reluctance to show human costs of war",
+        "description": "Remarks by Defense Secretary Pete Hegseth that the American press emphasizes U.S. casualties in the Iran war because it “wants to make the president look bad” are a reminder of something that has endured across many decades and conflicts: the tension and trepidation about news that reminds Americans of the human cost of war.",
         "author": null,
-        "published_at": "2026-03-02T15:07:24-05:00",
-        "canonical_url": "https://www.pbs.org/newshour/health/5-things-you-should-consider-before-asking-an-ai-chatbot-for-health-advice",
+        "published_at": "2026-03-06T18:57:02-05:00",
+        "canonical_url": "https://www.pbs.org/newshour/politics/hegseths-remarks-highlight-the-governments-reluctance-to-show-human-costs-of-war",
         "language": "en-us",
-        "h1": "5 things you should consider before asking an AI chatbot for health advice",
-        "lead_paragraph": "Stand up for truly independent, trusted news.",
-        "paragraph_count": 52,
-        "word_count": 1097,
+        "h1": "Hegseth's remarks highlight the government's reluctance to show human costs of war",
+        "body_text": "David Bauder, Associated Press David Bauder, Associated Press\n\nLeave your feedback\n\nRemarks by Defense Secretary Pete Hegseth that the American press emphasizes U.S. casualties in the Iran war because it \"wants to make the president look bad\" are a reminder of something that has endured across many decades and conflicts: the tension and trepidation about news that reminds Americans of the human cost of war.\n\nDuring his Pentagon briefing on the war on Wednesday, Hegseth bashed \"fake news\" while addressing the six U.S. Army reservists killed in an Iranian attack on an operations center in Kuwait.\n\nWATCH: Hegseth holds news conference on war with Iran updates\n\n\"When a few drones get through or tragic things happen, it's front-page news,\" Hegseth said. \"I get it. The press only wants to make the president look bad. But try for once to report the reality. The terms of this war will be set by us at every step.\"\n\nWhite House press secretary Karoline Leavitt, when questioned about the remark by CNN's Kaitlan Collins at her own news conference later, doubled down. \"You take every single thing this administration says and try to use it to make the president look bad,\" Leavitt said. \"That's an objective fact.\"\n\nnewsletter id=\"politics\" style=\"yellow\" /]\n\nMemories of night after night of graphic images beamed into homes through a then-recent invention — television — were hard to shake for those who lived through the Vietnam War in the 1960s. Many believed the cumulative impact of seeing that suffering night after night turned Americans from supporters to skeptics.\n\nREAD MORE: Majority of Americans oppose military action in Iran, new poll finds\n\nSuch vivid, intimate scenes of military action by Americans haven't been seen to that extent since, a legacy still in place with the war that President Donald Trump and Hegseth are waging right now on behalf of the United States.\n\n\"For many presidents, the lesson seemed to be: Don't allow the realities of war into people's living rooms if you can help it,\" said Timothy Naftali, senior research scholar at Columbia University's School of International and Public Affairs.\n\nToday, the images the public sees of warfare can resemble a video game — explosions seen lighting up the sky from afar — with the pain much more private.\n\nGenerations ago during World War II, journalists were embedded with the military, and many became household names — reporters Ernie Pyle and Walter Cronkite, photographers Robert Capa and Margaret Bourke-White. Those were the days before television, however.\n\nVietnam was arguably the most accessible American war for reporters. Journalists stationed in the country sent back a steady stream of death and destruction.\n\nCronkite, by then a CBS-TV anchorman of the most popular evening news program in the U.S., reported from Vietnam in 1968 and concluded the only rational way out was a negotiated peace. \"If I've lost Cronkite,\" President Lyndon Johnson said, \"I've lost Middle America.\"\n\nDuring the Gulf War in 1991, President George H.W. Bush was angered by split-screen television images that showed the coffins of U.S. service members being returned to the United States while he, apparently unaware of the timing, was joking with reporters about another subject at the White House. The Pentagon banned coverage of these ceremonies, saying it was to protect the privacy of family members of the dead, although critics said it was to avoid showing pictures of coffins.\n\nThat ban, with a few exceptions, stayed in place until it was lifted by President Barack Obama in 2009.\n\nReporters who approached the battlefield in wars fought by the U.S. military in the 2000s were likely to have their movements restricted, if they were allowed at all. Jessica Donati, a reporter for The Wall Street Journal and Reuters who covered the war in Afghanistan, wrote for the Modern War Institute in 2021 that \"it's easier these days for journalists in Afghanistan to embed with the Taliban than with the U.S. military.\"\n\nThe nature of this war — fought thousands of miles from the American homeland and not yet on the ground in Iran — has limited the number of American casualties and thus made them more newsworthy. Several journalists have pointed out that reporting about military casualties predates Trump's presidency. Hegseth's statement \"is a warped way of looking at the world,\" said CNN's Jake Tapper. \"Ahistorical.\"\n\n\"The news media covers fallen service members because they have made the ultimate sacrifice for their country,\" he said. \"It's a tribute. It's an honor.\"\n\nThere has been relatively little coverage from the ground in Iran. A CNN team led by Frederik Pleitgen on Thursday became the first journalists from a U.S.-based television network to enter the country, and he spent the day racing across the country to Tehran.\n\nDan Lamothe, military affairs reporter for The Washington Post, posted on social media that Hegseth's comments won't stop him from continuing to cover the casualties of war — as has been done under presidents of both major political parties.\n\n\"These efforts haven't always been perfect,\" Lamothe wrote. \"But they've highlighted sacrifices by American servicemembers and their families, and shortcomings that sometimes allowed these deaths to happen. We'll continue to do so. It's too important to stop.\"\n\nWhen Robert H. Reid was a top editor at Stars and Stripes between 2014 and 2025, he found that the newspaper's audience, primarily service members, wanted more than raw numbers when Americans were killed in military action. They wanted to know details about the lives of the people who served — where they grew up, who they left behind, what their passions were, he said.\n\nIn 10 or 20 years, many of these people will be forgotten by all but those who loved them. But for what they gave for their country, they deserve recognition for their lives, said Reid, an Associated Press international correspondent for most of his career.\n\n\"The public needs to know that war is not a video game,\" Naftali said. \"It affects people.\"\n\nSupport trusted journalism and civil dialogue.\n\nLeft: Defense Secretary Pete Hegseth holds a briefing amid the U.S.-Israeli conflict with Iran, at the Pentagon in Washington, D.C., March 2, 2026. Photo by Elizabeth Frantz/Reuters\n\nBy Amna Nawaz, Jonah Anderson\n\nBy Associated Press\n\nBy Matt Loffman\n\nBy Hannah Fingerhut, Konstantin Toropin, Rebecca Boone, Associated Press\n\nBy Travis Loller, Kristin M. Hall, Associated Press\n\nDavid Bauder, Associated Press David Bauder, Associated Press\n\nSupport Provided By: Learn more\n\nSubscribe to Here’s the Deal, our politics newsletter for analysis you won’t find anywhere else.\n\nThank you. Please check your inbox to confirm.\n\n© 1996 - 2026 NewsHour Productions LLC. All Rights Reserved.\n\nPBS is a 501(c)(3) not-for-profit organization.\n\nSections\n\nAbout\n\nStay Connected\n\nSubscribe to Here's the Deal with Lisa Desjardins\n\nThank you. Please check your inbox to confirm.\n\nSupport for News Hour Provided By",
+        "lead_paragraph": "David Bauder, Associated Press David Bauder, Associated Press",
+        "paragraph_count": 46,
+        "word_count": 1166,
         "top_keywords": [
-          "health",
-          "chatbot",
-          "advice",
-          "medical",
-          "things",
-          "your",
-          "programs",
-          "consider",
-          "matthew",
-          "perrone",
+          "press",
+          "hegseth",
+          "president",
+          "americans",
+          "night",
+          "iran",
+          "make",
+          "look",
+          "many",
+          "through",
+          "remarks",
+          "human"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 76.5,
+        "max_value": 110.0,
+        "percent": 69.5455,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 76.5,
+        "overall_percent": 69.54545454545455,
+        "lens_scores": {
+          "Credibility Lens": 14.5,
+          "Emotional Intensity Lens": 9.5,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 10.0,
+          "Sentiment Clarity Lens": 17.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "pbs-newshour",
+          "source_name": "PBS NewsHour",
+          "feed_name": "Headlines",
+          "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "c56d779248aa",
+      "title": "Native Americans react to Sen. Markwayne Mullin's DHS appointment",
+      "link": "https://www.npr.org/2026/03/07/nx-s1-5737899/how-native-americans-are-reacting-to-sen-markwayne-mullins-dhs-appointment",
+      "published": "Sat, 07 Mar 2026 07:44:37 -0500",
+      "summary": "Many tribes are encouraged by Trump's choice of Sen. Markwayne Mullin, a member of the Cherokee nation, as the new DHS Secretary. ICE agents have been accused of racially profiling Native Americans.",
+      "ai_summary": "",
+      "ai_tags": [],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "npr",
+        "name": "NPR"
+      },
+      "feed": {
+        "name": "News",
+        "url": "https://feeds.npr.org/1001/rss.xml"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-07T13:46:48.513054+00:00",
+        "final_url": "https://www.npr.org/2026/03/07/nx-s1-5737899/how-native-americans-are-reacting-to-sen-markwayne-mullins-dhs-appointment",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Native Americans react to Sen. Markwayne Mullin's DHS appointment",
+        "description": "Many tribes are encouraged by Trump's choice of Sen. Markwayne Mullin, a member of the Cherokee nation, as the new DHS Secretary. ICE agents have been accused of racially profiling Native Americans.",
+        "author": null,
+        "published_at": "2026-03-07T00:00:00",
+        "canonical_url": "https://www.npr.org/2026/03/07/nx-s1-5737899/how-native-americans-are-reacting-to-sen-markwayne-mullins-dhs-appointment",
+        "language": "en",
+        "h1": "Native Americans react to Sen. Markwayne Mullin's DHS appointment",
+        "body_text": "By\n\nEric Westervelt\n\n,\n\nKirk Siegler\n\nMany tribes are encouraged by Trump's choice of Sen. Markwayne Mullin, a member of the Cherokee nation, as the new DHS Secretary. ICE agents have been accused of racially profiling Native Americans.\n\nSponsor Message\n\nBecome an NPR sponsor",
+        "lead_paragraph": "Many tribes are encouraged by Trump's choice of Sen. Markwayne Mullin, a member of the Cherokee nation, as the new DHS Secretary. ICE agents have been accused of racially profiling Native Americans.",
+        "paragraph_count": 7,
+        "word_count": 44,
+        "top_keywords": [
+          "native",
+          "americans",
+          "markwayne",
+          "sponsor",
+          "react",
+          "mullin's",
+          "appointment",
+          "eric",
+          "westervelt",
+          "kirk",
+          "siegler",
+          "many"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 75.5,
+        "max_value": 110.0,
+        "percent": 68.6364,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 75.5,
+        "overall_percent": 68.63636363636364,
+        "lens_scores": {
+          "Credibility Lens": 12.5,
+          "Emotional Intensity Lens": 10.0,
+          "Entity-Level Sentiment Lens": 17.5,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 10.0,
+          "Sentiment Clarity Lens": 17.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "npr",
+          "source_name": "NPR",
+          "feed_name": "News",
+          "feed_url": "https://feeds.npr.org/1001/rss.xml"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "106954e0cc8a",
+      "title": "Kristi Noem Survived Many Crises. Then She Crossed a Trump Red Line.",
+      "link": "https://www.nytimes.com/2026/03/06/us/politics/trump-noem.html",
+      "published": "Sat, 07 Mar 2026 02:33:52 +0000",
+      "summary": "President Trump, who values loyalty, has at times tried to distance himself from his administration’s own actions when they become politically toxic.",
+      "ai_summary": "",
+      "ai_tags": [],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "new-york-times",
+        "name": "The New York Times"
+      },
+      "feed": {
+        "name": "Home Page",
+        "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+      },
+      "scraped": null,
+      "scrape_error": "HTTP Error 403: Forbidden",
+      "score": {
+        "value": 75.0,
+        "max_value": 110.0,
+        "percent": 68.1818,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 75.0,
+        "overall_percent": 68.18181818181817,
+        "lens_scores": {
+          "Credibility Lens": 14.0,
+          "Emotional Intensity Lens": 10.5,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 8.5,
+          "Sentiment Clarity Lens": 16.5
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "new-york-times",
+          "source_name": "The New York Times",
+          "feed_name": "Home Page",
+          "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "76fa0d809bea",
+      "title": "DHS feeds talking points to Republicans as opposition to ICE warehouses swells",
+      "link": "https://www.washingtonpost.com/investigations/2026/03/07/dhs-gop-ice-warehouses/",
+      "published": "Sat, 07 Mar 2026 11:00:41 +0000",
+      "summary": "DHS sent talking points to Republican officials to promote migrant detention centers while communities complained about a lack of transparency.",
+      "ai_summary": "",
+      "ai_tags": [],
+      "topic_tags": [
+        "us"
+      ],
+      "source": {
+        "id": "washington-post",
+        "name": "The Washington Post"
+      },
+      "feed": {
+        "name": "National",
+        "url": "https://feeds.washingtonpost.com/rss/national"
+      },
+      "scraped": null,
+      "scrape_error": "The read operation timed out",
+      "score": {
+        "value": 75.0,
+        "max_value": 110.0,
+        "percent": 68.1818,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 75.0,
+        "overall_percent": 68.18181818181817,
+        "lens_scores": {
+          "Credibility Lens": 13.5,
+          "Emotional Intensity Lens": 8.0,
+          "Entity-Level Sentiment Lens": 16.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 12.0,
+          "Sentiment Clarity Lens": 17.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "washington-post",
+          "source_name": "The Washington Post",
+          "feed_name": "National",
+          "feed_url": "https://feeds.washingtonpost.com/rss/national"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "288808789b48",
+      "title": "How Good Intentions Helped Pave Trump’s Road to Iran",
+      "link": "https://www.nytimes.com/2026/03/07/world/middleeast/how-good-intentions-helped-pave-trumps-road-to-iran.html",
+      "published": "Sat, 07 Mar 2026 10:01:51 +0000",
+      "summary": "Humanitarians proposed a loophole in international law. Decades later, Trump is jumping through it.",
+      "ai_summary": "The 2026 Winter Paralympics have commenced, featuring six sports and a record number of athletes.",
+      "ai_tags": [
+        "sports",
+        "Paralympics",
+        "events"
+      ],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "new-york-times",
+        "name": "The New York Times"
+      },
+      "feed": {
+        "name": "Home Page",
+        "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+      },
+      "scraped": null,
+      "scrape_error": "HTTP Error 403: Forbidden",
+      "score": {
+        "value": 73.5,
+        "max_value": 110.0,
+        "percent": 66.8182,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 73.5,
+        "overall_percent": 66.81818181818183,
+        "lens_scores": {
+          "Credibility Lens": 14.0,
+          "Emotional Intensity Lens": 6.5,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 11.5,
+          "Sentiment Clarity Lens": 16.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "new-york-times",
+          "source_name": "The New York Times",
+          "feed_name": "Home Page",
+          "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "21bf634d5cfd",
+      "title": "An American road trip with his French grandmother: ‘It was now or never’",
+      "link": "https://www.washingtonpost.com/lifestyle/interactive/2026/american-roadtrip-french-grandmother-arnaud-montagard/",
+      "published": "Sat, 07 Mar 2026 13:00:11 +0000",
+      "summary": "“She was aging. I’m very close to her,” photographer Arnaud Montagard said. “At the time of the trip, she was 88. She’s now 89.”",
+      "ai_summary": "",
+      "ai_tags": [],
+      "topic_tags": [
+        "us"
+      ],
+      "source": {
+        "id": "washington-post",
+        "name": "The Washington Post"
+      },
+      "feed": {
+        "name": "National",
+        "url": "https://feeds.washingtonpost.com/rss/national"
+      },
+      "scraped": null,
+      "scrape_error": "The read operation timed out",
+      "score": {
+        "value": 73.5,
+        "max_value": 110.0,
+        "percent": 66.8182,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 73.5,
+        "overall_percent": 66.81818181818183,
+        "lens_scores": {
+          "Credibility Lens": 15.0,
+          "Emotional Intensity Lens": 7.0,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 9.0,
+          "Sentiment Clarity Lens": 17.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "washington-post",
+          "source_name": "The Washington Post",
+          "feed_name": "National",
+          "feed_url": "https://feeds.washingtonpost.com/rss/national"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "22f6acb45f0b",
+      "title": "Soham murderer Ian Huntley dies after prison attack",
+      "link": "https://www.bbc.com/news/articles/c80jmm00379o?at_medium=RSS&at_campaign=rss",
+      "published": "Sat, 07 Mar 2026 10:13:42 GMT",
+      "summary": "Huntley, who murdered two schoolgirls in 2002, had his life support switched off on Friday, the BBC understands.",
+      "ai_summary": "Ian Huntley, convicted of murdering two schoolgirls in 2002, has died after a prison attack.",
+      "ai_tags": [
+        "crime",
+        "death",
+        "prison"
+      ],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "feed": {
+        "name": "Top Stories",
+        "url": "http://feeds.bbci.co.uk/news/rss.xml"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-07T13:46:04.557589+00:00",
+        "final_url": "https://www.bbc.com/news/articles/c80jmm00379o?at_medium=RSS&at_campaign=rss",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Soham murderer Ian Huntley dies after prison attack",
+        "description": "Huntley, who murdered two schoolgirls in 2002, had his life support switched off on Friday, the BBC understands.",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.bbc.com/news/articles/c80jmm00379o",
+        "language": "en-GB",
+        "h1": "Soham murderer Ian Huntley dies after prison attack",
+        "body_text": "Ian Huntley, the former school caretaker who murdered two 10-year-old schoolgirls in Soham, died on Saturday following an attack in prison.\n\nThe 52-year-old suffered significant head trauma after being attacked with a makeshift weapon by another inmate at HMP Frankland on 26 February and had been on life support in hospital.\n\nHe had been serving a life sentence with a minimum term of 40 years for murdering best friends Holly Wells and Jessica Chapman in 2002.\n\nThe Ministry of Justice said Huntley's crime \"remains one of the most shocking and devastating cases in our nation's history, and our thoughts are with their families\".\n\nAs first reported by the Sun newspaper , Huntley's life support was switched off on Friday.\n\nThe brutality of his crimes made him a target in prison and he had been attacked several times previously. The BBC understands that triple killer Anthony Russell, 43, is suspected of attacking Huntley.\n\nSources previously told the BBC Huntley was found lying in a pool of blood after being bludgeoned with a makeshift weapon at a workshop at the high security prison in County Durham.\n\nThis was not the first time Huntley had been attacked at the prison - he was slashed across the throat and needed 21 stitches in 2010.\n\nHMP Frankland houses some of the most dangerous criminals including murderers and rapists.\n\nAnd, in 2005, he was attacked by a convicted murderer who threw boiling water over him at HMP Wakefield.\n\nDurham Constabulary have said they are preparing a file for the Crown Prosecution Service for the consideration of charges.\n\nA spokesperson for the force said \"a police investigation into the circumstances of the incident is ongoing\".\n\nHolly and Jessica vanished after leaving a family barbecue in their small town near Cambridge in August 2002.\n\nIt is believed they were on their way to buy sweets when Huntley, then aged 28, lured them back to his home and killed them.\n\nThe photo of the girls he killed - in their red Manchester United football kits - is etched in the minds of many who vividly remember their disappearance and murder.\n\nTheir disappearance made national headlines and led to police appeals and tireless searches of the town and flat countryside of The Fens.\n\nA fortnight after searches began, the girls' bodies were found in a ditch about 10 miles away, near RAF Lakenheath in Suffolk.\n\nHuntley was arrested on the same day. He was subsequently convicted and sentenced to a minimum of 40 years for the double murders.\n\nHis girlfriend Maxine Carr was also jailed in 2003 after being found guilty of conspiring to pervert the course of justice for giving him a false alibi. She was given a new identity after being freed from jail in May 2004.\n\nCopyright 2026 BBC. All rights reserved. The BBC is not responsible for the content of external sites. Read about our approach to external linking.",
+        "lead_paragraph": "Ian Huntley, the former school caretaker who murdered two 10-year-old schoolgirls in Soham, died on Saturday following an attack in prison.",
+        "paragraph_count": 20,
+        "word_count": 486,
+        "top_keywords": [
+          "huntley",
+          "prison",
+          "attacked",
+          "been",
+          "life",
+          "soham",
+          "murderer",
+          "attack",
+          "year-old",
+          "makeshift",
+          "weapon",
+          "frankland"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 71.5,
+        "max_value": 110.0,
+        "percent": 65.0,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 71.5,
+        "overall_percent": 65.0,
+        "lens_scores": {
+          "Credibility Lens": 17.0,
+          "Emotional Intensity Lens": 6.5,
+          "Entity-Level Sentiment Lens": 13.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 11.0,
+          "Sentiment Clarity Lens": 15.5
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "bbc-news",
+          "source_name": "BBC News",
+          "feed_name": "Top Stories",
+          "feed_url": "http://feeds.bbci.co.uk/news/rss.xml"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "fa7da3c1ce63",
+      "title": "Canada's PM calls for Andrew to be removed from line of succession",
+      "link": "https://www.bbc.com/news/articles/czd87d0jq37o?at_medium=RSS&at_campaign=rss",
+      "published": "Sat, 07 Mar 2026 10:37:38 GMT",
+      "summary": "Andrew Mountbatten-Windsor was arrested on suspicion of misconduct in public office last month.",
+      "ai_summary": "Canada's Prime Minister has called for Andrew Mountbatten-Windsor to be removed from the royal line of succession following his recent arrest.",
+      "ai_tags": [
+        "politics",
+        "royalty",
+        "Canada"
+      ],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "feed": {
+        "name": "Top Stories",
+        "url": "http://feeds.bbci.co.uk/news/rss.xml"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-07T13:46:05.195976+00:00",
+        "final_url": "https://www.bbc.com/news/articles/czd87d0jq37o?at_medium=RSS&at_campaign=rss",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Canada's PM calls for Andrew to be removed from line of succession",
+        "description": "Andrew Mountbatten-Windsor was arrested on suspicion of misconduct in public office last month.",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.bbc.com/news/articles/czd87d0jq37o",
+        "language": "en-GB",
+        "h1": "Canada's PM calls for Andrew to be removed from line of succession",
+        "body_text": "Canada's Prime Minister Mark Carney has called for Andrew Mountbatten-Windsor to be removed from the royal line of succession.\n\nThe former prince remains eighth in line to the throne despite being stripped of his titles in October amid pressure over his ties to the late paedophile financier Jeffrey Epstein.\n\nMountbatten-Windsor was arrested on suspicion of misconduct in public office last month after being accused of sharing confidential material with Epstein. He has consistently and strenuously denied any wrongdoing.\n\nSpeaking to reporters in Tokyo, Carney said he thought the former Duke of York's \"deplorable\" actions should result in his removal from the line of succession.\n\nCarney, the former governor of the Bank of England, added: \"Even though he is well down the line, the point of principle stands.\"\n\nLast month Australia's prime minister told the UK's Sir Keir Starmer that his government would back plans to remove Mountbatten-Windsor from the line of succession.\n\nAnthony Albanese told Sir Keir: \"I am writing to confirm that my government would agree to any proposal to remove him from the line of royal succession.\n\n\"These are grave allegations and Australians take them seriously.\"\n\nNew Zealand's PM Christopher Luxon echoed Albanese's call, telling reporters last month: \"The bottom line is no one is above the law and once that investigation is closed, should the UK government decide to remove him from the line of succession, that is something we would support.\"\n\nThe UK government said it was considering introducing legislation to remove the former prince from the line of succession.\n\nDefence Minister Luke Pollard told the BBC the move - which would prevent Mountbatten-Windsor from ever becoming King - was the \"right thing to do,\" regardless of the outcome of the police investigation.\n\nSpeaking on BBC Radio 4's Any Questions programme, Pollard confirmed the government had \"absolutely\" been working with Buckingham Palace on the plans to stop the former prince from \"potentially being a heartbeat away from the throne\".\n\nAny plan to remove him from the line of succession would require an act of Parliament, which would have to be approved by MPs and peers and would come into effect when given royal assent by King Charles III, his brother.\n\nIt would also need to be supported by the 14 Commonwealth countries where the King is the head of state.\n\nThe last time someone was removed from the line of succession by an act of Parliament was in 1936, when the former Edward VIII and his descendants were removed due to his abdication.\n\nBuckingham Palace has not publicly commented on the government's consideration of legislation to remove Andrew from the line of succession.\n\nThe Department of Justice said the released files had been \"incorrectly coded as duplicative\" and inadvertently not published.\n\nVisitors will be able to tour the rooms at the Palace of Holyroodhouse in Edinburgh for a short period.\n\nLord Peter Mandelson has had his passport returned by police, his lawyers say.\n\nRepublican lawmaker Nancy Mace, who introduced the motion to subpoena Pam Bondi, accuses the justice department of a \"cover-up\".\n\nJack Horner says he regrets not investigating Epstein's background, after emails showed he visited the convicted sex offender's ranch.\n\nCopyright 2026 BBC. All rights reserved. The BBC is not responsible for the content of external sites. Read about our approach to external linking.",
+        "lead_paragraph": "Canada's Prime Minister Mark Carney has called for Andrew Mountbatten-Windsor to be removed from the royal line of succession.",
+        "paragraph_count": 22,
+        "word_count": 562,
+        "top_keywords": [
+          "line",
+          "succession",
+          "former",
+          "government",
+          "mountbatten-windsor",
+          "remove",
+          "minister",
+          "carney",
+          "prince",
+          "last",
+          "month",
+          "told"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 70.5,
+        "max_value": 110.0,
+        "percent": 64.0909,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 70.5,
+        "overall_percent": 64.0909090909091,
+        "lens_scores": {
+          "Credibility Lens": 13.5,
+          "Emotional Intensity Lens": 4.0,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 10.5,
+          "Sentiment Clarity Lens": 17.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "bbc-news",
+          "source_name": "BBC News",
+          "feed_name": "Top Stories",
+          "feed_url": "http://feeds.bbci.co.uk/news/rss.xml"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "81083348e760",
+      "title": "U.S. will send anti-drone system to Mideast after successful use in Ukraine, officials say",
+      "link": "https://www.pbs.org/newshour/world/u-s-will-send-anti-drone-system-to-mideast-after-successful-use-in-ukraine-officials-say",
+      "published": "Fri, 06 Mar 2026 19:11:50 -0500",
+      "summary": "An American anti-drone system proven to work against Russian drones in Ukraine will soon be sent to the Middle East to bolster U.S. defenses against Iranian drones, two U.S. officials told The Associated Press on Friday.",
+      "ai_summary": "The US plans to send an anti-drone system to the Middle East after its successful deployment in Ukraine.",
+      "ai_tags": [
+        "military",
+        "technology",
+        "Middle East"
+      ],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "pbs-newshour",
+        "name": "PBS NewsHour"
+      },
+      "feed": {
+        "name": "Headlines",
+        "url": "https://www.pbs.org/newshour/feeds/rss/headlines"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-07T13:46:50.214605+00:00",
+        "final_url": "https://www.pbs.org/newshour/world/u-s-will-send-anti-drone-system-to-mideast-after-successful-use-in-ukraine-officials-say",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "U.S. will send anti-drone system to Mideast after successful use in Ukraine, officials say",
+        "description": "An American anti-drone system proven to work against Russian drones in Ukraine will soon be sent to the Middle East to bolster U.S. defenses against Iranian drones, two U.S. officials told The Associated Press on Friday.",
+        "author": null,
+        "published_at": "2026-03-06T19:11:50-05:00",
+        "canonical_url": "https://www.pbs.org/newshour/world/u-s-will-send-anti-drone-system-to-mideast-after-successful-use-in-ukraine-officials-say",
+        "language": "en-us",
+        "h1": "U.S. will send anti-drone system to Mideast after successful use in Ukraine, officials say",
+        "body_text": "Emma Burrows, Associated Press Emma Burrows, Associated Press\n\nLeave your feedback\n\nLONDON (AP) — An American anti-drone system proven to work against Russian drones in Ukraine will soon be sent to the Middle East to bolster U.S. defenses against Iranian drones, two U.S. officials told The Associated Press on Friday.\n\nWhile the U.S. has used Patriot and THAAD missile systems to take down Iranian missiles successfully, there are limited effective anti-drone defenses now in the Middle East, according to a U.S. defense official, one of two officials who spoke on condition of anonymity to discuss sensitive military matters.\n\nThe U.S. response to countering Iran's Shahed drones has been \"disappointing,\" the other U.S. official said, particularly because the drones fired by Iran are a much more basic version of the same drone that Russia is continuously refining and updating in its war in Ukraine.\n\nREAD MORE: U.S. and Mideast countries seek Kyiv's drone expertise as Russia-Ukraine talks delayed\n\nThe effort to bolster U.S. anti-drone capabilities in the Middle East underscores concerns about the planning for an Iranian retaliatory response across the region to the American and Israeli strikes. Persian Gulf countries have complained they were not given adequate time to prepare for the torrent of Iranian drones and missiles bombarding their territory.\n\nThe system that is being sent, known as Merops, flies drones against drones. It is small enough to fit in the back of a midsize pickup truck, can identify drones and close in on them, using artificial intelligence to navigate when satellite and electronic communications are jammed.\n\nDrones are hard to pinpoint on radar systems calibrated for spotting high-speed missiles and can be mistaken for birds or planes. The Merops system is designed to spot them and take them down. Crucially, the system also is cheaper than firing a missile that costs hundreds of thousands of dollars at a drone that costs less than $50,000.\n\nThe top Democrat on the House Intelligence Committee, Rep. Jim Himes of Connecticut, said this week that \"we're pretty good at taking missiles down. What is much more problematic for us is the huge inventory of Iranian drones, which are hard to detect and hard to take down.\"\n\nHimes said the drone attacks present a \"math problem\" in that the U.S. cannot keep relying on expensive military interceptors, like Patriot systems, to down the quickly and cheaply made Iranian drones.\n\n\"It's really, really expensive to take down a cheap drone,\" he said. \"A giant missile going after a tiny little crappy drone.\"\n\nMerops was deployed in NATO nations Poland and Romania in November after Russian attack drones repeatedly entered NATO airspace. The U.S. defense official says America has learned lessons from the deployment of the system and others like it in Ukraine.\n\nUkrainian President Volodymyr Zelenskyy said Thursday that the U.S. asked for his country's help in combating Iran's Shahed drones, which Russia has used in huge numbers in Ukraine. Zelenskyy did not specify the type of assistance Ukraine would provide, but the U.S. defense official said the Merops system is a part of it.\n\nWhen asked about Zelenskyy's comments, Trump told Reuters on Thursday: \"Certainly, I'll take, you know, any assistance from any country.\"\n\nIn the Middle East, Merops will be deployed to various locations, including where U.S. forces are not present, the defense official said. Most of the systems will be sent directly by Perennial Autonomy — the manufacturer backed by former Google CEO Eric Schmidt — and will not affect defenses in Europe, the official said.\n\nPerennial Autonomy did not immediately respond to questions about the use of Merops in the Middle East.\n\nPentagon officials conceded this week in closed-door briefings with lawmakers they are struggling to stop waves of drones launched by Iran, leaving some U.S. targets in the Gulf region vulnerable.\n\n\"This does not mean we can stop everything, but we ensured that the maximum possible defense and maximum possible force protection was set up before we went on offense,\" Defense Secretary Pete Hegseth told reporters this week.\n\nMichael Robbins, president and CEO of AUVSI, a drone industry group, said lessons from the Middle East and Ukraine show that the U.S. must accelerate deployment of sophisticated counter-drone technologies, so \"our forces can defend bases and populations without spending a million dollars to stop a $50,000 threat.\"\n\nAssociated Press writers Lisa Mascaro, Didi Tang, David Klepper, Michelle L. Price, Ben Finley and Seung Min Kim contributed to this report from Washington.\n\nSupport trusted journalism and civil dialogue.\n\nLeft: Ukrainian President Volodymyr Zelenskyy said Thursday that the U.S. asked for his country's help in combating Iran's Shahed drones, which Russia has used in huge numbers in Ukraine. File photo by Roman Petushkov/Reuters\n\nBy Leila Molana-Allen, Eliot Barnhart, Sonia Kopelev\n\nBy Nick Schifrin, Zeba Warsi\n\nBy Matt Loffman\n\nBy Geoff Bennett, Leila Molana-Allen, Dan Sagalyn\n\nBy Jon Gambrell, Elena Becatoros, Samy Magdy, Associated Press\n\nEmma Burrows, Associated Press Emma Burrows, Associated Press\n\nSupport Provided By: Learn more\n\nSubscribe to Here’s the Deal, our politics newsletter for analysis you won’t find anywhere else.\n\nThank you. Please check your inbox to confirm.\n\n© 1996 - 2026 NewsHour Productions LLC. All Rights Reserved.\n\nPBS is a 501(c)(3) not-for-profit organization.\n\nSections\n\nAbout\n\nStay Connected\n\nSubscribe to Here's the Deal with Lisa Desjardins\n\nThank you. Please check your inbox to confirm.\n\nSupport for News Hour Provided By",
+        "lead_paragraph": "Emma Burrows, Associated Press Emma Burrows, Associated Press",
+        "paragraph_count": 40,
+        "word_count": 930,
+        "top_keywords": [
+          "drones",
+          "iranian",
+          "down",
+          "drone",
+          "system",
+          "anti-drone",
+          "take",
+          "missiles",
+          "ukraine",
+          "officials",
           "associated",
           "press"
         ]
       },
       "scrape_error": null,
       "score": {
-        "value": 56.0,
+        "value": 70.5,
         "max_value": 110.0,
-        "percent": 50.9091,
+        "percent": 64.0909,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 70.5,
+        "overall_percent": 64.0909090909091,
+        "lens_scores": {
+          "Credibility Lens": 16.0,
+          "Emotional Intensity Lens": 3.0,
+          "Entity-Level Sentiment Lens": 17.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 10.5,
+          "Sentiment Clarity Lens": 15.5
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "pbs-newshour",
+          "source_name": "PBS NewsHour",
+          "feed_name": "Headlines",
+          "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "11ccd41adec2",
+      "title": "Weight-loss jab could be made for $3 a month, study finds",
+      "link": "https://www.theguardian.com/global-development/2026/mar/06/generic-drugs-weight-loss-semaglutide-ozempic-wegovy-diabetes-obesity-study",
+      "published": "Fri, 06 Mar 2026 09:00:16 GMT",
+      "summary": "Cheap semaglutide, the drug in Ozempic and Wegovy, could help millions with diabetes and obesity in 160 countriesWeight-loss jabs such as Wegovy could be made for just $3 a month, according to new analysis, potentially making the treatment available to millions in poorer countries as patents expire.More than a billion people live with obesity worldwide, with rates rising fast in lower-income nations as they shift to westernised diets and more sedentary lifestyles. Continue reading...",
+      "ai_summary": "A study suggests that weight-loss injections could be produced for as little as $3 a month, potentially benefiting millions globally.",
+      "ai_tags": [
+        "health",
+        "obesity",
+        "pharmaceuticals"
+      ],
+      "topic_tags": [
+        "world"
+      ],
+      "source": {
+        "id": "the-guardian",
+        "name": "The Guardian"
+      },
+      "feed": {
+        "name": "World",
+        "url": "https://www.theguardian.com/world/rss"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-07T13:46:05.797371+00:00",
+        "final_url": "https://www.theguardian.com/global-development/2026/mar/06/generic-drugs-weight-loss-semaglutide-ozempic-wegovy-diabetes-obesity-study",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Weight-loss jab could be made for $3 a month, study finds",
+        "description": "Cheap semaglutide, the drug in Ozempic and Wegovy, could help millions with diabetes and obesity in 160 countries",
+        "author": "https://www.theguardian.com/profile/kat-lay",
+        "published_at": "2026-03-06T09:00:16+00:00",
+        "canonical_url": "https://www.theguardian.com/global-development/2026/mar/06/generic-drugs-weight-loss-semaglutide-ozempic-wegovy-diabetes-obesity-study",
+        "language": "en",
+        "h1": "Weight-loss jab could be made for $3 a month, study finds",
+        "body_text": "Cheap semaglutide, the drug in Ozempic and Wegovy, could help millions with diabetes and obesity in 160 countries\n\nWeight-loss jabs such as Wegovy could be made for just $3 a month, according to new analysis, potentially making the treatment available to millions in poorer countries as patents expire.\n\nMore than a billion people live with obesity worldwide, with rates rising fast in lower-income nations as they shift to westernised diets and more sedentary lifestyles.\n\nThe World Health Organization designated semaglutide – sold to treat obesity under the brand name Wegovy, and diabetes under the brand name Ozempic – as an essential medicine in September last year.\n\nBut global health leaders warned at the time that high prices were limiting access.\n\nNew research , published as a pre-print, suggests that semaglutide could be mass produced for $3 (about £2.35) for a monthly dose in its injectable form.\n\nNewer formulations, taken as a pill rather than an injection , could be made for about $16 a month.\n\nOne of the authors, Dr Andrew Hill of Liverpool University’s pharmacology department, said: “These low prices open the door to worldwide access to an essential medicine.”\n\nThe researchers also found that core patents on semaglutide were due to expire in 10 countries this year, including Brazil, China, India, South Africa , Turkey, Mexico and Canada from 21 March, opening the way to generic competition.\n\nThey identified another 150 countries where patents had not been filed, including most of Africa . Those 160 countries are home to 69% of people with type 2 diabetes and 84% of those living with obesity.\n\nAnother author, Prof François Venter from Witwatersrand University in Johannesburg, said: “Drugs to treat HIV, TB, malaria and hepatitis are available in low- and middle-income countries for prices close to the cost of production, saving millions of lives while allowing generic companies to make sufficient profit to ensure sustainable supply. We can repeat this medical success story for semaglutide.”\n\nThe researchers warned that cheaper treatments would not address the structural drivers of obesity, “including food insecurity, poverty, urbanisation and commercial food environments”, and said that coordinated policies and procurement planning would be needed to realise the benefits.\n\nDr Nomathemba Chandiwana, chief scientific officer at South Africa’s Desmond Tutu Health Foundation, and a specialist in obesity, who was not involved in the study, said: “This could be very significant for South Africa and many African countries and low and middle-income countries [LMICs] at large where cost has been one of the main barriers to access.”\n\nShe said analysis suggested about 27% of adults worldwide met the criteria for drugs such as semaglutide “and importantly, most of those live in LMICs where access to these medicines is extremely limited”.\n\nChandiwana said the key question now was how health systems integrated the drugs responsibly into broader obesity and diabetes care.\n\nObesity is linked to a host of other health conditions, including heart disease, diabetes, stroke and cancer. There are 3.7 million deaths attributed to excess weight each year.\n\nThe number of people living with diabetes rose from 200 million in 1990 to 830 million in 2022 , with the steepest rises in low- and middle-income countries.\n\nSemaglutide was first approved by US regulators in 2017, and costs about $200 a month in the US and £120 a month in the UK. Patents in Britain continental Europe and the US do not expire for another five years .\n\nThe research is based on shipment records of key ingredients from 2024 and 2025, and uses the same methodology that has been used in the past to accurately predict the prices of generic medicines for HIV, hepatitis C and some cancer drugs.\n\nIts findings follow research by Médecins Sans Frontières in 2024, which found that diabetes drugs including semaglutide could be made and sold much more cheaply .\n\nThis article was amended on 6 March 2026 to correct a description of Ozempic as a weight-loss jab; in the UK it is only licensed for diabetes, although it is sometimes prescribed “off-label” for weight loss.",
+        "lead_paragraph": "Cheap semaglutide, the drug in Ozempic and Wegovy, could help millions with diabetes and obesity in 160 countries",
+        "paragraph_count": 21,
+        "word_count": 676,
+        "top_keywords": [
+          "countries",
+          "semaglutide",
+          "obesity",
+          "made",
+          "month",
+          "wegovy",
+          "millions",
+          "diabetes",
+          "patents",
+          "prices",
+          "including",
+          "weight-loss"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 70.0,
+        "max_value": 110.0,
+        "percent": 63.6364,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 70.0,
+        "overall_percent": 63.63636363636363,
+        "lens_scores": {
+          "Credibility Lens": 15.5,
+          "Emotional Intensity Lens": 3.0,
+          "Entity-Level Sentiment Lens": 16.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 11.0,
+          "Sentiment Clarity Lens": 16.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "the-guardian",
+          "source_name": "The Guardian",
+          "feed_name": "World",
+          "feed_url": "https://www.theguardian.com/world/rss"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "78e5882b81d6",
+      "title": "Paula Doress-Worters, who helped break the silence on postpartum depression, dies at 87",
+      "link": "https://www.washingtonpost.com/obituaries/2026/03/07/paula-doress-worters-our-bodies-ourselves/",
+      "published": "Sat, 07 Mar 2026 12:00:04 +0000",
+      "summary": "She co-wrote “Our Bodies, Ourselves,” a 1970s touchstone conceived by and for women. The book offered information about abortion, pregnancy and postpartum life.",
+      "ai_summary": "",
+      "ai_tags": [],
+      "topic_tags": [
+        "us"
+      ],
+      "source": {
+        "id": "washington-post",
+        "name": "The Washington Post"
+      },
+      "feed": {
+        "name": "National",
+        "url": "https://feeds.washingtonpost.com/rss/national"
+      },
+      "scraped": null,
+      "scrape_error": "The read operation timed out",
+      "score": {
+        "value": 66.0,
+        "max_value": 110.0,
+        "percent": 60.0,
+        "rubric_count": 11
+      },
+      "high_score": {
+        "overall_score": 66.0,
+        "overall_percent": 60.0,
+        "lens_scores": {
+          "Credibility Lens": 13.0,
+          "Emotional Intensity Lens": 4.5,
+          "Entity-Level Sentiment Lens": 12.0,
+          "Linguistic Quality Lens": 8.5,
+          "Objectivity vs Opinion Lens": 11.0,
+          "Sentiment Clarity Lens": 17.0
+        }
+      },
+      "audit": {
+        "provenance": {
+          "source_id": "washington-post",
+          "source_name": "The Washington Post",
+          "feed_name": "National",
+          "feed_url": "https://feeds.washingtonpost.com/rss/national"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "283dab3b8e03",
+      "title": "The 2026 Winter Paralympics have begun. Here are the 6 sports athletes are competing in",
+      "link": "https://www.pbs.org/newshour/world/the-2026-winter-paralympics-have-begun-here-are-the-6-sports-athletes-are-competing-in",
+      "published": "Fri, 06 Mar 2026 19:45:17 -0500",
+      "summary": "The Milan Cortina Winter Paralympics will feature a record number of athletes and medals across six sports: Para alpine skiing, Para biathlon, Para cross-country skiing, Para ice hockey, Para snowboard and wheelchair curling.",
+      "ai_summary": "",
+      "ai_tags": [],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "pbs-newshour",
+        "name": "PBS NewsHour"
+      },
+      "feed": {
+        "name": "Headlines",
+        "url": "https://www.pbs.org/newshour/feeds/rss/headlines"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-07T13:46:49.585925+00:00",
+        "final_url": "https://www.pbs.org/newshour/world/the-2026-winter-paralympics-have-begun-here-are-the-6-sports-athletes-are-competing-in",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "The 2026 Winter Paralympics have begun. Here are the 6 sports athletes are competing in",
+        "description": "The Milan Cortina Winter Paralympics will feature a record number of athletes and medals across six sports: Para alpine skiing, Para biathlon, Para cross-country skiing, Para ice hockey, Para snowboard and wheelchair curling.",
+        "author": null,
+        "published_at": "2026-03-06T19:45:17-05:00",
+        "canonical_url": "https://www.pbs.org/newshour/world/the-2026-winter-paralympics-have-begun-here-are-the-6-sports-athletes-are-competing-in",
+        "language": "en-us",
+        "h1": "The 2026 Winter Paralympics have begun. Here are the 6 sports athletes are competing in",
+        "body_text": "Daniella Matar, Associated Press Daniella Matar, Associated Press\n\nLeave your feedback\n\nMILAN (AP) — The Winter Paralympics officially started on Friday, with the opening ceremony in Verona, Italy.\n\nWith more than 600 Para athletes and 79 sets of medals to be awarded, Milan Cortina will feature a record number of athletes and medals.\n\nPHOTOS: Memorable moments from the 2024 Paralympics\n\nThey will compete across six sports: Para alpine skiing, Para biathlon, Para cross-country skiing, Para ice hockey, Para snowboard and wheelchair curling.\n\nIn the skiing sports — Para alpine skiing, Para biathlon, Para cross-country skiing — athletes compete in one of three categories: standing, sitting (on a sit-ski or monoski) or vision impaired (who race following a guide connected via radio).\n\nGuides also receive medals.\n\nWithin each of these three categories skiers compete in different divisions depending on their functional ability. A results calculation system determines the factored time of each athlete, which allows athletes from different divisions to race against each other.\n\nHere's a look at the sports:\n\nIntroduced at the first Winter Paralympics in 1976, it includes five events: slalom, giant slalom, super-G, downhill and super combined.\n\nThere are 30 medal events — 15 for men and 15 for women.\n\nIn the sitting category, athletes use a specialized monoski, a seat mounted on a single ski with a shock absorber that helps with riding on uneven terrain and making turns.\n\nIn Para biathlon and Para cross-country, the sit-ski is a sitting device mounted on a pair of cross country skis.\n\nPara alpine skiing will take place on the Olympia delle Tofane course in Cortina d'Ampezzo, the same iconic course that held the women's alpine skiing at the recently concluded Winter Olympics.\n\nAnja Wicker of Germany during Para biathlon training at Tesero Cross-Country Skiing Stadium, in Lago, Italy, March 6, 2026. Photo by Sarah Meyssonnier/Reuters\n\nCombines the strength and endurance of cross-country skiing with the precision and composure of target shooting.\n\nThere are three events in each class — 7.5-kilometer sprint, 12.5-kilometer individual and sprint pursuit — and men and women compete in separate races, for a total of 18 medal events.\n\nThe ski course is tackled several times and between each lap athletes shoot at five metal targets placed 10 meters away. For each missed shot they get a time penalty or have to ski a penalty loop, depending on the event.\n\nAthletes with disabilities in the upper limbs can be assisted by their coaches in positioning the rifle and pulling the trigger at their direction. In the vision impairment category, athletes are aided by acoustic targets which indicate how close they are to the target before shooting.\n\nThe sport was introduced for athletes with physical disabilities at the 1988 Innsbruck Paralympic Games and for athletes with visual disabilities in 1992 at Albertville.\n\nAt Milan Cortina, Para biathlon will take place at the Tesero Cross-Country Skiing Stadium.\n\nArnt Christian Furuberg of Sweden during training at Tesero Cross-Country Skiing Stadium, in Lago, Italy, March 6, 2026. Photo by Sarah Meyssonnier/Reuters\n\nThis will also take place in Tesero and has a total of 20 medal events.\n\nThere are three events for men and women (across the three categories): sprint, 10-kilometer interval start classic, 20-kilometer interval start free. There is also the mixed 4x2.5-kilometer relay, and open 4x2.5-kilometer relay.\n\nFor each competition, there are separate courses for athletes in the sitting category and for athletes in the standing and vision impaired categories. The courses for the athletes in the sitting category have lower gradients as the athletes rely on the upper body for pushing/pulling themselves forward while on a sit-ski.\n\nA relay team can be made up of two, three or four athletes (plus guides as appropriate) with athletes able to ski more than one leg.\n\nPara ice hockey was invented at a rehabilitation center in Stockholm, Sweden, during the early 1960s by a group of Swedes who, despite their physical impairment, wanted to continue playing hockey.\n\nIt debuted in the Winter Paralympics at Lillehammer in 1994 and involves athletes with a physical disability in their lower limbs. Matches consist of three 15-minute periods.\n\nRather than skates, players use double blade sledges that allow the puck to slide underneath and have two sticks, which have a spike-end for propulsion and a blade-end for handling the puck.\n\nPara ice hockey is a mixed gender sport, although only two teams at Milan Cortina have a female in their squads — Japan and Slovakia.\n\nMoreover, only three female ice hockey players have ever participated at the Paralympic Games: Norwegians Brit Mjaasund Oeyen in 1994 and Lena Schroeder at Pyeongchang in 2018, and Yu Jing of China at Beijing in 2022.\n\nThe United States will be looking to complete a three-peat, having won both the men's and women's tournaments at the recent Winter Olympics. The U.S. has also won the Para ice hockey at five of the past six editions of the Winter Paralympics, with only Canada interrupting that streak in 2006.\n\nCompetition will take place at the new Santagiulia arena in Milan. There are eight teams, split into two groups. The teams play each other team in their group once in a round-robin format, with the top two from each group advancing to the semifinals.\n\nMike Schultz of United States in action during training at Cortina Para Snowboard Park, Cortina d'Ampezzo, Italy, March 6, 2026. REUTERS/Stoyan Nenov\n\nDebuted in Sochi in 2014 as part of the alpine skiing program, although there have been a varied number of events at subsequent Olympics.\n\nAt Milan Cortina there are two events across three categories for men depending on the disability and one category for women.\n\nThere are two categories for men with lower-limb impairments and one for those with upper-limb impairments, while there is one category for women with lower-limb impairments.\n\nPara snowboarders with a disability affecting one or both legs can use prosthetics or modified equipment to compete.\n\nThe two events are banked slalom and snowboard cross and will take place in Cortina. In banked slalom, athletes get two individual runs down the course with their best time counting toward the final ranking.\n\nThe heats and the finals of the snowboard cross will see four athletes racing at the same time. The top two advance from the heats and then the first across the finish line in the final wins.\n\nYoji Nakajima of Japan in action during the mixed doubles round robin session 4, Japan vs. Italy, at Cortina Curling Olympic Stadium, in Cortina d'Ampezzo, Italy, March 6, 2026. Photo by Louisa Gouliamaki/Reuters\n\nThe mixed-team event for athletes with physical disabilities in their legs is celebrating its 20th anniversary after being introduced the last time the Paralympics were held in Italy, in 2006.\n\nPlayers can choose whether to throw the stone alone or with a teammate who holds the wheelchair steady. Athletes can use an extender to add speed and direction.\n\nThere are eight ends per game, two less than games at the Olympics, and there is no sweeping.\n\nCompetition will take place at the Cortina Curling Olympic Stadium and the program will feature a mixed doubles competition for the first time as well as the regular mixed team event.\n\nSupport trusted journalism and civil dialogue.\n\nLeft: The prosthetic leg of an athlete is seen during training at Cortina Para Snowboard Park, in Cortina d'Ampezzo, Italy, March 06, 2026. Photo by Lisi Niesner/Reuters\n\nBy Joe Reedy, Associated Press\n\nBy Amna Nawaz, Mary Fecteau\n\nBy Jerome Pugmire, Associated Press\n\nBy John Yang, Juliet Fuisz, Kaisha Young\n\nBy Tom Nouvian, Associated Press\n\nDaniella Matar, Associated Press Daniella Matar, Associated Press\n\nSupport Provided By: Learn more\n\nSubscribe to Here’s the Deal, our politics newsletter for analysis you won’t find anywhere else.\n\nThank you. Please check your inbox to confirm.\n\n© 1996 - 2026 NewsHour Productions LLC. All Rights Reserved.\n\nPBS is a 501(c)(3) not-for-profit organization.\n\nSections\n\nAbout\n\nStay Connected\n\nSubscribe to Here's the Deal with Lisa Desjardins\n\nThank you. Please check your inbox to confirm.\n\nSupport for News Hour Provided By",
+        "lead_paragraph": "Daniella Matar, Associated Press Daniella Matar, Associated Press",
+        "paragraph_count": 65,
+        "word_count": 1375,
+        "top_keywords": [
+          "para",
+          "athletes",
+          "skiing",
+          "paralympics",
+          "sports",
+          "winter",
+          "medals",
+          "compete",
+          "each",
+          "daniella",
+          "matar",
+          "associated"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 55.5,
+        "max_value": 110.0,
+        "percent": 50.4545,
         "rubric_count": 11
       },
       "high_score": null,
@@ -490,25 +1452,24 @@
           "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
         },
         "openai": {
-          "cache_key": "22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "prompt_hash": "8c95f051c0ccbd57e2462d2853ea87bd210575a1b4ef01999b13e664a52ba900",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T205124-9267ba1da4/22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "response_hash": "5e3399cf968bf5ad11f7e4afecf8c2ee936dfd6ca6e5709ead6fe6dbec9b1971"
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
         }
       }
     },
     {
-      "id": "72179a9bb605",
-      "title": "Man accused of luring UGA student with ‘walk home’ ruse before brutal assault: police",
-      "link": "https://www.foxnews.com/us/man-accused-luring-uga-student-walk-home-ruse-before-brutal-assault-police",
-      "published": "Mon, 02 Mar 2026 15:34:28 -0500",
-      "summary": "A 19-year-old man is charged with raping a UGA student in downtown Athens after allegedly offering to walk her home safely from a bar, police said.",
-      "ai_summary": "A 19-year-old man has been charged with raping a UGA student after allegedly offering to walk her home.",
+      "id": "3e3b0e7f8139",
+      "title": "'Hoppers' Review: Jon Hamm, Meryl Streep elevate Pixar's run-of-the-mill beaver adventure",
+      "link": "https://www.foxnews.com/media/hoppers-review-jon-hamm-meryl-streep-elevate-pixars-run-of-the-mill-beaver-adventure",
+      "published": "Sat, 07 Mar 2026 08:00:57 -0500",
+      "summary": "Fox News Digital reviews Disney and Pixar's \"Hoppers,\" featuring the voices of Piper Curda, Bobby Moynihan, Jon Hamm, Dave Franco and Meryl Streep. Directed by Daniel Chong.",
+      "ai_summary": "A review of Pixar's 'Hoppers' highlights the performances of Jon Hamm and Meryl Streep in an otherwise average film.",
       "ai_tags": [
-        "Crime",
-        "UGA",
-        "Assault",
-        "Safety"
+        "entertainment",
+        "film",
+        "reviews"
       ],
       "topic_tags": [
         "general"
@@ -522,40 +1483,41 @@
         "url": "http://feeds.foxnews.com/foxnews/latest"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T20:51:40.364448+00:00",
-        "final_url": "https://www.foxnews.com/us/man-accused-luring-uga-student-walk-home-ruse-before-brutal-assault-police",
+        "fetched_at": "2026-03-07T13:46:51.508074+00:00",
+        "final_url": "https://www.foxnews.com/media/hoppers-review-jon-hamm-meryl-streep-elevate-pixars-run-of-the-mill-beaver-adventure",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "Man accused of luring UGA student with ‘walk home’ ruse before brutal assault: police",
-        "description": "University of Georgia student rape case leads to arrest of Tydarius Wingfield, 19, who allegedly assaulted victim behind Athens building, police said.",
-        "author": "Stepheny Price",
-        "published_at": "2026-03-02T00:00:00",
-        "canonical_url": "https://www.foxnews.com/us/man-accused-luring-uga-student-walk-home-ruse-before-brutal-assault-police",
+        "title": "'Hoppers' Review: Jon Hamm, Meryl Streep elevate Pixar's run-of-the-mill beaver adventure",
+        "description": "Disney and Pixar's \"Hoppers,\" featuring the voices of Jon Hamm, Meryl Streep, Bobby Moynihan and Dave Franco, will entertain the kids but lacks the originality of its iconic predecessors.",
+        "author": "Joseph Wulfsohn",
+        "published_at": "2026-03-03T00:00:00",
+        "canonical_url": "https://www.foxnews.com/media/hoppers-review-jon-hamm-meryl-streep-elevate-pixars-run-of-the-mill-beaver-adventure",
         "language": "en",
-        "h1": "Man accused of luring UGA student with ‘walk home’ ruse before brutal assault: police",
+        "h1": "'Hoppers' Review: Jon Hamm, Meryl Streep elevate Pixar's run-of-the-mill beaver adventure",
+        "body_text": "This material may not be published, broadcast, rewritten, or redistributed. ©2026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .\n\nThe trailer for Disney/Pixar's \"Hoppers\" starring Piper Curda, Bobby Moynihan, Jon Hamm and Meryl Streep. Directed by Daniel Chong.\n\nIt's difficult to avoid the reality that Pixar has been in a rut. The house that built \"Toy Story\" and \"Finding Nemo\" hasn't had a home run original since 2017's \"Coco,\" which is why the Disney-owned studio falls back on tried and true franchise favorites like 2024's \"Inside Out 2\" and the forthcoming \"Toy Story 5.\"\n\nThat's not to say that Pixar should only stick with sequels because they're safe box office hits. Pixar should be taking creative risks that gave us beloved characters like Woody, WALL-E and The Incredibles.\n\nBut Pixar plays it very safe with its latest film \"Hoppers.\"\n\n(L-R): King George, Mabel Beaver, and Ellen Bear in Disney and Pixar's HOPPERS. Photo courtesy of Pixar. ( © 2026 Disney/Pixar. All Rights Reserved.)\n\nMessy-haired 19-year-old animal lover Mabel (Piper Curda) is taking it upon herself to preserve the glade behind her late grandmother's house outside of Beaverton — it was essentially her dying wish — even though wildlife had already deserted it. Except Mayor Jerry ( Jon Hamm ) plans on building a beltway through that precious plot of land. Like I said, Pixar's playing it safe with the generic \"save nature from greedy politician\" storyline.\n\nShe learns from her college professor Dr. Sam (Kathy Najimy) that only a keystone species like the beaver can restore the glade to its former glory. After failing to lure beavers to the glade, Mabel stumbles upon Dr. Sam's secret project in which she's able to transport the human mind into a robotic animal in order to observe wildlife, something she calls \"hoppers.\" If that too sounds familiar, that's because it's essentially the plot to \"Avatar ,\" which Mabel herself cheekily acknowledges.\n\n‘HOW TO MAKE A KILLING’ REVIEW: GLEN POWELL EYES THE FAMILY FORTUNE IN A24'S COMEDIC NOIR\n\n(L-R): Dr. Sam, Nisha, and Mabel in Disney and Pixar's \"Hoppers.\" Photo courtesy of Pixar. ( © 2026 Disney/Pixar. All Rights Reserved.)\n\nMabel, rebellious in nature, goes rogue and hijacks the beaver robot and escapes into the wilderness to find other beavers. She quickly discovers that she can understand all the animals around her and must adapt to the \"pond rules.\"\n\nBeaver Mabel eventually meets actual beaver George (Bobby Moynihan), the overly cheery king of the mammals. She hopes to convince George and the rest of the Great Animal Council, made up by the Bird King (Isiah Whitlock Jr.), the Fish Queen (Ego Nwodim), the Reptile Queens (Nichole Sakura), the Amphibian King (Steve Purcell) as well as the Insect Queen and her son ( Meryl Streep and Dave Franco), to rally together to stop Mayor Jerry from destroying the glade.\n\n‘WUTHERING HEIGHTS’ REVIEW: MARGOT ROBBIE, JACOB ELORDI STAR IN STEAMY ADAPTATION OF ILL-FATED ROMANCE\n\nA scene from Disney and Pixar's \"Hoppers.\" Photo courtesy of Pixar. (© 2026 Disney/Pixar. All Rights Reserved.)\n\nThe cast of critters are predictably fun and adorable like any other Disney film, but the standout character is actually Mayor Jerry. Despite the rather mundane plot, \"Hoppers\" refrains from the trope of depicting the politician as evil. He's likable, goofy and truly seems to be acting in what Beaverton residents want without having malicious motivations. And Hamm really hams it up with his performance.\n\n‘SEND HELP’ REVIEW: RACHEL MCADAMS, DYLAN O'BRIEN LEAD COMICALLY VIOLENT DESERT ISLAND THRILLER\n\nJerry from Disney and Pixar's \"Hoppers.\" Photo courtesy of Pixar. (© 2026 Disney/Pixar. All Rights Reserved.)\n\n\"Hoppers\" marks the feature debut of director Daniel Chong, whose animation credits include \"Cars 2,\" \"Inside Out,\" \"Bolt\" and \"The Lorax.\" Screenwriter Jesse Andrew was previously credited for co-writing Pixar's underappreciated COVID-era release \"Luca,\" as well as writing the brilliant 2015 coming-of-age dramedy \"Me and Earl and the Dying Girl.\"\n\nAnd a note for the super fans: There are two post-credit scenes for you to check out.\n\nWILL ‘ONE BATTLE AFTER ANOTHER’ RIDE THE ANTI-ICE PROTEST WAVE TO BEST PICTURE AT THE OSCARS?\n\n(L-R): Mabel Beaver and King George in Disney and Pixar's \"Hoppers.\" Photo courtesy of Pixar. (© 2026 Disney/Pixar. All Rights Reserved.)\n\n\"Hoppers\" will keep the kids happy and has enough for parents to enjoy, but it doesn't reach the excellence of Pixar's most iconic films known for their originality, which \"Hoppers\" certainly lacks. This beaver adventure can easily be saved for a Disney+ watch later on.\n\n\"Hoppers\" is rated PG for action/peril, some scary images and mild language.\n\nCLICK HERE TO GET THE FOX NEWS APP\n\nJoseph A. Wulfsohn is a media reporter for Fox News Digital. Story tips can be sent to joseph.wulfsohn@fox.com and on Twitter: @JosephWulfsohn.\n\nGet all the stories you need-to-know from the most powerful name in news delivered first thing every morning to your inbox.\n\nBy entering your email and clicking the Subscribe button, you agree to the Fox News Privacy Policy and Terms of Use , and agree to receive content and promotional communications from Fox News. You understand that you can opt-out at any time.\n\nSubscribed\n\nYou've successfully subscribed to this newsletter!\n\nThis material may not be published, broadcast, rewritten, or redistributed. ©2026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
         "lead_paragraph": "This material may not be published, broadcast, rewritten, or redistributed. ©2026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
-        "paragraph_count": 34,
-        "word_count": 1007,
+        "paragraph_count": 30,
+        "word_count": 984,
         "top_keywords": [
-          "student",
-          "wingfield",
-          "georgia",
-          "downtown",
-          "police",
-          "university",
-          "battery",
-          "walk",
-          "home",
-          "assault",
-          "athens",
-          "rape"
+          "pixar",
+          "mabel",
+          "hoppers",
+          "beaver",
+          "pixar's",
+          "disney",
+          "like",
+          "king",
+          "glade",
+          "hamm",
+          "meryl",
+          "streep"
         ]
       },
       "scrape_error": null,
       "score": {
-        "value": 44.5,
+        "value": 50.0,
         "max_value": 110.0,
-        "percent": 40.4545,
+        "percent": 45.4545,
         "rubric_count": 11
       },
       "high_score": null,
@@ -567,25 +1529,24 @@
           "feed_url": "http://feeds.foxnews.com/foxnews/latest"
         },
         "openai": {
-          "cache_key": "22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "prompt_hash": "8c95f051c0ccbd57e2462d2853ea87bd210575a1b4ef01999b13e664a52ba900",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T205124-9267ba1da4/22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "response_hash": "5e3399cf968bf5ad11f7e4afecf8c2ee936dfd6ca6e5709ead6fe6dbec9b1971"
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
         }
       }
     },
     {
-      "id": "70fb42607afb",
-      "title": "Jelly Roll hid painful 'secret' while celebrating at awards show",
-      "link": "https://www.foxnews.com/entertainment/jelly-roll-hid-painful-secret-while-celebrating-awards-show",
-      "published": "Mon, 02 Mar 2026 15:38:58 -0500",
-      "summary": "Country singer Jelly Roll reveals he flipped his ATV in January, breaking his collarbone but still attending the Grammy Awards despite the injury.",
-      "ai_summary": "Country singer Jelly Roll attended the Grammy Awards despite a recent injury from an ATV accident.",
+      "id": "9e76e431e1dd",
+      "title": "CEO of Olympic-styled sporting event that allows enhancements ready to put negative connotations to bed",
+      "link": "https://www.foxnews.com/sports/ceo-olympic-styled-sporting-event-allows-enhancements-ready-put-negative-connotations-bed",
+      "published": "Sat, 07 Mar 2026 08:29:31 -0500",
+      "summary": "Enhanced Games CEO Max Martin argued that permitting performance enhancements makes sports safer and more transparent, challenging traditional Olympic competition norms.",
+      "ai_summary": "The CEO of an Olympic-styled event allowing performance enhancements argues that it promotes safety and transparency in sports.",
       "ai_tags": [
-        "Entertainment",
-        "Music",
-        "Awards",
-        "Injury"
+        "sports",
+        "performance",
+        "ethics"
       ],
       "topic_tags": [
         "general"
@@ -599,33 +1560,111 @@
         "url": "http://feeds.foxnews.com/foxnews/latest"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T20:51:39.916144+00:00",
-        "final_url": "https://www.foxnews.com/entertainment/jelly-roll-hid-painful-secret-while-celebrating-awards-show",
+        "fetched_at": "2026-03-07T13:46:51.149448+00:00",
+        "final_url": "https://www.foxnews.com/sports/ceo-olympic-styled-sporting-event-allows-enhancements-ready-put-negative-connotations-bed",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "Jelly Roll hid painful 'secret' while celebrating at awards show",
-        "description": "Jelly Roll attended the 2026 Grammy Awards with a broken collarbone after flipping an ATV, revealing he wanted to scream every time someone hugged him during the ceremony.",
-        "author": "Lauryn Overhultz",
-        "published_at": "2026-03-02T00:00:00",
-        "canonical_url": "https://www.foxnews.com/entertainment/jelly-roll-hid-painful-secret-while-celebrating-awards-show",
+        "title": "CEO of Olympic-styled sporting event that allows enhancements ready to put negative connotations to bed",
+        "description": "Enhanced Games CEO Max Martin defended allowing performance enhancements, saying the event promotes safety, fairness and transparency for athletes in competition.",
+        "author": "Ryan Morik",
+        "published_at": "2026-03-03T00:00:00",
+        "canonical_url": "https://www.foxnews.com/sports/ceo-olympic-styled-sporting-event-allows-enhancements-ready-put-negative-connotations-bed",
         "language": "en",
-        "h1": "Jelly Roll hid painful 'secret' while celebrating at awards show",
+        "h1": "CEO of Olympic-styled sporting event that allows enhancements ready to put negative connotations to bed",
+        "body_text": "This material may not be published, broadcast, rewritten, or redistributed. ©2026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .\n\nFox News Flash top sports headlines are here. Check out what's clicking on FoxNews.com.\n\nWith the Olympics over, it is not out of the realm of possibility that some dirty work went on behind the scenes — there were rumors about male ski jumpers potentially inflating their private parts for better hang time. In the Enhanced Games, though, as counterintuitive as it may sound, there is no such thing.\n\nThe Enhanced Games have long been labeled the \"Steroid Olympics\" by critics . The event doesn't have its name by accident, as performance-enhancements will be allowed.\n\nHowever, CEO Max Martin believes that such an event actually champions fairness, honesty and, most importantly, safety.\n\nCLICK HERE FOR MORE SPORTS COVERAGE ON FOXNEWS.COM\n\nGreek swimmer Kristian Gkolomeev will compete in the Enhanced Games after already swimming the fastest 50 meters ever. (Enhanced Games)\n\n\"I would say the biggest [misconception] is that athletes are putting their health at risk with what they're doing, and they're just doing it for the money. It's actually quite the opposite,\" Martin said in a recent interview with Fox News Digital.\n\n\"Saying that enhancements are dangerous, in some circumstances, is true, yes. It can be completely abusive — too high of dosing, bad drug-on-drug interaction, because it's unsupervised and unmonitored, that can be very dangerous, yes. But that is exactly what we stand against and exactly what we'll be able to circumvent by being transparent and allowing it in a regulated environment.\"\n\nSo, how do they do that?\n\nWell, Enhanced doctors have gone, and will continue to go, through every athlete's data and let the athlete know what they should and can, and what they should not and cannot, take. That means, yes, it's not as easy as someone getting more enhancements simply if they want it. Some athletes, Martin said, even had to stop taking specific substances because they were not approved by Enhanced’s doctors.\n\n\"And why is it unapproved? Because we haven't found out yet in research, whether it is safe or not,\" Martin said.\n\nThat's part of why Martin believes his event may actually be safer than the Olympics.\n\n\"[They] take substances that are not well-researched, that we don't know well, that are newly developed. We have no data on how these substances actually do in your system. And then, secondly, by taking additional drugs like a masking agent to hide what you're taking in the first place, that's super dangerous,\" Martin said. \"If you take it out into the open and you allow athletes to utilize regulated and improved substances, where you know very, very well the safety profiles, the benefit profiles, and you monitor them constantly and over time, then you know if something went sideways. Because we monitor the athletes so well, we notice immediately.\"\n\n\"What current testing systems are focused on is punitive drug testing. They are only focused on whether an athlete is cheating or not. What they're not focused on is whether an athlete is healthy and safe to compete,\" he continued. \"Some of our guys didn't even have health coverage , and they're competing on the highest international level, winning medals for their countries. They're not even health-insured. And so that's really the problem.\"\n\nIn this photo illustration, the Enhanced Games logo is seen displayed on a smartphone screen. (Thomas Fuller/SOPA Images/LightRocket via Getty Images)\n\n\"Athletes are willing to do whatever it is to win. What we need to do, and are obsessed with, is making sure that every athlete that goes into competition is healthy and safe to compete.\"\n\nPart of the protocol is also making sure athletes are taking what makes sense for them and their sport. Australian swimmer James Magnussen won't be taking the same enhancements as, say, a powerlifter.\n\n\"The enhancements, what they're doing is they're not pumping (Magnussen) up to be a bodybuilder. What they're doing is they're very, very targeted to who he is as an individual and to what he specifically is training for. And that allows him to just become better,\" Martin said, adding that the enhancements are more so \"icing on the cake and fine-tuning,\" rather than the main product.\n\nEnhanced is also paying its athletes quite the prize money — $250,000 for winners, $250,000 for the rest of the pack, and $1 million to anyone who breaks a world record. Perhaps not coincidentally, World Aquatics said it would begin to give Olympic winners $50,000 in 2024.\n\n\"I think they did that because they know that we're going to start paying athletes well, and athletes will evaluate that. They're scared. It’s a beautiful thing. That's the positive impact we're already having, and I think there will be more in terms of positive impact that we can inspire other sporting institutions to do that in the future,\" Martin said.\n\nOne athlete who will be competing at Enhanced is Hafþor Juius Bjornsson, better known as \"The Mountain\" from \"Game of Thrones,\" or more simply, \"Thor.\" With 32 international Strongman titles, the 6-foot-9, 400-plus-pound behemoth will attempt to break his own deadlift world record of 1,124 pounds for a grand prize himself.\n\nThor is in lockstep with Martin on the safety of the event.\n\n\"What I like about what the enhancement is doing is they check athletes first. They have us do a massive heart check , they take results, we get blood drawn, and we do all these tests, and we check our body to see if we are healthy enough to participate. Once that is done, we get the green light. Throughout the course of our training, we see doctors, and it's really like, I feel in a lot better position now than I was doing it on my own,\" Björnsson told Fox News Digital. \"Like, I feel like I'm in good hands with Enhanced. They're really caring, and they really want to make sure that I'm healthy first and foremost, you know? So it's good. I'm really stoked and excited for the opportunity to be with Enhanced and to have the opportunity to break the record with Enhanced.\"\n\nArnold Schwarzenegger presents Hafthor Bjornsson of Iceland the trophy as Bjornsson won the Arnold Strongman Classic title for the third straight year as part of the Arnold Sports Festival on March 7, 2020, at the Greater Columbus Convention Center in Columbus, Ohio. (Frank Jansky/Icon Sportswire via Getty Images)\n\nThroughout the event, there will be nothing to hide. As Martin said, \"It's a fair game,\" even for the small number of athletes choosing not to be enhanced, because it is fully \"transparent.\"\n\n\"These athletes, they know what they're up against, you know? They have the same opportunities to utilize the same access to the medical program...\" Martin said. \"So many athletes have explained to me that they came in second, and they thought, ‘You know what, the first guy was cheating, but they didn't catch him.’ And that's the worst feeling you can have, because you stay within the rules, you do everything that you can to become the best, someone else is taking a cheating approach to it, wins, doesn't get caught, it's the worst feeling in the world.\n\n\"If you come in second at the Enhanced Games and you're not enhanced, you’re very proud of your performance, because you're like, ‘OK, this guy chose to do something I didn't want to do myself, but I know that within what I chose to do, I'm the freaking best.’ And that's what gives so many athletes like this excitement about being in the games, because it's an open competition, a transparent competition.\"\n\nAnd yes, Martin \"absolutely\" believes any world records set would be legitimate, even if they are not officially recognized.\n\n\"There are studies that show that 43% of Olympians take banned substances, but 1% gets caught. That questions, for me, every record that there is, every performance that there is, because on average, every other athlete cheats,\" Martin said.\n\nLast year, Greek swimmer Kristian Gkolomeev swam a 50-meter freestyle in 20.89 seconds, the fastest ever, with the benefit of performance-enhancing drugs (an enhanced Magnussen failed). While most may deem it illegitimate, Martin takes pride in knowing that Gkolomeev does not have to hide how he got there — unlike athletes such as Marion Jones, Ben Johnson, Tim Montgomery and numerous others.\n\n\"Kristian Gkolomeev is the only human being, that was ever able to travel the distance of 50 meters in water in 20.89 seconds. That's just the fact, whether you treat this as an official word record under World Aquatics regulations or whether you treat it as an official word record under Enhanced Games regulations, the fact is, no other human being was ever able to do that. Full stop.\"\n\nKristian Gkolomeev of Greece competes during the Men's 50m Freestyle Semifinals of the Swimming at the Paris La Defense Arena during the Paris 2024 Olympics Games on Aug. 1, 2024 in Nanterre, France. (Oscar J. Barroso/Europa Press via Getty Images)\n\nCLICK HERE TO GET THE FOX NEWS APP\n\nIs he OK if people think Gkolomeev's accomplishment is not legit?\n\n\"Of course.\"\n\nUnorthodox? Certainly. Eventually the norm? Possibly.\n\n\"People can make their opinion on whether they like it or not, but the notion that this is a steroid Olympics where everyone's just going to be shot up with some random drugs, it's just completely wrong,\" Martin said.\n\n\"After May 24, I think the world is going to have a much different perspective.\"\n\nFollow Fox News Digital’s sports coverage on X , and subscribe to the Fox News Sports Huddle newsletter\n\nGet all the stories you need-to-know from the most powerful name in news delivered first thing every morning to your inbox.\n\nBy entering your email and clicking the Subscribe button, you agree to the Fox News Privacy Policy and Terms of Use , and agree to receive content and promotional communications from Fox News. You understand that you can opt-out at any time.\n\nSubscribed\n\nYou've successfully subscribed to this newsletter!\n\nThis material may not be published, broadcast, rewritten, or redistributed. ©2026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
         "lead_paragraph": "This material may not be published, broadcast, rewritten, or redistributed. ©2026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
-        "paragraph_count": 29,
-        "word_count": 746,
+        "paragraph_count": 45,
+        "word_count": 1835,
         "top_keywords": [
-          "jelly",
-          "roll",
-          "collarbone",
-          "awards",
-          "time",
-          "painful",
-          "secret",
+          "enhanced",
+          "games",
+          "martin",
+          "event",
+          "enhancements",
           "data",
+          "will",
+          "it's",
           "provided",
           "factset",
-          "powered",
-          "digital"
+          "digital",
+          "sports"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 42.0,
+        "max_value": 110.0,
+        "percent": 38.1818,
+        "rubric_count": 11
+      },
+      "high_score": null,
+      "audit": {
+        "provenance": {
+          "source_id": "fox-news",
+          "source_name": "Fox News",
+          "feed_name": "Latest",
+          "feed_url": "http://feeds.foxnews.com/foxnews/latest"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "c349e89027b2",
+      "title": "Vocal anti-Trump Dem reveals which industry is trying to oust him from House seat: 'I was a target'",
+      "link": "https://www.foxnews.com/politics/vocal-anti-trump-house-dem-reveals-which-industry-trying-oust-him-amid-runoff-target",
+      "published": "Sat, 07 Mar 2026 08:00:48 -0500",
+      "summary": "After a razor-thin primary, Rep. Al Green will face Rep. Christian Menefee in a runoff. Green blasted his younger rival's missed votes and dared him to debate right away.",
+      "ai_summary": "Rep. Al Green is facing a runoff election and has accused an industry of trying to oust him from his House seat.",
+      "ai_tags": [
+        "politics",
+        "elections",
+        "Democrats"
+      ],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "fox-news",
+        "name": "Fox News"
+      },
+      "feed": {
+        "name": "Latest",
+        "url": "http://feeds.foxnews.com/foxnews/latest"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-07T13:46:51.907321+00:00",
+        "final_url": "https://www.foxnews.com/politics/vocal-anti-trump-house-dem-reveals-which-industry-trying-oust-him-amid-runoff-target",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Vocal anti-Trump Dem reveals which industry is trying to oust him from House seat: 'I was a target'",
+        "description": "Rep. Al Green, a longtime Trump critic, heads to a runoff after a tight Texas Democratic primary and blames $1.5 million in crypto spending for making him a target.",
+        "author": "Alec Schemmel",
+        "published_at": "2026-03-06T00:00:00",
+        "canonical_url": "https://www.foxnews.com/politics/vocal-anti-trump-house-dem-reveals-which-industry-trying-oust-him-amid-runoff-target",
+        "language": "en",
+        "h1": "Vocal anti-Trump Dem reveals which industry is trying to oust him from House seat: 'I was a target'",
+        "body_text": "This material may not be published, broadcast, rewritten, or redistributed. ©2026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .\n\nLongtime House Democrat from Texas, Rep Al Green, D-Texas, talked to Fox News Digital about the results of his primary election, which is now leading to a runoff. (Credit: Nicholas Ballasy for Fox News Digital)\n\nRep. Al Green, D-Texas, who has repeatedly tried to impeach President Trump and has been thrown out of Trump's State of the Union addresses multiple times, spoke on camera with Fox News Digital about the results of his recent primary election that resulted in a runoff.\n\nGreen cited $1.5 million in spending against his campaign by the crypto-industry as a major driver behind the closeness of his race.\n\n\"They made it clear that I was a target, and they had a fake poll that showed that they were going to win by some large margin. I think, actually, they called a victory party last night assuming that it was over. Of course, I and others knew that it would be a runoff,\" Green said the day after his primary this past week.\n\nRep. Al Green, D-Texas, has been removed twice from the House chamber for disrupting Trump's State of the Union speech. (REUTERS/AP)\n\nAt the same time, Green also slammed his opponent, former Harris County Attorney-turned-Texas Congressman Christian Menefee, over his alleged lack of experience and failure to show up for votes early in his congressional career. Texas's redistricting changes pitted the two incumbents against each other in the 18th Congressional District race they have been battling in.\n\nGreen told Fox News Digital that he wanted to have a debate immediately with Menefee ahead of the runoff election.\n\n\"I'm challenging Mr. Menefee to a debate. I think we should have a debate right away,\" Green said. \"But I also challenge him to come to work. In his first month in Congress, after having sworn that he was going to come here and represent the people and vote, you know, the 18th Congressional District has been about an absence of a vote, so having sworn to do this, within his first month he missed a week, an entire week without voting.\"\n\nDEM REP COMPARES HIMSELF TO MLK JR, ROSA PARKS AFTER GETTING BOOTED FROM SECOND STRAIGHT TRUMP ADDRESS\n\nFormer Harris County Attorney turned Texas Congressman, Christian Menefee, and longtime Democrat Texas Rep. Al Green were forced to compete against each other following Republicans' mid-decade redistricting moves in the state. (Office of the Harris County Attorney official website)\n\nGreen bragged that in 20 years he has made over 97% of his votes in Congress. He also alleged that Menefee was not present at a classified briefing on Iran.\n\nWhen asked if he was concerned his objections to Trump may be a factor that could cost him his race, the longtime Texas Democrat doubled down, saying he would do it \"again and again and again.\"\n\n\"If it cost me an election, I would do it,\" Green continued. \"I just think that this president is a racist. I hope you pick that up. Yeah, he's a racist ad we have to challenge him. We shouldn't have a racist in the White House.\"\n\nCLICK HERE TO GET THE FOX NEWS APP\n\nRep. Al Green, D-Texas, holds up a sign as President Donald Trump delivers his State of the Union address during a joint session of Congress at the U.S. Capitol in Washington, District of Columbia, on Feb. 24, 2026. (Chip Somodevilla/Getty Images)\n\nGet the latest updates from the 2024 campaign trail, exclusive interviews and more Fox News politics content.\n\nBy entering your email and clicking the Subscribe button, you agree to the Fox News Privacy Policy and Terms of Use , and agree to receive content and promotional communications from Fox News. You understand that you can opt-out at any time.\n\nSubscribed\n\nYou've successfully subscribed to this newsletter!\n\nThis material may not be published, broadcast, rewritten, or redistributed. ©2026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
+        "lead_paragraph": "This material may not be published, broadcast, rewritten, or redistributed. ©2026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
+        "paragraph_count": 21,
+        "word_count": 751,
+        "top_keywords": [
+          "green",
+          "digital",
+          "menefee",
+          "runoff",
+          "been",
+          "house",
+          "texas",
+          "d-texas",
+          "primary",
+          "election",
+          "state",
+          "week"
         ]
       },
       "scrape_error": null,
@@ -644,164 +1683,229 @@
           "feed_url": "http://feeds.foxnews.com/foxnews/latest"
         },
         "openai": {
-          "cache_key": "22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "prompt_hash": "8c95f051c0ccbd57e2462d2853ea87bd210575a1b4ef01999b13e664a52ba900",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T205124-9267ba1da4/22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "response_hash": "5e3399cf968bf5ad11f7e4afecf8c2ee936dfd6ca6e5709ead6fe6dbec9b1971"
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
         }
       }
     },
     {
-      "id": "6f62bdad09c0",
-      "title": "Arizona Sen. Gallego endorses Maine Senate hopeful Graham Platner",
-      "link": "https://www.pbs.org/newshour/politics/arizona-sen-gallego-endorses-maine-senate-hopeful-graham-platner",
-      "published": "Mon, 02 Mar 2026 14:56:51 -0500",
-      "summary": "Maine Democrat Graham Platner has picked up another Senate endorsement in his bid to flip a key Senate seat blue.",
-      "ai_summary": "Arizona Senator Gallego has endorsed Maine Senate candidate Graham Platner in his campaign to secure a Democratic seat.",
-      "ai_tags": [
-        "Politics",
-        "Senate",
-        "Endorsement",
-        "Democrats"
-      ],
+      "id": "b0655cedbdaa",
+      "title": "Trump claims Iran has ‘surrendered’ to neighbours after it apologises for attacks",
+      "link": "https://www.ft.com/content/bbd79c63-8131-4b20-9d2d-708bc8acea38",
+      "published": "Sat, 07 Mar 2026 11:24:56 GMT",
+      "summary": "Iran’s army says it will continue to target US and Israeli military sites as Trump vows to hit back hard",
+      "ai_summary": "",
+      "ai_tags": [],
       "topic_tags": [
         "general"
       ],
       "source": {
-        "id": "pbs-newshour",
-        "name": "PBS NewsHour"
+        "id": "financial-times",
+        "name": "Financial Times"
       },
       "feed": {
-        "name": "Headlines",
-        "url": "https://www.pbs.org/newshour/feeds/rss/headlines"
+        "name": "Top Stories",
+        "url": "https://www.ft.com/?format=rss"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T20:51:38.987011+00:00",
-        "final_url": "https://www.pbs.org/newshour/politics/arizona-sen-gallego-endorses-maine-senate-hopeful-graham-platner",
+        "fetched_at": "2026-03-07T13:46:45.825129+00:00",
+        "final_url": "https://www.ft.com/content/bbd79c63-8131-4b20-9d2d-708bc8acea38",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "Arizona Sen. Gallego endorses Maine Senate hopeful Graham Platner",
-        "description": "Maine Democrat Graham Platner has picked up another Senate endorsement in his bid to flip a key Senate seat blue.",
+        "title": "Middle East war live: Trump claims Iran has ‘surrendered’ to neighbours after it apologises for attacks",
+        "description": "Iran’s army says it will continue to target US and Israeli military sites as Trump vows to hit back hard",
         "author": null,
-        "published_at": "2026-03-02T14:56:51-05:00",
-        "canonical_url": "https://www.pbs.org/newshour/politics/arizona-sen-gallego-endorses-maine-senate-hopeful-graham-platner",
-        "language": "en-us",
-        "h1": "Arizona Sen. Gallego endorses Maine Senate hopeful Graham Platner",
-        "lead_paragraph": "Stand up for truly independent, trusted news.",
-        "paragraph_count": 34,
-        "word_count": 578,
+        "published_at": null,
+        "canonical_url": "https://www.ft.com/content/bbd79c63-8131-4b20-9d2d-708bc8acea38",
+        "language": "en-GB",
+        "h1": "Middle East war live: Trump claims Iran has ‘surrendered’ to neighbours after it apologises for attacks",
+        "body_text": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.\n\nEssential digital access to quality FT journalism on any device. Pay a year upfront and save 20%.\n\nComplete digital access to quality FT journalism with expert analysis from industry leaders. Pay a year upfront and save 20%.\n\nFT Weekend newspaper delivered Saturday plus complete digital access.\n\nCheck whether you already have access via your university or organisation.\n\nTerms & Conditions apply\n\nDiscover all the plans currently available in your country\n\nDigital access for organisations. Includes exclusive features and content.\n\nSee why over a million readers pay to read the Financial Times.",
+        "lead_paragraph": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
+        "paragraph_count": 9,
+        "word_count": 109,
         "top_keywords": [
-          "maine",
-          "platner",
-          "senate",
-          "graham",
-          "arizona",
-          "gallego",
-          "democrat",
-          "another",
-          "independent",
-          "patrick",
-          "whittle",
-          "associated"
+          "access",
+          "digital",
+          "complete",
+          "quality",
+          "journalism",
+          "your",
+          "device",
+          "year",
+          "upfront",
+          "save",
+          "middle",
+          "east"
         ]
       },
       "scrape_error": null,
       "score": {
-        "value": 33.5,
+        "value": 27.0,
         "max_value": 110.0,
-        "percent": 30.4545,
+        "percent": 24.5455,
         "rubric_count": 11
       },
       "high_score": null,
       "audit": {
         "provenance": {
-          "source_id": "pbs-newshour",
-          "source_name": "PBS NewsHour",
-          "feed_name": "Headlines",
-          "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines"
+          "source_id": "financial-times",
+          "source_name": "Financial Times",
+          "feed_name": "Top Stories",
+          "feed_url": "https://www.ft.com/?format=rss"
         },
         "openai": {
-          "cache_key": "22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "prompt_hash": "8c95f051c0ccbd57e2462d2853ea87bd210575a1b4ef01999b13e664a52ba900",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T205124-9267ba1da4/22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "response_hash": "5e3399cf968bf5ad11f7e4afecf8c2ee936dfd6ca6e5709ead6fe6dbec9b1971"
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
         }
       }
     },
     {
-      "id": "118c7c525076",
-      "title": "Trump Cabinet alum Ryan Zinke joins mass exodus of lawmakers leaving Congress",
-      "link": "https://www.foxnews.com/politics/trump-cabinet-alum-ryan-zinke-joins-mass-exodus-lawmakers-leaving-congress",
-      "published": "Mon, 02 Mar 2026 15:47:11 -0500",
-      "summary": "GOP Rep. Ryan Zinke announces he will not seek re-election in 2026, citing health issues from his Navy SEAL career as the House Republican exodus continues.",
-      "ai_summary": "Rep. Ryan Zinke has announced he will not seek re-election, joining a trend of lawmakers leaving Congress.",
-      "ai_tags": [
-        "Politics",
-        "Congress",
-        "Elections",
-        "Retirement"
-      ],
+      "id": "abaf799aa818",
+      "title": "The bombing of Tehran — in maps and satellite images",
+      "link": "https://www.ft.com/content/59cfcbfb-34e2-4d26-b687-5d768dcc5650",
+      "published": "Sat, 07 Mar 2026 09:00:07 GMT",
+      "summary": "Israeli and US strikes have targeted regime infrastructure and also struck civilian sites. Here are some of the key buildings hit",
+      "ai_summary": "",
+      "ai_tags": [],
       "topic_tags": [
         "general"
       ],
       "source": {
-        "id": "fox-news",
-        "name": "Fox News"
+        "id": "financial-times",
+        "name": "Financial Times"
       },
       "feed": {
-        "name": "Latest",
-        "url": "http://feeds.foxnews.com/foxnews/latest"
+        "name": "Top Stories",
+        "url": "https://www.ft.com/?format=rss"
       },
       "scraped": {
-        "fetched_at": "2026-03-02T20:51:39.462045+00:00",
-        "final_url": "https://www.foxnews.com/politics/trump-cabinet-alum-ryan-zinke-joins-mass-exodus-lawmakers-leaving-congress",
+        "fetched_at": "2026-03-07T13:46:47.470560+00:00",
+        "final_url": "https://www.ft.com/content/59cfcbfb-34e2-4d26-b687-5d768dcc5650",
         "status_code": 200,
         "content_type": "text/html",
-        "title": "Trump Cabinet alum Ryan Zinke joins mass exodus of lawmakers leaving Congress",
-        "description": "Former Interior Secretary Ryan Zinke joins a growing list of House Republicans opting for the exit, citing the need for surgeries linked to his military service.",
-        "author": "Elizabeth Elkind",
-        "published_at": "2026-03-02T00:00:00",
-        "canonical_url": "https://www.foxnews.com/politics/trump-cabinet-alum-ryan-zinke-joins-mass-exodus-lawmakers-leaving-congress",
-        "language": "en",
-        "h1": "Trump Cabinet alum Ryan Zinke joins mass exodus of lawmakers leaving Congress",
-        "lead_paragraph": "This material may not be published, broadcast, rewritten, or redistributed. ©2026 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset . Powered and implemented by FactSet Digital Solutions . Legal Statement . Mutual Fund and ETF data provided by LSEG .",
-        "paragraph_count": 29,
-        "word_count": 798,
+        "title": "The bombing of Tehran — in maps and satellite images",
+        "description": "Israeli and US strikes have targeted regime infrastructure and also struck civilian sites. Here are some of the key buildings hit",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.ft.com/content/59cfcbfb-34e2-4d26-b687-5d768dcc5650",
+        "language": "en-GB",
+        "h1": "The bombing of Tehran — in maps and satellite images",
+        "body_text": "Then ₩79999 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.\n\nEssential digital access to quality FT journalism on any device. Pay a year upfront and save 20%.\n\nComplete digital access to quality FT journalism with expert analysis from industry leaders. Pay a year upfront and save 20%.\n\nFT Weekend newspaper delivered Saturday plus complete digital access.\n\nCheck whether you already have access via your university or organisation.\n\nTerms & Conditions apply\n\nDiscover all the plans currently available in your country\n\nDigital access for organisations. Includes exclusive features and content.\n\nSee why over a million readers pay to read the Financial Times.",
+        "lead_paragraph": "Then ₩79999 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
+        "paragraph_count": 9,
+        "word_count": 109,
         "top_keywords": [
-          "house",
-          "zinke",
-          "congress",
-          "republican",
-          "another",
-          "ryan",
-          "lawmakers",
-          "running",
-          "trump",
-          "mass",
-          "exodus",
-          "data"
+          "access",
+          "digital",
+          "complete",
+          "quality",
+          "journalism",
+          "your",
+          "device",
+          "year",
+          "upfront",
+          "save",
+          "bombing",
+          "tehran"
         ]
       },
       "scrape_error": null,
       "score": {
-        "value": 29.0,
+        "value": 17.5,
         "max_value": 110.0,
-        "percent": 26.3636,
+        "percent": 15.9091,
         "rubric_count": 11
       },
       "high_score": null,
       "audit": {
         "provenance": {
-          "source_id": "fox-news",
-          "source_name": "Fox News",
-          "feed_name": "Latest",
-          "feed_url": "http://feeds.foxnews.com/foxnews/latest"
+          "source_id": "financial-times",
+          "source_name": "Financial Times",
+          "feed_name": "Top Stories",
+          "feed_url": "https://www.ft.com/?format=rss"
         },
         "openai": {
-          "cache_key": "22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "prompt_hash": "8c95f051c0ccbd57e2462d2853ea87bd210575a1b4ef01999b13e664a52ba900",
-          "prompt_ref": "sqlite://prompt_audit/digest-20260302T205124-9267ba1da4/22e4de760553c324c4fc9616b1aad7801516c438bbfb2f9d0c3905e9756390f4",
-          "response_hash": "5e3399cf968bf5ad11f7e4afecf8c2ee936dfd6ca6e5709ead6fe6dbec9b1971"
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
+        }
+      }
+    },
+    {
+      "id": "38106d15df13",
+      "title": "Iran warns it will hit US bases across region hours after president’s apology",
+      "link": "https://www.ft.com/content/7c6ee5e8-c379-40c0-9d9f-d1ecc7b69261",
+      "published": "Sat, 07 Mar 2026 12:42:39 GMT",
+      "summary": "Masoud Pezeshkian had said Tehran would stop attacks on Gulf neighbours",
+      "ai_summary": "",
+      "ai_tags": [],
+      "topic_tags": [
+        "general"
+      ],
+      "source": {
+        "id": "financial-times",
+        "name": "Financial Times"
+      },
+      "feed": {
+        "name": "Top Stories",
+        "url": "https://www.ft.com/?format=rss"
+      },
+      "scraped": {
+        "fetched_at": "2026-03-07T13:46:46.786965+00:00",
+        "final_url": "https://www.ft.com/content/7c6ee5e8-c379-40c0-9d9f-d1ecc7b69261",
+        "status_code": 200,
+        "content_type": "text/html",
+        "title": "Iran warns it will hit US bases across region hours after president’s apology",
+        "description": "Masoud Pezeshkian had said Tehran would stop attacks on Gulf neighbours",
+        "author": null,
+        "published_at": null,
+        "canonical_url": "https://www.ft.com/content/7c6ee5e8-c379-40c0-9d9f-d1ecc7b69261",
+        "language": "en-GB",
+        "h1": "Iran warns it will hit US bases across region hours after president’s apology",
+        "body_text": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.\n\nEssential digital access to quality FT journalism on any device. Pay a year upfront and save 20%.\n\nComplete digital access to quality FT journalism with expert analysis from industry leaders. Pay a year upfront and save 20%.\n\nFT Weekend newspaper delivered Saturday plus complete digital access.\n\nCheck whether you already have access via your university or organisation.\n\nTerms & Conditions apply\n\nDiscover all the plans currently available in your country\n\nDigital access for organisations. Includes exclusive features and content.\n\nSee why over a million readers pay to read the Financial Times.",
+        "lead_paragraph": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
+        "paragraph_count": 9,
+        "word_count": 109,
+        "top_keywords": [
+          "access",
+          "digital",
+          "complete",
+          "quality",
+          "journalism",
+          "your",
+          "device",
+          "year",
+          "upfront",
+          "save",
+          "iran",
+          "warns"
+        ]
+      },
+      "scrape_error": null,
+      "score": {
+        "value": 15.0,
+        "max_value": 110.0,
+        "percent": 13.6364,
+        "rubric_count": 11
+      },
+      "high_score": null,
+      "audit": {
+        "provenance": {
+          "source_id": "financial-times",
+          "source_name": "Financial Times",
+          "feed_name": "Top Stories",
+          "feed_url": "https://www.ft.com/?format=rss"
+        },
+        "openai": {
+          "cache_key": "de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "prompt_hash": "dda72a0a3f87e9a66649561609ede70b47ea6383d84f950185f0d742914830d5",
+          "prompt_ref": "sqlite://prompt_audit/digest-20260307T134552-f31fc5aff7/de63f90511672532b08bd75b326fc33c46d6bfe64d0dc1cc0579a02b1d745a45",
+          "response_hash": "d8347b09bd1706bfcec4151495653b5a40550cbe606ff51a95151c1e62dc356e"
         }
       }
     }
