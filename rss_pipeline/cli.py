@@ -264,6 +264,11 @@ def publish_build(
         "data/processed/rss_openai_precomputed.json"
     ),
     max_articles: Annotated[int | None, typer.Option("--max-articles")] = None,
+    include_history: Annotated[
+        bool, typer.Option("--include-history/--no-include-history")
+    ] = False,
+    history_dir: Annotated[Path, typer.Option("--history-dir")] = Path("data/history"),
+    history_days: Annotated[int | None, typer.Option("--history-days")] = 30,
 ) -> None:
     config = PublishBuildConfig(
         digest=digest,
@@ -272,6 +277,9 @@ def publish_build(
         analysis_root=analysis_root,
         output=output,
         max_articles=max_articles,
+        include_history=include_history,
+        history_dir=history_dir,
+        history_days=history_days,
     )
     result = build_precomputed_payload(config, repo_root=REPO_ROOT)
     typer.echo(f"Precomputed output: {result['output']}")

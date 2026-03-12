@@ -77,3 +77,6 @@ class PublishBuildConfig:
     analysis_root: Path = DEFAULT_ANALYSIS_OUTPUT
     output: Path = DEFAULT_PROCESSED_OUTPUT
     max_articles: int | None = None
+    include_history: bool = False
+    history_dir: Path = DEFAULT_HISTORY_DIR
+    history_days: int | None = 30

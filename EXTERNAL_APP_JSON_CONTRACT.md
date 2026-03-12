@@ -40,10 +40,18 @@ Practical expectation:
 - `generated_at` (`string`, ISO-8601 UTC)
 - `run_id` (`string`)
 - `items_count` (`integer`)
+- `include_history` (`boolean`): whether history snapshots were merged into `articles`
+- `history_dir` (`string|null`): history path used by the export
+- `history_days` (`integer|null`): lookback window; `0` means all available snapshots
+- `history_files_used` (`integer`): number of history files scanned
+- `history_items_loaded` (`integer`): raw items loaded from scanned history files
+- `history_items_added` (`integer`): deduped history items appended to `articles`
 
 ## `summary` object
 
 - `articles` (`integer`): count in `articles`
+- `digest_articles` (`integer`): articles from current digest only
+- `history_articles_added` (`integer`): deduped articles added from `data/history`
 - `scored_articles` (`integer`): count with non-zero scoring max
 - `high_scoring_articles` (`integer`)
 

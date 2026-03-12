@@ -4,6 +4,55 @@ on:
   schedule:
     - cron: "10 13 * * *"
   workflow_dispatch:
+    inputs:
+      max_sources:
+        description: "Max enabled sources to scan"
+        required: false
+        default: "25"
+      feeds_per_source:
+        description: "Feeds per source to scan"
+        required: false
+        default: "2"
+      max_items_per_feed:
+        description: "RSS items per feed (increase for older coverage)"
+        required: false
+        default: "8"
+      skip_seen:
+        description: "Skip links/titles already present in current + history"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      source_ids:
+        description: "Optional comma-separated source IDs (blank = all enabled)"
+        required: false
+        default: ""
+      run_scoring:
+        description: "Run rubric scoring + downstream analysis"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      score_max_items:
+        description: "Max digest items to score (0 = all digest items)"
+        required: false
+        default: "40"
+      include_history:
+        description: "Include archived history items in processed JSON"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      history_days:
+        description: "History window in days for processed JSON (0 = all history files)"
+        required: false
+        default: "30"
 
 permissions:
   contents: write
@@ -51,17 +100,37 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+          MAX_SOURCES: ${{ github.event.inputs.max_sources || '25' }}
+          FEEDS_PER_SOURCE: ${{ github.event.inputs.feeds_per_source || '2' }}
+          MAX_ITEMS_PER_FEED: ${{ github.event.inputs.max_items_per_feed || '8' }}
+          SKIP_SEEN: ${{ github.event.inputs.skip_seen || 'true' }}
+          SOURCE_IDS: ${{ github.event.inputs.source_ids || '' }}
         run: |
-          python3 -m rss_pipeline.cli digest build \
+          set -euo pipefail
+
+          echo "Digest build params: max_sources=${MAX_SOURCES}, feeds_per_source=${FEEDS_PER_SOURCE}, max_items_per_feed=${MAX_ITEMS_PER_FEED}, skip_seen=${SKIP_SEEN}, source_ids=${SOURCE_IDS:-<all>}"
+
+          digest_cmd=(python3 -m rss_pipeline.cli digest build \
             --output data/rss_openai_daily.json \
-            --max-sources 10 \
-            --feeds-per-source 1 \
-            --max-items-per-feed 3 \
-            --skip-seen \
+            --max-sources "${MAX_SOURCES}" \
+            --feeds-per-source "${FEEDS_PER_SOURCE}" \
+            --max-items-per-feed "${MAX_ITEMS_PER_FEED}" \
             --scrape-timeout-seconds 12 \
             --scrape-sleep-seconds 0.25 \
             --cache-path data/cache/openai_cache.sqlite \
-            --prompt-audit-dir data/analysis/prompt_audit
+            --prompt-audit-dir data/analysis/prompt_audit)
+
+          if [ "${SKIP_SEEN}" = "true" ]; then
+            digest_cmd+=(--skip-seen)
+          else
+            digest_cmd+=(--no-skip-seen)
+          fi
+
+          if [ -n "${SOURCE_IDS}" ]; then
+            digest_cmd+=(--source-ids "${SOURCE_IDS}")
+          fi
+
+          "${digest_cmd[@]}"
 
       - name: Inspect digest item count
         id: digest_meta
@@ -79,14 +148,62 @@ jobs:
             f.write(f"items={count}\n")
           PY
 
+      - name: Prepare scoring subset
+        id: score_subset
+        env:
+          RUN_SCORING: ${{ github.event.inputs.run_scoring || 'true' }}
+          SCORE_MAX_ITEMS: ${{ github.event.inputs.score_max_items || '40' }}
+        run: |
+          set -euo pipefail
+
+          if [ "${RUN_SCORING}" != "true" ]; then
+            echo "Scoring disabled for this run."
+            echo "items=0" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          digest_path = Path("data/rss_openai_daily.json")
+          score_input_path = Path("data/rss_openai_daily_for_scoring.json")
+          payload = json.loads(digest_path.read_text(encoding="utf-8"))
+          raw_items = payload.get("items") if isinstance(payload, dict) else []
+          items = raw_items if isinstance(raw_items, list) else []
+
+          max_items_raw = os.environ.get("SCORE_MAX_ITEMS", "40").strip()
+          try:
+            max_items = int(max_items_raw)
+          except ValueError:
+            max_items = 40
+
+          if max_items <= 0:
+            selected = items
+          else:
+            selected = items[:max_items]
+
+          score_payload = dict(payload) if isinstance(payload, dict) else {}
+          score_payload["items"] = selected
+          score_input_path.write_text(
+              json.dumps(score_payload, ensure_ascii=False, indent=2), encoding="utf-8"
+          )
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
+            fh.write(f"items={len(selected)}\n")
+
+          print(f"Scoring subset items: {len(selected)} / {len(items)}")
+          PY
+
       - name: Run scoring precompute
-        if: steps.digest_meta.outputs.items != '0'
+        if: steps.score_subset.outputs.items != '0'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
         run: |
           python3 -m rss_pipeline.cli score run \
-            --experiment data/rss_openai_daily.json \
+            --experiment data/rss_openai_daily_for_scoring.json \
             --lenses lenses \
             --output data/scores.json \
             --high-scores-output data/high_scoring_articles.json \
@@ -95,7 +212,7 @@ jobs:
             --replace-output
 
       - name: Run analysis precompute
-        if: steps.digest_meta.outputs.items != '0'
+        if: steps.score_subset.outputs.items != '0'
         run: |
           python3 -m rss_pipeline.cli analysis run \
             --scores data/scores.json \
@@ -104,18 +221,33 @@ jobs:
             --source-permutations 1000 \
             --source-random-seed 42
 
-      - name: Skip scoring/analysis (no new articles)
-        if: steps.digest_meta.outputs.items == '0'
-        run: echo "No new digest items after seen-item filtering; skipping scoring and analysis."
+      - name: Skip scoring/analysis
+        if: steps.score_subset.outputs.items == '0'
+        run: echo "Scoring/analysis skipped (disabled or no selected digest items)."
 
       - name: Build app-consumable precomputed JSON
+        env:
+          INCLUDE_HISTORY: ${{ github.event.inputs.include_history || 'true' }}
+          HISTORY_DAYS: ${{ github.event.inputs.history_days || '30' }}
         run: |
-          python3 -m rss_pipeline.cli publish build \
+          set -euo pipefail
+
+          publish_cmd=(python3 -m rss_pipeline.cli publish build \
             --digest data/rss_openai_daily.json \
             --scores data/scores.json \
             --high-scores data/high_scoring_articles.json \
             --analysis-root data/analysis \
-            --output data/processed/rss_openai_precomputed.json
+            --output data/processed/rss_openai_precomputed.json \
+            --history-dir data/history \
+            --history-days "${HISTORY_DAYS}")
+
+          if [ "${INCLUDE_HISTORY}" = "true" ]; then
+            publish_cmd+=(--include-history)
+          else
+            publish_cmd+=(--no-include-history)
+          fi
+
+          "${publish_cmd[@]}"
 
       - name: Upload processed JSON artifact
         uses: actions/upload-artifact@v4
