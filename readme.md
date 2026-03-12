@@ -62,6 +62,7 @@ Legacy root scripts remain as thin wrappers into `rssctl`:
 
 ## OpenAI + cache policy
 - Uses official `openai` SDK only.
+- Rubric scoring runs at `temperature=0.0` for deterministic outputs.
 - Deterministic SQLite cache keying from model + normalized request payload.
 - Cache/audit tables in `data/cache/openai_cache.sqlite`:
   - `openai_cache`

@@ -124,6 +124,8 @@ def run_scoring(
 
     cache = SQLiteOpenAICache(cache_path) if config.use_cache else None
     service = OpenAIService(api_key=api_key, timeout_seconds=config.timeout_seconds, cache=cache)
+    # Keep rubric scoring deterministic and reproducible across runs.
+    scoring_temperature = 0.0
 
     experiment_entries = load_experiments([str(experiment_input)])
     if not experiment_entries:
@@ -158,7 +160,7 @@ def run_scoring(
                             {"role": "system", "content": system_prompt},
                             {"role": "user", "content": user_prompt},
                         ],
-                        temperature=config.temperature,
+                        temperature=scoring_temperature,
                         metadata={
                             "article_id": news_item.id,
                             "lens_name": lens.name,

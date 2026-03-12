@@ -41,19 +41,6 @@ on:
         description: "Max digest items to score (0 = all digest items)"
         required: false
         default: "40"
-      include_history:
-        description: "Include archived history items in processed JSON"
-        required: false
-        default: "true"
-        type: choice
-        options:
-          - "true"
-          - "false"
-      history_days:
-        description: "History window in days for processed JSON (0 = all history files)"
-        required: false
-        default: "30"
-
 permissions:
   contents: write
 
@@ -173,6 +160,34 @@ jobs:
           raw_items = payload.get("items") if isinstance(payload, dict) else []
           items = raw_items if isinstance(raw_items, list) else []
 
+          def scrape_succeeded(item: dict) -> bool:
+            scrape_error = str(item.get("scrape_error") or "").strip()
+            if scrape_error:
+              return False
+
+            # Current schema writes `scraped` for all items.
+            # Keep legacy items eligible if this field is absent.
+            if "scraped" not in item:
+              return True
+
+            scraped = item.get("scraped")
+            return isinstance(scraped, dict) and bool(scraped)
+
+          eligible_items = [item for item in items if isinstance(item, dict) and scrape_succeeded(item)]
+          excluded_unscraped = max(len(items) - len(eligible_items), 0)
+
+          deduped_items = []
+          seen_ids: set[str] = set()
+          duplicate_candidates = 0
+          for item in eligible_items:
+            item_id = str(item.get("id") or "").strip()
+            if item_id and item_id in seen_ids:
+              duplicate_candidates += 1
+              continue
+            if item_id:
+              seen_ids.add(item_id)
+            deduped_items.append(item)
+
           max_items_raw = os.environ.get("SCORE_MAX_ITEMS", "40").strip()
           try:
             max_items = int(max_items_raw)
@@ -180,9 +195,9 @@ jobs:
             max_items = 40
 
           if max_items <= 0:
-            selected = items
+            selected = deduped_items
           else:
-            selected = items[:max_items]
+            selected = deduped_items[:max_items]
 
           score_payload = dict(payload) if isinstance(payload, dict) else {}
           score_payload["items"] = selected
@@ -193,7 +208,11 @@ jobs:
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
             fh.write(f"items={len(selected)}\n")
 
-          print(f"Scoring subset items: {len(selected)} / {len(items)}")
+          print(
+            "Scoring subset items: "
+            f"{len(selected)} selected / {len(deduped_items)} eligible scraped / {len(items)} digest "
+            f"(excluded_unscraped={excluded_unscraped}, duplicate_candidates={duplicate_candidates})"
+          )
           PY
 
       - name: Run scoring precompute
@@ -207,6 +226,7 @@ jobs:
             --lenses lenses \
             --output data/scores.json \
             --high-scores-output data/high_scoring_articles.json \
+            --temperature 0.0 \
             --cache-path data/cache/openai_cache.sqlite \
             --prompt-audit-dir data/analysis/prompt_audit \
             --replace-output
@@ -227,8 +247,7 @@ jobs:
 
       - name: Build app-consumable precomputed JSON
         env:
-          INCLUDE_HISTORY: ${{ github.event.inputs.include_history || 'true' }}
-          HISTORY_DAYS: ${{ github.event.inputs.history_days || '30' }}
+          HISTORY_DAYS: "180"
         run: |
           set -euo pipefail
 
@@ -239,15 +258,50 @@ jobs:
             --analysis-root data/analysis \
             --output data/processed/rss_openai_precomputed.json \
             --history-dir data/history \
-            --history-days "${HISTORY_DAYS}")
-
-          if [ "${INCLUDE_HISTORY}" = "true" ]; then
-            publish_cmd+=(--include-history)
-          else
-            publish_cmd+=(--no-include-history)
-          fi
+            --history-days "${HISTORY_DAYS}" \
+            --include-history)
 
           "${publish_cmd[@]}"
+
+      - name: Validate precomputed history contract
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          payload_path = Path("data/processed/rss_openai_precomputed.json")
+          payload = json.loads(payload_path.read_text(encoding="utf-8"))
+
+          digest = payload.get("digest")
+          digest_obj = digest if isinstance(digest, dict) else {}
+
+          include_history = digest_obj.get("include_history")
+          history_days = digest_obj.get("history_days")
+
+          errors: list[str] = []
+          if include_history is not True:
+              errors.append(f"digest.include_history expected true, found {include_history!r}")
+          if history_days != 180:
+              errors.append(f"digest.history_days expected 180, found {history_days!r}")
+
+          summary = payload.get("summary")
+          if isinstance(summary, dict):
+              articles = summary.get("articles")
+              digest_articles = summary.get("digest_articles")
+              if isinstance(articles, int) and isinstance(digest_articles, int) and articles < digest_articles:
+                  errors.append(
+                      f"summary.articles ({articles}) must be >= summary.digest_articles ({digest_articles})"
+                  )
+
+          if errors:
+              for error in errors:
+                  print(error)
+              sys.exit(1)
+
+          print("History contract validated: include_history=true, history_days=180")
+          PY
 
       - name: Upload processed JSON artifact
         uses: actions/upload-artifact@v4
