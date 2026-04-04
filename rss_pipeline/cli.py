@@ -47,6 +47,13 @@ def digest_build(
     timeout: Annotated[int, typer.Option("--timeout")] = 30,
     source_ids: Annotated[str | None, typer.Option("--source-ids")] = None,
     openai_model: Annotated[str | None, typer.Option("--openai-model")] = None,
+    openai_timeout: Annotated[int, typer.Option("--openai-timeout")] = 180,
+    openai_batch_size: Annotated[int, typer.Option("--openai-batch-size")] = 8,
+    openai_max_retries: Annotated[int, typer.Option("--openai-max-retries")] = 2,
+    openai_retry_backoff_seconds: Annotated[
+        float,
+        typer.Option("--openai-retry-backoff-seconds"),
+    ] = 5.0,
     skip_openai: Annotated[bool, typer.Option("--skip-openai")] = False,
     skip_scrape: Annotated[bool, typer.Option("--skip-scrape")] = False,
     scrape_limit: Annotated[int | None, typer.Option("--scrape-limit")] = None,
@@ -90,6 +97,10 @@ def digest_build(
         scrape_user_agent=scrape_user_agent,
         openai_enabled=not skip_openai,
         openai_model=openai_model,
+        openai_timeout_seconds=openai_timeout,
+        openai_batch_size=openai_batch_size,
+        openai_max_retries=openai_max_retries,
+        openai_retry_backoff_seconds=openai_retry_backoff_seconds,
         cache_path=cache_path,
         prompt_audit_dir=prompt_audit_dir,
     )
@@ -99,11 +110,26 @@ def digest_build(
     if result.get("archive"):
         typer.echo(f"Archive: {result['archive']}")
     typer.echo(f"Items: {result['items']} | Errors: {result['errors']}")
+    summary = result.get("summary") or {}
+    if summary:
+        typer.echo(
+            "Summary: "
+            f"sources={summary.get('selected_sources', 0)} "
+            f"feeds={summary.get('selected_feeds', 0)} "
+            f"raw={summary.get('raw_fetched_items', 0)} "
+            f"new={summary.get('new_items', 0)} "
+            f"scrape_success={summary.get('scrape_success', 0)}/{summary.get('scrape_attempts', 0)} "
+            f"openai_batches={summary.get('openai_batches_succeeded', 0)}/{summary.get('openai_batches_executed', 0)} "
+            f"openai_retries={summary.get('openai_retry_attempts', 0)}"
+        )
     cache = result.get("cache") or {}
     if cache:
         typer.echo(
             f"Cache calls={cache.get('calls', 0)} hits={cache.get('hits', 0)} misses={cache.get('misses', 0)}"
         )
+    warnings = result.get("warnings") or []
+    for warning in warnings:
+        typer.echo(f"Warning: {warning}")
 
 
 @digest_app.command("archive")
@@ -220,6 +246,9 @@ def score_run(
     )
     typer.echo(
         f"Wrote {result.high_scores_count} high-scoring articles to {result.high_scores_output}."
+    )
+    typer.echo(
+        f"Scored items={result.scored_items} skipped_missing_ai_summary={result.skipped_missing_ai_summary}"
     )
     typer.echo(
         f"OpenAI calls={result.openai_calls} cache_hits={result.cache_hits} cache_misses={result.cache_misses}"

@@ -20,6 +20,7 @@ from .cache_sqlite import SQLiteOpenAICache
 from .config import DigestBuildConfig
 from .env import resolve_env_value
 from .errors import ConfigError
+from .logging import get_logger
 from .models_digest import (
     CacheMeta,
     DigestDocument,
@@ -45,6 +46,10 @@ TRACKING_QUERY_KEYS = {
     "ref",
 }
 TRACKING_QUERY_PREFIXES = ("utm_",)
+VOLUME_WARNING_THRESHOLD = 60
+SCRAPE_SUCCESS_WARNING_RATE = 0.5
+
+logger = get_logger(__name__)
 
 
 class _HTMLStripper(HTMLParser):
@@ -377,6 +382,89 @@ def _openai_model(config: DigestBuildConfig, repo_root: Path) -> str:
     )
 
 
+def _chunk_items(items: list[DigestItem], batch_size: int) -> list[list[DigestItem]]:
+    if batch_size <= 0:
+        return [items]
+    return [items[index : index + batch_size] for index in range(0, len(items), batch_size)]
+
+
+def _merge_usage_totals(
+    current: dict[str, Any] | None,
+    incoming: dict[str, Any] | None,
+) -> dict[str, Any] | None:
+    if not incoming:
+        return current
+
+    merged: dict[str, Any] = dict(current or {})
+    for key, value in incoming.items():
+        if isinstance(value, dict):
+            nested_current = merged.get(key)
+            merged[key] = _merge_usage_totals(
+                nested_current if isinstance(nested_current, dict) else {},
+                value,
+            )
+            continue
+
+        if isinstance(value, (int, float)) and not isinstance(value, bool):
+            previous = merged.get(key, 0)
+            merged[key] = previous + value if isinstance(previous, (int, float)) else value
+            continue
+
+        if key not in merged:
+            merged[key] = value
+    return merged
+
+
+def _classify_openai_error(exc: Exception) -> str:
+    message = str(exc).lower()
+    if "timeout" in message or "timed out" in message or "readtimeout" in message:
+        return "timeout"
+    return "openai_error"
+
+
+def _openai_backoff_seconds(base_seconds: float, retry_number: int) -> float:
+    return max(base_seconds * retry_number, 0.0)
+
+
+def _warning_messages(
+    *,
+    new_items: int,
+    scrape_stats: dict[str, Any],
+    openai_batch_stats: dict[str, Any],
+) -> list[str]:
+    warnings: list[str] = []
+
+    if new_items == 0:
+        warnings.append("digest produced zero new items")
+    if new_items > VOLUME_WARNING_THRESHOLD:
+        warnings.append(
+            f"digest produced {new_items} new items, above warning threshold {VOLUME_WARNING_THRESHOLD}"
+        )
+
+    scrape_attempts = int(scrape_stats.get("attempts") or 0)
+    scrape_success = int(scrape_stats.get("success") or 0)
+    if scrape_attempts > 0:
+        scrape_success_rate = scrape_success / scrape_attempts
+        if scrape_success_rate < SCRAPE_SUCCESS_WARNING_RATE:
+            warnings.append(
+                f"scrape success rate {scrape_success_rate:.0%} is below warning threshold "
+                f"{SCRAPE_SUCCESS_WARNING_RATE:.0%}"
+            )
+
+    retry_attempts = int(openai_batch_stats.get("retry_attempts") or 0)
+    executed_batches = int(openai_batch_stats.get("executed_batches") or 0)
+    if retry_attempts > max(2, executed_batches):
+        warnings.append(
+            f"OpenAI retry volume is elevated ({retry_attempts} retries across {executed_batches} batches)"
+        )
+    if int(openai_batch_stats.get("failed_batches") or 0) > 0:
+        warnings.append(
+            f"{int(openai_batch_stats.get('failed_batches') or 0)} OpenAI digest batch(es) failed permanently"
+        )
+
+    return warnings
+
+
 def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any]:
     context = RunContext.start("digest")
 
@@ -398,10 +486,20 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
     feeds = select_feeds(catalog, config.max_sources, config.feeds_per_source, config.source_ids)
     if not feeds:
         raise ConfigError("No feeds selected; check catalog filters and enabled flags.")
+    logger.info(
+        "Digest selected %s sources across %s feeds (max_sources=%s feeds_per_source=%s max_items_per_feed=%s).",
+        len({feed["source_id"] for feed in feeds}),
+        len(feeds),
+        config.max_sources,
+        config.feeds_per_source,
+        config.max_items_per_feed,
+    )
 
     items: list[DigestItem] = []
     errors: list[dict[str, Any]] = []
     seen_in_run: set[str] = set()
+    selected_source_ids = {feed["source_id"] for feed in feeds}
+    raw_fetched_items = 0
     duplicate_in_run = 0
     user_agent = "RSS_Feeds/2.0 (+https://github.com)"
 
@@ -424,6 +522,7 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
             )
             continue
 
+        raw_fetched_items += len(feed_items)
         for item in feed_items:
             dedupe_key = item.link or item.title or item.id
             if dedupe_key in seen_in_run:
@@ -460,6 +559,15 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
         items = filtered_items
         seen_filter_stats["skipped_seen"] = skipped_seen
 
+    new_items_before_scrape = len(items)
+    logger.info(
+        "Digest fetched %s raw items, removed %s in-run duplicates, skipped %s seen items, %s new items remain.",
+        raw_fetched_items,
+        duplicate_in_run,
+        seen_filter_stats["skipped_seen"],
+        new_items_before_scrape,
+    )
+
     if config.scrape_enabled and items:
         scrape_stats = enrich_items_with_scrape(
             items,
@@ -483,9 +591,27 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
             "sleep_seconds": config.scrape_sleep_seconds,
         }
 
+    logger.info(
+        "Scrape stage: attempts=%s success=%s failed=%s skipped=%s.",
+        scrape_stats["attempts"],
+        scrape_stats["success"],
+        scrape_stats["failed"],
+        scrape_stats["skipped"],
+    )
+
     openai_meta = OpenAIMeta(enabled=False)
     cache_meta = CacheMeta(enabled=config.openai_enabled, path=str(cache_path))
     prompt_export_path: str | None = None
+    openai_batch_stats: dict[str, Any] = {
+        "configured_batch_size": config.openai_batch_size,
+        "configured_timeout_seconds": config.openai_timeout_seconds,
+        "configured_max_retries": config.openai_max_retries,
+        "configured_retry_backoff_seconds": config.openai_retry_backoff_seconds,
+        "executed_batches": 0,
+        "succeeded_batches": 0,
+        "failed_batches": 0,
+        "retry_attempts": 0,
+    }
 
     if config.openai_enabled and items:
         api_key = resolve_env_value(ENV_OPENAI_KEY, base_dir=repo_root, env_paths=(".env",))
@@ -494,46 +620,134 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
 
         cache = SQLiteOpenAICache(cache_path)
         service = OpenAIService(
-            api_key=api_key, timeout_seconds=config.timeout_seconds, cache=cache
+            api_key=api_key,
+            timeout_seconds=config.openai_timeout_seconds,
+            cache=cache,
         )
         model = _openai_model(config, repo_root)
-
-        item_payloads = [item.to_dict() for item in items]
-        messages = build_digest_messages(item_payloads)
-        result = service.chat_json(
-            run_id=context.run_id,
-            purpose="digest_summarize",
-            model=model,
-            messages=messages,
-            temperature=0.2,
-            metadata={"article_id": "batch"},
+        openai_batches = _chunk_items(items, config.openai_batch_size)
+        openai_batch_stats["executed_batches"] = len(openai_batches)
+        aggregated_usage: dict[str, Any] | None = None
+        last_response_id: str | None = None
+        logger.info(
+            "OpenAI digest stage: %s items across %s batches (batch_size=%s timeout=%ss retries=%s).",
+            len(items),
+            len(openai_batches),
+            config.openai_batch_size,
+            config.openai_timeout_seconds,
+            config.openai_max_retries,
         )
 
-        mapping: dict[str, dict[str, Any]] = {}
-        for result_item in result.parsed.get("items") or []:
-            if isinstance(result_item, dict):
-                item_id_value = str(result_item.get("id") or "").strip()
-                if item_id_value:
-                    mapping[item_id_value] = result_item
+        for batch_index, batch_items in enumerate(openai_batches, start=1):
+            item_payloads = [item.to_dict() for item in batch_items]
+            messages = build_digest_messages(item_payloads)
+            result = None
+            last_error: Exception | None = None
+            attempt_count = 0
 
-        for item in items:
-            ai = mapping.get(item.id)
-            if ai:
-                item.ai_summary = str(ai.get("summary") or "")
-                raw_tags = ai.get("tags")
-                if isinstance(raw_tags, list):
-                    item.ai_tags = [str(tag).strip() for tag in raw_tags if str(tag).strip()]
-                else:
-                    item.ai_tags = []
-            item.audit.setdefault("openai", {})
-            item.audit["openai"].update(
-                {
-                    "cache_key": result.cache_key,
-                    "prompt_hash": result.user_prompt_hash,
-                    "prompt_ref": f"sqlite://prompt_audit/{context.run_id}/{result.cache_key}",
-                    "response_hash": result.response_hash,
-                }
-            )
+            for attempt_index in range(config.openai_max_retries + 1):
+                attempt_count = attempt_index + 1
+                try:
+                    result = service.chat_json(
+                        run_id=context.run_id,
+                        purpose="digest_summarize",
+                        model=model,
+                        messages=messages,
+                        temperature=0.2,
+                        metadata={
+                            "article_id": f"batch:{batch_index}",
+                            "batch_index": batch_index,
+                            "batch_size": len(batch_items),
+                        },
+                    )
+                    break
+                except Exception as exc:  # noqa: BLE001
+                    last_error = exc
+                    if attempt_index >= config.openai_max_retries:
+                        break
+                    openai_batch_stats["retry_attempts"] += 1
+                    backoff_seconds = _openai_backoff_seconds(
+                        config.openai_retry_backoff_seconds,
+                        attempt_index + 1,
+                    )
+                    logger.warning(
+                        "Digest OpenAI batch %s/%s failed on attempt %s/%s: %s. Retrying in %.1fs.",
+                        batch_index,
+                        len(openai_batches),
+                        attempt_index + 1,
+                        config.openai_max_retries + 1,
+                        exc,
+                        backoff_seconds,
+                    )
+                    if backoff_seconds > 0:
+                        time.sleep(backoff_seconds)
+
+            if result is None:
+                openai_batch_stats["failed_batches"] += 1
+                error_type = _classify_openai_error(last_error or Exception("unknown OpenAI error"))
+                logger.error(
+                    "Digest OpenAI batch %s/%s failed permanently after %s attempt(s): %s",
+                    batch_index,
+                    len(openai_batches),
+                    attempt_count,
+                    last_error,
+                )
+                errors.append(
+                    {
+                        "stage": "openai_digest_batch",
+                        "type": error_type,
+                        "batch_index": batch_index,
+                        "batch_size": len(batch_items),
+                        "attempts": attempt_count,
+                        "error": str(last_error or "unknown OpenAI error"),
+                    }
+                )
+                for item in batch_items:
+                    item.audit.setdefault("openai", {})
+                    item.audit["openai"].update(
+                        {
+                            "batch_index": batch_index,
+                            "batch_size": len(batch_items),
+                            "attempts": attempt_count,
+                            "status": "failed",
+                            "error": str(last_error or "unknown OpenAI error"),
+                        }
+                    )
+                continue
+
+            openai_batch_stats["succeeded_batches"] += 1
+            aggregated_usage = _merge_usage_totals(aggregated_usage, result.usage)
+            last_response_id = result.response_id or last_response_id
+
+            mapping: dict[str, dict[str, Any]] = {}
+            for result_item in result.parsed.get("items") or []:
+                if isinstance(result_item, dict):
+                    item_id_value = str(result_item.get("id") or "").strip()
+                    if item_id_value:
+                        mapping[item_id_value] = result_item
+
+            for item in batch_items:
+                ai = mapping.get(item.id)
+                if ai:
+                    item.ai_summary = str(ai.get("summary") or "")
+                    raw_tags = ai.get("tags")
+                    if isinstance(raw_tags, list):
+                        item.ai_tags = [str(tag).strip() for tag in raw_tags if str(tag).strip()]
+                    else:
+                        item.ai_tags = []
+                item.audit.setdefault("openai", {})
+                item.audit["openai"].update(
+                    {
+                        "batch_index": batch_index,
+                        "batch_size": len(batch_items),
+                        "attempts": attempt_count,
+                        "status": "succeeded",
+                        "cache_key": result.cache_key,
+                        "prompt_hash": result.user_prompt_hash,
+                        "prompt_ref": f"sqlite://prompt_audit/{context.run_id}/{result.cache_key}",
+                        "response_hash": result.response_hash,
+                    }
+                )
 
         stats = cache.run_cache_stats(context.run_id)
         cache_meta.hits = stats["hits"]
@@ -542,8 +756,8 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
         openai_meta = OpenAIMeta(
             enabled=True,
             model=model,
-            response_id=result.response_id,
-            usage=result.usage,
+            response_id=last_response_id,
+            usage=aggregated_usage,
             calls=stats["calls"],
             cache_hits=stats["hits"],
             cache_misses=stats["misses"],
@@ -552,6 +766,40 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
         prompt_rows = cache.prompt_audit_rows(context.run_id)
         prompt_export = export_prompt_audit_rows(prompt_rows, prompt_audit_dir, context.run_id)
         prompt_export_path = str(prompt_export)
+
+    summary = {
+        "selected_sources": len(selected_source_ids),
+        "selected_feeds": len(feeds),
+        "raw_fetched_items": raw_fetched_items,
+        "in_run_duplicates": duplicate_in_run,
+        "skipped_seen": int(seen_filter_stats.get("skipped_seen") or 0),
+        "new_items": len(items),
+        "new_items_before_scrape": new_items_before_scrape,
+        "scrape_attempts": int(scrape_stats.get("attempts") or 0),
+        "scrape_success": int(scrape_stats.get("success") or 0),
+        "scrape_failed": int(scrape_stats.get("failed") or 0),
+        "scrape_skipped": int(scrape_stats.get("skipped") or 0),
+        "openai_batches_executed": int(openai_batch_stats.get("executed_batches") or 0),
+        "openai_batches_succeeded": int(openai_batch_stats.get("succeeded_batches") or 0),
+        "openai_batches_failed": int(openai_batch_stats.get("failed_batches") or 0),
+        "openai_retry_attempts": int(openai_batch_stats.get("retry_attempts") or 0),
+    }
+    warnings = _warning_messages(
+        new_items=len(items),
+        scrape_stats=scrape_stats,
+        openai_batch_stats=openai_batch_stats,
+    )
+    logger.info(
+        "Digest summary: raw=%s new=%s scrape_success=%s/%s openai_batches=%s/%s retries=%s warnings=%s.",
+        summary["raw_fetched_items"],
+        summary["new_items"],
+        summary["scrape_success"],
+        summary["scrape_attempts"],
+        summary["openai_batches_succeeded"],
+        summary["openai_batches_executed"],
+        summary["openai_retry_attempts"],
+        len(warnings),
+    )
 
     digest = DigestDocument(
         run=RunMeta(
@@ -568,6 +816,10 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
             "max_items_per_feed": config.max_items_per_feed,
             "source_ids": list(config.source_ids),
             "timeout_seconds": config.timeout_seconds,
+            "openai_timeout_seconds": config.openai_timeout_seconds,
+            "openai_batch_size": config.openai_batch_size,
+            "openai_max_retries": config.openai_max_retries,
+            "openai_retry_backoff_seconds": config.openai_retry_backoff_seconds,
         },
         sources={
             "selected_count": len(feeds),
@@ -578,11 +830,16 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
         items=items,
         errors=errors,
         audit={
+            "summary": summary,
             "scrape": scrape_stats,
+            "openai_batches": openai_batch_stats,
             "dedupe": {
+                "raw_fetched_items": raw_fetched_items,
                 "in_run_duplicates": duplicate_in_run,
+                "new_items_before_scrape": new_items_before_scrape,
                 "seen_filter": seen_filter_stats,
             },
+            "warnings": warnings,
             "prompt_export": prompt_export_path,
             "catalog_path": str(catalog_path),
         },
@@ -603,6 +860,8 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
         "errors": len(errors),
         "cache": payload.get("cache"),
         "openai": payload.get("openai"),
+        "summary": summary,
+        "warnings": warnings,
     }
 
 

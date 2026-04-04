@@ -22,6 +22,8 @@ class ScoreRunResult:
     run_id: str
     output: str
     high_scores_output: str
+    scored_items: int
+    skipped_missing_ai_summary: int
     new_scores: int
     total_scores: int
     high_scores_count: int
@@ -81,6 +83,10 @@ def _score_from_payload(
     )
 
 
+def _has_scoreable_ai_context(news_item: NewsItem) -> bool:
+    return bool(news_item.ai_summary.strip())
+
+
 def run_scoring(
     config: ScoreRunConfig,
     *,
@@ -135,15 +141,24 @@ def run_scoring(
         load_scores(output_path) if output_path.exists() and not config.replace_output else []
     )
     all_scores = list(existing_scores)
+    scored_items = 0
+    skipped_missing_ai_summary = 0
     new_scores_count = 0
     high_scores: list[dict[str, Any]] = []
 
     for experiment_path, experiment in experiment_entries:
         selected_items = _select_news_items(experiment.items, news_item_id, news_item_index)
+        skipped_missing_ai_summary += sum(
+            1 for news_item in selected_items if not _has_scoreable_ai_context(news_item)
+        )
+        selected_items = [
+            news_item for news_item in selected_items if _has_scoreable_ai_context(news_item)
+        ]
         if not selected_items:
             continue
 
         for news_item in selected_items:
+            scored_items += 1
             item_scores: list[Score] = []
             lens_totals: list[float] = []
 
@@ -219,6 +234,8 @@ def run_scoring(
         run_id=context.run_id,
         output=str(output_path),
         high_scores_output=str(high_scores_path),
+        scored_items=scored_items,
+        skipped_missing_ai_summary=skipped_missing_ai_summary,
         new_scores=new_scores_count,
         total_scores=len(all_scores),
         high_scores_count=len(high_scores),

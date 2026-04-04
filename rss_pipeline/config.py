@@ -14,6 +14,10 @@ DEFAULT_CACHE_PATH = Path("data/cache/openai_cache.sqlite")
 DEFAULT_PROMPT_AUDIT_DIR = Path("data/analysis/prompt_audit")
 DEFAULT_OPENAI_MODEL = "gpt-4.1-mini"
 DEFAULT_OPENAI_TIMEOUT_SECONDS = 60
+DEFAULT_DIGEST_OPENAI_TIMEOUT_SECONDS = 180
+DEFAULT_DIGEST_OPENAI_BATCH_SIZE = 8
+DEFAULT_DIGEST_OPENAI_MAX_RETRIES = 2
+DEFAULT_DIGEST_OPENAI_RETRY_BACKOFF_SECONDS = 5.0
 DEFAULT_OPENAI_TEMPERATURE = 0.0
 
 
@@ -39,6 +43,10 @@ class DigestBuildConfig:
     )
     openai_enabled: bool = True
     openai_model: str | None = None
+    openai_timeout_seconds: int = DEFAULT_DIGEST_OPENAI_TIMEOUT_SECONDS
+    openai_batch_size: int = DEFAULT_DIGEST_OPENAI_BATCH_SIZE
+    openai_max_retries: int = DEFAULT_DIGEST_OPENAI_MAX_RETRIES
+    openai_retry_backoff_seconds: float = DEFAULT_DIGEST_OPENAI_RETRY_BACKOFF_SECONDS
     cache_path: Path = DEFAULT_CACHE_PATH
     prompt_audit_dir: Path = DEFAULT_PROMPT_AUDIT_DIR
 

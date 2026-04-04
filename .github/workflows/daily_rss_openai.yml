@@ -8,15 +8,15 @@ on:
       max_sources:
         description: "Max enabled sources to scan"
         required: false
-        default: "25"
+        default: "16"
       feeds_per_source:
         description: "Feeds per source to scan"
         required: false
-        default: "2"
+        default: "1"
       max_items_per_feed:
         description: "RSS items per feed (increase for older coverage)"
         required: false
-        default: "8"
+        default: "4"
       skip_seen:
         description: "Skip links/titles already present in current + history"
         required: false
@@ -40,7 +40,7 @@ on:
       score_max_items:
         description: "Max digest items to score (0 = all digest items)"
         required: false
-        default: "40"
+        default: "20"
 permissions:
   contents: write
 
@@ -51,6 +51,8 @@ concurrency:
 jobs:
   run-rss-openai:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -87,13 +89,44 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
-          MAX_SOURCES: ${{ github.event.inputs.max_sources || '25' }}
-          FEEDS_PER_SOURCE: ${{ github.event.inputs.feeds_per_source || '2' }}
-          MAX_ITEMS_PER_FEED: ${{ github.event.inputs.max_items_per_feed || '8' }}
-          SKIP_SEEN: ${{ github.event.inputs.skip_seen || 'true' }}
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_MAX_SOURCES: ${{ github.event.inputs.max_sources || '' }}
+          INPUT_FEEDS_PER_SOURCE: ${{ github.event.inputs.feeds_per_source || '' }}
+          INPUT_MAX_ITEMS_PER_FEED: ${{ github.event.inputs.max_items_per_feed || '' }}
+          INPUT_SKIP_SEEN: ${{ github.event.inputs.skip_seen || '' }}
           SOURCE_IDS: ${{ github.event.inputs.source_ids || '' }}
         run: |
           set -euo pipefail
+
+          if [ -n "${INPUT_MAX_SOURCES}" ]; then
+            MAX_SOURCES="${INPUT_MAX_SOURCES}"
+          elif [ "${EVENT_NAME}" = "schedule" ]; then
+            MAX_SOURCES="16"
+          else
+            MAX_SOURCES="16"
+          fi
+
+          if [ -n "${INPUT_FEEDS_PER_SOURCE}" ]; then
+            FEEDS_PER_SOURCE="${INPUT_FEEDS_PER_SOURCE}"
+          elif [ "${EVENT_NAME}" = "schedule" ]; then
+            FEEDS_PER_SOURCE="1"
+          else
+            FEEDS_PER_SOURCE="1"
+          fi
+
+          if [ -n "${INPUT_MAX_ITEMS_PER_FEED}" ]; then
+            MAX_ITEMS_PER_FEED="${INPUT_MAX_ITEMS_PER_FEED}"
+          elif [ "${EVENT_NAME}" = "schedule" ]; then
+            MAX_ITEMS_PER_FEED="4"
+          else
+            MAX_ITEMS_PER_FEED="4"
+          fi
+
+          if [ -n "${INPUT_SKIP_SEEN}" ]; then
+            SKIP_SEEN="${INPUT_SKIP_SEEN}"
+          else
+            SKIP_SEEN="true"
+          fi
 
           echo "Digest build params: max_sources=${MAX_SOURCES}, feeds_per_source=${FEEDS_PER_SOURCE}, max_items_per_feed=${MAX_ITEMS_PER_FEED}, skip_seen=${SKIP_SEEN}, source_ids=${SOURCE_IDS:-<all>}"
 
@@ -104,6 +137,10 @@ jobs:
             --max-items-per-feed "${MAX_ITEMS_PER_FEED}" \
             --scrape-timeout-seconds 12 \
             --scrape-sleep-seconds 0.25 \
+            --openai-timeout 180 \
+            --openai-batch-size 8 \
+            --openai-max-retries 2 \
+            --openai-retry-backoff-seconds 5 \
             --cache-path data/cache/openai_cache.sqlite \
             --prompt-audit-dir data/analysis/prompt_audit)
 
@@ -135,11 +172,57 @@ jobs:
             f.write(f"items={count}\n")
           PY
 
+      - name: Print digest audit summary
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          digest_path = Path("data/rss_openai_daily.json")
+          if not digest_path.exists():
+              print("Digest file missing; no audit summary available.")
+              raise SystemExit(0)
+
+          payload = json.loads(digest_path.read_text(encoding="utf-8"))
+          audit = payload.get("audit") if isinstance(payload, dict) else {}
+          summary = audit.get("summary") if isinstance(audit, dict) else {}
+          warnings = audit.get("warnings") if isinstance(audit, dict) else []
+
+          print("Digest audit summary:")
+          for key in (
+              "selected_sources",
+              "selected_feeds",
+              "raw_fetched_items",
+              "in_run_duplicates",
+              "skipped_seen",
+              "new_items",
+              "new_items_before_scrape",
+              "scrape_attempts",
+              "scrape_success",
+              "scrape_failed",
+              "scrape_skipped",
+              "openai_batches_executed",
+              "openai_batches_succeeded",
+              "openai_batches_failed",
+              "openai_retry_attempts",
+          ):
+              print(f"  {key}: {summary.get(key)}")
+
+          if isinstance(warnings, list) and warnings:
+              print("Warnings:")
+              for warning in warnings:
+                  print(f"  - {warning}")
+          else:
+              print("Warnings: none")
+          PY
+
       - name: Prepare scoring subset
         id: score_subset
         env:
+          EVENT_NAME: ${{ github.event_name }}
           RUN_SCORING: ${{ github.event.inputs.run_scoring || 'true' }}
-          SCORE_MAX_ITEMS: ${{ github.event.inputs.score_max_items || '40' }}
+          INPUT_SCORE_MAX_ITEMS: ${{ github.event.inputs.score_max_items || '' }}
         run: |
           set -euo pipefail
 
@@ -148,6 +231,16 @@ jobs:
             echo "items=0" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+
+          if [ -n "${INPUT_SCORE_MAX_ITEMS}" ]; then
+            SCORE_MAX_ITEMS="${INPUT_SCORE_MAX_ITEMS}"
+          elif [ "${EVENT_NAME}" = "schedule" ]; then
+            SCORE_MAX_ITEMS="20"
+          else
+            SCORE_MAX_ITEMS="20"
+          fi
+
+          export SCORE_MAX_ITEMS
 
           python3 - <<'PY'
           import json
@@ -173,8 +266,12 @@ jobs:
             scraped = item.get("scraped")
             return isinstance(scraped, dict) and bool(scraped)
 
-          eligible_items = [item for item in items if isinstance(item, dict) and scrape_succeeded(item)]
-          excluded_unscraped = max(len(items) - len(eligible_items), 0)
+          scraped_items = [item for item in items if isinstance(item, dict) and scrape_succeeded(item)]
+          excluded_unscraped = max(len(items) - len(scraped_items), 0)
+          eligible_items = [
+              item for item in scraped_items if str(item.get("ai_summary") or "").strip()
+          ]
+          excluded_missing_ai_summary = max(len(scraped_items) - len(eligible_items), 0)
 
           deduped_items = []
           seen_ids: set[str] = set()
@@ -210,8 +307,8 @@ jobs:
 
           print(
             "Scoring subset items: "
-            f"{len(selected)} selected / {len(deduped_items)} eligible scraped / {len(items)} digest "
-            f"(excluded_unscraped={excluded_unscraped}, duplicate_candidates={duplicate_candidates})"
+            f"{len(selected)} selected / {len(deduped_items)} eligible scored / {len(items)} digest "
+            f"(excluded_unscraped={excluded_unscraped}, excluded_missing_ai_summary={excluded_missing_ai_summary}, duplicate_candidates={duplicate_candidates})"
           )
           PY
 
