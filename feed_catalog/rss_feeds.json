@@ -903,7 +903,7 @@
           "topic_tags": [
             "general"
           ],
-          "enabled": true
+          "enabled": false
         },
         {
           "name": "World",
@@ -941,7 +941,7 @@
       ],
       "verified": false,
       "notes": "",
-      "enabled": true
+      "enabled": false
     },
     {
       "id": "usa-today",
@@ -972,7 +972,7 @@
           "topic_tags": [
             "general"
           ],
-          "enabled": false
+          "enabled": true
         },
         {
           "name": "World",
@@ -1009,7 +1009,7 @@
       ],
       "verified": false,
       "notes": " Disabled 2026-03-01: USA Today legacy RSS endpoints return invalid/non-RSS responses.",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "npr",
@@ -1425,7 +1425,7 @@
           "topic_tags": [
             "general"
           ],
-          "enabled": true
+          "enabled": false
         },
         {
           "name": "Europe",
@@ -1519,7 +1519,7 @@
       ],
       "verified": false,
       "notes": "",
-      "enabled": true
+      "enabled": false
     },
     {
       "id": "cbc-news",
@@ -4052,7 +4052,7 @@
           "topic_tags": [
             "general"
           ],
-          "enabled": false
+          "enabled": true
         },
         {
           "name": "UK",
@@ -4121,7 +4121,7 @@
       ],
       "verified": false,
       "notes": "Imported from vandenbroucke/rss-news-list on 2026-03-01",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "news24",
