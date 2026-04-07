@@ -24,7 +24,7 @@ Practical expectation:
 
 ## Top-level format (`data/processed/rss_openai_precomputed.json`)
 
-- `schema_version` (`string`): currently `"1.0"`
+- `schema_version` (`string`): currently `"1.1"`
 - `generated_at` (`string`, ISO-8601 UTC)
 - `contract` (`string`): currently `"rss_pipeline_precomputed"`
 - `digest` (`object`)
@@ -53,12 +53,22 @@ Practical expectation:
 - `digest_articles` (`integer`): articles from current digest only
 - `history_articles_added` (`integer`): deduped articles added from `data/history`
 - `scored_articles` (`integer`): count with non-zero scoring max
+- `lens_scored_articles` (`integer`): count with full per-lens score breakdowns
 - `high_scoring_articles` (`integer`)
 
 ## `analysis` object
 
 - `lens_summary` (`object`)
 - `source_differentiation` (`object`)
+- `lens_correlations` (`object`)
+  - `lenses` (`array<string>`): lens order used across all square matrices below
+  - `correlation` (`object`)
+    - `raw` (`array<array<number|null>>`): Pearson correlation matrix from raw lens scores
+    - `normalized` (`array<array<number|null>>`): Pearson correlation matrix from normalized lens scores
+  - `covariance` (`object`)
+    - `raw` (`array<array<number|null>>`): covariance matrix from raw lens scores
+    - `normalized` (`array<array<number|null>>`): covariance matrix from normalized lens scores
+  - `pairwise_counts` (`array<array<integer|null>>`): article overlap counts for each lens pair
 
 These are precomputed analysis outputs intended for direct rendering by another app.
 
@@ -84,10 +94,15 @@ These are precomputed analysis outputs intended for direct rendering by another 
   - `max_value` (`number`)
   - `percent` (`number`)
   - `rubric_count` (`integer`)
+  - `lens_scores` (`object<string, object>`): per-lens article breakdown when analysis artifacts are available
+    - `value` (`number`)
+    - `max_value` (`number`)
+    - `percent` (`number`)
+    - `rubric_count` (`integer`)
 - `high_score` (`object|null`):
   - `overall_score` (`number`)
   - `overall_percent` (`number`)
-  - `lens_scores` (`object<string, number>`)
+  - `lens_scores` (`object<string, number>`): retained for backward compatibility with the high-score subset
 - `audit` (`object`): provenance and OpenAI audit references
 
 ## Secondary file (pipeline-level detail)
@@ -103,6 +118,7 @@ This file includes low-level run metadata (`run`, `request`, `sources`, `openai`
 - Check `generated_at` and `digest.run_id` each fetch.
 - Treat `articles[].id` as the stable key for dedupe/update logic.
 - Keep your app tolerant of optional/null fields (`scraped`, `high_score`, `scrape_error`).
+- Prefer `articles[].score.lens_scores` for full lens-by-article analysis. Treat `high_score.lens_scores` as a compatibility subset.
 - For efficient polling, use HTTP conditional requests (`ETag` / `If-None-Match`) against the raw URL.
 
 ## Compatibility notes
