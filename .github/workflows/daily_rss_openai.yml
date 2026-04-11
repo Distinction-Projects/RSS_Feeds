@@ -38,9 +38,9 @@ on:
           - "true"
           - "false"
       score_max_items:
-        description: "Max digest items to score (0 = all digest items)"
+        description: "Max unscored items to score from digest+history (0 = all pending)"
         required: false
-        default: "20"
+        default: "40"
 permissions:
   contents: write
 
@@ -74,11 +74,26 @@ jobs:
             ${{ runner.os }}-openai-cache-${{ github.ref_name }}-
             ${{ runner.os }}-openai-cache-main-
 
+      - name: Restore scoring artifacts
+        id: score_artifacts_restore
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            data/scores.json
+            data/high_scoring_articles.json
+          key: ${{ runner.os }}-rss-score-artifacts-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-rss-score-artifacts-${{ github.ref_name }}-
+            ${{ runner.os }}-rss-score-artifacts-main-
+
       - name: Show cache restore details
         run: |
           echo "Cache primary key: ${{ steps.openai_cache_restore.outputs.cache-primary-key }}"
           echo "Cache matched key: ${{ steps.openai_cache_restore.outputs.cache-matched-key }}"
           echo "Cache exact hit: ${{ steps.openai_cache_restore.outputs.cache-hit }}"
+          echo "Score cache primary key: ${{ steps.score_artifacts_restore.outputs.cache-primary-key }}"
+          echo "Score cache matched key: ${{ steps.score_artifacts_restore.outputs.cache-matched-key }}"
+          echo "Score cache exact hit: ${{ steps.score_artifacts_restore.outputs.cache-hit }}"
 
       - name: Install dependencies
         run: |
@@ -235,23 +250,93 @@ jobs:
           if [ -n "${INPUT_SCORE_MAX_ITEMS}" ]; then
             SCORE_MAX_ITEMS="${INPUT_SCORE_MAX_ITEMS}"
           elif [ "${EVENT_NAME}" = "schedule" ]; then
-            SCORE_MAX_ITEMS="20"
+            SCORE_MAX_ITEMS="40"
           else
-            SCORE_MAX_ITEMS="20"
+            SCORE_MAX_ITEMS="40"
           fi
 
           export SCORE_MAX_ITEMS
 
           python3 - <<'PY'
           import json
+          import re
+          from datetime import date
           import os
           from pathlib import Path
 
           digest_path = Path("data/rss_openai_daily.json")
           score_input_path = Path("data/rss_openai_daily_for_scoring.json")
+          history_dir = Path("data/history")
+          history_days = 180
           payload = json.loads(digest_path.read_text(encoding="utf-8"))
           raw_items = payload.get("items") if isinstance(payload, dict) else []
-          items = raw_items if isinstance(raw_items, list) else []
+          digest_items = raw_items if isinstance(raw_items, list) else []
+
+          history_items = []
+          pattern = re.compile(r"^rss_openai_daily_(\d{4}-\d{2}-\d{2})\.json$")
+          if history_dir.exists():
+            today = date.today()
+            history_paths = []
+            for path in history_dir.glob("rss_openai_daily_*.json"):
+              match = pattern.match(path.name)
+              if not match:
+                continue
+              try:
+                snapshot_day = date.fromisoformat(match.group(1))
+              except ValueError:
+                continue
+              age_days = (today - snapshot_day).days
+              if age_days < 0 or age_days > history_days:
+                continue
+              history_paths.append((snapshot_day, path))
+            history_paths.sort(reverse=True)
+
+            for _snapshot_day, snapshot_path in history_paths:
+              try:
+                snapshot_payload = json.loads(snapshot_path.read_text(encoding="utf-8"))
+              except (OSError, json.JSONDecodeError):
+                continue
+              snapshot_raw_items = snapshot_payload.get("items") if isinstance(snapshot_payload, dict) else []
+              if isinstance(snapshot_raw_items, list):
+                history_items.extend(item for item in snapshot_raw_items if isinstance(item, dict))
+
+          items = []
+          items.extend(item for item in digest_items if isinstance(item, dict))
+          items.extend(history_items)
+
+          existing_scores_path = Path("data/scores.json")
+          scored_item_ids = set()
+          if existing_scores_path.exists():
+            try:
+              existing_scores = json.loads(existing_scores_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+              existing_scores = []
+            if isinstance(existing_scores, list):
+              for score in existing_scores:
+                if not isinstance(score, dict):
+                  continue
+                news_item = score.get("news_item")
+                if not isinstance(news_item, dict):
+                  continue
+                item_id = str(news_item.get("id") or "").strip()
+                if item_id:
+                  scored_item_ids.add(item_id)
+
+          def item_key(item: dict) -> str:
+            item_id = str(item.get("id") or "").strip()
+            if item_id:
+              return f"id:{item_id}"
+            link = str(item.get("link") or "").strip().lower()
+            if link:
+              return f"link:{link}"
+            source = item.get("source")
+            source_id = ""
+            if isinstance(source, dict):
+              source_id = str(source.get("id") or "").strip().lower()
+            title = " ".join(str(item.get("title") or "").lower().split())
+            if title:
+              return f"title:{source_id}:{title}"
+            return ""
 
           def scrape_succeeded(item: dict) -> bool:
             scrape_error = str(item.get("scrape_error") or "").strip()
@@ -274,9 +359,16 @@ jobs:
           excluded_missing_ai_summary = max(len(scraped_items) - len(eligible_items), 0)
 
           deduped_items = []
+          seen_keys: set[str] = set()
           seen_ids: set[str] = set()
           duplicate_candidates = 0
           for item in eligible_items:
+            key = item_key(item)
+            if key and key in seen_keys:
+              duplicate_candidates += 1
+              continue
+            if key:
+              seen_keys.add(key)
             item_id = str(item.get("id") or "").strip()
             if item_id and item_id in seen_ids:
               duplicate_candidates += 1
@@ -285,21 +377,30 @@ jobs:
               seen_ids.add(item_id)
             deduped_items.append(item)
 
-          max_items_raw = os.environ.get("SCORE_MAX_ITEMS", "40").strip()
+          pending_items = []
+          already_scored_skipped = 0
+          for item in deduped_items:
+            item_id = str(item.get("id") or "").strip()
+            if item_id and item_id in scored_item_ids:
+              already_scored_skipped += 1
+              continue
+            pending_items.append(item)
+
+          max_items_raw = os.environ.get("SCORE_MAX_ITEMS", "0").strip()
           try:
             max_items = int(max_items_raw)
           except ValueError:
-            max_items = 40
+            max_items = 0
 
           if max_items <= 0:
-            selected = deduped_items
+            selected = pending_items
           else:
-            selected = deduped_items[:max_items]
+            selected = pending_items[:max_items]
 
           score_payload = dict(payload) if isinstance(payload, dict) else {}
           score_payload["items"] = selected
           score_input_path.write_text(
-              json.dumps(score_payload, ensure_ascii=False, indent=2), encoding="utf-8"
+            json.dumps(score_payload, ensure_ascii=False, indent=2), encoding="utf-8"
           )
 
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
@@ -307,8 +408,10 @@ jobs:
 
           print(
             "Scoring subset items: "
-            f"{len(selected)} selected / {len(deduped_items)} eligible scored / {len(items)} digest "
-            f"(excluded_unscraped={excluded_unscraped}, excluded_missing_ai_summary={excluded_missing_ai_summary}, duplicate_candidates={duplicate_candidates})"
+            f"{len(selected)} selected / {len(pending_items)} pending / {len(deduped_items)} eligible / {len(items)} candidates "
+            f"(excluded_unscraped={excluded_unscraped}, excluded_missing_ai_summary={excluded_missing_ai_summary}, "
+            f"duplicate_candidates={duplicate_candidates}, already_scored_skipped={already_scored_skipped}, "
+            f"history_items={len(history_items)})"
           )
           PY
 
@@ -325,8 +428,7 @@ jobs:
             --high-scores-output data/high_scoring_articles.json \
             --temperature 0.0 \
             --cache-path data/cache/openai_cache.sqlite \
-            --prompt-audit-dir data/analysis/prompt_audit \
-            --replace-output
+            --prompt-audit-dir data/analysis/prompt_audit
 
       - name: Run analysis precompute
         if: steps.score_subset.outputs.items != '0'
@@ -456,6 +558,15 @@ jobs:
         with:
           path: data/cache
           key: ${{ runner.os }}-openai-cache-${{ github.ref_name }}-${{ github.run_id }}
+
+      - name: Save scoring artifacts
+        if: always() && hashFiles('data/scores.json', 'data/high_scoring_articles.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            data/scores.json
+            data/high_scoring_articles.json
+          key: ${{ runner.os }}-rss-score-artifacts-${{ github.ref_name }}-${{ github.run_id }}
 
       - name: Commit digest and processed artifacts
         run: |
