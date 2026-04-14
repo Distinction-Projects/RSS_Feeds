@@ -6,7 +6,7 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal, cast
 
 from typing_extensions import TypedDict
 
@@ -15,6 +15,21 @@ from serialization_utils import dump_json, validate_json
 
 SELF_TEST_FLAG = "--self-test"
 HELP_FLAGS: tuple[str, ...] = ("-h", "--help")
+DEFAULT_LEGACY_SEMANTIC_CLASS = "existence_good"
+DEFAULT_MISSING_EVIDENCE = "No evidence provided."
+DEFAULT_LEGACY_EVIDENCE = "Legacy score imported without per-question evidence."
+SemanticClass = Literal[
+    "existence_good",
+    "existence_bad",
+    "nonexistence_good",
+    "nonexistence_bad",
+]
+VALID_SEMANTIC_CLASSES: set[str] = {
+    "existence_good",
+    "existence_bad",
+    "nonexistence_good",
+    "nonexistence_bad",
+}
 
 
 def _now_utc() -> datetime:
@@ -51,6 +66,14 @@ def _optional_float(value: Any) -> float | None:
         return None
 
 
+def _semantic_class(value: Any, field_name: str) -> SemanticClass:
+    text = _required_text(value, field_name)
+    if text not in VALID_SEMANTIC_CLASSES:
+        allowed = ", ".join(sorted(VALID_SEMANTIC_CLASSES))
+        raise ValueError(f"Invalid semantic class for {field_name}: {text}. Allowed: {allowed}")
+    return cast(SemanticClass, text)
+
+
 def _as_datetime(value: Any) -> datetime:
     if isinstance(value, datetime):
         return value
@@ -72,6 +95,7 @@ def _load_json_object(raw: str | bytes, *, context: str) -> dict[str, Any]:
 
 class RubricQuestionJSON(TypedDict):
     question: str
+    semantic_class: SemanticClass
 
 
 class RubricJSON(TypedDict):
@@ -80,7 +104,6 @@ class RubricJSON(TypedDict):
     expected_question_count: int
     min_score_per_question: float
     max_score_per_question: float
-    anticipated_total_score: float | None
 
 
 class LensJSON(TypedDict):
@@ -96,6 +119,7 @@ class ScoreJSON(TypedDict):
     rubric: RubricJSON
     news_item: dict[str, Any]
     question_scores: list[float]
+    question_evidence: list[str]
     value: float
     max_value: float
     reasoning: str
@@ -111,17 +135,36 @@ class RubricQuestion:
     """A single evaluative question inside a rubric."""
 
     question: str
+    semantic_class: SemanticClass
+
+    def __post_init__(self) -> None:
+        if self.semantic_class not in VALID_SEMANTIC_CLASSES:
+            allowed = ", ".join(sorted(VALID_SEMANTIC_CLASSES))
+            raise ValueError(
+                f"RubricQuestion.semantic_class must be one of: {allowed}. "
+                f"Got: {self.semantic_class}"
+            )
 
     @classmethod
     def from_dict(cls, obj: dict[str, Any] | str) -> RubricQuestion:
         if isinstance(obj, str):
-            return cls(question=_required_text(obj, "question"))
+            return cls(
+                question=_required_text(obj, "question"),
+                semantic_class=cast(SemanticClass, DEFAULT_LEGACY_SEMANTIC_CLASS),
+            )
         if not isinstance(obj, dict):
             raise ValueError("RubricQuestion must be a string or object.")
-        return cls(question=_required_text(obj.get("question"), "question"))
+        raw_semantic = obj.get("semantic_class", DEFAULT_LEGACY_SEMANTIC_CLASS)
+        return cls(
+            question=_required_text(obj.get("question"), "question"),
+            semantic_class=_semantic_class(raw_semantic, "semantic_class"),
+        )
 
     def to_dict(self) -> dict[str, Any]:
-        return {"question": self.question}
+        return {
+            "question": self.question,
+            "semantic_class": self.semantic_class,
+        }
 
     @classmethod
     def from_json(cls, raw: str | bytes, *, strict: bool = False) -> RubricQuestion:
@@ -147,7 +190,6 @@ class Rubric:
     Fields:
     - expected_question_count: required number of question scores.
     - min_score_per_question/max_score_per_question: allowed range for each score.
-    - anticipated_total_score: optional expected target within the valid total range.
     """
 
     name: str
@@ -155,7 +197,6 @@ class Rubric:
     expected_question_count: int
     min_score_per_question: float
     max_score_per_question: float
-    anticipated_total_score: float | None = None
 
     def __post_init__(self) -> None:
         if self.expected_question_count <= 0:
@@ -167,13 +208,6 @@ class Rubric:
                 "Rubric question count mismatch: "
                 f"expected {self.expected_question_count}, got {len(self.questions)}."
             )
-        if self.anticipated_total_score is not None:
-            min_total = self.min_score_per_question * self.expected_question_count
-            max_total = self.max_score_per_question * self.expected_question_count
-            if not (min_total <= self.anticipated_total_score <= max_total):
-                raise ValueError(
-                    f"Rubric.anticipated_total_score must be within [{min_total}, {max_total}]"
-                )
 
     @classmethod
     def from_dict(cls, obj: dict[str, Any]) -> Rubric:
@@ -204,7 +238,6 @@ class Rubric:
             expected_question_count=expected_count,
             min_score_per_question=min_score,
             max_score_per_question=max_score,
-            anticipated_total_score=_optional_float(obj.get("anticipated_total_score")),
         )
 
     def to_dict(self) -> dict[str, Any]:
@@ -214,7 +247,6 @@ class Rubric:
             "expected_question_count": self.expected_question_count,
             "min_score_per_question": self.min_score_per_question,
             "max_score_per_question": self.max_score_per_question,
-            "anticipated_total_score": self.anticipated_total_score,
         }
 
     @classmethod
@@ -249,6 +281,7 @@ class Score:
     rubric: Rubric
     news_item: NewsItem
     question_scores: list[float]
+    question_evidence: list[str]
     value: float
     max_value: float
     reasoning: str
@@ -259,6 +292,11 @@ class Score:
             raise ValueError(
                 "Score.question_scores length mismatch: "
                 f"expected {self.rubric.expected_question_count}, got {len(self.question_scores)}."
+            )
+        if len(self.question_evidence) != self.rubric.expected_question_count:
+            raise ValueError(
+                "Score.question_evidence length mismatch: "
+                f"expected {self.rubric.expected_question_count}, got {len(self.question_evidence)}."
             )
 
         for index, question_score in enumerate(self.question_scores):
@@ -291,14 +329,23 @@ class Score:
         rubric: Rubric,
         news_item: NewsItem,
         question_scores: list[float],
+        question_evidence: list[str] | None = None,
         reasoning: str = "",
         scored_at: datetime | None = None,
     ) -> Score:
         normalized_scores = [float(score) for score in question_scores]
+        if question_evidence is None:
+            normalized_evidence = [DEFAULT_MISSING_EVIDENCE] * len(normalized_scores)
+        else:
+            normalized_evidence = [
+                str(entry).strip() if str(entry).strip() else DEFAULT_MISSING_EVIDENCE
+                for entry in question_evidence
+            ]
         return cls(
             rubric=rubric,
             news_item=news_item,
             question_scores=normalized_scores,
+            question_evidence=normalized_evidence,
             value=sum(normalized_scores),
             max_value=rubric.max_possible_score,
             reasoning=reasoning.strip(),
@@ -319,11 +366,22 @@ class Score:
         raw_scores = obj.get("question_scores", [])
         if not isinstance(raw_scores, list):
             raise ValueError("Score.question_scores must be a list.")
+        raw_evidence = obj.get("question_evidence")
+        if raw_evidence is None:
+            normalized_evidence = [DEFAULT_LEGACY_EVIDENCE] * len(raw_scores)
+        else:
+            if not isinstance(raw_evidence, list):
+                raise ValueError("Score.question_evidence must be a list.")
+            normalized_evidence = [
+                str(entry).strip() if str(entry).strip() else DEFAULT_MISSING_EVIDENCE
+                for entry in raw_evidence
+            ]
 
         return cls(
             rubric=Rubric.from_dict(rubric_raw),
             news_item=NewsItem.from_dict(news_raw),
             question_scores=[float(score) for score in raw_scores],
+            question_evidence=normalized_evidence,
             value=_required_float(obj.get("value"), "score.value"),
             max_value=_required_float(obj.get("max_value"), "score.max_value"),
             reasoning=_required_text(obj.get("reasoning", ""), "score.reasoning"),
@@ -335,6 +393,7 @@ class Score:
             "rubric": self.rubric.to_dict(),
             "news_item": self.news_item.to_dict(),
             "question_scores": list(self.question_scores),
+            "question_evidence": list(self.question_evidence),
             "value": self.value,
             "max_value": self.max_value,
             "reasoning": self.reasoning,
@@ -552,28 +611,37 @@ def template_lens() -> Lens:
             Rubric(
                 name="Evidence Quality",
                 questions=[
-                    RubricQuestion(question="Does the article cite named sources?"),
-                    RubricQuestion(question="Are key claims supported by verifiable evidence?"),
+                    RubricQuestion(
+                        question="The article cites named sources for key factual claims.",
+                        semantic_class="existence_good",
+                    ),
+                    RubricQuestion(
+                        question="The article supports key claims with verifiable evidence.",
+                        semantic_class="existence_good",
+                    ),
                 ],
                 expected_question_count=2,
                 min_score_per_question=0.0,
                 max_score_per_question=5.0,
-                anticipated_total_score=8.0,
             ),
             Rubric(
                 name="Bias and Framing",
                 questions=[
                     RubricQuestion(
-                        question="Does the article present multiple relevant viewpoints?"
+                        question="The article addresses relevant counterpoints when presenting a viewpoint.",
+                        semantic_class="existence_good",
                     ),
                     RubricQuestion(
-                        question="Is emotionally loaded language used to sway interpretation?"
+                        question=(
+                            "The article uses emotionally loaded language to sway interpretation "
+                            "rather than inform."
+                        ),
+                        semantic_class="existence_bad",
                     ),
                 ],
                 expected_question_count=2,
                 min_score_per_question=0.0,
                 max_score_per_question=5.0,
-                anticipated_total_score=7.0,
             ),
         ],
     )
@@ -670,6 +738,15 @@ def run_self_tests() -> int:
         pass
     except Exception as exc:
         failures.append(f"Malformed Lens strict validation raised unexpected error type: {exc}")
+
+    legacy_score_payload = sample_score.to_dict()
+    legacy_score_payload.pop("question_evidence", None)
+    try:
+        legacy_score = Score.from_dict(legacy_score_payload)
+        if len(legacy_score.question_evidence) != len(legacy_score.question_scores):
+            failures.append("Legacy score fallback evidence length mismatch.")
+    except Exception as exc:
+        failures.append(f"Legacy score compatibility check failed: {exc}")
 
     if failures:
         print(f"SELF-TEST FAILED ({len(failures)} issues)")

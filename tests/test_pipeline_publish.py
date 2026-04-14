@@ -18,7 +18,6 @@ class PipelinePublishTests(unittest.TestCase):
             config = PublishBuildConfig(
                 digest=Path("data/rss_openai_daily.json"),
                 scores=Path("data/scores.json"),
-                high_scores=Path("data/high_scoring_articles.json"),
                 analysis_root=Path("data/analysis"),
                 output=Path("data/processed/rss_openai_precomputed.json"),
                 include_history=False,
@@ -60,8 +59,6 @@ class PipelinePublishTests(unittest.TestCase):
             scored_article = article_map["fixture-1"]
             unscored_article = article_map["fixture-2"]
 
-            self.assertEqual(scored_article["score"]["value"], 12.5)
-            self.assertEqual(scored_article["score"]["percent"], 62.5)
             self.assertEqual(scored_article["score"]["rubric_count"], 2)
             self.assertEqual(
                 scored_article["score"]["lens_scores"]["Evidence"],
@@ -81,19 +78,7 @@ class PipelinePublishTests(unittest.TestCase):
                     "rubric_count": 1,
                 },
             )
-            self.assertEqual(
-                scored_article["high_score"],
-                {
-                    "overall_score": 12.5,
-                    "overall_percent": 62.5,
-                    "lens_scores": {
-                        "Evidence": 7.5,
-                        "Impact": 5.0,
-                    },
-                },
-            )
             self.assertEqual(unscored_article["score"]["lens_scores"], {})
-            self.assertIsNone(unscored_article["high_score"])
 
     def _write_fixture_files(self, repo_root: Path) -> None:
         (repo_root / "data/analysis/lens_stats").mkdir(parents=True, exist_ok=True)
@@ -156,19 +141,6 @@ class PipelinePublishTests(unittest.TestCase):
         ]
         (repo_root / "data/scores.json").write_text(
             json.dumps(scores_payload, indent=2),
-            encoding="utf-8",
-        )
-
-        high_scores_payload = [
-            {
-                "news_item": {"id": "fixture-1"},
-                "overall_score": 12.5,
-                "overall_percent": 62.5,
-                "lens_scores": {"Evidence": 7.5, "Impact": 5.0},
-            }
-        ]
-        (repo_root / "data/high_scoring_articles.json").write_text(
-            json.dumps(high_scores_payload, indent=2),
             encoding="utf-8",
         )
 

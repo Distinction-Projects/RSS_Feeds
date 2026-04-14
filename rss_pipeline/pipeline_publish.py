@@ -236,10 +236,8 @@ def _lens_scores_by_article(
     return per_article
 
 
-def _score_stats_by_article(scores: list[dict[str, Any]]) -> dict[str, dict[str, float]]:
-    per_article: dict[str, dict[str, float]] = defaultdict(
-        lambda: {"value": 0.0, "max_value": 0.0, "rubric_count": 0.0}
-    )
+def _rubric_counts_by_article(scores: list[dict[str, Any]]) -> dict[str, int]:
+    per_article: dict[str, int] = defaultdict(int)
     for score in scores:
         if not isinstance(score, dict):
             continue
@@ -249,34 +247,8 @@ def _score_stats_by_article(scores: list[dict[str, Any]]) -> dict[str, dict[str,
         item_id = str(news_item.get("id") or "").strip()
         if not item_id:
             continue
-        value = float(score.get("value") or 0.0)
-        max_value = float(score.get("max_value") or 0.0)
-        row = per_article[item_id]
-        row["value"] += value
-        row["max_value"] += max_value
-        row["rubric_count"] += 1.0
+        per_article[item_id] += 1
     return per_article
-
-
-def _high_scores_by_article(high_scores: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
-    mapping: dict[str, dict[str, Any]] = {}
-    for record in high_scores:
-        if not isinstance(record, dict):
-            continue
-        news_item = record.get("news_item")
-        if not isinstance(news_item, dict):
-            continue
-        item_id = str(news_item.get("id") or "").strip()
-        if not item_id:
-            continue
-        mapping[item_id] = {
-            "overall_score": float(record.get("overall_score") or 0.0),
-            "overall_percent": float(record.get("overall_percent") or 0.0),
-            "lens_scores": record.get("lens_scores")
-            if isinstance(record.get("lens_scores"), dict)
-            else {},
-        }
-    return mapping
 
 
 def _item_key(item: dict[str, Any]) -> str:
@@ -330,9 +302,6 @@ def _history_files_in_window(history_dir: Path, history_days: int | None) -> lis
 def build_precomputed_payload(config: PublishBuildConfig, *, repo_root: Path) -> dict[str, Any]:
     digest_path = config.digest if config.digest.is_absolute() else repo_root / config.digest
     scores_path = config.scores if config.scores.is_absolute() else repo_root / config.scores
-    high_scores_path = (
-        config.high_scores if config.high_scores.is_absolute() else repo_root / config.high_scores
-    )
     analysis_root = (
         config.analysis_root
         if config.analysis_root.is_absolute()
@@ -375,12 +344,8 @@ def build_precomputed_payload(config: PublishBuildConfig, *, repo_root: Path) ->
     raw_scores = _load_json(scores_path, default=[])
     scores = raw_scores if isinstance(raw_scores, list) else []
 
-    raw_high_scores = _load_json(high_scores_path, default=[])
-    high_scores = raw_high_scores if isinstance(raw_high_scores, list) else []
-
     analysis_payload = _analysis_payload(analysis_root)
-    score_stats = _score_stats_by_article(scores)
-    high_score_stats = _high_scores_by_article(high_scores)
+    rubric_counts = _rubric_counts_by_article(scores)
     score_lens_stats = _lens_scores_by_article(
         analysis_root,
         analysis_payload.get("lens_summary", {}),
@@ -392,10 +357,7 @@ def build_precomputed_payload(config: PublishBuildConfig, *, repo_root: Path) ->
         if not item_id:
             continue
 
-        score = score_stats.get(item_id, {"value": 0.0, "max_value": 0.0, "rubric_count": 0.0})
-        max_value = float(score["max_value"])
-        percent = (float(score["value"]) / max_value * 100.0) if max_value > 0 else 0.0
-        high_score = high_score_stats.get(item_id)
+        lens_scores = score_lens_stats.get(item_id, {})
 
         precomputed_articles.append(
             {
@@ -412,21 +374,17 @@ def build_precomputed_payload(config: PublishBuildConfig, *, repo_root: Path) ->
                 "scraped": item.get("scraped"),
                 "scrape_error": item.get("scrape_error"),
                 "score": {
-                    "value": round(float(score["value"]), 4),
-                    "max_value": round(max_value, 4),
-                    "percent": round(percent, 4),
-                    "rubric_count": int(score["rubric_count"]),
-                    "lens_scores": score_lens_stats.get(item_id, {}),
+                    "rubric_count": int(rubric_counts.get(item_id, 0)),
+                    "lens_scores": lens_scores,
                 },
-                "high_score": high_score,
                 "audit": item.get("audit", {}),
             }
         )
 
     precomputed_articles.sort(
         key=lambda row: (
-            float((row.get("high_score") or {}).get("overall_percent") or 0.0),
-            float((row.get("score") or {}).get("percent") or 0.0),
+            str(row.get("published") or ""),
+            str(row.get("id") or ""),
         ),
         reverse=True,
     )
@@ -453,7 +411,6 @@ def build_precomputed_payload(config: PublishBuildConfig, *, repo_root: Path) ->
         },
         "artifacts": {
             "scores_path": str(config.scores),
-            "high_scores_path": str(config.high_scores),
             "analysis_root": str(config.analysis_root),
         },
         "summary": {
@@ -461,13 +418,10 @@ def build_precomputed_payload(config: PublishBuildConfig, *, repo_root: Path) ->
             "digest_articles": len(digest_items),
             "history_articles_added": history_items_added,
             "scored_articles": sum(
-                1 for row in precomputed_articles if row["score"]["max_value"] > 0
+                1 for row in precomputed_articles if row["score"]["lens_scores"]
             ),
             "lens_scored_articles": sum(
                 1 for row in precomputed_articles if row["score"]["lens_scores"]
-            ),
-            "high_scoring_articles": sum(
-                1 for row in precomputed_articles if row.get("high_score")
             ),
         },
         "analysis": analysis_payload,

@@ -105,7 +105,11 @@ class _FakeScoreService:
     ) -> SimpleNamespace:
         type(self).call_count += 1
         return SimpleNamespace(
-            parsed={"question_scores": [1.0], "reasoning": "ok"},
+            parsed={
+                "question_scores": [1.0],
+                "question_evidence": ["Evidence for statement 1."],
+                "reasoning": "ok",
+            },
             response_id="resp-score",
             usage={"total_tokens": 5},
             cache_key="score-cache",
@@ -241,7 +245,6 @@ class ScoreReliabilityTests(unittest.TestCase):
                 experiment=Path("data/rss_openai_daily.json"),
                 lenses_path=Path("lenses"),
                 output=Path("data/scores.json"),
-                high_scores_output=Path("data/high_scoring_articles.json"),
                 cache_path=Path("data/cache/openai_cache.sqlite"),
                 prompt_audit_dir=Path("data/analysis/prompt_audit"),
                 replace_output=True,
@@ -256,11 +259,15 @@ class ScoreReliabilityTests(unittest.TestCase):
                 rubrics=[
                     Rubric(
                         name="Rubric A",
-                        questions=[RubricQuestion(question="Question 1?")],
+                        questions=[
+                            RubricQuestion(
+                                question="The article provides enough evidence for a claim.",
+                                semantic_class="existence_good",
+                            )
+                        ],
                         expected_question_count=1,
                         min_score_per_question=0.0,
                         max_score_per_question=1.0,
-                        anticipated_total_score=1.0,
                     )
                 ],
             )

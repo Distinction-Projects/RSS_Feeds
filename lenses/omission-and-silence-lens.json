@@ -1,0 +1,41 @@
+{
+  "name": "Omission and Silence Lens",
+  "summary": "Identify how missing context, absent actors, and unspoken assumptions shape interpretation.",
+  "instructions": "Score each declarative statement on a 0-5 agreement scale (0=Strongly Disagree, 5=Strongly Agree) using direct evidence from the article.",
+  "system_prompt": "You are a discourse analyst focused on absence and suppression. Evaluate how omissions, missing context, and silences shape the article's meaning. Score based on what the text foregrounds, backgrounds, or leaves unsaid.",
+  "user_prompt": "Evaluate this article using the omission and silence lens rubric.",
+  "rubrics": [
+    {
+      "name": "Contextual Omission",
+      "questions": [
+        {
+          "question": "The article omits historical, structural, or geopolitical context that would materially change interpretation.",
+          "semantic_class": "existence_bad"
+        },
+        {
+          "question": "The article presents complex events in a decontextualized way that narrows causal understanding.",
+          "semantic_class": "existence_bad"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0
+    },
+    {
+      "name": "Absent Actors and Interests",
+      "questions": [
+        {
+          "question": "The article omits or minimally represents relevant stakeholders, affected groups, or institutional interests.",
+          "semantic_class": "existence_bad"
+        },
+        {
+          "question": "The article leaves key power relations or material interests unspoken.",
+          "semantic_class": "existence_bad"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0
+    }
+  ]
+}

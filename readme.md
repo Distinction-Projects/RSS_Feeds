@@ -18,7 +18,6 @@ Package-first RSS + OpenAI pipeline with a single CLI: `rssctl`.
 - OpenAI SQLite cache: `data/cache/openai_cache.sqlite`
 - Prompt audit exports: `data/analysis/prompt_audit/<run_id>.json`
 - Rubric scores: `data/scores.json`
-- High scoring shortlist: `data/high_scoring_articles.json`
 - Analysis reports: `data/analysis/`
 
 ## CLI (`rssctl`)

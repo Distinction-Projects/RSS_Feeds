@@ -1,39 +1,41 @@
 {
   "name": "Entity-Level Sentiment Lens",
-  "summary": "Enable fine-grained sentiment modeling for advanced NLP applications.",
-  "instructions": "Analyze sentiment expressions toward specific entities (individuals, organizations, groups) in the article. Evaluate whether different entities receive distinct treatment and whether evaluations are consistent and nuanced. Provide specific entity-sentiment examples.",
-  "system_prompt": "You are an entity sentiment analyst. Evaluate the article's treatment of specific entities using the rubric. Score based on the specificity, consistency, and nuance of sentiment toward different actors.",
+  "summary": "Measure whether sentiment is clearly attached to specific entities and applied consistently.",
+  "instructions": "Score each declarative statement on a 0-5 agreement scale (0=Strongly Disagree, 5=Strongly Agree) using direct evidence from the article.",
+  "system_prompt": "You are an entity sentiment analyst. Score each statement exactly as written using evidence from the text. Do not invert scores based on semantic class.",
   "user_prompt": "Evaluate this article using the entity-level sentiment lens rubric.",
   "rubrics": [
     {
       "name": "Target Specificity",
       "questions": [
         {
-          "question": "Does the article express different sentiments toward different actors?"
+          "question": "The article assigns distinct sentiment to different named entities or actor groups.",
+          "semantic_class": "existence_good"
         },
         {
-          "question": "Are multiple entities evaluated distinctly?"
+          "question": "The article clearly links evaluative statements to specific entities.",
+          "semantic_class": "existence_good"
         }
       ],
       "expected_question_count": 2,
       "min_score_per_question": 0.0,
-      "max_score_per_question": 5.0,
-      "anticipated_total_score": 9.0
+      "max_score_per_question": 5.0
     },
     {
       "name": "Consistency",
       "questions": [
         {
-          "question": "Is sentiment toward a given entity stable throughout the article?"
+          "question": "The article applies sentiment toward each entity consistently across sections.",
+          "semantic_class": "existence_good"
         },
         {
-          "question": "Are evaluations nuanced rather than uniformly positive/negative?"
+          "question": "The article differentiates sentiment intensity rather than treating all entities uniformly.",
+          "semantic_class": "existence_good"
         }
       ],
       "expected_question_count": 2,
       "min_score_per_question": 0.0,
-      "max_score_per_question": 5.0,
-      "anticipated_total_score": 8.5
+      "max_score_per_question": 5.0
     }
   ]
 }

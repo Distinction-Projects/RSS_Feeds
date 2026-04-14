@@ -52,9 +52,8 @@ Practical expectation:
 - `articles` (`integer`): count in `articles`
 - `digest_articles` (`integer`): articles from current digest only
 - `history_articles_added` (`integer`): deduped articles added from `data/history`
-- `scored_articles` (`integer`): count with non-zero scoring max
+- `scored_articles` (`integer`): count with per-lens `score.lens_scores` data
 - `lens_scored_articles` (`integer`): count with full per-lens score breakdowns
-- `high_scoring_articles` (`integer`)
 
 ## `analysis` object
 
@@ -90,19 +89,12 @@ These are precomputed analysis outputs intended for direct rendering by another 
   - `body_text` (full extracted paragraph text joined into one string)
 - `scrape_error` (`string|null`)
 - `score` (`object`):
-  - `value` (`number`)
-  - `max_value` (`number`)
-  - `percent` (`number`)
   - `rubric_count` (`integer`)
   - `lens_scores` (`object<string, object>`): per-lens article breakdown when analysis artifacts are available
     - `value` (`number`)
     - `max_value` (`number`)
     - `percent` (`number`)
     - `rubric_count` (`integer`)
-- `high_score` (`object|null`):
-  - `overall_score` (`number`)
-  - `overall_percent` (`number`)
-  - `lens_scores` (`object<string, number>`): retained for backward compatibility with the high-score subset
 - `audit` (`object`): provenance and OpenAI audit references
 
 ## Secondary file (pipeline-level detail)
@@ -113,12 +105,34 @@ These are precomputed analysis outputs intended for direct rendering by another 
 
 This file includes low-level run metadata (`run`, `request`, `sources`, `openai`, `cache`, `errors`, `audit`) and full item internals.
 
+## Canonical lens + score schema notes
+
+These rules apply to lens definitions and rubric score artifacts produced by the scoring pipeline:
+
+- Rubric questions are canonical objects with:
+  - `question` (`string`): declarative statement to score
+  - `semantic_class` (`string`): one of
+    - `existence_good`
+    - `existence_bad`
+    - `nonexistence_good`
+    - `nonexistence_bad`
+- Rubrics use fixed per-question bounds (`min_score_per_question`, `max_score_per_question`) and do not use `anticipated_total_score`.
+- Score artifacts include:
+  - `question_scores` (`array<number>`)
+  - `question_evidence` (`array<string>`) aligned one-to-one with `question_scores`
+  - `reasoning` (`string`)
+
+Backward compatibility:
+
+- Legacy artifacts without `semantic_class` or `question_evidence` are accepted in compatibility mode.
+- New writes emit the canonical fields above.
+
 ## Freshness and consumer guidance
 
 - Check `generated_at` and `digest.run_id` each fetch.
 - Treat `articles[].id` as the stable key for dedupe/update logic.
-- Keep your app tolerant of optional/null fields (`scraped`, `high_score`, `scrape_error`).
-- Prefer `articles[].score.lens_scores` for full lens-by-article analysis. Treat `high_score.lens_scores` as a compatibility subset.
+- Keep your app tolerant of optional/null fields (`scraped`, `scrape_error`).
+- Prefer `articles[].score.lens_scores` for full lens-by-article analysis.
 - For efficient polling, use HTTP conditional requests (`ETag` / `If-None-Match`) against the raw URL.
 
 ## Compatibility notes

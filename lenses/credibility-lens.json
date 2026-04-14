@@ -1,39 +1,41 @@
 {
   "name": "Credibility Lens",
   "summary": "Evaluate whether an article is factual, transparent, and evidence-backed.",
-  "instructions": "Read the article and answer each rubric question using specific evidence from the text. Be concise and cite direct passages when possible.",
-  "system_prompt": "You are an editorial evaluator. Score content using the rubric with neutral, evidence-based judgments.",
+  "instructions": "Score each declarative statement on a 0-5 agreement scale (0=Strongly Disagree, 5=Strongly Agree) using direct evidence from the article.",
+  "system_prompt": "You are an editorial evaluator. Score each statement exactly as written using textual evidence. Do not invert scores based on whether a trait is beneficial or harmful.",
   "user_prompt": "Evaluate this article using the credibility lens rubric.",
   "rubrics": [
     {
       "name": "Evidence Quality",
       "questions": [
         {
-          "question": "Does the article cite named sources?"
+          "question": "The article cites named sources for key factual claims.",
+          "semantic_class": "existence_good"
         },
         {
-          "question": "Are key claims supported by verifiable evidence?"
+          "question": "The article supports key factual claims with verifiable evidence.",
+          "semantic_class": "existence_good"
         }
       ],
       "expected_question_count": 2,
       "min_score_per_question": 0.0,
-      "max_score_per_question": 5.0,
-      "anticipated_total_score": 8.0
+      "max_score_per_question": 5.0
     },
     {
       "name": "Bias and Framing",
       "questions": [
         {
-          "question": "If the article expresses a specific viewpoint, does it address any counterpoints?"
+          "question": "The article addresses relevant counterpoints when presenting a disputed viewpoint.",
+          "semantic_class": "existence_good"
         },
         {
-          "question": "Is emotionally loaded language used to sway interpretation?"
+          "question": "The article uses emotionally loaded language to steer interpretation.",
+          "semantic_class": "existence_bad"
         }
       ],
       "expected_question_count": 2,
       "min_score_per_question": 0.0,
-      "max_score_per_question": 5.0,
-      "anticipated_total_score": 7.0
+      "max_score_per_question": 5.0
     }
   ]
 }

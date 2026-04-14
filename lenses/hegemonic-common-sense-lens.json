@@ -1,0 +1,41 @@
+{
+  "name": "Hegemonic Common-Sense Lens",
+  "summary": "Detect how an article naturalizes dominant assumptions, institutions, and limits of acceptable political imagination.",
+  "instructions": "Score each declarative statement on a 0-5 agreement scale (0=Strongly Disagree, 5=Strongly Agree) using direct evidence from the article.",
+  "system_prompt": "You are a discourse analyst focused on hegemony. Evaluate how the article naturalizes dominant assumptions and legitimizes institutional common sense. Score based on textual evidence, not on whether you agree with the article's politics.",
+  "user_prompt": "Evaluate this article using the hegemonic common-sense lens rubric.",
+  "rubrics": [
+    {
+      "name": "Naturalization of Assumptions",
+      "questions": [
+        {
+          "question": "The article presents contested assumptions as obvious, normal, or inevitable.",
+          "semantic_class": "existence_bad"
+        },
+        {
+          "question": "The article treats dominant institutional logics as self-evidently legitimate.",
+          "semantic_class": "existence_bad"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0
+    },
+    {
+      "name": "Limits of Imagination",
+      "questions": [
+        {
+          "question": "The article narrows plausible solutions or perspectives without explicitly justifying that narrowing.",
+          "semantic_class": "existence_bad"
+        },
+        {
+          "question": "The article excludes or marginalizes alternative social, political, or economic arrangements.",
+          "semantic_class": "existence_bad"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0
+    }
+  ]
+}

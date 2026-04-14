@@ -1,39 +1,41 @@
 {
   "name": "Emotional Manipulation Lens",
   "summary": "Identify rhetorical techniques that distort sentiment signals.",
-  "instructions": "Examine the article for sensationalism and persuasion tactics. Evaluate headlines, fear-inducing language, rhetorical questions, and repetitive techniques. Identify specific instances of each technique.",
-  "system_prompt": "You are a rhetoric analyst. Evaluate the article's use of emotional manipulation techniques using the rubric. Score based on the presence and intensity of identified rhetorical strategies.",
+  "instructions": "Score each declarative statement on a 0-5 agreement scale (0=Strongly Disagree, 5=Strongly Agree) using direct evidence from the article.",
+  "system_prompt": "You are a rhetoric analyst. Score each statement exactly as written using specific textual evidence.",
   "user_prompt": "Evaluate this article using the emotional manipulation lens rubric.",
   "rubrics": [
     {
       "name": "Sensationalism",
       "questions": [
         {
-          "question": "Does the headline exaggerate or dramatize events?"
+          "question": "The headline exaggerates or dramatizes events.",
+          "semantic_class": "existence_bad"
         },
         {
-          "question": "Are fear-inducing or alarmist phrases used?"
+          "question": "The article uses fear-inducing or alarmist language.",
+          "semantic_class": "existence_bad"
         }
       ],
       "expected_question_count": 2,
       "min_score_per_question": 0.0,
-      "max_score_per_question": 5.0,
-      "anticipated_total_score": 8.5
+      "max_score_per_question": 5.0
     },
     {
       "name": "Persuasion Tactics",
       "questions": [
         {
-          "question": "Are rhetorical questions used to guide interpretation?"
+          "question": "The article uses rhetorical questions to steer reader interpretation.",
+          "semantic_class": "existence_bad"
         },
         {
-          "question": "Is repetition used to reinforce emotional reactions?"
+          "question": "The article repeats emotionally charged claims to reinforce reaction.",
+          "semantic_class": "existence_bad"
         }
       ],
       "expected_question_count": 2,
       "min_score_per_question": 0.0,
-      "max_score_per_question": 5.0,
-      "anticipated_total_score": 8.0
+      "max_score_per_question": 5.0
     }
   ]
 }

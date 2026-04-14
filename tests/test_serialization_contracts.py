@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import unittest
+from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
@@ -24,6 +25,8 @@ class SerializationContractTests(unittest.TestCase):
         self.canonical_digest = _read_json(FIXTURES_DIR / "canonical_digest.json")
         self.legacy_digest = _read_json(FIXTURES_DIR / "legacy_digest.json")
         self.valid_lens = _read_json(FIXTURES_DIR / "valid_lens.json")
+        valid_scores_path = FIXTURES_DIR / "valid_scores.json"
+        self.valid_scores = json.loads(valid_scores_path.read_text(encoding="utf-8"))
         self.invalid_score = _read_json(FIXTURES_DIR / "invalid_score.json")
 
     def test_newsitem_dict_roundtrip_preserves_key_fields(self) -> None:
@@ -73,6 +76,38 @@ class SerializationContractTests(unittest.TestCase):
         self.assertEqual(lens.name, reparsed.name)
         self.assertEqual(len(lens.rubrics), len(reparsed.rubrics))
         self.assertEqual(lens.rubrics[0].name, reparsed.rubrics[0].name)
+        first_question = reparsed.rubrics[0].questions[0]
+        self.assertEqual(first_question.semantic_class, "existence_good")
+
+    def test_legacy_lens_question_defaults_semantic_class(self) -> None:
+        payload = deepcopy(self.valid_lens)
+        for question in payload["rubrics"][0]["questions"]:
+            question.pop("semantic_class", None)
+        lens = Lens.from_dict(payload)
+        self.assertTrue(
+            all(question.semantic_class == "existence_good" for question in lens.rubrics[0].questions)
+        )
+
+    def test_score_roundtrip_preserves_question_evidence(self) -> None:
+        score_payload = self.valid_scores[0]
+        score = Score.from_dict(score_payload)
+        reparsed = Score.from_json(score.to_json(), strict=True)
+        self.assertEqual(score.question_scores, reparsed.question_scores)
+        self.assertEqual(score.question_evidence, reparsed.question_evidence)
+        self.assertEqual(score.rubric.questions[0].semantic_class, "existence_good")
+
+    def test_legacy_score_without_question_evidence_parses(self) -> None:
+        payload = deepcopy(self.valid_scores[0])
+        payload.pop("question_evidence", None)
+        score = Score.from_dict(payload)
+        self.assertEqual(len(score.question_scores), len(score.question_evidence))
+        self.assertTrue(all(isinstance(entry, str) and entry.strip() for entry in score.question_evidence))
+
+    def test_score_invariant_rejects_evidence_length_mismatch(self) -> None:
+        payload = deepcopy(self.valid_scores[0])
+        payload["question_evidence"] = ["one only"]
+        with self.assertRaises(ValueError):
+            Score.from_dict(payload)
 
     def test_score_invariant_rejects_invalid_fixture(self) -> None:
         with self.assertRaises(ValueError):

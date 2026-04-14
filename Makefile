@@ -9,7 +9,6 @@ RSSCTL := $(PY) -m rss_pipeline.cli
 EXPERIMENT ?= data/rss_openai_daily.json
 LENSES ?= lenses
 SCORES ?= data/scores.json
-HIGH_SCORES ?= data/high_scoring_articles.json
 ANALYSIS_DIR ?= data/analysis
 
 QUALITY_PATHS ?= \
@@ -80,8 +79,7 @@ score-openai: install
 	@$(RSSCTL) score run \
 		--lenses $(LENSES) \
 		--experiment $(EXPERIMENT) \
-		--output $(SCORES) \
-		--high-scores-output $(HIGH_SCORES)
+		--output $(SCORES)
 
 post-openai: install
 	@$(RSSCTL) analysis run \
@@ -93,7 +91,6 @@ publish-build: install
 	@$(RSSCTL) publish build \
 		--digest $(EXPERIMENT) \
 		--scores $(SCORES) \
-		--high-scores $(HIGH_SCORES) \
 		--analysis-root $(ANALYSIS_DIR) \
 		--output data/processed/rss_openai_precomputed.json
 

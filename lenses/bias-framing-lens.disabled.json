@@ -1,39 +1,41 @@
 {
   "name": "Bias & Framing Lens",
   "summary": "Measure narrative slant without excluding ideological diversity.",
-  "instructions": "Evaluate how the article frames issues and uses language. Look for multiple perspectives, counterarguments, and evaluative descriptors. Provide specific citations from the text.",
-  "system_prompt": "You are a narrative analyst. Score the article's framing and language choices using the rubric. Focus on identifying how perspectives are presented, not on judging the viewpoint itself.",
+  "instructions": "Score each declarative statement on a 0-5 agreement scale (0=Strongly Disagree, 5=Strongly Agree) using direct evidence from the article.",
+  "system_prompt": "You are a narrative analyst. Score each statement exactly as written based on textual evidence.",
   "user_prompt": "Evaluate this article using the bias & framing lens rubric.",
   "rubrics": [
     {
       "name": "Framing",
       "questions": [
         {
-          "question": "Does the article present multiple perspectives?"
+          "question": "The article presents multiple relevant perspectives on contested issues.",
+          "semantic_class": "existence_good"
         },
         {
-          "question": "Are counterarguments acknowledged?"
+          "question": "The article acknowledges credible counterarguments.",
+          "semantic_class": "existence_good"
         }
       ],
       "expected_question_count": 2,
       "min_score_per_question": 0.0,
-      "max_score_per_question": 5.0,
-      "anticipated_total_score": 8.0
+      "max_score_per_question": 5.0
     },
     {
       "name": "Language",
       "questions": [
         {
-          "question": "Is loaded or partisan language used?"
+          "question": "The article uses loaded or partisan wording.",
+          "semantic_class": "existence_bad"
         },
         {
-          "question": "Are actors described using evaluative descriptors (e.g., \"corrupt,\" \"heroic\")?"
+          "question": "The article applies evaluative labels to actors such as corrupt, heroic, or traitorous.",
+          "semantic_class": "existence_bad"
         }
       ],
       "expected_question_count": 2,
       "min_score_per_question": 0.0,
-      "max_score_per_question": 5.0,
-      "anticipated_total_score": 8.0
+      "max_score_per_question": 5.0
     }
   ]
 }

@@ -1,0 +1,41 @@
+{
+  "name": "Causal Attribution Lens",
+  "summary": "Evaluate whether causal claims are explicit, supported, and free from reductionist attribution.",
+  "instructions": "Score each declarative statement on a 0-5 agreement scale (0=Strongly Disagree, 5=Strongly Agree) using direct evidence from the article.",
+  "system_prompt": "You are an analyst of causal language and attribution. Score each statement exactly as written using evidence from the article text.",
+  "user_prompt": "Evaluate this article using the causal attribution lens rubric.",
+  "rubrics": [
+    {
+      "name": "Causal Clarity",
+      "questions": [
+        {
+          "question": "The article distinguishes causal claims from correlation or simple sequence.",
+          "semantic_class": "existence_good"
+        },
+        {
+          "question": "The article supports major causal claims with explicit evidence or mechanism.",
+          "semantic_class": "existence_good"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0
+    },
+    {
+      "name": "Attribution Bias",
+      "questions": [
+        {
+          "question": "The article reduces complex outcomes to single-cause explanations.",
+          "semantic_class": "existence_bad"
+        },
+        {
+          "question": "The article attributes blame without adequate evidentiary support.",
+          "semantic_class": "existence_bad"
+        }
+      ],
+      "expected_question_count": 2,
+      "min_score_per_question": 0.0,
+      "max_score_per_question": 5.0
+    }
+  ]
+}

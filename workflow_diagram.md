@@ -62,12 +62,10 @@ flowchart TD
   Score --> ScoreOpenAI["OpenAI call per rubric (SDK)"]
   ScoreOpenAI --> Cache
   Score --> Scores["data/scores.json"]
-  Score --> High["data/high_scoring_articles.json"]
 
   Scores --> Analysis["rssctl analysis run"]
   Analysis --> AnalysisOut["data/analysis/"]
   AnalysisOut --> Publish["rssctl publish build"]
-  High --> Publish
   Daily --> Publish
   Publish --> Processed["data/processed/rss_openai_precomputed.json"]
 

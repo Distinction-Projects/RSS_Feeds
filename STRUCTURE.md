@@ -41,7 +41,6 @@
 - Cache DB: `data/cache/openai_cache.sqlite`
 - Prompt audit exports: `data/analysis/prompt_audit/`
 - Scores: `data/scores.json`
-- High-score output: `data/high_scoring_articles.json`
 - Analysis output root: `data/analysis/`
 - Precomputed app export: `data/processed/rss_openai_precomputed.json`
 

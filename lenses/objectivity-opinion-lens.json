@@ -1,39 +1,41 @@
 {
   "name": "Objectivity vs Opinion Lens",
   "summary": "Distinguish reporting from editorial tone.",
-  "instructions": "Classify the article's genre and voice. Assess whether the author inserts personal judgment, whether facts are presented neutrally, and whether the structure is reportorial or argumentative. Provide specific examples.",
-  "system_prompt": "You are a genre analyst. Evaluate the article's objectivity and opinionated content using the rubric. Focus on identifying authorial voice and structural patterns that indicate reporting vs. editorial content.",
+  "instructions": "Score each declarative statement on a 0-5 agreement scale (0=Strongly Disagree, 5=Strongly Agree) using direct evidence from the article.",
+  "system_prompt": "You are a genre and discourse analyst. Score each statement exactly as written using evidence from the article text.",
   "user_prompt": "Evaluate this article using the objectivity vs opinion lens rubric.",
   "rubrics": [
     {
       "name": "Genre Classification",
       "questions": [
         {
-          "question": "Is this primarily straight reporting or opinion?"
+          "question": "The article is written in a straight-reporting style rather than an opinion style.",
+          "semantic_class": "existence_good"
         },
         {
-          "question": "Does the author insert personal judgment?"
+          "question": "The article avoids first-person or personal-judgment insertions by the author.",
+          "semantic_class": "nonexistence_good"
         }
       ],
       "expected_question_count": 2,
       "min_score_per_question": 0.0,
-      "max_score_per_question": 5.0,
-      "anticipated_total_score": 8.0
+      "max_score_per_question": 5.0
     },
     {
       "name": "Neutrality",
       "questions": [
         {
-          "question": "Are facts presented without evaluative commentary?"
+          "question": "The article presents factual claims without evaluative commentary.",
+          "semantic_class": "existence_good"
         },
         {
-          "question": "Is the article structured as argumentation rather than reporting?"
+          "question": "The article is structured to report events rather than argue for a position.",
+          "semantic_class": "existence_good"
         }
       ],
       "expected_question_count": 2,
       "min_score_per_question": 0.0,
-      "max_score_per_question": 5.0,
-      "anticipated_total_score": 8.0
+      "max_score_per_question": 5.0
     }
   ]
 }

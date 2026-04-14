@@ -197,10 +197,6 @@ def score_run(
     news_item_id: Annotated[str | None, typer.Option("--news-item-id")] = None,
     news_item_index: Annotated[int | None, typer.Option("--news-item-index")] = None,
     output: Annotated[Path, typer.Option("--output")] = Path("data/scores.json"),
-    high_scores_output: Annotated[
-        Path,
-        typer.Option("--high-scores-output"),
-    ] = Path("data/high_scoring_articles.json"),
     model: Annotated[str, typer.Option("--model")] = "gpt-4.1-mini",
     timeout_seconds: Annotated[int, typer.Option("--timeout-seconds")] = 60,
     temperature: Annotated[float, typer.Option("--temperature")] = 0.0,
@@ -209,10 +205,6 @@ def score_run(
     ),
     no_cache: Annotated[bool, typer.Option("--no-cache")] = False,
     replace_output: Annotated[bool, typer.Option("--replace-output")] = False,
-    high_score_threshold_percent: Annotated[
-        float,
-        typer.Option("--high-score-threshold-percent"),
-    ] = 60.0,
     prompt_audit_dir: Annotated[
         Path,
         typer.Option("--prompt-audit-dir"),
@@ -222,12 +214,10 @@ def score_run(
         experiment=experiment,
         lenses_path=lenses,
         output=output,
-        high_scores_output=high_scores_output,
         model=model,
         timeout_seconds=timeout_seconds,
         temperature=temperature,
         replace_output=replace_output,
-        high_score_threshold_percent=high_score_threshold_percent,
         cache_path=cache_path,
         prompt_audit_dir=prompt_audit_dir,
         use_cache=not no_cache,
@@ -242,10 +232,7 @@ def score_run(
     )
     typer.echo(
         f"Wrote {result.new_scores} new scores to {result.output} "
-        f"(total records: {result.total_scores})."
-    )
-    typer.echo(
-        f"Wrote {result.high_scores_count} high-scoring articles to {result.high_scores_output}."
+        f"(total records: {result.total_records})."
     )
     typer.echo(
         f"Scored items={result.scored_items} skipped_missing_ai_summary={result.skipped_missing_ai_summary}"
@@ -285,9 +272,6 @@ def analysis_run(
 def publish_build(
     digest: Annotated[Path, typer.Option("--digest")] = Path("data/rss_openai_daily.json"),
     scores: Annotated[Path, typer.Option("--scores")] = Path("data/scores.json"),
-    high_scores: Annotated[Path, typer.Option("--high-scores")] = Path(
-        "data/high_scoring_articles.json"
-    ),
     analysis_root: Annotated[Path, typer.Option("--analysis-root")] = Path("data/analysis"),
     output: Annotated[Path, typer.Option("--output")] = Path(
         "data/processed/rss_openai_precomputed.json"
@@ -302,7 +286,6 @@ def publish_build(
     config = PublishBuildConfig(
         digest=digest,
         scores=scores,
-        high_scores=high_scores,
         analysis_root=analysis_root,
         output=output,
         max_articles=max_articles,
@@ -340,8 +323,6 @@ def validate_all() -> None:
             "tests/fixtures/canonical_digest.json",
             "--scores",
             "tests/fixtures/valid_scores.json",
-            "--high-scores",
-            "tests/fixtures/valid_high_scores.json",
             "--analysis-root",
             "tests/fixtures",
             "--output",

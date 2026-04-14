@@ -7,7 +7,7 @@ from typing import Any
 from lens import Lens, Rubric, Score, load_lenses, load_scores, save_scores
 from load_experiment import NewsItem, load_experiments
 
-from .artifact_store import export_prompt_audit_rows, write_json
+from .artifact_store import export_prompt_audit_rows
 from .cache_sqlite import SQLiteOpenAICache
 from .config import ScoreRunConfig
 from .env import require_env_value
@@ -21,12 +21,10 @@ from .workflow_runtime import RunContext
 class ScoreRunResult:
     run_id: str
     output: str
-    high_scores_output: str
     scored_items: int
     skipped_missing_ai_summary: int
     new_scores: int
-    total_scores: int
-    high_scores_count: int
+    total_records: int
     openai_calls: int
     cache_hits: int
     cache_misses: int
@@ -104,11 +102,6 @@ def run_scoring(
         config.lenses_path if config.lenses_path.is_absolute() else repo_root / config.lenses_path
     )
     output_path = config.output if config.output.is_absolute() else repo_root / config.output
-    high_scores_path = (
-        config.high_scores_output
-        if config.high_scores_output.is_absolute()
-        else repo_root / config.high_scores_output
-    )
     cache_path = (
         config.cache_path if config.cache_path.is_absolute() else repo_root / config.cache_path
     )
@@ -122,12 +115,6 @@ def run_scoring(
 
     lenses = load_lenses(lenses_input)
     lenses_to_use = _select_lenses(lenses, lens_name)
-    max_possible_score = sum(
-        rubric.max_score_per_question * rubric.expected_question_count
-        for lens in lenses_to_use
-        for rubric in lens.rubrics
-    )
-
     cache = SQLiteOpenAICache(cache_path) if config.use_cache else None
     service = OpenAIService(api_key=api_key, timeout_seconds=config.timeout_seconds, cache=cache)
     # Keep rubric scoring deterministic and reproducible across runs.
@@ -144,7 +131,6 @@ def run_scoring(
     scored_items = 0
     skipped_missing_ai_summary = 0
     new_scores_count = 0
-    high_scores: list[dict[str, Any]] = []
 
     for experiment_path, experiment in experiment_entries:
         selected_items = _select_news_items(experiment.items, news_item_id, news_item_index)
@@ -160,7 +146,6 @@ def run_scoring(
         for news_item in selected_items:
             scored_items += 1
             item_scores: list[Score] = []
-            lens_totals: list[float] = []
 
             for lens in lenses_to_use:
                 rubric_scores: list[Score] = []
@@ -191,31 +176,11 @@ def run_scoring(
                     rubric_scores.append(score)
 
                 item_scores.extend(rubric_scores)
-                lens_totals.append(sum(score.value for score in rubric_scores))
-
-            final_score = sum(lens_totals)
-            final_percent = (
-                (final_score / max_possible_score) * 100.0 if max_possible_score > 0 else 0.0
-            )
-
-            if final_percent >= config.high_score_threshold_percent:
-                lens_scores = {
-                    lens.name: total for lens, total in zip(lenses_to_use, lens_totals, strict=True)
-                }
-                high_scores.append(
-                    {
-                        "news_item": news_item.to_dict(),
-                        "lens_scores": lens_scores,
-                        "overall_score": final_score,
-                        "overall_percent": final_percent,
-                    }
-                )
 
             all_scores.extend(item_scores)
             new_scores_count += len(item_scores)
 
     save_scores(all_scores, output_path)
-    write_json(high_scores_path, high_scores, ensure_ascii=False)
 
     openai_calls = 0
     cache_hits = 0
@@ -233,12 +198,10 @@ def run_scoring(
     return ScoreRunResult(
         run_id=context.run_id,
         output=str(output_path),
-        high_scores_output=str(high_scores_path),
         scored_items=scored_items,
         skipped_missing_ai_summary=skipped_missing_ai_summary,
         new_scores=new_scores_count,
-        total_scores=len(all_scores),
-        high_scores_count=len(high_scores),
+        total_records=len(all_scores),
         openai_calls=openai_calls,
         cache_hits=cache_hits,
         cache_misses=cache_misses,

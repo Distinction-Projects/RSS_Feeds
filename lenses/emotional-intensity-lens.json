@@ -1,39 +1,41 @@
 {
   "name": "Emotional Intensity Lens",
-  "summary": "Capture sentiment strength for gradient modeling.",
-  "instructions": "Read the article and evaluate the intensity and explicitness of emotional language. Rate each question based on specific examples from the text.",
-  "system_prompt": "You are a sentiment analyst. Evaluate the emotional intensity and explicitness of language in the article using the rubric. Provide evidence-based scores focused on linguistic features, not your interpretation.",
+  "summary": "Measure whether an article uses explicit and high-intensity emotional language.",
+  "instructions": "Score each declarative statement on a 0-5 agreement scale (0=Strongly Disagree, 5=Strongly Agree) using direct evidence from the article.",
+  "system_prompt": "You are a sentiment analyst focused on language use. Score each statement exactly as written and ground scores in specific wording from the text.",
   "user_prompt": "Evaluate this article using the emotional intensity lens rubric.",
   "rubrics": [
     {
       "name": "Explicitness",
       "questions": [
         {
-          "question": "Are evaluative adjectives or emotionally charged phrases used?"
+          "question": "The article uses emotionally charged words or phrases.",
+          "semantic_class": "existence_bad"
         },
         {
-          "question": "Is sentiment expressed explicitly rather than implied?"
+          "question": "The article states emotional evaluations explicitly rather than only implying them.",
+          "semantic_class": "existence_bad"
         }
       ],
       "expected_question_count": 2,
       "min_score_per_question": 0.0,
-      "max_score_per_question": 5.0,
-      "anticipated_total_score": 9.0
+      "max_score_per_question": 5.0
     },
     {
       "name": "Intensity Level",
       "questions": [
         {
-          "question": "Is the emotional tone mild, moderate, or highly charged?"
+          "question": "The article uses high-intensity emotional framing.",
+          "semantic_class": "existence_bad"
         },
         {
-          "question": "Does the article escalate language to provoke outrage or fear?"
+          "question": "The article escalates language to provoke fear, outrage, or alarm.",
+          "semantic_class": "existence_bad"
         }
       ],
       "expected_question_count": 2,
       "min_score_per_question": 0.0,
-      "max_score_per_question": 5.0,
-      "anticipated_total_score": 8.0
+      "max_score_per_question": 5.0
     }
   ]
 }
