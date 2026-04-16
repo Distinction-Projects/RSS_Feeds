@@ -73,10 +73,20 @@ def _score_from_payload(
     if not reasoning:
         reasoning = "No reasoning provided."
 
+    raw_evidence = payload.get("question_evidence")
+    question_evidence: list[str] | None
+    if raw_evidence is None:
+        question_evidence = None
+    elif isinstance(raw_evidence, list):
+        question_evidence = [str(entry).strip() for entry in raw_evidence]
+    else:
+        raise ValueError("Model response field question_evidence must be a list when present.")
+
     return Score.from_question_scores(
         rubric=rubric,
         news_item=news_item,
         question_scores=question_scores,
+        question_evidence=question_evidence,
         reasoning=reasoning,
     )
 

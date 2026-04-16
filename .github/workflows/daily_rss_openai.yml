@@ -41,6 +41,14 @@ on:
         description: "Max unscored items to score from digest+history (0 = all pending)"
         required: false
         default: "40"
+      force_rescore:
+        description: "Force full rescore for selected subset and replace existing scores output"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
 permissions:
   contents: write
 
@@ -80,7 +88,6 @@ jobs:
         with:
           path: |
             data/scores.json
-            data/high_scoring_articles.json
           key: ${{ runner.os }}-rss-score-artifacts-${{ github.ref_name }}-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-rss-score-artifacts-${{ github.ref_name }}-
@@ -238,6 +245,7 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           RUN_SCORING: ${{ github.event.inputs.run_scoring || 'true' }}
           INPUT_SCORE_MAX_ITEMS: ${{ github.event.inputs.score_max_items || '' }}
+          FORCE_RESCORE: ${{ github.event.inputs.force_rescore || 'false' }}
         run: |
           set -euo pipefail
 
@@ -305,6 +313,78 @@ jobs:
           items.extend(history_items)
 
           existing_scores_path = Path("data/scores.json")
+          scored_rubric_signatures_by_item_id: dict[str, set[str]] = {}
+
+          def rubric_signature(raw_rubric: dict) -> str:
+            def normalize_question(raw_question):
+              if isinstance(raw_question, dict):
+                return {
+                  "question": str(raw_question.get("question") or "").strip(),
+                  "semantic_class": str(raw_question.get("semantic_class") or "existence_good").strip(),
+                }
+              return {
+                "question": str(raw_question or "").strip(),
+                "semantic_class": "existence_good",
+              }
+
+            raw_questions = raw_rubric.get("questions")
+            questions = []
+            if isinstance(raw_questions, list):
+              questions = [normalize_question(question) for question in raw_questions]
+
+            try:
+              expected_question_count = int(raw_rubric.get("expected_question_count", len(questions)))
+            except (TypeError, ValueError):
+              expected_question_count = len(questions)
+            try:
+              min_score = float(raw_rubric.get("min_score_per_question", 0.0))
+            except (TypeError, ValueError):
+              min_score = 0.0
+            try:
+              max_score = float(raw_rubric.get("max_score_per_question", 5.0))
+            except (TypeError, ValueError):
+              max_score = 5.0
+
+            normalized_rubric = {
+              "name": str(raw_rubric.get("name") or "").strip(),
+              "questions": questions,
+              "expected_question_count": expected_question_count,
+              "min_score_per_question": min_score,
+              "max_score_per_question": max_score,
+            }
+            return json.dumps(normalized_rubric, ensure_ascii=False, sort_keys=True)
+
+          required_rubric_signatures: set[str] = set()
+          lenses_dir = Path("lenses")
+          ignored_lens_files: set[str] = set()
+          ignore_file = lenses_dir / "ignore.txt"
+          if ignore_file.exists():
+            try:
+              for line in ignore_file.read_text(encoding="utf-8").splitlines():
+                normalized = line.strip()
+                if not normalized or normalized.startswith("#"):
+                  continue
+                ignored_lens_files.add(normalized)
+            except OSError:
+              pass
+
+          if lenses_dir.exists():
+            for lens_path in sorted(lenses_dir.glob("*.json")):
+              if lens_path.name in ignored_lens_files:
+                continue
+              try:
+                lens_payload = json.loads(lens_path.read_text(encoding="utf-8"))
+              except (OSError, json.JSONDecodeError):
+                continue
+              if not isinstance(lens_payload, dict):
+                continue
+              raw_rubrics = lens_payload.get("rubrics")
+              if not isinstance(raw_rubrics, list):
+                continue
+              for raw_rubric in raw_rubrics:
+                if isinstance(raw_rubric, dict):
+                  required_rubric_signatures.add(rubric_signature(raw_rubric))
+
           scored_item_ids = set()
           if existing_scores_path.exists():
             try:
@@ -321,6 +401,10 @@ jobs:
                 item_id = str(news_item.get("id") or "").strip()
                 if item_id:
                   scored_item_ids.add(item_id)
+                raw_rubric = score.get("rubric")
+                if item_id and isinstance(raw_rubric, dict):
+                  item_rubrics = scored_rubric_signatures_by_item_id.setdefault(item_id, set())
+                  item_rubrics.add(rubric_signature(raw_rubric))
 
           def item_key(item: dict) -> str:
             item_id = str(item.get("id") or "").strip()
@@ -378,12 +462,30 @@ jobs:
             deduped_items.append(item)
 
           pending_items = []
-          already_scored_skipped = 0
+          fully_scored_skipped = 0
+          partial_coverage_items = 0
+          force_rescore = os.environ.get("FORCE_RESCORE", "false").strip().lower() == "true"
           for item in deduped_items:
-            item_id = str(item.get("id") or "").strip()
-            if item_id and item_id in scored_item_ids:
-              already_scored_skipped += 1
+            if force_rescore:
+              pending_items.append(item)
               continue
+            item_id = str(item.get("id") or "").strip()
+            if not item_id:
+              pending_items.append(item)
+              continue
+
+            if item_id not in scored_item_ids:
+              pending_items.append(item)
+              continue
+
+            scored_rubrics = scored_rubric_signatures_by_item_id.get(item_id, set())
+            has_full_coverage = bool(required_rubric_signatures) and required_rubric_signatures.issubset(
+              scored_rubrics
+            )
+            if has_full_coverage:
+              fully_scored_skipped += 1
+              continue
+            partial_coverage_items += 1
             pending_items.append(item)
 
           max_items_raw = os.environ.get("SCORE_MAX_ITEMS", "0").strip()
@@ -410,7 +512,8 @@ jobs:
             "Scoring subset items: "
             f"{len(selected)} selected / {len(pending_items)} pending / {len(deduped_items)} eligible / {len(items)} candidates "
             f"(excluded_unscraped={excluded_unscraped}, excluded_missing_ai_summary={excluded_missing_ai_summary}, "
-            f"duplicate_candidates={duplicate_candidates}, already_scored_skipped={already_scored_skipped}, "
+            f"duplicate_candidates={duplicate_candidates}, fully_scored_skipped={fully_scored_skipped}, partial_coverage_items={partial_coverage_items}, "
+            f"required_rubrics={len(required_rubric_signatures)}, force_rescore={force_rescore}, "
             f"history_items={len(history_items)})"
           )
           PY
@@ -420,15 +523,21 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+          FORCE_RESCORE: ${{ github.event.inputs.force_rescore || 'false' }}
         run: |
-          python3 -m rss_pipeline.cli score run \
+          score_cmd=(python3 -m rss_pipeline.cli score run \
             --experiment data/rss_openai_daily_for_scoring.json \
             --lenses lenses \
             --output data/scores.json \
-            --high-scores-output data/high_scoring_articles.json \
             --temperature 0.0 \
             --cache-path data/cache/openai_cache.sqlite \
-            --prompt-audit-dir data/analysis/prompt_audit
+            --prompt-audit-dir data/analysis/prompt_audit)
+
+          if [ "${FORCE_RESCORE}" = "true" ]; then
+            score_cmd+=(--replace-output)
+          fi
+
+          "${score_cmd[@]}"
 
       - name: Run analysis precompute
         if: steps.score_subset.outputs.items != '0'
@@ -453,7 +562,6 @@ jobs:
           publish_cmd=(python3 -m rss_pipeline.cli publish build \
             --digest data/rss_openai_daily.json \
             --scores data/scores.json \
-            --high-scores data/high_scoring_articles.json \
             --analysis-root data/analysis \
             --output data/processed/rss_openai_precomputed.json \
             --history-dir data/history \
@@ -560,12 +668,10 @@ jobs:
           key: ${{ runner.os }}-openai-cache-${{ github.ref_name }}-${{ github.run_id }}
 
       - name: Save scoring artifacts
-        if: always() && hashFiles('data/scores.json', 'data/high_scoring_articles.json') != ''
+        if: always() && hashFiles('data/scores.json') != ''
         uses: actions/cache/save@v4
         with:
-          path: |
-            data/scores.json
-            data/high_scoring_articles.json
+          path: data/scores.json
           key: ${{ runner.os }}-rss-score-artifacts-${{ github.ref_name }}-${{ github.run_id }}
 
       - name: Commit digest and processed artifacts

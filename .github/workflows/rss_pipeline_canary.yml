@@ -65,7 +65,6 @@ jobs:
           python3 -m rss_pipeline.cli publish build \
             --digest tests/fixtures/canonical_digest.json \
             --scores tests/fixtures/valid_scores.json \
-            --high-scores tests/fixtures/valid_high_scores.json \
             --analysis-root "$CANARY_OUTPUT" \
             --output "$CANARY_OUTPUT/rss_openai_precomputed.json"
 
