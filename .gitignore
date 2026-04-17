@@ -10,3 +10,5 @@ data/scores.json
 data/high_scoring_articles.json
 data/rss_openai_daily_scraped.json
 data/cache/
+data/pending_item_ids*.txt
+data/rss_openai_all_for_scoring.json

@@ -118,6 +118,41 @@ class _FakeScoreService:
         )
 
 
+class _FlakyScoreService:
+    call_count = 0
+
+    def __init__(self, *, api_key: str, timeout_seconds: int, cache: object | None) -> None:
+        self.api_key = api_key
+        self.timeout_seconds = timeout_seconds
+        self.cache = cache
+
+    def chat_json(
+        self,
+        *,
+        run_id: str,
+        purpose: str,
+        model: str,
+        messages: list[dict[str, str]],
+        temperature: float,
+        metadata: dict[str, object] | None = None,
+    ) -> SimpleNamespace:
+        type(self).call_count += 1
+        if type(self).call_count >= 2:
+            raise OpenAIResponseError("APITimeoutError: Request timed out")
+        return SimpleNamespace(
+            parsed={
+                "question_scores": [1.0],
+                "question_evidence": ["Evidence for statement 1."],
+                "reasoning": "ok",
+            },
+            response_id="resp-score-ok",
+            usage={"total_tokens": 5},
+            cache_key="score-cache-ok",
+            user_prompt_hash="score-prompt-ok",
+            response_hash="score-response-ok",
+        )
+
+
 class DigestReliabilityTests(unittest.TestCase):
     def _catalog_payload(self) -> dict[str, object]:
         return {
@@ -320,6 +355,104 @@ class ScoreReliabilityTests(unittest.TestCase):
             self.assertEqual(result.skipped_missing_ai_summary, 1)
             self.assertEqual(result.new_scores, 1)
             self.assertEqual(_FakeScoreService.call_count, 1)
+
+    def test_run_scoring_writes_checkpoint_and_run_log_on_failure(self) -> None:
+        _FlakyScoreService.call_count = 0
+
+        with TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            (root / "data").mkdir(parents=True, exist_ok=True)
+            (root / "data" / "analysis").mkdir(parents=True, exist_ok=True)
+            config = ScoreRunConfig(
+                experiment=Path("data/rss_openai_daily.json"),
+                lenses_path=Path("lenses"),
+                output=Path("data/scores.json"),
+                cache_path=Path("data/cache/openai_cache.sqlite"),
+                prompt_audit_dir=Path("data/analysis/prompt_audit"),
+                run_log_dir=Path("data/analysis/score_run_logs"),
+                replace_output=True,
+            )
+
+            lens = Lens(
+                name="Lens A",
+                summary="Summary",
+                instructions="Instructions",
+                system_prompt="System prompt",
+                user_prompt="User prompt",
+                rubrics=[
+                    Rubric(
+                        name="Rubric A",
+                        questions=[
+                            RubricQuestion(
+                                question="The article provides enough evidence for a claim.",
+                                semantic_class="existence_good",
+                            )
+                        ],
+                        expected_question_count=1,
+                        min_score_per_question=0.0,
+                        max_score_per_question=1.0,
+                    )
+                ],
+            )
+
+            item_1 = NewsItem.from_dict(
+                {
+                    "id": "item-1",
+                    "title": "Item 1",
+                    "link": "https://example.com/1",
+                    "summary": "Summary 1",
+                    "published": "2026-04-03T00:00:00Z",
+                    "source_id": "src",
+                    "source_name": "Source",
+                    "feed_name": "Feed",
+                    "feed_url": "https://example.com/feed.xml",
+                    "fetched_at": "2026-04-03T00:00:00Z",
+                    "ai_summary": "AI summary 1",
+                    "ai_tags": ["news"],
+                }
+            )
+            item_2 = NewsItem.from_dict(
+                {
+                    "id": "item-2",
+                    "title": "Item 2",
+                    "link": "https://example.com/2",
+                    "summary": "Summary 2",
+                    "published": "2026-04-03T00:00:00Z",
+                    "source_id": "src",
+                    "source_name": "Source",
+                    "feed_name": "Feed",
+                    "feed_url": "https://example.com/feed.xml",
+                    "fetched_at": "2026-04-03T00:00:00Z",
+                    "ai_summary": "AI summary 2",
+                    "ai_tags": ["news"],
+                }
+            )
+
+            with (
+                patch("rss_pipeline.pipeline_score.require_env_value", return_value="test-key"),
+                patch("rss_pipeline.pipeline_score.load_lenses", return_value=[lens]),
+                patch(
+                    "rss_pipeline.pipeline_score.load_experiments",
+                    return_value=[
+                        (
+                            root / "data" / "rss_openai_daily.json",
+                            SimpleNamespace(items=[item_1, item_2]),
+                        )
+                    ],
+                ),
+                patch("rss_pipeline.pipeline_score.SQLiteOpenAICache", _FakeScoreCache),
+                patch("rss_pipeline.pipeline_score.OpenAIService", _FlakyScoreService),
+            ):
+                with self.assertRaises(OpenAIResponseError):
+                    run_scoring(config, repo_root=root)
+
+            scores = json.loads((root / "data" / "scores.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(scores), 1)
+            log_files = sorted((root / "data" / "analysis" / "score_run_logs").glob("*.jsonl"))
+            self.assertEqual(len(log_files), 1)
+            log_text = log_files[0].read_text(encoding="utf-8")
+            self.assertIn('"event": "rubric_error"', log_text)
+            self.assertIn('"event": "run_failed"', log_text)
 
 
 if __name__ == "__main__":

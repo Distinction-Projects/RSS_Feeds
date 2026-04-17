@@ -11,6 +11,7 @@ DEFAULT_ANALYSIS_OUTPUT = Path("data/analysis")
 DEFAULT_PROCESSED_OUTPUT = Path("data/processed/rss_openai_precomputed.json")
 DEFAULT_CACHE_PATH = Path("data/cache/openai_cache.sqlite")
 DEFAULT_PROMPT_AUDIT_DIR = Path("data/analysis/prompt_audit")
+DEFAULT_SCORE_RUN_LOG_DIR = Path("data/analysis/score_run_logs")
 DEFAULT_OPENAI_MODEL = "gpt-4.1-mini"
 DEFAULT_OPENAI_TIMEOUT_SECONDS = 60
 DEFAULT_DIGEST_OPENAI_TIMEOUT_SECONDS = 180
@@ -61,6 +62,7 @@ class ScoreRunConfig:
     replace_output: bool = False
     cache_path: Path = DEFAULT_CACHE_PATH
     prompt_audit_dir: Path = DEFAULT_PROMPT_AUDIT_DIR
+    run_log_dir: Path = DEFAULT_SCORE_RUN_LOG_DIR
     use_cache: bool = True
 
 

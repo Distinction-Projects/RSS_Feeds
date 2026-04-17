@@ -209,6 +209,10 @@ def score_run(
         Path,
         typer.Option("--prompt-audit-dir"),
     ] = Path("data/analysis/prompt_audit"),
+    run_log_dir: Annotated[
+        Path,
+        typer.Option("--run-log-dir"),
+    ] = Path("data/analysis/score_run_logs"),
 ) -> None:
     config = ScoreRunConfig(
         experiment=experiment,
@@ -220,6 +224,7 @@ def score_run(
         replace_output=replace_output,
         cache_path=cache_path,
         prompt_audit_dir=prompt_audit_dir,
+        run_log_dir=run_log_dir,
         use_cache=not no_cache,
     )
 
@@ -242,6 +247,8 @@ def score_run(
     )
     if result.prompt_audit_export:
         typer.echo(f"Prompt audit export: {result.prompt_audit_export}")
+    if result.run_log_path:
+        typer.echo(f"Run log: {result.run_log_path}")
 
 
 @analysis_app.command("run")
