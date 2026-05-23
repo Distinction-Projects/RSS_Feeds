@@ -1,26 +1,26 @@
 {
   "status": "warn",
-  "generated_at": "2026-05-23T09:01:28Z",
-  "run_id": "digest-20260523T090128-edb4c1314d",
-  "total_items": 184,
-  "issue_item_count": 1,
+  "generated_at": "2026-05-23T14:42:36Z",
+  "run_id": "digest-20260523T144236-d005742942",
+  "total_items": 68,
+  "issue_item_count": 2,
   "status_counts": {
-    "clean": 183,
-    "warn": 1
+    "clean": 66,
+    "warn": 2
   },
   "severity_counts": {
-    "info": 7,
-    "warn": 1
+    "info": 5,
+    "warn": 2
   },
   "quality_gate_metrics": {
     "unknown_content_type_items": 0,
     "unsupported_content_type_items": 0,
-    "accepted_content_type_filter_items": 7,
+    "accepted_content_type_filter_items": 5,
     "source_blocked_items": 0,
     "accepted_rss_only_fallback_items": 0,
-    "llm_ready_items": 176,
+    "llm_ready_items": 61,
     "llm_review_items": 0,
-    "llm_excluded_items": 8,
+    "llm_excluded_items": 7,
     "llm_rss_fallback_items": 0,
     "empty_scraped_text_items": 0,
     "short_scraped_text_items": 0
@@ -28,149 +28,117 @@
   "llm_input_status_counts": [
     {
       "status": "ready",
-      "count": 176
+      "count": 61
     },
     {
       "status": "exclude",
-      "count": 8
+      "count": 7
     }
   ],
   "llm_input_reason_counts": [
     {
       "reason": "scraped_text_ready",
-      "count": 176
+      "count": 61
     },
     {
       "reason": "unsupported_content_type:video",
-      "count": 6
-    },
-    {
-      "reason": "unsupported_content_type:live_blog",
-      "count": 1
+      "count": 5
     },
     {
       "reason": "missing_rss_content",
-      "count": 1
+      "count": 2
     }
   ],
   "llm_input_flag_counts": [
     {
       "flag": "excluded_from_llm_judge",
-      "count": 8
+      "count": 7
     }
   ],
   "issue_counts": [
     {
       "issue": "content_type_filter_accepted",
-      "count": 7
+      "count": 5
     },
     {
       "issue": "missing_rss_content",
-      "count": 1
+      "count": 2
     }
   ],
   "content_type_counts": [
     {
       "content_type": "news_article",
-      "count": 173
+      "count": 57
     },
     {
       "content_type": "video",
-      "count": 6
+      "count": 5
     },
     {
-      "content_type": "analysis",
-      "count": 3
-    },
-    {
-      "content_type": "live_blog",
-      "count": 1
+      "content_type": "opinion",
+      "count": 4
     },
     {
       "content_type": "missing_content",
-      "count": 1
+      "count": 2
     }
   ],
   "exclusion_reason_counts": [
     {
       "reason": "unsupported_content_type:video",
-      "count": 6
-    },
-    {
-      "reason": "unsupported_content_type:live_blog",
-      "count": 1
+      "count": 5
     },
     {
       "reason": "missing_rss_content",
-      "count": 1
+      "count": 2
     }
   ],
   "top_sources": [
     {
-      "source": "PBS NewsHour",
-      "count": 1
+      "source": "CBS News",
+      "count": 2
     },
     {
-      "source": "Fox News",
-      "count": 1
+      "source": "The Hindu - Home",
+      "count": 2
     },
     {
       "source": "NBC News",
       "count": 1
     },
     {
-      "source": "CBS News",
+      "source": "DW",
       "count": 1
     },
     {
-      "source": "ABC News (Australia)",
-      "count": 1
-    },
-    {
-      "source": "The Hindu - Home",
-      "count": 1
-    },
-    {
-      "source": "Mongabay",
-      "count": 1
-    },
-    {
-      "source": "Mother Jones",
+      "source": "The Blaze",
       "count": 1
     }
   ],
   "top_feeds": [
     {
       "feed": "Top Stories",
-      "count": 3
-    },
-    {
-      "feed": "All Stories",
-      "count": 2
-    },
-    {
-      "feed": "Headlines",
-      "count": 1
-    },
-    {
-      "feed": "Latest",
-      "count": 1
+      "count": 4
     },
     {
       "feed": "The Hindu - Home",
+      "count": 2
+    },
+    {
+      "feed": "All Stories",
       "count": 1
     }
   ],
   "top_source_issues": [
     {
-      "source": "PBS NewsHour",
+      "source": "CBS News",
       "issue": "content_type_filter_accepted",
-      "count": 1
+      "count": 2
     },
     {
-      "source": "Fox News",
-      "issue": "content_type_filter_accepted",
-      "count": 1
+      "source": "The Hindu - Home",
+      "issue": "missing_rss_content",
+      "count": 2
     },
     {
       "source": "NBC News",
@@ -178,27 +146,12 @@
       "count": 1
     },
     {
-      "source": "CBS News",
+      "source": "DW",
       "issue": "content_type_filter_accepted",
       "count": 1
     },
     {
-      "source": "ABC News (Australia)",
-      "issue": "content_type_filter_accepted",
-      "count": 1
-    },
-    {
-      "source": "The Hindu - Home",
-      "issue": "missing_rss_content",
-      "count": 1
-    },
-    {
-      "source": "Mongabay",
-      "issue": "content_type_filter_accepted",
-      "count": 1
-    },
-    {
-      "source": "Mother Jones",
+      "source": "The Blaze",
       "issue": "content_type_filter_accepted",
       "count": 1
     }
@@ -207,26 +160,16 @@
     {
       "feed": "Top Stories",
       "issue": "content_type_filter_accepted",
-      "count": 3
-    },
-    {
-      "feed": "All Stories",
-      "issue": "content_type_filter_accepted",
-      "count": 2
-    },
-    {
-      "feed": "Headlines",
-      "issue": "content_type_filter_accepted",
-      "count": 1
-    },
-    {
-      "feed": "Latest",
-      "issue": "content_type_filter_accepted",
-      "count": 1
+      "count": 4
     },
     {
       "feed": "The Hindu - Home",
       "issue": "missing_rss_content",
+      "count": 2
+    },
+    {
+      "feed": "All Stories",
+      "issue": "content_type_filter_accepted",
       "count": 1
     }
   ],
@@ -234,27 +177,22 @@
     {
       "content_type": "video",
       "issue": "content_type_filter_accepted",
-      "count": 6
-    },
-    {
-      "content_type": "live_blog",
-      "issue": "content_type_filter_accepted",
-      "count": 1
+      "count": 5
     },
     {
       "content_type": "missing_content",
       "issue": "missing_rss_content",
-      "count": 1
+      "count": 2
     }
   ],
   "top_llm_input_source_statuses": [
     {
-      "source": "BBC News",
+      "source": "NPR",
       "status": "ready",
       "count": 3
     },
     {
-      "source": "NPR",
+      "source": "Fox News",
       "status": "ready",
       "count": 3
     },
@@ -264,27 +202,7 @@
       "count": 3
     },
     {
-      "source": "DW",
-      "status": "ready",
-      "count": 3
-    },
-    {
-      "source": "CBC News",
-      "status": "ready",
-      "count": 3
-    },
-    {
       "source": "The Verge",
-      "status": "ready",
-      "count": 3
-    },
-    {
-      "source": "Ars Technica",
-      "status": "ready",
-      "count": 3
-    },
-    {
-      "source": "TechCrunch",
       "status": "ready",
       "count": 3
     },
@@ -294,57 +212,35 @@
       "count": 3
     },
     {
-      "source": "GlobalNews",
+      "source": "ZeroHedge",
       "status": "ready",
       "count": 3
+    },
+    {
+      "source": "The Gateway Pundit",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "Atlanta Black Star",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "Mother Jones",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "BBC News",
+      "status": "ready",
+      "count": 2
     }
   ],
   "examples": [
     {
-      "id": "772fc70e0f28",
-      "title": "Is it time for the U.S. to reassess its Iran strategy?",
-      "source": "PBS NewsHour",
-      "feed": "Headlines",
-      "content_type": "video",
-      "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "unsupported_content_type:video",
-      "llm_input_status": "exclude",
-      "llm_input_reason": "unsupported_content_type:video",
-      "ready_for_llm_judge": false,
-      "scraped_text_chars": 2205,
-      "flags": [
-        {
-          "code": "content_type_filter_accepted",
-          "severity": "info",
-          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
-          "detail": "video"
-        }
-      ]
-    },
-    {
-      "id": "15143266dfee",
-      "title": "WATCH: House Dems unload on Texas Democrat over \u2018demented\u2019 antisemitic comments",
-      "source": "Fox News",
-      "feed": "Latest",
-      "content_type": "video",
-      "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "unsupported_content_type:video",
-      "llm_input_status": "exclude",
-      "llm_input_reason": "unsupported_content_type:video",
-      "ready_for_llm_judge": false,
-      "scraped_text_chars": 6497,
-      "flags": [
-        {
-          "code": "content_type_filter_accepted",
-          "severity": "info",
-          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
-          "detail": "video"
-        }
-      ]
-    },
-    {
-      "id": "56c4ebfc221a",
-      "title": "DHS to require green card applicants to return to home countries to apply",
+      "id": "94d9beccbea1",
+      "title": "Greenlanders protest against Trump as the U.S. opens new consulate",
       "source": "NBC News",
       "feed": "Top Stories",
       "content_type": "video",
@@ -353,7 +249,7 @@
       "llm_input_status": "exclude",
       "llm_input_reason": "unsupported_content_type:video",
       "ready_for_llm_judge": false,
-      "scraped_text_chars": 433,
+      "scraped_text_chars": 377,
       "flags": [
         {
           "code": "content_type_filter_accepted",
@@ -364,8 +260,8 @@
       ]
     },
     {
-      "id": "5f41ccf351f1",
-      "title": "Listen: The final moments of CBS News Radio",
+      "id": "5c48dc4b3796",
+      "title": "SpaceX launches revamped Super Heavy-Starship rocket ahead of IPO",
       "source": "CBS News",
       "feed": "Top Stories",
       "content_type": "video",
@@ -385,58 +281,17 @@
       ]
     },
     {
-      "id": "2f8054a2210b",
-      "title": "Live: Warriors piling more pain on still-winless Dragons",
-      "source": "ABC News (Australia)",
+      "id": "31757368b63f",
+      "title": "U.S. tightens Ebola travel restrictions as new cases emerge abroad",
+      "source": "CBS News",
       "feed": "Top Stories",
-      "content_type": "live_blog",
-      "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "unsupported_content_type:live_blog",
-      "llm_input_status": "exclude",
-      "llm_input_reason": "unsupported_content_type:live_blog",
-      "ready_for_llm_judge": false,
-      "scraped_text_chars": 7920,
-      "flags": [
-        {
-          "code": "content_type_filter_accepted",
-          "severity": "info",
-          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
-          "detail": "live_blog"
-        }
-      ]
-    },
-    {
-      "id": "df1bc26baa77",
-      "title": "Chennai Metro Rail uses solar power for 22% of its non-train electricity needs",
-      "source": "The Hindu - Home",
-      "feed": "The Hindu - Home",
-      "content_type": "missing_content",
-      "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "missing_rss_content",
-      "llm_input_status": "exclude",
-      "llm_input_reason": "missing_rss_content",
-      "ready_for_llm_judge": false,
-      "scraped_text_chars": 4168,
-      "flags": [
-        {
-          "code": "missing_rss_content",
-          "severity": "warn",
-          "message": "RSS entry has no summary, description, or content text."
-        }
-      ]
-    },
-    {
-      "id": "db6267b4ecb7",
-      "title": "Why are people buying pet ants?",
-      "source": "Mongabay",
-      "feed": "All Stories",
       "content_type": "video",
       "include_in_newsfeed": false,
       "newsfeed_exclusion_reason": "unsupported_content_type:video",
       "llm_input_status": "exclude",
       "llm_input_reason": "unsupported_content_type:video",
       "ready_for_llm_judge": false,
-      "scraped_text_chars": 5360,
+      "scraped_text_chars": 72,
       "flags": [
         {
           "code": "content_type_filter_accepted",
@@ -447,9 +302,70 @@
       ]
     },
     {
-      "id": "80897eea76f9",
-      "title": "Exclusive: Departing Meta Staffer Posts Biting Anti-AI Video Internally Amid Mass Layoffs",
-      "source": "Mother Jones",
+      "id": "5b2f1207ea70",
+      "title": "France bans Israel minister Ben-Gvir after flotilla video",
+      "source": "DW",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 1749,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "0e7aa95fc800",
+      "title": "Man found dead with throat injuries in Ashok Nagar",
+      "source": "The Hindu - Home",
+      "feed": "The Hindu - Home",
+      "content_type": "missing_content",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "missing_rss_content",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "missing_rss_content",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 3062,
+      "flags": [
+        {
+          "code": "missing_rss_content",
+          "severity": "warn",
+          "message": "RSS entry has no summary, description, or content text."
+        }
+      ]
+    },
+    {
+      "id": "193d6e2f6cad",
+      "title": "Rise in IBD cases among youngsters; doctors suggest to eat homemade food",
+      "source": "The Hindu - Home",
+      "feed": "The Hindu - Home",
+      "content_type": "missing_content",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "missing_rss_content",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "missing_rss_content",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 4165,
+      "flags": [
+        {
+          "code": "missing_rss_content",
+          "severity": "warn",
+          "message": "RSS entry has no summary, description, or content text."
+        }
+      ]
+    },
+    {
+      "id": "07b2757a6fe2",
+      "title": "Gaming grandmom gets swatted during livestream meant to raise money for cancer bills \u2014 and remains defiant",
+      "source": "The Blaze",
       "feed": "All Stories",
       "content_type": "video",
       "include_in_newsfeed": false,
@@ -457,7 +373,7 @@
       "llm_input_status": "exclude",
       "llm_input_reason": "unsupported_content_type:video",
       "ready_for_llm_judge": false,
-      "scraped_text_chars": 8176,
+      "scraped_text_chars": 2396,
       "flags": [
         {
           "code": "content_type_filter_accepted",
@@ -483,7 +399,7 @@
     "metrics": {
       "unknown_content_type_items": 0,
       "unsupported_content_type_items": 0,
-      "accepted_content_type_filter_items": 7,
+      "accepted_content_type_filter_items": 5,
       "source_blocked_items": 0,
       "accepted_rss_only_fallback_items": 0,
       "llm_review_items": 0,
