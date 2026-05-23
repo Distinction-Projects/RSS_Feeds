@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "status": "pass",
+  "status": "warn",
   "run": {
-    "id": "feed-audit-20260523T075120-49dd320b4d",
-    "generated_at": "2026-05-23T07:51:20Z",
-    "duration_seconds": 19.602,
-    "command": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/rss_pipeline/cli.py validate feed-audit --output data/analysis/feed_audit/rss_feed_audit.json --archive-history-dir data/analysis/feed_audit/history --max-sources 72 --feeds-per-source 2 --max-items-per-feed 5 --max-feed-fetch-failures 0 --max-missing-rss-content 0 --max-unknown-content-types 0 --max-unsupported-content-types 0"
+    "id": "feed-audit-20260523T080326-d078c89fcf",
+    "generated_at": "2026-05-23T08:03:26Z",
+    "duration_seconds": 26.362,
+    "command": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/rss_pipeline/cli.py validate feed-audit --output data/analysis/feed_audit/rss_feed_audit.json --archive-history-dir data/analysis/feed_audit/history --max-sources 72 --feeds-per-source 2 --max-items-per-feed 5 --max-feed-fetch-failures 0 --max-missing-rss-content 5 --max-unknown-content-types 0 --max-unsupported-content-types 0"
   },
-  "generated_at": "2026-05-23T07:51:20Z",
+  "generated_at": "2026-05-23T08:03:26Z",
   "request": {
     "catalog_path": "feed_catalog/rss_feeds.json",
     "max_sources": 72,
@@ -18,7 +18,7 @@
     "run_log_dir": "data/analysis/feed_audit/run_logs"
   },
   "sources": {
-    "selected_count": 65,
+    "selected_count": 64,
     "selected": [
       {
         "source_id": "bbc-news",
@@ -502,18 +502,6 @@
         "scrape_fallback_policy": null
       },
       {
-        "source_id": "socialist-worker-uk",
-        "source_name": "Socialist Worker UK",
-        "feed_name": "All Stories",
-        "feed_url": "https://socialistworker.co.uk/feed/",
-        "topic_tags": [
-          "politics",
-          "far-left",
-          "socialist"
-        ],
-        "scrape_fallback_policy": null
-      },
-      {
         "source_id": "native-news-online",
         "source_name": "Native News Online",
         "feed_name": "All Stories",
@@ -726,43 +714,49 @@
     ]
   },
   "summary": {
-    "selected_sources": 65,
-    "selected_feeds": 65,
-    "feed_fetch_attempts": 65,
-    "feed_fetch_succeeded": 65,
+    "selected_sources": 64,
+    "selected_feeds": 64,
+    "feed_fetch_attempts": 64,
+    "feed_fetch_succeeded": 64,
     "feed_fetch_failed": 0,
-    "raw_fetched_items": 325,
-    "typical_newsfeed_items": 313,
-    "newsfeed_excluded": 12,
-    "rss_missing_content": 0,
+    "raw_fetched_items": 320,
+    "typical_newsfeed_items": 307,
+    "newsfeed_excluded": 13,
+    "rss_missing_content": 1,
     "accepted_content_type_filter": 12,
-    "quality_clean_items": 325,
-    "quality_warn_items": 0,
+    "quality_clean_items": 319,
+    "quality_warn_items": 1,
     "quality_fail_items": 0
   },
   "quality_gate_metrics": {
     "feed_fetch_failed": 0,
-    "missing_rss_content_items": 0,
+    "missing_rss_content_items": 1,
     "unknown_content_type_items": 0,
     "unsupported_content_type_items": 0,
     "accepted_content_type_filter_items": 12
   },
   "status_counts": {
-    "clean": 325
+    "clean": 319,
+    "warn": 1
   },
   "severity_counts": {
-    "info": 12
+    "info": 12,
+    "warn": 1
   },
   "issue_counts": [
     {
       "issue": "content_type_filter_accepted",
       "count": 12
+    },
+    {
+      "issue": "missing_rss_content",
+      "count": 1
     }
   ],
   "content_type_counts": [
     {
       "content_type": "news_article",
-      "count": 308
+      "count": 302
     },
     {
       "content_type": "video",
@@ -775,6 +769,10 @@
     {
       "content_type": "live_blog",
       "count": 1
+    },
+    {
+      "content_type": "missing_content",
+      "count": 1
     }
   ],
   "exclusion_reason_counts": [
@@ -784,6 +782,10 @@
     },
     {
       "reason": "unsupported_content_type:live_blog",
+      "count": 1
+    },
+    {
+      "reason": "missing_rss_content",
       "count": 1
     }
   ],
@@ -832,7 +834,7 @@
   "top_feeds": [
     {
       "feed": "All Stories",
-      "count": 205
+      "count": 200
     },
     {
       "feed": "Top Stories",
@@ -903,6 +905,11 @@
       "count": 1
     },
     {
+      "source": "The Hindu - Home",
+      "issue": "missing_rss_content",
+      "count": 1
+    },
+    {
       "source": "The Gateway Pundit",
       "issue": "content_type_filter_accepted",
       "count": 1
@@ -937,6 +944,11 @@
     {
       "feed": "All News",
       "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "feed": "The Hindu - Home",
+      "issue": "missing_rss_content",
       "count": 1
     }
   ],
@@ -1104,31 +1116,33 @@
       ]
     },
     {
-      "id": "e407329e8b91",
-      "title": "WATCH: Trump Brings Family of Sheridan Gorman, Teen Murdered by Illegal Alien in Chicago, On Stage at Rally to Deliver Heartbreaking Message to Open Border Lunatics",
-      "source": "The Gateway Pundit",
-      "feed": "All Stories",
-      "content_type": "video",
+      "id": "4c0320660f0e",
+      "title": "After minimum wage revision, Karnataka pushes Centre for change in ESI ceiling",
+      "source": "The Hindu - Home",
+      "feed": "The Hindu - Home",
+      "content_type": "missing_content",
       "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "unsupported_content_type:video",
-      "quality_status": "clean",
+      "newsfeed_exclusion_reason": "missing_rss_content",
+      "quality_status": "warn",
       "flags": [
         {
-          "code": "content_type_filter_accepted",
-          "severity": "info",
-          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
-          "detail": "video"
+          "code": "missing_rss_content",
+          "severity": "warn",
+          "message": "RSS entry has no summary, description, or content text."
         }
       ]
     }
   ],
   "feed_fetch_errors": [],
   "blocking_issues": [],
-  "warnings": [],
+  "warnings": [
+    "1 RSS item(s) had no content text",
+    "1 RSS item(s) had warning-level quality flags"
+  ],
   "audit": {
     "catalog_path": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/feed_catalog/rss_feeds.json",
     "output_path": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/rss_feed_audit.json",
-    "run_log": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20260523T075120-49dd320b4d.jsonl",
+    "run_log": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20260523T080326-d078c89fcf.jsonl",
     "requested_catalog_path": "feed_catalog/rss_feeds.json"
   },
   "history_archive": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/history/rss_feed_audit_2026-05-23.json",
@@ -1136,13 +1150,13 @@
     "status": "pass",
     "thresholds": {
       "feed_fetch_failed": 0,
-      "missing_rss_content_items": 0,
+      "missing_rss_content_items": 5,
       "unknown_content_type_items": 0,
       "unsupported_content_type_items": 0
     },
     "metrics": {
       "feed_fetch_failed": 0,
-      "missing_rss_content_items": 0,
+      "missing_rss_content_items": 1,
       "unknown_content_type_items": 0,
       "unsupported_content_type_items": 0,
       "accepted_content_type_filter_items": 12

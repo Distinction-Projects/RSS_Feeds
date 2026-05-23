@@ -33016,12 +33016,12 @@
             "far-left",
             "socialist"
           ],
-          "enabled": true
+          "enabled": false
         }
       ],
       "verified": false,
-      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 2,445 chars. Added for socialist weekly; inclusion is for comparative media analysis, not endorsement.",
-      "enabled": true
+      "notes": "Held 2026-05-23 after GitHub daily workflow quality gate: 3/3 sampled news articles had empty scraped text in CI. Keep cataloged as a far-left candidate, but exclude from regular flow until extraction is reliable in CI.",
+      "enabled": false
     },
     {
       "id": "native-news-online",

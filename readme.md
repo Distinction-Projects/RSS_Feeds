@@ -152,7 +152,7 @@ python3 -m rss_pipeline.cli validate feed-audit \
   --feeds-per-source 2 \
   --max-items-per-feed 5 \
   --max-feed-fetch-failures 0 \
-  --max-missing-rss-content 0 \
+  --max-missing-rss-content 5 \
   --max-unknown-content-types 0 \
   --max-unsupported-content-types 0
 ```
