@@ -180,6 +180,7 @@ def classify_story_content_type(
         "feed_name": feed_name,
         "source_name": source_name,
         "topic_tags": " ".join(topic_tags),
+        "rss_content": rss_content,
     }
     searchable = {
         field: compact_whitespace(str(value or "")).casefold()
