@@ -27,6 +27,7 @@ logger = get_logger(__name__)
 SOURCE_HEALTH_STATUSES = ("healthy", "watch", "hold_candidate")
 SOURCE_HEALTH_ACTIONS = (
     "keep",
+    "review_source_mix",
     "review_source_quality",
     "hold_or_disable_source",
 )
@@ -93,6 +94,9 @@ def _source_health_row(
             "quality_fail_items": 0,
             "missing_rss_content_items": 0,
             "accepted_content_type_filter_items": 0,
+            "info_issue_count": 0,
+            "warn_issue_count": 0,
+            "fail_issue_count": 0,
         }
         issue_counters[key] = Counter()
     return rows[key]
@@ -101,12 +105,10 @@ def _source_health_row(
 def _source_health_status(row: dict[str, Any], issue_count: int) -> tuple[str, str]:
     if _safe_int(row.get("feed_fetch_failed")) or _safe_int(row.get("quality_fail_items")):
         return "hold_candidate", "hold_or_disable_source"
-    if (
-        issue_count
-        or _safe_int(row.get("quality_warn_items"))
-        or _safe_int(row.get("newsfeed_excluded"))
-    ):
+    if _safe_int(row.get("warn_issue_count")) or _safe_int(row.get("fail_issue_count")):
         return "watch", "review_source_quality"
+    if issue_count or _safe_int(row.get("newsfeed_excluded")):
+        return "watch", "review_source_mix"
     return "healthy", "keep"
 
 
@@ -433,6 +435,9 @@ def build_feed_audit_report(
             source_issue_counts[(source_label, code)] += 1
             feed_issue_counts[(feed_label, code)] += 1
             source_issue_counter[code] += 1
+            severity_key = f"{severity}_issue_count"
+            if severity_key in source_row:
+                source_row[severity_key] += 1
 
         if item.quality_flags and len(examples) < limit:
             examples.append(
@@ -467,6 +472,7 @@ def build_feed_audit_report(
             source_name=error.get("source_name"),
         )
         source_row["feed_fetch_failed"] += 1
+        source_row["warn_issue_count"] += 1
         source_health_issue_counts[_source_key(error.get("source_id"), error.get("source_name"))][
             "feed_fetch_failed"
         ] += 1

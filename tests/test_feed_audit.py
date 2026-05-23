@@ -10,8 +10,13 @@ from unittest.mock import patch
 
 from rss_pipeline.cli import run_cli
 from rss_pipeline.config import FeedAuditConfig
-from rss_pipeline.feed_audit import evaluate_feed_audit_gates, run_feed_audit
+from rss_pipeline.feed_audit import (
+    build_feed_audit_report,
+    evaluate_feed_audit_gates,
+    run_feed_audit,
+)
 from rss_pipeline.models_digest import DigestItem, FeedRef, SourceRef
+from rss_pipeline.quality_diagnostics import apply_item_quality_audit
 
 
 def _catalog_payload() -> dict[str, object]:
@@ -180,6 +185,8 @@ class FeedAuditTests(unittest.TestCase):
                 source_health["source-a"]["missing_rss_content_items"],
                 1,
             )
+            self.assertEqual(source_health["source-a"]["info_issue_count"], 1)
+            self.assertEqual(source_health["source-a"]["warn_issue_count"], 1)
             self.assertEqual(
                 source_health["source-b"]["status"],
                 "hold_candidate",
@@ -189,6 +196,7 @@ class FeedAuditTests(unittest.TestCase):
                 "hold_or_disable_source",
             )
             self.assertEqual(source_health["source-b"]["feed_fetch_failed"], 1)
+            self.assertEqual(source_health["source-b"]["warn_issue_count"], 1)
             self.assertEqual(report["sources_needing_review"][0]["source_id"], "source-b")
 
     def test_evaluate_feed_audit_gates_reports_threshold_violations(self) -> None:
@@ -218,6 +226,45 @@ class FeedAuditTests(unittest.TestCase):
                 "accepted_content_type_filter_items",
             },
         )
+
+    def test_source_health_marks_info_only_filters_as_source_mix_review(self) -> None:
+        feed = {
+            "source_id": "source-video",
+            "source_name": "Source Video",
+            "feed_name": "Top",
+            "feed_url": "https://example.com/feed.xml",
+        }
+        video_item = _item(
+            feed,
+            "video-only",
+            title="Watch: Video Story",
+            content_type="video",
+            include_in_newsfeed=False,
+            newsfeed_exclusion_reason="unsupported_content_type:video",
+        )
+        apply_item_quality_audit(video_item)
+
+        report = build_feed_audit_report(
+            run_id="feed-audit-test",
+            generated_at="2026-04-03T00:00:00Z",
+            duration_seconds=0.1,
+            catalog_path=Path("feed_catalog/rss_feeds.json"),
+            resolved_catalog_path=Path("feed_catalog/rss_feeds.json"),
+            output_path=Path("feed_audit.json"),
+            feeds=[feed],
+            items=[video_item],
+            feed_errors=[],
+            feed_success=1,
+            raw_fetched_items=1,
+            request={},
+            run_log_path=Path("feed_audit.jsonl"),
+        )
+
+        source_health = report["source_health"][0]
+        self.assertEqual(source_health["status"], "watch")
+        self.assertEqual(source_health["recommended_action"], "review_source_mix")
+        self.assertEqual(source_health["info_issue_count"], 1)
+        self.assertEqual(source_health["warn_issue_count"], 0)
 
     def test_validate_feed_audit_cli_writes_output_and_applies_gate(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

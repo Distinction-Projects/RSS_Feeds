@@ -288,6 +288,13 @@ jobs:
             --max-unknown-content-types 0 \
             --max-unsupported-content-types 0
 
+      - name: Review feed source health trends
+        run: |
+          python3 -m rss_pipeline.cli validate source-health \
+            --current data/analysis/feed_audit/rss_feed_audit.json \
+            --history-dir data/analysis/feed_audit/history \
+            --output data/analysis/feed_audit/source_health_trends.json
+
       - name: Upload feed audit logs
         if: always() && hashFiles('data/analysis/feed_audit/**') != ''
         uses: actions/upload-artifact@v4
@@ -295,6 +302,7 @@ jobs:
           name: rss-feed-audit
           path: |
             data/analysis/feed_audit/rss_feed_audit.json
+            data/analysis/feed_audit/source_health_trends.json
             data/analysis/feed_audit/history/rss_feed_audit_*.json
             data/analysis/feed_audit/run_logs/*.jsonl
 
@@ -751,6 +759,7 @@ jobs:
             data/analysis/quality/rss_digest_quality_review.json \
             data/analysis/quality/history/rss_digest_quality_review_*.json \
             data/analysis/feed_audit/rss_feed_audit.json \
+            data/analysis/feed_audit/source_health_trends.json \
             data/analysis/feed_audit/history/rss_feed_audit_*.json \
             data/processed/rss_openai_precomputed.json
 

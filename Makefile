@@ -14,6 +14,7 @@ QUALITY_REVIEW ?= data/analysis/quality/rss_digest_quality_review.json
 QUALITY_HISTORY_DIR ?= data/analysis/quality/history
 FEED_AUDIT ?= data/analysis/feed_audit/rss_feed_audit.json
 FEED_AUDIT_HISTORY_DIR ?= data/analysis/feed_audit/history
+SOURCE_HEALTH_TRENDS ?= data/analysis/feed_audit/source_health_trends.json
 QUALITY_MAX_UNKNOWN_CONTENT_TYPES ?= 0
 QUALITY_MAX_UNSUPPORTED_CONTENT_TYPES ?= 0
 QUALITY_MAX_ACCEPTED_CONTENT_TYPE_FILTERS ?= 12
@@ -56,9 +57,10 @@ QUALITY_PATHS ?= \
 	tests/test_quality_report.py \
 	tests/test_quality_review.py \
 	tests/test_scrape_policy.py \
-	tests/test_schema_validation.py
+	tests/test_schema_validation.py \
+	tests/test_source_health.py
 
-.PHONY: venv install install-dev install-notebooks lint format-check typecheck validate-all quality-review quality-history feed-audit check-offline digest-build digest-archive digest-summary digest-scrape score-openai post-openai publish-build newsdata-test newsdata-fetch clean-venv
+.PHONY: venv install install-dev install-notebooks lint format-check typecheck validate-all quality-review quality-history feed-audit source-health check-offline digest-build digest-archive digest-summary digest-scrape score-openai post-openai publish-build newsdata-test newsdata-fetch clean-venv
 
 venv:
 	@$(PYTHON) -m venv $(VENV)
@@ -114,6 +116,12 @@ feed-audit: install-dev
 		--max-missing-rss-content $(FEED_AUDIT_MAX_MISSING_RSS_CONTENT) \
 		--max-unknown-content-types $(FEED_AUDIT_MAX_UNKNOWN_CONTENT_TYPES) \
 		--max-unsupported-content-types $(FEED_AUDIT_MAX_UNSUPPORTED_CONTENT_TYPES)
+
+source-health: install-dev
+	@$(RSSCTL) validate source-health \
+		--current $(FEED_AUDIT) \
+		--history-dir $(FEED_AUDIT_HISTORY_DIR) \
+		--output $(SOURCE_HEALTH_TRENDS)
 
 check-offline: lint format-check typecheck validate-all
 

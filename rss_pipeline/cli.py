@@ -31,6 +31,11 @@ from .quality_history import (
 )
 from .quality_review import build_digest_quality_review, evaluate_quality_gates
 from .schema_validation import validate_digest_payload, validation_summary
+from .source_health import (
+    build_source_health_trend_report,
+    load_feed_audit_artifacts,
+    write_source_health_trend_report,
+)
 
 app = typer.Typer(help="RSS pipeline CLI", no_args_is_help=True)
 digest_app = typer.Typer(help="Digest workflows", no_args_is_help=True)
@@ -372,6 +377,7 @@ def validate_all() -> None:
             "tests/test_quality_review.py",
             "tests/test_scrape_policy.py",
             "tests/test_schema_validation.py",
+            "tests/test_source_health.py",
         ],
         [sys.executable, str(REPO_ROOT / "load_experiment.py"), "data/rss_openai_daily.json"],
         [
@@ -399,6 +405,14 @@ def validate_all() -> None:
             "rss_pipeline.cli",
             "validate",
             "feed-audit",
+            "--help",
+        ],
+        [
+            sys.executable,
+            "-m",
+            "rss_pipeline.cli",
+            "validate",
+            "source-health",
             "--help",
         ],
         [
@@ -735,6 +749,51 @@ def validate_feed_audit(
         raise typer.Exit(code=1)
 
 
+@validate_app.command("source-health")
+def validate_source_health(
+    current: Annotated[
+        Path | None,
+        typer.Option("--current", help="Current feed-audit JSON to include."),
+    ] = Path("data/analysis/feed_audit/rss_feed_audit.json"),
+    history_dir: Annotated[Path, typer.Option("--history-dir")] = Path(
+        "data/analysis/feed_audit/history"
+    ),
+    output: Annotated[
+        Path | None,
+        typer.Option("--output", help="Optional path for writing source-health trends."),
+    ] = None,
+    limit: Annotated[int, typer.Option("--limit", min=1)] = 10,
+    as_json: Annotated[bool, typer.Option("--json")] = False,
+) -> None:
+    history_dir_path = history_dir if history_dir.is_absolute() else REPO_ROOT / history_dir
+    current_path = None
+    if current is not None:
+        current_path = current if current.is_absolute() else REPO_ROOT / current
+    artifacts, load_errors = load_feed_audit_artifacts(
+        history_dir=history_dir_path,
+        current_path=current_path,
+    )
+    report = build_source_health_trend_report(
+        artifacts,
+        load_errors=load_errors,
+        limit=limit,
+    )
+    output_path = None
+    if output is not None:
+        output_path = output if output.is_absolute() else REPO_ROOT / output
+        write_source_health_trend_report(output_path, report)
+
+    if as_json:
+        typer.echo(json.dumps(report, indent=2))
+    else:
+        _print_source_health_trends(report)
+        if output_path is not None:
+            typer.echo(f"Source health trend output: {output_path}")
+
+    if report["status"] == "fail":
+        raise typer.Exit(code=1)
+
+
 @app.command("pre-openai")
 def pre_openai(
     experiment: Annotated[str, typer.Option("--experiment")] = "data/rss_openai_daily.json",
@@ -970,6 +1029,96 @@ def _print_feed_audit(report: dict[str, object]) -> None:
         typer.echo(f"Feed audit output: {output_path['output_path']}")
     if report.get("history_archive"):
         typer.echo(f"Feed audit history: {report['history_archive']}")
+
+
+def _print_source_health_trends(report: dict[str, object]) -> None:
+    typer.echo(
+        "Source health trends: "
+        f"status={report.get('status')} "
+        f"snapshots={report.get('source_health_snapshot_count')}/{report.get('snapshot_count')} "
+        f"sources={report.get('source_count')}"
+    )
+    latest = report.get("latest")
+    if isinstance(latest, dict):
+        typer.echo(
+            "Latest: "
+            f"generated_at={latest.get('generated_at') or 'unknown'} "
+            f"status={latest.get('status')}"
+        )
+
+    latest_status_counts = report.get("latest_status_counts")
+    if isinstance(latest_status_counts, dict):
+        typer.echo(
+            "Latest source status: "
+            f"healthy={latest_status_counts.get('healthy', 0)} "
+            f"watch={latest_status_counts.get('watch', 0)} "
+            f"hold_candidate={latest_status_counts.get('hold_candidate', 0)}"
+        )
+
+    attention_summary = report.get("attention_summary")
+    if isinstance(attention_summary, dict):
+        typer.echo(
+            "Attention: "
+            f"hold={attention_summary.get('hold_candidates', 0)} "
+            f"watch={attention_summary.get('watch_sources', 0)} "
+            f"degraded={attention_summary.get('degraded_sources', 0)} "
+            f"improved={attention_summary.get('improved_sources', 0)}"
+        )
+
+    for label, key in (
+        ("Sources needing attention", "sources_needing_attention"),
+        ("Hold candidates", "hold_candidates"),
+        ("Degraded sources", "degraded_sources"),
+        ("Improved sources", "improved_sources"),
+    ):
+        rows = report.get(key)
+        if not isinstance(rows, list) or not rows:
+            continue
+        typer.echo(f"{label}:")
+        for row in rows[:5]:
+            if not isinstance(row, dict):
+                continue
+            typer.echo(
+                "  - "
+                f"{row.get('source_name')}: "
+                f"status={row.get('latest_status')} "
+                f"trend={row.get('trend')} "
+                f"issues={row.get('latest_issue_count', 0)} "
+                f"action={row.get('recommended_action')}"
+            )
+
+    degraded_sources = report.get("degraded_sources")
+    if isinstance(degraded_sources, list) and degraded_sources:
+        typer.echo("Degraded sources:")
+        for row in degraded_sources[:5]:
+            if not isinstance(row, dict):
+                continue
+            typer.echo(
+                "  - "
+                f"{row.get('source_name')}: "
+                f"{row.get('previous_status') or 'none'} -> {row.get('latest_status')} "
+                f"issues={row.get('latest_issue_count', 0)}"
+            )
+
+    improved_sources = report.get("improved_sources")
+    if isinstance(improved_sources, list) and improved_sources:
+        typer.echo("Improved sources:")
+        for row in improved_sources[:5]:
+            if not isinstance(row, dict):
+                continue
+            typer.echo(
+                "  - "
+                f"{row.get('source_name')}: "
+                f"{row.get('previous_status') or 'none'} -> {row.get('latest_status')} "
+                f"issues={row.get('latest_issue_count', 0)}"
+            )
+
+    load_errors = report.get("load_errors")
+    if isinstance(load_errors, list) and load_errors:
+        typer.echo("Load errors:")
+        for row in load_errors:
+            if isinstance(row, dict):
+                typer.echo(f"  - {row.get('path')}: {row.get('error')}")
 
 
 def _snapshot_line(label: str, snapshot: dict[str, object]) -> str:

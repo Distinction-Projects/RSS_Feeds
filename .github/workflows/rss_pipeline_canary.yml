@@ -40,8 +40,9 @@ jobs:
           python3 -m rss_pipeline.cli validate --help
           python3 -m rss_pipeline.cli validate all --help
           python3 -m rss_pipeline.cli validate feed-audit --help
-          ruff check load_experiment.py lens.py serialization_utils.py rss_pipeline run_pre_openai.py run_post_openai.py score_news_item.py rss_openai_digest.py newsdata_client.py newsdata_test.py tests/test_serialization_contracts.py tests/test_cache_sqlite.py tests/test_digest_dedupe.py tests/test_feed_audit.py
-          ruff format --check load_experiment.py lens.py serialization_utils.py rss_pipeline run_pre_openai.py run_post_openai.py score_news_item.py rss_openai_digest.py newsdata_client.py newsdata_test.py tests/test_serialization_contracts.py tests/test_cache_sqlite.py tests/test_digest_dedupe.py tests/test_feed_audit.py
+          python3 -m rss_pipeline.cli validate source-health --help
+          ruff check load_experiment.py lens.py serialization_utils.py rss_pipeline run_pre_openai.py run_post_openai.py score_news_item.py rss_openai_digest.py newsdata_client.py newsdata_test.py tests/test_serialization_contracts.py tests/test_cache_sqlite.py tests/test_digest_dedupe.py tests/test_feed_audit.py tests/test_source_health.py
+          ruff format --check load_experiment.py lens.py serialization_utils.py rss_pipeline run_pre_openai.py run_post_openai.py score_news_item.py rss_openai_digest.py newsdata_client.py newsdata_test.py tests/test_serialization_contracts.py tests/test_cache_sqlite.py tests/test_digest_dedupe.py tests/test_feed_audit.py tests/test_source_health.py
           mypy
 
       - name: Offline validation

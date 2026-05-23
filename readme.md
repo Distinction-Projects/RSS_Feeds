@@ -51,6 +51,7 @@ Package-first RSS + OpenAI pipeline with a single CLI: `rssctl`.
 - Rubric scores: `data/scores.json`
 - Analysis reports: `data/analysis/`
 - Feed audit review: `data/analysis/feed_audit/rss_feed_audit.json`
+- Source health trends: `data/analysis/feed_audit/source_health_trends.json`
 - Feed audit history snapshots: `data/analysis/feed_audit/history/rss_feed_audit_YYYY-MM-DD.json`
 
 ## CLI (`rssctl`)
@@ -70,6 +71,7 @@ Commands:
 - `rssctl publish build`
 - `rssctl validate all`
 - `rssctl validate feed-audit`
+- `rssctl validate source-health`
 
 ## Typical run order
 ```bash
@@ -127,6 +129,7 @@ Smoke CI remains active on push/PR via `.github/workflows/rss_pipeline_smoke.yml
 make check-offline
 make quality-review
 make feed-audit
+make source-health
 python3 -m rss_pipeline.cli validate all
 python3 -m rss_pipeline.cli validate digest --digest data/rss_openai_daily.json
 python3 -m rss_pipeline.cli validate digest --digest data/rss_openai_daily.json --strict
@@ -155,6 +158,10 @@ python3 -m rss_pipeline.cli validate feed-audit \
   --max-missing-rss-content 5 \
   --max-unknown-content-types 0 \
   --max-unsupported-content-types 0
+python3 -m rss_pipeline.cli validate source-health \
+  --current data/analysis/feed_audit/rss_feed_audit.json \
+  --history-dir data/analysis/feed_audit/history \
+  --output data/analysis/feed_audit/source_health_trends.json
 ```
 
 Digest validation defaults to compatibility mode for historical artifacts. Use `--strict` to
@@ -174,6 +181,8 @@ Use it to expand catalog coverage safely and inspect feed fetch failures, missin
 accepted non-article filters, content-type mix, and source/feed issue examples before raising
 the digest run size. It also writes `source_health` rows so sources can be reviewed as
 `healthy`, `watch`, or `hold_candidate` before they become noisy in the normal digest flow.
+Source-health trend review compares current and historical feed-audit snapshots so a source
+that repeatedly degrades can be separated from a one-off content-type or missing-content item.
 The default feed-audit gate now keeps feed fetch failures, unknown content types, and
 unresolved unsupported content types at zero, while allowing a small number of flagged
 missing-content RSS items that are excluded from normal newsfeed output.
