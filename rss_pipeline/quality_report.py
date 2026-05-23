@@ -4,6 +4,11 @@ from collections import Counter
 from collections.abc import Callable
 from typing import Any
 
+from .cleanliness import (
+    build_cleanliness_summary,
+    digest_item_cleanliness_row,
+    feed_error_cleanliness_row,
+)
 from .failure_taxonomy import classification_from_scrape_audit
 from .llm_readiness import summarize_llm_readiness
 from .models_digest import DigestItem
@@ -188,6 +193,11 @@ def build_digest_quality_report(
         unsupported_content_type,
     )
     item_quality = summarize_item_quality(items)
+    cleanliness = build_cleanliness_summary(
+        [digest_item_cleanliness_row(item) for item in items]
+        + [feed_error_cleanliness_row(error) for error in errors],
+        limit=10,
+    )
     llm_input = summarize_llm_readiness(items)
     llm_status_counts = llm_input.get("status_counts", {})
     llm_flag_counts = llm_input.get("flag_counts", [])
@@ -304,6 +314,7 @@ def build_digest_quality_report(
         "score_failed": score_failed,
         "rejected_invalid": 0,
         "item_quality": item_quality,
+        "cleanliness": cleanliness,
         "field_coverage": field_coverage,
         "content_type_counts": _top_counter_rows(content_type_counts, key_name="content_type"),
         "excluded_content_type_counts": _top_counter_rows(

@@ -1222,6 +1222,7 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
         summary=summary,
         warnings=warnings,
     )
+    audit_logger.event("cleanliness_summary", **quality_report["cleanliness"])
 
     digest = DigestDocument(
         run=RunMeta(
@@ -1265,6 +1266,7 @@ def build_digest(config: DigestBuildConfig, *, repo_root: Path) -> dict[str, Any
                 "seen_filter": seen_filter_stats,
             },
             "item_quality": item_quality,
+            "cleanliness": quality_report["cleanliness"],
             "llm_input": llm_input,
             "warnings": warnings,
             "prompt_export": prompt_export_path,

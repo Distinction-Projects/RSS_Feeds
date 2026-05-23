@@ -8,6 +8,9 @@ from .artifact_store import read_json, write_json
 from .normalization import compact_whitespace
 
 KEY_TREND_METRICS = (
+    "observable_issue_items",
+    "warning_or_failure_items",
+    "newsfeed_excluded",
     "issue_item_count",
     "unknown_content_type_items",
     "unsupported_content_type_items",
@@ -116,9 +119,15 @@ def _snapshot_metrics(review: dict[str, Any]) -> dict[str, int]:
     status_values = status_counts if isinstance(status_counts, dict) else {}
     gate_metrics = review.get("quality_gate_metrics")
     gate_values = gate_metrics if isinstance(gate_metrics, dict) else {}
+    cleanliness = review.get("cleanliness")
+    cleanliness_values = cleanliness if isinstance(cleanliness, dict) else {}
     return {
         "total_items": _safe_int(review.get("total_items")),
         "issue_item_count": _safe_int(review.get("issue_item_count")),
+        "clean_newsfeed_items": _safe_int(cleanliness_values.get("clean_newsfeed_items")),
+        "observable_issue_items": _safe_int(cleanliness_values.get("observable_issue_items")),
+        "warning_or_failure_items": _safe_int(cleanliness_values.get("warning_or_failure_items")),
+        "newsfeed_excluded": _safe_int(cleanliness_values.get("newsfeed_excluded")),
         "clean_item_count": _safe_int(status_values.get("clean")),
         "warn_item_count": _safe_int(status_values.get("warn")),
         "fail_item_count": _safe_int(status_values.get("fail")),

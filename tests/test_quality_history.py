@@ -33,6 +33,12 @@ def _review(
         "total_items": total_items,
         "issue_item_count": issue_items,
         "status_counts": {"clean": clean_items, "warn": issue_items},
+        "cleanliness": {
+            "clean_newsfeed_items": clean_items,
+            "observable_issue_items": issue_items,
+            "warning_or_failure_items": issue_items,
+            "newsfeed_excluded": unsupported_items,
+        },
         "quality_gate_metrics": {
             "unknown_content_type_items": 0,
             "unsupported_content_type_items": unsupported_items,
@@ -107,6 +113,10 @@ class QualityHistoryTests(unittest.TestCase):
         self.assertEqual(report["trend"], "improved")
         self.assertEqual(
             report["metric_deltas"]["issue_item_count"],
+            {"previous": 5, "latest": 3, "delta": -2},
+        )
+        self.assertEqual(
+            report["metric_deltas"]["warning_or_failure_items"],
             {"previous": 5, "latest": 3, "delta": -2},
         )
         self.assertIn(

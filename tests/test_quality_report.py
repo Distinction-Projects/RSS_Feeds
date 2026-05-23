@@ -59,6 +59,8 @@ class DigestQualityReportTests(unittest.TestCase):
         self.assertEqual(report["included_articles"], 2)
         self.assertEqual(report["included_clean"], 2)
         self.assertEqual(report["included_partial"], 0)
+        self.assertEqual(report["cleanliness"]["clean_newsfeed_items"], 2)
+        self.assertEqual(report["cleanliness"]["observable_issue_items"], 0)
         self.assertEqual(report["blocking_issues"], [])
 
     def test_quality_report_warns_for_missing_rss_content_exclusions(self) -> None:
@@ -84,6 +86,18 @@ class DigestQualityReportTests(unittest.TestCase):
         self.assertEqual(report["typical_newsfeed_articles"], 1)
         self.assertEqual(report["newsfeed_excluded"], 1)
         self.assertEqual(report["rss_missing_content"], 1)
+        self.assertEqual(report["cleanliness"]["clean_newsfeed_items"], 1)
+        self.assertEqual(report["cleanliness"]["newsfeed_excluded"], 1)
+        self.assertIn(
+            {
+                "reason": "missing_rss_content",
+                "count": 1,
+                "stage": "rss_content",
+                "severity": "warn",
+                "recommended_action": "review_feed_content",
+            },
+            report["cleanliness"]["reason_counts"],
+        )
         self.assertIn(
             "1 article(s) missing RSS content were excluded from typical newsfeed output",
             report["warnings"],
@@ -115,7 +129,50 @@ class DigestQualityReportTests(unittest.TestCase):
             report["excluded_content_type_counts"][0],
             {"content_type": "video", "count": 1},
         )
+        self.assertEqual(report["cleanliness"]["info_only_items"], 1)
+        self.assertIn(
+            {
+                "reason": "content_type_filter_accepted",
+                "count": 1,
+                "stage": "content_type_filter",
+                "severity": "info",
+                "recommended_action": "review_source_mix",
+            },
+            report["cleanliness"]["reason_counts"],
+        )
         self.assertEqual(report["warnings"], [])
+
+    def test_quality_report_cleanliness_includes_feed_fetch_errors(self) -> None:
+        report = build_digest_quality_report(
+            run_id="run-1",
+            generated_at="2026-04-03T00:00:00Z",
+            items=[_item("item-1")],
+            errors=[
+                {
+                    "source_id": "source-b",
+                    "source_name": "Source B",
+                    "feed_name": "World",
+                    "feed_url": "https://example.com/world.xml",
+                    "type": "TimeoutError",
+                    "error": "feed timed out",
+                }
+            ],
+            summary={"raw_fetched_items": 1, "scrape_failed": 0},
+            warnings=[],
+        )
+
+        self.assertEqual(report["cleanliness"]["total_observations"], 2)
+        self.assertEqual(report["cleanliness"]["warning_or_failure_items"], 1)
+        self.assertIn(
+            {
+                "reason": "feed_fetch_failed",
+                "count": 1,
+                "stage": "feed_fetch",
+                "severity": "warn",
+                "recommended_action": "review_feed_availability",
+            },
+            report["cleanliness"]["reason_counts"],
+        )
 
     def test_quality_report_warns_for_filtered_duplicates_and_scrape_failures(self) -> None:
         report = build_digest_quality_report(

@@ -6,6 +6,11 @@ from pathlib import Path
 from typing import Any
 
 from .artifact_store import archive_json, write_json
+from .cleanliness import (
+    build_cleanliness_summary,
+    digest_item_cleanliness_row,
+    feed_error_cleanliness_row,
+)
 from .config import FeedAuditConfig
 from .errors import ConfigError
 from .logging import StructuredRunLogger, get_logger
@@ -331,6 +336,7 @@ def run_feed_audit(
             status=report["status"],
             **report["summary"],
         )
+        audit_logger.event("cleanliness_summary", **report["cleanliness"])
         audit_logger.event("run_completed", duration_seconds=context.duration_seconds)
 
     write_json(output_path, report)
@@ -534,6 +540,11 @@ def build_feed_audit_report(
     sources_needing_review = review_source_rows[:limit]
 
     status = "fail" if blocking_issues else "warn" if warnings else "pass"
+    cleanliness = build_cleanliness_summary(
+        [digest_item_cleanliness_row(item) for item in items]
+        + [feed_error_cleanliness_row(error) for error in feed_errors],
+        limit=limit,
+    )
     return {
         "schema_version": "1.0",
         "status": status,
@@ -571,6 +582,7 @@ def build_feed_audit_report(
         },
         "source_health": source_health,
         "sources_needing_review": sources_needing_review,
+        "cleanliness": cleanliness,
         "issue_counts": _counter_rows(issue_counts, "issue", limit),
         "content_type_counts": _counter_rows(content_type_counts, "content_type", limit),
         "exclusion_reason_counts": _counter_rows(exclusion_reason_counts, "reason", limit),

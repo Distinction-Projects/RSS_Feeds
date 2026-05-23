@@ -98,6 +98,11 @@ class QualityReviewTests(unittest.TestCase):
         self.assertEqual(review["total_items"], 3)
         self.assertEqual(review["issue_item_count"], 1)
         self.assertEqual(review["status_counts"], {"clean": 2, "fail": 1})
+        self.assertEqual(review["cleanliness"]["clean_newsfeed_items"], 1)
+        self.assertEqual(review["cleanliness"]["observable_issue_items"], 2)
+        self.assertEqual(review["cleanliness"]["warning_or_failure_items"], 1)
+        self.assertEqual(review["cleanliness"]["info_only_items"], 1)
+        self.assertEqual(review["cleanliness"]["newsfeed_excluded"], 2)
         self.assertIn(
             {"issue": "content_type_filter_accepted", "count": 1},
             review["issue_counts"],
@@ -152,6 +157,10 @@ class QualityReviewTests(unittest.TestCase):
 
         self.assertEqual(review["status"], "pass")
         self.assertEqual(review["issue_item_count"], 0)
+        self.assertEqual(review["cleanliness"]["clean_newsfeed_items"], 0)
+        self.assertEqual(review["cleanliness"]["observable_issue_items"], 1)
+        self.assertEqual(review["cleanliness"]["info_only_items"], 1)
+        self.assertEqual(review["cleanliness"]["newsfeed_excluded"], 1)
         self.assertEqual(
             review["issue_counts"], [{"issue": "content_type_filter_accepted", "count": 1}]
         )

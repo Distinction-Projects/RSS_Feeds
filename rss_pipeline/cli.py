@@ -872,6 +872,15 @@ def _print_quality_review(review: dict[str, object]) -> None:
             f"rss_fallback={metrics.get('llm_rss_fallback_items', 0)} "
             f"excluded={metrics.get('llm_excluded_items', 0)}"
         )
+    cleanliness = review.get("cleanliness")
+    if isinstance(cleanliness, dict):
+        typer.echo(
+            "Cleanliness: "
+            f"clean_newsfeed={cleanliness.get('clean_newsfeed_items', 0)} "
+            f"issues={cleanliness.get('observable_issue_items', 0)} "
+            f"warn_or_fail={cleanliness.get('warning_or_failure_items', 0)} "
+            f"excluded={cleanliness.get('newsfeed_excluded', 0)}"
+        )
 
     gate = review.get("quality_gate")
     if isinstance(gate, dict):
@@ -970,6 +979,15 @@ def _print_feed_audit(report: dict[str, object]) -> None:
     if isinstance(run, dict):
         typer.echo(f"Generated: {run.get('generated_at')}")
         typer.echo(f"Run ID: {run.get('id')}")
+    cleanliness = report.get("cleanliness")
+    if isinstance(cleanliness, dict):
+        typer.echo(
+            "Cleanliness: "
+            f"clean_newsfeed={cleanliness.get('clean_newsfeed_items', 0)} "
+            f"issues={cleanliness.get('observable_issue_items', 0)} "
+            f"warn_or_fail={cleanliness.get('warning_or_failure_items', 0)} "
+            f"excluded={cleanliness.get('newsfeed_excluded', 0)}"
+        )
 
     gate = report.get("quality_gate")
     if isinstance(gate, dict):

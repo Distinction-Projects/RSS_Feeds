@@ -154,6 +154,20 @@ class FeedAuditTests(unittest.TestCase):
             self.assertEqual(report["summary"]["typical_newsfeed_items"], 1)
             self.assertEqual(report["summary"]["accepted_content_type_filter"], 1)
             self.assertEqual(report["summary"]["rss_missing_content"], 1)
+            self.assertEqual(report["cleanliness"]["total_observations"], 4)
+            self.assertEqual(report["cleanliness"]["clean_newsfeed_items"], 1)
+            self.assertEqual(report["cleanliness"]["warning_or_failure_items"], 2)
+            self.assertEqual(report["cleanliness"]["info_only_items"], 1)
+            self.assertIn(
+                {
+                    "reason": "feed_fetch_failed",
+                    "count": 1,
+                    "stage": "feed_fetch",
+                    "severity": "warn",
+                    "recommended_action": "review_feed_availability",
+                },
+                report["cleanliness"]["reason_counts"],
+            )
             self.assertEqual(report["quality_gate_metrics"]["feed_fetch_failed"], 1)
             self.assertEqual(
                 report["quality_gate_metrics"]["accepted_content_type_filter_items"],
@@ -163,6 +177,14 @@ class FeedAuditTests(unittest.TestCase):
             self.assertTrue(output_path.exists())
             self.assertTrue(list(history_dir.glob("rss_feed_audit_*.json")))
             self.assertTrue(Path(report["audit"]["run_log"]).exists())
+            run_events = [
+                json.loads(line)
+                for line in Path(report["audit"]["run_log"])
+                .read_text(encoding="utf-8")
+                .splitlines()
+                if line.strip()
+            ]
+            self.assertIn("cleanliness_summary", {event["event"] for event in run_events})
             self.assertIn({"issue": "feed_fetch_failed", "count": 1}, report["issue_counts"])
             self.assertIn(
                 {"issue": "content_type_filter_accepted", "count": 1},
