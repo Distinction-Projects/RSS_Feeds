@@ -67,6 +67,8 @@ NEWS_AI_SUMMARY_KEYS: tuple[str, ...] = (
     "model_summary",
 )
 NEWS_AI_TAG_KEYS: tuple[str, ...] = ("ai_tags", "llm_tags", "keywords")
+NEWS_LLM_INPUT_STATUS_KEYS: tuple[str, ...] = ("llm_input_status",)
+NEWS_READY_FOR_LLM_JUDGE_KEYS: tuple[str, ...] = ("ready_for_llm_judge",)
 
 NESTED_SOURCE_ID_KEYS: tuple[str, ...] = ("id", "slug", "code")
 NESTED_SOURCE_NAME_KEYS: tuple[str, ...] = ("name", "title", "label")
@@ -285,6 +287,30 @@ def _as_text_list(value: Any) -> list[str]:
     return [fallback] if fallback else []
 
 
+def _as_bool_optional(value: Any) -> bool | None:
+    if isinstance(value, bool):
+        return value
+    if value is None:
+        return None
+    text = _text(value).lower()
+    if text in {"true", "1", "yes"}:
+        return True
+    if text in {"false", "0", "no"}:
+        return False
+    return None
+
+
+def _as_int(value: Any, fallback: int = 0) -> int:
+    if isinstance(value, bool):
+        return fallback
+    if isinstance(value, int):
+        return value
+    try:
+        return int(str(value).strip())
+    except (TypeError, ValueError):
+        return fallback
+
+
 def _datetime_to_iso_optional(value: datetime | None) -> str | None:
     if value is None:
         return None
@@ -333,6 +359,12 @@ class NewsItemJSON(TypedDict):
     ai_tags: list[str]
     scraped: ScrapedArticleJSON | None
     scrape_error: str | None
+    scraped_text_chars: int
+    llm_input_status: str | None
+    llm_input_reason: str | None
+    llm_input_source: str | None
+    llm_input_flags: list[dict[str, Any]]
+    ready_for_llm_judge: bool | None
 
 
 class NewsSummaryJSON(TypedDict):
@@ -447,6 +479,12 @@ class NewsItem:
     ai_tags: list[str]
     scraped: ScrapedArticle | None = None
     scrape_error: str | None = None
+    scraped_text_chars: int = 0
+    llm_input_status: str | None = None
+    llm_input_reason: str | None = None
+    llm_input_source: str | None = None
+    llm_input_flags: list[dict[str, Any]] | None = None
+    ready_for_llm_judge: bool | None = None
 
     @classmethod
     def from_dict(cls, obj: dict[str, Any]) -> NewsItem:
@@ -495,6 +533,12 @@ class NewsItem:
         )
         scraped_raw = obj.get("scraped")
         scraped = ScrapedArticle.from_dict(scraped_raw) if isinstance(scraped_raw, dict) else None
+        raw_llm_flags = obj.get("llm_input_flags")
+        llm_flags = (
+            [flag for flag in raw_llm_flags if isinstance(flag, dict)]
+            if isinstance(raw_llm_flags, list)
+            else []
+        )
 
         return cls(
             id=item_id,
@@ -513,6 +557,12 @@ class NewsItem:
             ai_tags=_as_text_list(_first_value(obj, NEWS_AI_TAG_KEYS)),
             scraped=scraped,
             scrape_error=_optional_text(_first_value(obj, ("scrape_error",))),
+            scraped_text_chars=_as_int(_first_value(obj, ("scraped_text_chars",), 0)),
+            llm_input_status=_optional_text(_first_value(obj, NEWS_LLM_INPUT_STATUS_KEYS)),
+            llm_input_reason=_optional_text(_first_value(obj, ("llm_input_reason",))),
+            llm_input_source=_optional_text(_first_value(obj, ("llm_input_source",))),
+            llm_input_flags=llm_flags,
+            ready_for_llm_judge=_as_bool_optional(_first_value(obj, NEWS_READY_FOR_LLM_JUDGE_KEYS)),
         )
 
     @classmethod
@@ -539,6 +589,12 @@ class NewsItem:
             "ai_tags": list(self.ai_tags),
             "scraped": self.scraped.to_dict() if self.scraped else None,
             "scrape_error": self.scrape_error,
+            "scraped_text_chars": self.scraped_text_chars,
+            "llm_input_status": self.llm_input_status,
+            "llm_input_reason": self.llm_input_reason,
+            "llm_input_source": self.llm_input_source,
+            "llm_input_flags": list(self.llm_input_flags or []),
+            "ready_for_llm_judge": self.ready_for_llm_judge,
         }
 
     def to_json(self, *, indent: int | None = None) -> str:

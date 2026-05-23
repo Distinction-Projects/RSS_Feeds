@@ -25,6 +25,7 @@ def digest_item_payload(item: dict[str, Any]) -> dict[str, Any]:
         "published": item.get("published", ""),
         "summary": item.get("summary", ""),
         "link": item.get("link", ""),
+        "content_type": item.get("content_type", "news_article"),
     }
 
     scraped = item.get("scraped")

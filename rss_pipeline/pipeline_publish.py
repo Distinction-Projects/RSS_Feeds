@@ -10,6 +10,10 @@ from typing import Any
 
 from .artifact_store import write_json
 from .config import PublishBuildConfig
+from .content_classifier import (
+    NEWSLENS_INELIGIBLE_CONTENT_TYPES,
+    classify_item_payload_content_type,
+)
 from .workflow_runtime import utc_now_iso
 
 _HISTORY_FILENAME_PATTERN = re.compile(r"^rss_openai_daily_(\d{4}-\d{2}-\d{2})\.json$")
@@ -60,10 +64,13 @@ def _load_lens_score_rows(path: Path) -> dict[str, dict[str, float]]:
                 lens_values: dict[str, float] = {}
                 for lens_name in lens_names:
                     raw_value = row.get(lens_name)
-                    if raw_value in (None, ""):
+                    if raw_value is None:
+                        continue
+                    text = str(raw_value).strip()
+                    if not text:
                         continue
                     try:
-                        lens_values[lens_name] = float(raw_value)
+                        lens_values[lens_name] = float(text)
                     except (TypeError, ValueError):
                         continue
                 if lens_values:
@@ -123,9 +130,7 @@ def _load_square_int_matrix(path: Path) -> dict[str, Any]:
     rows = matrix.get("rows", [])
     int_rows: list[list[int | None]] = []
     for row in rows:
-        int_rows.append(
-            [int(value) if isinstance(value, (int, float)) else None for value in row]
-        )
+        int_rows.append([int(value) if isinstance(value, (int, float)) else None for value in row])
     return {"lenses": lenses, "rows": int_rows}
 
 
@@ -133,9 +138,7 @@ def _load_lens_correlations(lens_stats_root: Path) -> dict[str, Any]:
     raw = _load_square_matrix(lens_stats_root / "lens_correlation_raw.csv")
     normalized = _load_square_matrix(lens_stats_root / "lens_correlation_normalized.csv")
     covariance_raw = _load_square_matrix(lens_stats_root / "lens_covariance_raw.csv")
-    covariance_normalized = _load_square_matrix(
-        lens_stats_root / "lens_covariance_normalized.csv"
-    )
+    covariance_normalized = _load_square_matrix(lens_stats_root / "lens_covariance_normalized.csv")
     pairwise_counts = _load_square_int_matrix(lens_stats_root / "lens_pairwise_counts.csv")
 
     lenses = (
@@ -274,6 +277,32 @@ def _item_key(item: dict[str, Any]) -> str:
     return ""
 
 
+def _newsfeed_exclusion_reason(item: dict[str, Any]) -> str | None:
+    reason = str(item.get("newsfeed_exclusion_reason") or "").strip()
+    if item.get("include_in_newsfeed") is False:
+        return reason or "newsfeed_excluded"
+
+    audit = item.get("audit")
+    content_audit = audit.get("content") if isinstance(audit, dict) else None
+    if isinstance(content_audit, dict) and content_audit.get("exclude_from_newsfeed") is True:
+        audit_reason = str(content_audit.get("reason") or "").strip()
+        return audit_reason or reason or "newsfeed_excluded"
+
+    content_type = str(item.get("content_type") or "").strip()
+    if not content_type:
+        content_type = classify_item_payload_content_type(item).content_type
+    if content_type == "missing_content":
+        return "missing_rss_content"
+    if content_type in NEWSLENS_INELIGIBLE_CONTENT_TYPES:
+        return f"unsupported_content_type:{content_type}"
+
+    return None
+
+
+def _is_unsupported_content_type_exclusion(reason: str | None) -> bool:
+    return bool(reason and reason.startswith("unsupported_content_type:"))
+
+
 def _history_files_in_window(history_dir: Path, history_days: int | None) -> list[Path]:
     if not history_dir.exists():
         return []
@@ -315,11 +344,25 @@ def build_precomputed_payload(config: PublishBuildConfig, *, repo_root: Path) ->
     digest_payload = _load_json(digest_path, default={})
     digest_items_raw = digest_payload.get("items") if isinstance(digest_payload, dict) else []
     digest_items = digest_items_raw if isinstance(digest_items_raw, list) else []
-    publish_items: list[dict[str, Any]] = [item for item in digest_items if isinstance(item, dict)]
+    digest_item_dicts = [item for item in digest_items if isinstance(item, dict)]
+    publish_items: list[dict[str, Any]] = [
+        item for item in digest_item_dicts if _newsfeed_exclusion_reason(item) is None
+    ]
+    digest_items_included = len(publish_items)
+    digest_items_excluded = len(digest_item_dicts) - len(publish_items)
+    excluded_missing_content = sum(
+        1 for item in digest_item_dicts if _newsfeed_exclusion_reason(item) == "missing_rss_content"
+    )
+    excluded_unsupported_content_type = sum(
+        1
+        for item in digest_item_dicts
+        if _is_unsupported_content_type_exclusion(_newsfeed_exclusion_reason(item))
+    )
 
     history_files_used = 0
     history_items_loaded = 0
     history_items_added = 0
+    history_items_excluded = 0
     if config.include_history:
         seen_keys = {_item_key(item) for item in publish_items if _item_key(item)}
         for snapshot_path in _history_files_in_window(history_dir, config.history_days):
@@ -333,6 +376,14 @@ def build_precomputed_payload(config: PublishBuildConfig, *, repo_root: Path) ->
                 if not isinstance(item, dict):
                     continue
                 history_items_loaded += 1
+                exclusion_reason = _newsfeed_exclusion_reason(item)
+                if exclusion_reason is not None:
+                    history_items_excluded += 1
+                    if exclusion_reason == "missing_rss_content":
+                        excluded_missing_content += 1
+                    if _is_unsupported_content_type_exclusion(exclusion_reason):
+                        excluded_unsupported_content_type += 1
+                    continue
                 key = _item_key(item)
                 if key and key in seen_keys:
                     continue
@@ -369,10 +420,17 @@ def build_precomputed_payload(config: PublishBuildConfig, *, repo_root: Path) ->
                 "ai_summary": item.get("ai_summary", ""),
                 "ai_tags": item.get("ai_tags", []),
                 "topic_tags": item.get("topic_tags", []),
+                "content_type": item.get("content_type", "news_article"),
                 "source": item.get("source", {}),
                 "feed": item.get("feed", {}),
                 "scraped": item.get("scraped"),
                 "scrape_error": item.get("scrape_error"),
+                "scraped_text_chars": item.get("scraped_text_chars", 0),
+                "llm_input_status": item.get("llm_input_status"),
+                "llm_input_reason": item.get("llm_input_reason"),
+                "llm_input_source": item.get("llm_input_source"),
+                "llm_input_flags": item.get("llm_input_flags", []),
+                "ready_for_llm_judge": item.get("ready_for_llm_judge"),
                 "score": {
                     "rubric_count": int(rubric_counts.get(item_id, 0)),
                     "lens_scores": lens_scores,
@@ -408,6 +466,7 @@ def build_precomputed_payload(config: PublishBuildConfig, *, repo_root: Path) ->
             "history_files_used": history_files_used,
             "history_items_loaded": history_items_loaded,
             "history_items_added": history_items_added,
+            "history_items_excluded": history_items_excluded,
         },
         "artifacts": {
             "scores_path": str(config.scores),
@@ -416,7 +475,13 @@ def build_precomputed_payload(config: PublishBuildConfig, *, repo_root: Path) ->
         "summary": {
             "articles": len(precomputed_articles),
             "digest_articles": len(digest_items),
+            "digest_articles_included": digest_items_included,
+            "digest_articles_excluded": digest_items_excluded,
             "history_articles_added": history_items_added,
+            "history_articles_excluded": history_items_excluded,
+            "excluded_articles": digest_items_excluded + history_items_excluded,
+            "excluded_missing_content": excluded_missing_content,
+            "excluded_unsupported_content_type": excluded_unsupported_content_type,
             "scored_articles": sum(
                 1 for row in precomputed_articles if row["score"]["lens_scores"]
             ),

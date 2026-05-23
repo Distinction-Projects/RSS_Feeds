@@ -10,6 +10,25 @@ EXPERIMENT ?= data/rss_openai_daily.json
 LENSES ?= lenses
 SCORES ?= data/scores.json
 ANALYSIS_DIR ?= data/analysis
+QUALITY_REVIEW ?= data/analysis/quality/rss_digest_quality_review.json
+QUALITY_HISTORY_DIR ?= data/analysis/quality/history
+FEED_AUDIT ?= data/analysis/feed_audit/rss_feed_audit.json
+FEED_AUDIT_HISTORY_DIR ?= data/analysis/feed_audit/history
+QUALITY_MAX_UNKNOWN_CONTENT_TYPES ?= 0
+QUALITY_MAX_UNSUPPORTED_CONTENT_TYPES ?= 0
+QUALITY_MAX_ACCEPTED_CONTENT_TYPE_FILTERS ?= 7
+QUALITY_MAX_SOURCE_BLOCKED ?= 0
+QUALITY_MAX_ACCEPTED_RSS_ONLY_FALLBACK ?= 0
+QUALITY_MAX_LLM_REVIEW_ITEMS ?= 0
+QUALITY_MAX_EMPTY_SCRAPED_TEXT ?= 0
+QUALITY_MAX_SHORT_SCRAPED_TEXT ?= 0
+FEED_AUDIT_MAX_SOURCES ?= 40
+FEED_AUDIT_FEEDS_PER_SOURCE ?= 2
+FEED_AUDIT_MAX_ITEMS_PER_FEED ?= 5
+FEED_AUDIT_MAX_FEED_FETCH_FAILURES ?= 0
+FEED_AUDIT_MAX_MISSING_RSS_CONTENT ?= 0
+FEED_AUDIT_MAX_UNKNOWN_CONTENT_TYPES ?= 0
+FEED_AUDIT_MAX_UNSUPPORTED_CONTENT_TYPES ?= 0
 
 QUALITY_PATHS ?= \
 	load_experiment.py \
@@ -22,11 +41,24 @@ QUALITY_PATHS ?= \
 	rss_openai_digest.py \
 	newsdata_client.py \
 	newsdata_test.py \
+	tests/test_cli_validation.py \
+	tests/test_content_classifier.py \
 	tests/test_serialization_contracts.py \
 	tests/test_cache_sqlite.py \
-	tests/test_digest_dedupe.py
+	tests/test_digest_dedupe.py \
+	tests/test_digest_structured_logging.py \
+	tests/test_failure_taxonomy.py \
+	tests/test_feed_audit.py \
+	tests/test_llm_readiness.py \
+	tests/test_normalization.py \
+	tests/test_quality_diagnostics.py \
+	tests/test_quality_history.py \
+	tests/test_quality_report.py \
+	tests/test_quality_review.py \
+	tests/test_scrape_policy.py \
+	tests/test_schema_validation.py
 
-.PHONY: venv install install-dev install-notebooks lint format-check typecheck validate-all check-offline digest-build digest-archive digest-summary digest-scrape score-openai post-openai publish-build newsdata-test newsdata-fetch clean-venv
+.PHONY: venv install install-dev install-notebooks lint format-check typecheck validate-all quality-review quality-history feed-audit check-offline digest-build digest-archive digest-summary digest-scrape score-openai post-openai publish-build newsdata-test newsdata-fetch clean-venv
 
 venv:
 	@$(PYTHON) -m venv $(VENV)
@@ -52,12 +84,43 @@ typecheck: install-dev
 validate-all: install-dev
 	@$(RSSCTL) validate all
 
+quality-review: install-dev
+	@$(RSSCTL) validate quality \
+		--digest $(EXPERIMENT) \
+		--output $(QUALITY_REVIEW) \
+		--archive-history-dir $(QUALITY_HISTORY_DIR) \
+		--max-unknown-content-types $(QUALITY_MAX_UNKNOWN_CONTENT_TYPES) \
+		--max-unsupported-content-types $(QUALITY_MAX_UNSUPPORTED_CONTENT_TYPES) \
+		--max-accepted-content-type-filters $(QUALITY_MAX_ACCEPTED_CONTENT_TYPE_FILTERS) \
+		--max-source-blocked $(QUALITY_MAX_SOURCE_BLOCKED) \
+		--max-accepted-rss-only-fallback $(QUALITY_MAX_ACCEPTED_RSS_ONLY_FALLBACK) \
+		--max-llm-review-items $(QUALITY_MAX_LLM_REVIEW_ITEMS) \
+		--max-empty-scraped-text $(QUALITY_MAX_EMPTY_SCRAPED_TEXT) \
+		--max-short-scraped-text $(QUALITY_MAX_SHORT_SCRAPED_TEXT)
+
+quality-history: install-dev
+	@$(RSSCTL) validate quality-history \
+		--current $(QUALITY_REVIEW) \
+		--history-dir $(QUALITY_HISTORY_DIR)
+
+feed-audit: install-dev
+	@$(RSSCTL) validate feed-audit \
+		--output $(FEED_AUDIT) \
+		--archive-history-dir $(FEED_AUDIT_HISTORY_DIR) \
+		--max-sources $(FEED_AUDIT_MAX_SOURCES) \
+		--feeds-per-source $(FEED_AUDIT_FEEDS_PER_SOURCE) \
+		--max-items-per-feed $(FEED_AUDIT_MAX_ITEMS_PER_FEED) \
+		--max-feed-fetch-failures $(FEED_AUDIT_MAX_FEED_FETCH_FAILURES) \
+		--max-missing-rss-content $(FEED_AUDIT_MAX_MISSING_RSS_CONTENT) \
+		--max-unknown-content-types $(FEED_AUDIT_MAX_UNKNOWN_CONTENT_TYPES) \
+		--max-unsupported-content-types $(FEED_AUDIT_MAX_UNSUPPORTED_CONTENT_TYPES)
+
 check-offline: lint format-check typecheck validate-all
 
 digest-build: install
 	@$(RSSCTL) digest build \
 		--output data/rss_openai_daily.json \
-		--max-sources 10 \
+		--max-sources 32 \
 		--feeds-per-source 1 \
 		--max-items-per-feed 3
 

@@ -1,0 +1,350 @@
+{
+  "status": "pass",
+  "generated_at": "2026-05-22T15:51:55Z",
+  "run_id": "digest-20260522T155155-1a574c9489",
+  "total_items": 44,
+  "issue_item_count": 0,
+  "status_counts": {
+    "clean": 44
+  },
+  "severity_counts": {
+    "info": 11
+  },
+  "quality_gate_metrics": {
+    "unknown_content_type_items": 0,
+    "unsupported_content_type_items": 0,
+    "accepted_content_type_filter_items": 7,
+    "source_blocked_items": 0,
+    "accepted_rss_only_fallback_items": 4
+  },
+  "issue_counts": [
+    {
+      "issue": "content_type_filter_accepted",
+      "count": 7
+    },
+    {
+      "issue": "rss_only_fallback_accepted",
+      "count": 4
+    }
+  ],
+  "content_type_counts": [
+    {
+      "content_type": "news_article",
+      "count": 37
+    },
+    {
+      "content_type": "video",
+      "count": 6
+    },
+    {
+      "content_type": "newsletter",
+      "count": 1
+    }
+  ],
+  "exclusion_reason_counts": [
+    {
+      "reason": "unsupported_content_type:video",
+      "count": 6
+    },
+    {
+      "reason": "unsupported_content_type:newsletter",
+      "count": 1
+    }
+  ],
+  "top_sources": [
+    {
+      "source": "SkyNews",
+      "count": 4
+    },
+    {
+      "source": "CBS News",
+      "count": 3
+    },
+    {
+      "source": "NBC News",
+      "count": 2
+    },
+    {
+      "source": "NPR",
+      "count": 1
+    },
+    {
+      "source": "Al Jazeera",
+      "count": 1
+    }
+  ],
+  "top_feeds": [
+    {
+      "feed": "Top Stories",
+      "count": 5
+    },
+    {
+      "feed": "Home",
+      "count": 4
+    },
+    {
+      "feed": "News",
+      "count": 1
+    },
+    {
+      "feed": "All News",
+      "count": 1
+    }
+  ],
+  "top_source_issues": [
+    {
+      "source": "SkyNews",
+      "issue": "rss_only_fallback_accepted",
+      "count": 4
+    },
+    {
+      "source": "CBS News",
+      "issue": "content_type_filter_accepted",
+      "count": 3
+    },
+    {
+      "source": "NBC News",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "source": "NPR",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "Al Jazeera",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    }
+  ],
+  "top_feed_issues": [
+    {
+      "feed": "Top Stories",
+      "issue": "content_type_filter_accepted",
+      "count": 5
+    },
+    {
+      "feed": "Home",
+      "issue": "rss_only_fallback_accepted",
+      "count": 4
+    },
+    {
+      "feed": "News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "feed": "All News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    }
+  ],
+  "top_content_type_issues": [
+    {
+      "content_type": "video",
+      "issue": "content_type_filter_accepted",
+      "count": 6
+    },
+    {
+      "content_type": "news_article",
+      "issue": "rss_only_fallback_accepted",
+      "count": 4
+    },
+    {
+      "content_type": "newsletter",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    }
+  ],
+  "examples": [
+    {
+      "id": "c80b78b26427",
+      "title": "GOP senators delay immigration funding. And, what to expect this hurricane season",
+      "source": "NPR",
+      "feed": "News",
+      "content_type": "newsletter",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:newsletter",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "newsletter"
+        }
+      ]
+    },
+    {
+      "id": "8eb70be62ca3",
+      "title": "\u2018A complete and total failure\u2019: Calls grow for DNC chair Ken Martin to resign over 2024 autopsy",
+      "source": "NBC News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "f915b2092283",
+      "title": "Watch highlights from Stephen Colbert's 'Late Show' finale",
+      "source": "NBC News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "64c9bdc8d120",
+      "title": "Seattle Storm head coach Sonia Raman reflects on making WNBA history",
+      "source": "CBS News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "d27922230ac1",
+      "title": "U.S. awaits a response from Iran on latest proposal but concerns about Trump strikes remain",
+      "source": "CBS News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "8449511f37dd",
+      "title": "Concerns about DOJ's \"anti-weaponization fund\" grow",
+      "source": "CBS News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "d2237011f587",
+      "title": "Ukrainian strike on dormitory in Russian-occupied Starobilsk kills four",
+      "source": "Al Jazeera",
+      "feed": "All News",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "216ca571eb94",
+      "title": "Ebola outbreak 'spreading rapidly' - as vaccine from UK scientists 'months away'",
+      "source": "SkyNews",
+      "feed": "Home",
+      "content_type": "news_article",
+      "include_in_newsfeed": true,
+      "newsfeed_exclusion_reason": null,
+      "flags": [
+        {
+          "code": "rss_only_fallback_accepted",
+          "severity": "info",
+          "message": "SkyNews article pages return HTTP 403 to automated fetches; use the RSS summary as an accepted fallback.",
+          "detail": "source_blocked_403"
+        }
+      ]
+    },
+    {
+      "id": "4ae79824aa5c",
+      "title": "TV presenter Judith Chalmers, who hosted Wish You Were Here, has died",
+      "source": "SkyNews",
+      "feed": "Home",
+      "content_type": "news_article",
+      "include_in_newsfeed": true,
+      "newsfeed_exclusion_reason": null,
+      "flags": [
+        {
+          "code": "rss_only_fallback_accepted",
+          "severity": "info",
+          "message": "SkyNews article pages return HTTP 403 to automated fetches; use the RSS summary as an accepted fallback.",
+          "detail": "source_blocked_403"
+        }
+      ]
+    },
+    {
+      "id": "599cd6ac7730",
+      "title": "Attorney general receives 'multiple' requests to review 'lenient' sentence of boy rapists",
+      "source": "SkyNews",
+      "feed": "Home",
+      "content_type": "news_article",
+      "include_in_newsfeed": true,
+      "newsfeed_exclusion_reason": null,
+      "flags": [
+        {
+          "code": "rss_only_fallback_accepted",
+          "severity": "info",
+          "message": "SkyNews article pages return HTTP 403 to automated fetches; use the RSS summary as an accepted fallback.",
+          "detail": "source_blocked_403"
+        }
+      ]
+    }
+  ],
+  "quality_gate": {
+    "status": "pass",
+    "thresholds": {
+      "unknown_content_type_items": 0,
+      "unsupported_content_type_items": 0,
+      "accepted_content_type_filter_items": 7,
+      "source_blocked_items": 0,
+      "accepted_rss_only_fallback_items": 4
+    },
+    "metrics": {
+      "unknown_content_type_items": 0,
+      "unsupported_content_type_items": 0,
+      "accepted_content_type_filter_items": 7,
+      "source_blocked_items": 0,
+      "accepted_rss_only_fallback_items": 4
+    },
+    "violations": []
+  }
+}

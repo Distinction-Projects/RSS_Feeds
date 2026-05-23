@@ -29,6 +29,11 @@ class PipelinePublishTests(unittest.TestCase):
             output_path = repo_root / "data/processed/rss_openai_precomputed.json"
             payload = json.loads(output_path.read_text(encoding="utf-8"))
             self.assertEqual(payload["schema_version"], "1.1")
+            self.assertEqual(payload["summary"]["digest_articles"], 5)
+            self.assertEqual(payload["summary"]["digest_articles_included"], 2)
+            self.assertEqual(payload["summary"]["digest_articles_excluded"], 3)
+            self.assertEqual(payload["summary"]["excluded_missing_content"], 1)
+            self.assertEqual(payload["summary"]["excluded_unsupported_content_type"], 2)
             self.assertEqual(payload["summary"]["lens_scored_articles"], 1)
             self.assertEqual(
                 payload["analysis"]["lens_correlations"]["lenses"],
@@ -56,9 +61,13 @@ class PipelinePublishTests(unittest.TestCase):
             )
 
             article_map = {article["id"]: article for article in payload["articles"]}
+            self.assertNotIn("fixture-empty", article_map)
+            self.assertNotIn("fixture-video", article_map)
+            self.assertNotIn("fixture-legacy-video", article_map)
             scored_article = article_map["fixture-1"]
             unscored_article = article_map["fixture-2"]
 
+            self.assertEqual(scored_article["content_type"], "news_article")
             self.assertEqual(scored_article["score"]["rubric_count"], 2)
             self.assertEqual(
                 scored_article["score"]["lens_scores"]["Evidence"],
@@ -99,6 +108,7 @@ class PipelinePublishTests(unittest.TestCase):
                     "ai_summary": "AI summary one.",
                     "ai_tags": ["policy"],
                     "topic_tags": ["policy"],
+                    "content_type": "news_article",
                     "source": {"id": "source-1", "name": "Source One"},
                     "feed": {"name": "Feed One", "url": "https://example.com/feed-1.xml"},
                     "scraped": {"body_text": "Body one."},
@@ -114,11 +124,75 @@ class PipelinePublishTests(unittest.TestCase):
                     "ai_summary": "AI summary two.",
                     "ai_tags": ["markets"],
                     "topic_tags": ["finance"],
+                    "content_type": "analysis",
                     "source": {"id": "source-2", "name": "Source Two"},
                     "feed": {"name": "Feed Two", "url": "https://example.com/feed-2.xml"},
                     "scraped": {"body_text": "Body two."},
                     "scrape_error": None,
                     "audit": {"request_id": "req-2"},
+                },
+                {
+                    "id": "fixture-empty",
+                    "title": "Fixture Empty",
+                    "link": "https://example.com/fixture-empty",
+                    "published": "2026-04-04T14:00:00Z",
+                    "summary": "",
+                    "ai_summary": "",
+                    "ai_tags": [],
+                    "topic_tags": ["finance"],
+                    "content_type": "missing_content",
+                    "source": {"id": "source-2", "name": "Source Two"},
+                    "feed": {"name": "Feed Two", "url": "https://example.com/feed-2.xml"},
+                    "scraped": None,
+                    "scrape_error": None,
+                    "include_in_newsfeed": False,
+                    "newsfeed_exclusion_reason": "missing_rss_content",
+                    "audit": {
+                        "content": {
+                            "status": "missing",
+                            "exclude_from_newsfeed": True,
+                            "reason": "missing_rss_content",
+                        }
+                    },
+                },
+                {
+                    "id": "fixture-video",
+                    "title": "Watch: Fixture Video",
+                    "link": "https://example.com/video/fixture",
+                    "published": "2026-04-04T15:00:00Z",
+                    "summary": "Video summary.",
+                    "ai_summary": "",
+                    "ai_tags": [],
+                    "topic_tags": ["video"],
+                    "content_type": "video",
+                    "source": {"id": "source-2", "name": "Source Two"},
+                    "feed": {"name": "Feed Two", "url": "https://example.com/feed-2.xml"},
+                    "scraped": None,
+                    "scrape_error": None,
+                    "include_in_newsfeed": False,
+                    "newsfeed_exclusion_reason": "unsupported_content_type:video",
+                    "audit": {
+                        "content": {
+                            "status": "present",
+                            "exclude_from_newsfeed": True,
+                            "reason": "unsupported_content_type:video",
+                        }
+                    },
+                },
+                {
+                    "id": "fixture-legacy-video",
+                    "title": "Watch: Legacy Fixture Video",
+                    "link": "https://example.com/watch/legacy-fixture-video",
+                    "published": "2026-04-04T16:00:00Z",
+                    "summary": "Legacy video summary.",
+                    "ai_summary": "Legacy video AI summary.",
+                    "ai_tags": [],
+                    "topic_tags": ["video"],
+                    "source": {"id": "source-2", "name": "Source Two"},
+                    "feed": {"name": "Video Feed", "url": "https://example.com/video.xml"},
+                    "scraped": None,
+                    "scrape_error": None,
+                    "audit": {},
                 },
             ],
         }
@@ -171,43 +245,31 @@ class PipelinePublishTests(unittest.TestCase):
             encoding="utf-8",
         )
         (repo_root / "data/analysis/lens_stats/lens_scores_raw.csv").write_text(
-            "item_id,title,Evidence,Impact\n"
-            "fixture-1,Fixture Headline One,7.500000,5.000000\n",
+            "item_id,title,Evidence,Impact\nfixture-1,Fixture Headline One,7.500000,5.000000\n",
             encoding="utf-8",
         )
         (repo_root / "data/analysis/lens_stats/lens_scores_normalized.csv").write_text(
-            "item_id,title,Evidence,Impact\n"
-            "fixture-1,Fixture Headline One,0.750000,0.500000\n",
+            "item_id,title,Evidence,Impact\nfixture-1,Fixture Headline One,0.750000,0.500000\n",
             encoding="utf-8",
         )
         (repo_root / "data/analysis/lens_stats/lens_correlation_raw.csv").write_text(
-            ",Evidence,Impact\n"
-            "Evidence,1.0,0.4\n"
-            "Impact,0.4,1.0\n",
+            ",Evidence,Impact\nEvidence,1.0,0.4\nImpact,0.4,1.0\n",
             encoding="utf-8",
         )
         (repo_root / "data/analysis/lens_stats/lens_correlation_normalized.csv").write_text(
-            ",Evidence,Impact\n"
-            "Evidence,1.0,0.6\n"
-            "Impact,0.6,1.0\n",
+            ",Evidence,Impact\nEvidence,1.0,0.6\nImpact,0.6,1.0\n",
             encoding="utf-8",
         )
         (repo_root / "data/analysis/lens_stats/lens_covariance_raw.csv").write_text(
-            ",Evidence,Impact\n"
-            "Evidence,2.0,0.3\n"
-            "Impact,0.3,1.5\n",
+            ",Evidence,Impact\nEvidence,2.0,0.3\nImpact,0.3,1.5\n",
             encoding="utf-8",
         )
         (repo_root / "data/analysis/lens_stats/lens_covariance_normalized.csv").write_text(
-            ",Evidence,Impact\n"
-            "Evidence,0.2,0.03\n"
-            "Impact,0.03,0.15\n",
+            ",Evidence,Impact\nEvidence,0.2,0.03\nImpact,0.03,0.15\n",
             encoding="utf-8",
         )
         (repo_root / "data/analysis/lens_stats/lens_pairwise_counts.csv").write_text(
-            ",Evidence,Impact\n"
-            "Evidence,10,8\n"
-            "Impact,8,12\n",
+            ",Evidence,Impact\nEvidence,10,8\nImpact,8,12\n",
             encoding="utf-8",
         )
 

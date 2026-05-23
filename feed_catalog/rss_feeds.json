@@ -346,7 +346,7 @@
         }
       ],
       "verified": false,
-      "notes": "",
+      "notes": "Enabled 2026-05-23: Most Recent RSS validated as a replacement for retired Reuters/USA Today RSS coverage; Top Stories feed is stale and often summary-empty.; Disabled 2026-05-23 after readiness probe: current RSS article pages scrape successfully but produce empty usable body text, so items are not ready for LLM judge.",
       "enabled": false
     },
     {
@@ -378,7 +378,7 @@
           "topic_tags": [
             "general"
           ],
-          "enabled": true
+          "enabled": false
         },
         {
           "name": "World",
@@ -534,8 +534,8 @@
         }
       ],
       "verified": false,
-      "notes": " Disabled 2026-03-01: Reuters legacy RSS endpoints unavailable from automation runtime.",
-      "enabled": true
+      "notes": "Disabled 2026-05-23: Reuters legacy RSS host no longer resolves and tested reuters.com RSS candidates returned 404.",
+      "enabled": false
     },
     {
       "id": "the-guardian",
@@ -750,7 +750,7 @@
         }
       ],
       "verified": false,
-      "notes": "",
+      "notes": "Enabled 2026-05-23: Home Page RSS validated as a replacement for retired Reuters/USA Today RSS coverage.; Disabled 2026-05-23 after readiness probe: RSS fetch works but sampled article pages are blocked from scraping, leaving no normal LLM judge input.",
       "enabled": false
     },
     {
@@ -972,7 +972,7 @@
           "topic_tags": [
             "general"
           ],
-          "enabled": true
+          "enabled": false
         },
         {
           "name": "World",
@@ -1008,8 +1008,8 @@
         }
       ],
       "verified": false,
-      "notes": " Disabled 2026-03-01: USA Today legacy RSS endpoints return invalid/non-RSS responses.",
-      "enabled": true
+      "notes": "Disabled 2026-05-23: USA Today legacy RSS endpoints redirect to non-RSS HTML and tested alternatives returned 404/non-RSS.",
+      "enabled": false
     },
     {
       "id": "npr",
@@ -1545,16 +1545,16 @@
       },
       "feeds": [
         {
-          "name": "Top Stories",
-          "url": "https://www.cbc.ca/cmlink/rss-topstories",
+          "name": "World",
+          "url": "https://rss.cbc.ca/lineup/world.xml",
           "topic_tags": [
-            "general"
+            "world"
           ],
           "enabled": true
         }
       ],
       "verified": false,
-      "notes": "",
+      "notes": "Switched 2026-05-23 from top stories to world feed because top stories includes image-only summaries that fail content-quality gates.",
       "enabled": true
     },
     {
@@ -1590,7 +1590,7 @@
         }
       ],
       "verified": false,
-      "notes": "",
+      "notes": "Switched 2026-05-23 from deprecated www.politico.com/rss endpoint to rss.politico.com after old endpoint returned 403.",
       "enabled": true
     },
     {
@@ -1622,7 +1622,7 @@
           "topic_tags": [
             "technology"
           ],
-          "enabled": false
+          "enabled": true
         },
         {
           "name": "The Verge",
@@ -1634,8 +1634,8 @@
         }
       ],
       "verified": false,
-      "notes": "",
-      "enabled": false
+      "notes": "Enabled after candidate probe on 2026-05-23: 3/3 sampled items scraped and ready for LLM judge.",
+      "enabled": true
     },
     {
       "id": "wired",
@@ -1702,12 +1702,12 @@
           "topic_tags": [
             "technology"
           ],
-          "enabled": false
+          "enabled": true
         }
       ],
       "verified": false,
-      "notes": "",
-      "enabled": false
+      "notes": "Enabled after candidate probe on 2026-05-23: 3/3 sampled items scraped and ready for LLM judge.",
+      "enabled": true
     },
     {
       "id": "techcrunch",
@@ -1739,7 +1739,7 @@
             "technology",
             "business"
           ],
-          "enabled": false
+          "enabled": true
         },
         {
           "name": "TechCrunch",
@@ -1751,8 +1751,8 @@
         }
       ],
       "verified": false,
-      "notes": "",
-      "enabled": false
+      "notes": "Enabled after candidate probe on 2026-05-23: 3/3 sampled items scraped and ready for LLM judge.",
+      "enabled": true
     },
     {
       "id": "engadget",
@@ -2004,16 +2004,16 @@
       "feeds": [
         {
           "name": "Politics",
-          "url": "https://www.politico.com/rss/politics08.xml",
+          "url": "https://rss.politico.com/politics-news.xml",
           "topic_tags": [
             "politics"
           ],
-          "enabled": true
+          "enabled": false
         }
       ],
       "verified": false,
-      "notes": "",
-      "enabled": true
+      "notes": "Disabled after expanded readiness probe on 2026-05-23: sampled Politics feed produced newsletter/photo_gallery items, including a source-blocked gallery URL, so it is held until a cleaner article-only feed or source adapter is selected.",
+      "enabled": false
     },
     {
       "id": "bbc",
@@ -2176,7 +2176,7 @@
           "topic_tags": [
             "general"
           ],
-          "enabled": false
+          "enabled": true
         },
         {
           "name": "World News",
@@ -2340,8 +2340,8 @@
         }
       ],
       "verified": false,
-      "notes": "Imported from vandenbroucke/rss-news-list on 2026-03-01",
-      "enabled": false
+      "notes": "Imported from vandenbroucke/rss-news-list on 2026-03-01; Enabled after candidate probe on 2026-05-23: 3/3 sampled items scraped and ready for LLM judge.",
+      "enabled": true
     },
     {
       "id": "euronews",
@@ -4045,6 +4045,16 @@
         "civility_score": null,
         "toxicity_score": null
       },
+      "scrape_policy": {
+        "policy_id": "skynews-rss-only-on-403",
+        "accepted_failure_codes": [
+          "source_blocked_403"
+        ],
+        "mode": "rss_summary",
+        "reason": "source_blocks_article_fetch",
+        "message": "SkyNews article pages return HTTP 403 to automated fetches; use the RSS summary as an accepted fallback.",
+        "source_action": "monitor_rss_feed_or_add_source_adapter"
+      },
       "feeds": [
         {
           "name": "Home",
@@ -4052,7 +4062,7 @@
           "topic_tags": [
             "general"
           ],
-          "enabled": true
+          "enabled": false
         },
         {
           "name": "UK",
@@ -4120,8 +4130,8 @@
         }
       ],
       "verified": false,
-      "notes": "Imported from vandenbroucke/rss-news-list on 2026-03-01",
-      "enabled": true
+      "notes": "Imported from vandenbroucke/rss-news-list on 2026-03-01; Disabled after expanded readiness probe on 2026-05-23: sampled article pages returned HTTP 403 and only RSS-only fallback was available, which is not ready_for_llm_judge.",
+      "enabled": false
     },
     {
       "id": "news24",
@@ -4584,7 +4594,7 @@
           "topic_tags": [
             "world"
           ],
-          "enabled": false
+          "enabled": true
         },
         {
           "name": "Politics",
@@ -4644,8 +4654,8 @@
         }
       ],
       "verified": false,
-      "notes": "Imported from vandenbroucke/rss-news-list on 2026-03-01",
-      "enabled": false
+      "notes": "Imported from vandenbroucke/rss-news-list on 2026-03-01; Enabled World feed after candidate probe on 2026-05-23: 3/3 sampled items scraped and ready for LLM judge.",
+      "enabled": true
     },
     {
       "id": "ctvnews",
@@ -7084,7 +7094,7 @@
     },
     {
       "id": "source",
-      "name": "প্রথম আলো",
+      "name": "\u09aa\u09cd\u09b0\u09a5\u09ae \u0986\u09b2\u09cb",
       "homepage_url": "https://www.prothomalo.com",
       "country": "Bangladesh",
       "language": null,
@@ -7106,7 +7116,7 @@
       },
       "feeds": [
         {
-          "name": "প্রথম আলো",
+          "name": "\u09aa\u09cd\u09b0\u09a5\u09ae \u0986\u09b2\u09cb",
           "url": "https://www.prothomalo.com/feed/",
           "topic_tags": [
             "general"
@@ -7114,7 +7124,7 @@
           "enabled": false
         },
         {
-          "name": "देश | दैनिक भास्कर",
+          "name": "\u0926\u0947\u0936 | \u0926\u0948\u0928\u093f\u0915 \u092d\u093e\u0938\u094d\u0915\u0930",
           "url": "https://www.bhaskar.com/rss-feed/1061/",
           "topic_tags": [
             "general"
@@ -7122,7 +7132,7 @@
           "enabled": false
         },
         {
-          "name": "ઈન્ડિયા | દિવ્ય ભાસ્કર",
+          "name": "\u0a88\u0aa8\u0acd\u0aa1\u0abf\u0aaf\u0abe | \u0aa6\u0abf\u0ab5\u0acd\u0aaf \u0aad\u0abe\u0ab8\u0acd\u0a95\u0ab0",
           "url": "https://www.divyabhaskar.co.in/rss-feed/1037/",
           "topic_tags": [
             "general"
@@ -7130,7 +7140,7 @@
           "enabled": false
         },
         {
-          "name": "اخبار ایران و جهان",
+          "name": "\u0627\u062e\u0628\u0627\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0648 \u062c\u0647\u0627\u0646",
           "url": "https://www.tasnimnews.com/fa/rss/feed/0/8/0/%D9%85%D9%87%D9%85%D8%AA%D8%B1%DB%8C%D9%86-%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1-%D8%AA%D8%B3%D9%86%DB%8C%D9%85",
           "topic_tags": [
             "general"
@@ -7138,7 +7148,7 @@
           "enabled": false
         },
         {
-          "name": "عصر ايران",
+          "name": "\u0639\u0635\u0631 \u0627\u064a\u0631\u0627\u0646",
           "url": "https://www.asriran.com/fa/rss/allnews",
           "topic_tags": [
             "general"
@@ -7146,7 +7156,7 @@
           "enabled": false
         },
         {
-          "name": "ライブドアニュース - 主要トピックス",
+          "name": "\u30e9\u30a4\u30d6\u30c9\u30a2\u30cb\u30e5\u30fc\u30b9 - \u4e3b\u8981\u30c8\u30d4\u30c3\u30af\u30b9",
           "url": "https://news.livedoor.com/topics/rss/top.xml",
           "topic_tags": [
             "general"
@@ -7154,7 +7164,7 @@
           "enabled": false
         },
         {
-          "name": "朝日新聞デジタル",
+          "name": "\u671d\u65e5\u65b0\u805e\u30c7\u30b8\u30bf\u30eb",
           "url": "http://rss.asahi.com/rss/asahi/newsheadlines.rdf",
           "topic_tags": [
             "general"
@@ -7162,7 +7172,7 @@
           "enabled": false
         },
         {
-          "name": "قومی خبریں",
+          "name": "\u0642\u0648\u0645\u06cc \u062e\u0628\u0631\u06cc\u06ba",
           "url": "https://jang.com.pk/rss/1/1",
           "topic_tags": [
             "general"
@@ -7170,7 +7180,7 @@
           "enabled": false
         },
         {
-          "name": "ایکسپریس اردو",
+          "name": "\u0627\u06cc\u06a9\u0633\u067e\u0631\u06cc\u0633 \u0627\u0631\u062f\u0648",
           "url": "https://www.express.pk/feed/",
           "topic_tags": [
             "general"
@@ -7178,7 +7188,7 @@
           "enabled": false
         },
         {
-          "name": "Все материалы - Московский Комсомолец",
+          "name": "\u0412\u0441\u0435 \u043c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u044b - \u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u041a\u043e\u043c\u0441\u043e\u043c\u043e\u043b\u0435\u0446",
           "url": "https://www.mk.ru/rss/index.xml",
           "topic_tags": [
             "general"
@@ -7186,7 +7196,7 @@
           "enabled": false
         },
         {
-          "name": "Российская Газета",
+          "name": "\u0420\u043e\u0441\u0441\u0438\u0439\u0441\u043a\u0430\u044f \u0413\u0430\u0437\u0435\u0442\u0430",
           "url": "https://rg.ru/xml/index.xml",
           "topic_tags": [
             "general"
@@ -7194,7 +7204,7 @@
           "enabled": false
         },
         {
-          "name": "Газета",
+          "name": "\u0413\u0430\u0437\u0435\u0442\u0430",
           "url": "https://www.kommersant.ru/RSS/main.xml",
           "topic_tags": [
             "general"
@@ -7202,7 +7212,7 @@
           "enabled": false
         },
         {
-          "name": "ТЕЛЕГРАФ - последние новости Украины и мира",
+          "name": "\u0422\u0415\u041b\u0415\u0413\u0420\u0410\u0424 - \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0438\u0435 \u043d\u043e\u0432\u043e\u0441\u0442\u0438 \u0423\u043a\u0440\u0430\u0438\u043d\u044b \u0438 \u043c\u0438\u0440\u0430",
           "url": "https://telegraf.com.ua/yandex-feed/",
           "topic_tags": [
             "general"
@@ -7210,7 +7220,7 @@
           "enabled": false
         },
         {
-          "name": "Цензор.НЕТ - Новости",
+          "name": "\u0426\u0435\u043d\u0437\u043e\u0440.\u041d\u0415\u0422 - \u041d\u043e\u0432\u043e\u0441\u0442\u0438",
           "url": "https://censor.net.ua/includes/news_ru.xml",
           "topic_tags": [
             "general"
@@ -7218,7 +7228,7 @@
           "enabled": false
         },
         {
-          "name": "Українська правда",
+          "name": "\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u043f\u0440\u0430\u0432\u0434\u0430",
           "url": "https://www.pravda.com.ua/rss/",
           "topic_tags": [
             "general"
@@ -7226,7 +7236,7 @@
           "enabled": false
         },
         {
-          "name": "Гордон - Самые популярные материалы",
+          "name": "\u0413\u043e\u0440\u0434\u043e\u043d - \u0421\u0430\u043c\u044b\u0435 \u043f\u043e\u043f\u0443\u043b\u044f\u0440\u043d\u044b\u0435 \u043c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u044b",
           "url": "https://gordonua.com/xml/rss_category/top.html",
           "topic_tags": [
             "general"
@@ -7234,7 +7244,7 @@
           "enabled": false
         },
         {
-          "name": "НВ",
+          "name": "\u041d\u0412",
           "url": "https://nv.ua/rss/all.xml",
           "topic_tags": [
             "general"
@@ -7242,7 +7252,7 @@
           "enabled": false
         },
         {
-          "name": "Информационное агентство УНИАН",
+          "name": "\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u043e\u043d\u043d\u043e\u0435 \u0430\u0433\u0435\u043d\u0442\u0441\u0442\u0432\u043e \u0423\u041d\u0418\u0410\u041d",
           "url": "https://rss.unian.net/site/news_rus.rss",
           "topic_tags": [
             "general"
@@ -7250,7 +7260,7 @@
           "enabled": false
         },
         {
-          "name": "Еспресо - український погляд на світ!",
+          "name": "\u0415\u0441\u043f\u0440\u0435\u0441\u043e - \u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0438\u0439 \u043f\u043e\u0433\u043b\u044f\u0434 \u043d\u0430 \u0441\u0432\u0456\u0442!",
           "url": "https://espreso.tv/rss",
           "topic_tags": [
             "general"
@@ -7336,7 +7346,7 @@
     },
     {
       "id": "r7-not-cias",
-      "name": "R7 - Notícias",
+      "name": "R7 - Not\u00edcias",
       "homepage_url": "https://noticias.r7.com",
       "country": "Brazil",
       "language": null,
@@ -7358,7 +7368,7 @@
       },
       "feeds": [
         {
-          "name": "R7 - Notícias",
+          "name": "R7 - Not\u00edcias",
           "url": "https://noticias.r7.com/feed.xml",
           "topic_tags": [
             "general"
@@ -7480,7 +7490,7 @@
     },
     {
       "id": "jornal-de-bras-lia",
-      "name": "Jornal de Brasília",
+      "name": "Jornal de Bras\u00edlia",
       "homepage_url": "https://jornaldebrasilia.com.br",
       "country": "Brazil",
       "language": null,
@@ -7502,7 +7512,7 @@
       },
       "feeds": [
         {
-          "name": "Jornal de Brasília",
+          "name": "Jornal de Bras\u00edlia",
           "url": "https://jornaldebrasilia.com.br/feed/",
           "topic_tags": [
             "general"
@@ -7732,7 +7742,7 @@
     },
     {
       "id": "lapresse-ca-actualit-s",
-      "name": "LaPresse.ca - Actualités",
+      "name": "LaPresse.ca - Actualit\u00e9s",
       "homepage_url": "https://www.lapresse.ca",
       "country": "Canada",
       "language": null,
@@ -7754,7 +7764,7 @@
       },
       "feeds": [
         {
-          "name": "LaPresse.ca - Actualités",
+          "name": "LaPresse.ca - Actualit\u00e9s",
           "url": "https://www.lapresse.ca/actualites/rss",
           "topic_tags": [
             "general"
@@ -7912,7 +7922,7 @@
     },
     {
       "id": "le-monde-fr-actualit-s-et-infos-en-france-et-dans-le-monde",
-      "name": "Le Monde.fr - Actualités et Infos en France et dans le monde",
+      "name": "Le Monde.fr - Actualit\u00e9s et Infos en France et dans le monde",
       "homepage_url": "https://www.lemonde.fr",
       "country": "France",
       "language": null,
@@ -7934,7 +7944,7 @@
       },
       "feeds": [
         {
-          "name": "Le Monde.fr - Actualités et Infos en France et dans le monde",
+          "name": "Le Monde.fr - Actualit\u00e9s et Infos en France et dans le monde",
           "url": "https://www.lemonde.fr/rss/une.xml",
           "topic_tags": [
             "general"
@@ -8056,7 +8066,7 @@
     },
     {
       "id": "la-d-p-che-du-midi-actualit-s-et-info-en-direct-de-la-r-gion-occitanie-et-des-environs-ladepeche-fr",
-      "name": "La Dépêche du Midi : actualités et info en direct de la région Occitanie et des environs - ladepeche.fr",
+      "name": "La D\u00e9p\u00eache du Midi : actualit\u00e9s et info en direct de la r\u00e9gion Occitanie et des environs - ladepeche.fr",
       "homepage_url": "https://www.ladepeche.fr",
       "country": "France",
       "language": null,
@@ -8078,7 +8088,7 @@
       },
       "feeds": [
         {
-          "name": "La Dépêche du Midi : actualités et info en direct de la région Occitanie et des environs - ladepeche.fr",
+          "name": "La D\u00e9p\u00eache du Midi : actualit\u00e9s et info en direct de la r\u00e9gion Occitanie et des environs - ladepeche.fr",
           "url": "https://www.ladepeche.fr/rss.xml",
           "topic_tags": [
             "general"
@@ -8092,7 +8102,7 @@
     },
     {
       "id": "ministry-for-europe-and-foreign-affairs-actualit-s",
-      "name": "Ministry for Europe and Foreign Affairs - Actualités",
+      "name": "Ministry for Europe and Foreign Affairs - Actualit\u00e9s",
       "homepage_url": "https://www.diplomatie.gouv.fr",
       "country": "France",
       "language": null,
@@ -8114,7 +8124,7 @@
       },
       "feeds": [
         {
-          "name": "Ministry for Europe and Foreign Affairs - Actualités",
+          "name": "Ministry for Europe and Foreign Affairs - Actualit\u00e9s",
           "url": "https://www.diplomatie.gouv.fr/spip.php?page=backend-fd&lang=en",
           "topic_tags": [
             "general"
@@ -8164,7 +8174,7 @@
     },
     {
       "id": "ouest-france-actualit",
-      "name": "Ouest-France - Actualité",
+      "name": "Ouest-France - Actualit\u00e9",
       "homepage_url": "https://www.ouest-france.fr",
       "country": "France",
       "language": null,
@@ -8186,7 +8196,7 @@
       },
       "feeds": [
         {
-          "name": "Ouest-France - Actualité",
+          "name": "Ouest-France - Actualit\u00e9",
           "url": "https://www.ouest-france.fr/rss-en-continu.xml",
           "topic_tags": [
             "general"
@@ -8200,7 +8210,7 @@
     },
     {
       "id": "zeit-online-nachrichten-hintergr-nde-und-debatten",
-      "name": "ZEIT ONLINE | Nachrichten, Hintergründe und Debatten",
+      "name": "ZEIT ONLINE | Nachrichten, Hintergr\u00fcnde und Debatten",
       "homepage_url": "https://newsfeed.zeit.de",
       "country": "Germany",
       "language": null,
@@ -8222,7 +8232,7 @@
       },
       "feeds": [
         {
-          "name": "ZEIT ONLINE | Nachrichten, Hintergründe und Debatten",
+          "name": "ZEIT ONLINE | Nachrichten, Hintergr\u00fcnde und Debatten",
           "url": "http://newsfeed.zeit.de/index",
           "topic_tags": [
             "general"
@@ -8371,12 +8381,12 @@
           "topic_tags": [
             "general"
           ],
-          "enabled": false
+          "enabled": true
         }
       ],
       "verified": false,
-      "notes": "Imported from plenaryapp/awesome-rss-feeds countries list on 2026-03-01",
-      "enabled": false
+      "notes": "Imported from plenaryapp/awesome-rss-feeds countries list on 2026-03-01; Enabled after candidate probe on 2026-05-23: 3/3 sampled items scraped and ready for LLM judge.",
+      "enabled": true
     },
     {
       "id": "the-standard-latest-news",
@@ -8416,7 +8426,7 @@
     },
     {
       "id": "headline-daily",
-      "name": "頭條日報 Headline Daily - 頭條網",
+      "name": "\u982d\u689d\u65e5\u5831 Headline Daily - \u982d\u689d\u7db2",
       "homepage_url": "https://hd.stheadline.com",
       "country": "Hong Kong SAR China",
       "language": null,
@@ -8438,7 +8448,7 @@
       },
       "feeds": [
         {
-          "name": "頭條日報 Headline Daily - 頭條網",
+          "name": "\u982d\u689d\u65e5\u5831 Headline Daily - \u982d\u689d\u7db2",
           "url": "https://hd.stheadline.com/rss/news/daily/",
           "topic_tags": [
             "general"
@@ -8452,7 +8462,7 @@
     },
     {
       "id": "rss-hket-com",
-      "name": "香港新聞RSS - 香港經濟日報 hket.com",
+      "name": "\u9999\u6e2f\u65b0\u805eRSS - \u9999\u6e2f\u7d93\u6fdf\u65e5\u5831 hket.com",
       "homepage_url": "https://www.hket.com",
       "country": "Hong Kong SAR China",
       "language": null,
@@ -8474,7 +8484,7 @@
       },
       "feeds": [
         {
-          "name": "香港新聞RSS - 香港經濟日報 hket.com",
+          "name": "\u9999\u6e2f\u65b0\u805eRSS - \u9999\u6e2f\u7d93\u6fdf\u65e5\u5831 hket.com",
           "url": "https://www.hket.com/rss/hongkong",
           "topic_tags": [
             "general"
@@ -8695,12 +8705,12 @@
           "topic_tags": [
             "general"
           ],
-          "enabled": false
+          "enabled": true
         }
       ],
       "verified": false,
-      "notes": "Imported from plenaryapp/awesome-rss-feeds countries list on 2026-03-01",
-      "enabled": false
+      "notes": "Imported from plenaryapp/awesome-rss-feeds countries list on 2026-03-01; Enabled after candidate probe on 2026-05-23: 3/3 sampled items scraped and ready for LLM judge.",
+      "enabled": true
     },
     {
       "id": "ndtv-news-topstories",
@@ -9352,7 +9362,7 @@
     },
     {
       "id": "marathi-news-latest-news-in-marathi-breaking-marathi-news-marathi-news-paper-maharashtra-times",
-      "name": "Marathi News: मराठी बातम्या,  Latest News in Marathi, Breaking Marathi News, Marathi News Paper | Maharashtra Times",
+      "name": "Marathi News: \u092e\u0930\u093e\u0920\u0940 \u092c\u093e\u0924\u092e\u094d\u092f\u093e,  Latest News in Marathi, Breaking Marathi News, Marathi News Paper | Maharashtra Times",
       "homepage_url": "https://maharashtratimes.com",
       "country": "India",
       "language": null,
@@ -9374,7 +9384,7 @@
       },
       "feeds": [
         {
-          "name": "Marathi News: मराठी बातम्या,  Latest News in Marathi, Breaking Marathi News, Marathi News Paper | Maharashtra Times",
+          "name": "Marathi News: \u092e\u0930\u093e\u0920\u0940 \u092c\u093e\u0924\u092e\u094d\u092f\u093e,  Latest News in Marathi, Breaking Marathi News, Marathi News Paper | Maharashtra Times",
           "url": "https://maharashtratimes.com/rssfeedsdefault.cms",
           "topic_tags": [
             "general"
@@ -9388,7 +9398,7 @@
     },
     {
       "id": "loksatta-loksatta",
-      "name": "Loksattaदेश-विदेश – Loksatta",
+      "name": "Loksatta\u0926\u0947\u0936-\u0935\u093f\u0926\u0947\u0936 \u2013 Loksatta",
       "homepage_url": "https://www.loksatta.com",
       "country": "India",
       "language": null,
@@ -9410,7 +9420,7 @@
       },
       "feeds": [
         {
-          "name": "Loksattaदेश-विदेश – Loksatta",
+          "name": "Loksatta\u0926\u0947\u0936-\u0935\u093f\u0926\u0947\u0936 \u2013 Loksatta",
           "url": "https://www.loksatta.com/desh-videsh/feed/",
           "topic_tags": [
             "general"
@@ -9568,7 +9578,7 @@
     },
     {
       "id": "latest-and-breaking-hindi-news-headlines-news-in-hindi-amar-ujala",
-      "name": "Latest And Breaking Hindi News Headlines, News In Hindi | अमर उजाला हिंदी न्यूज़ | - Amar Ujala",
+      "name": "Latest And Breaking Hindi News Headlines, News In Hindi | \u0905\u092e\u0930 \u0909\u091c\u093e\u0932\u093e \u0939\u093f\u0902\u0926\u0940 \u0928\u094d\u092f\u0942\u095b | - Amar Ujala",
       "homepage_url": "https://www.amarujala.com",
       "country": "India",
       "language": null,
@@ -9590,7 +9600,7 @@
       },
       "feeds": [
         {
-          "name": "Latest And Breaking Hindi News Headlines, News In Hindi | अमर उजाला हिंदी न्यूज़ | - Amar Ujala",
+          "name": "Latest And Breaking Hindi News Headlines, News In Hindi | \u0905\u092e\u0930 \u0909\u091c\u093e\u0932\u093e \u0939\u093f\u0902\u0926\u0940 \u0928\u094d\u092f\u0942\u095b | - Amar Ujala",
           "url": "https://www.amarujala.com/rss/breaking-news.xml",
           "topic_tags": [
             "general"
@@ -9892,7 +9902,7 @@
     },
     {
       "id": "yjc",
-      "name": "خبرگزاری باشگاه خبرنگاران | آخرین اخبار ایران و جهان | YJC",
+      "name": "\u062e\u0628\u0631\u06af\u0632\u0627\u0631\u06cc \u0628\u0627\u0634\u06af\u0627\u0647 \u062e\u0628\u0631\u0646\u06af\u0627\u0631\u0627\u0646 | \u0622\u062e\u0631\u06cc\u0646 \u0627\u062e\u0628\u0627\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0648 \u062c\u0647\u0627\u0646 | YJC",
       "homepage_url": "https://www.yjc.ir",
       "country": "Iran",
       "language": null,
@@ -9914,7 +9924,7 @@
       },
       "feeds": [
         {
-          "name": "خبرگزاری باشگاه خبرنگاران | آخرین اخبار ایران و جهان | YJC",
+          "name": "\u062e\u0628\u0631\u06af\u0632\u0627\u0631\u06cc \u0628\u0627\u0634\u06af\u0627\u0647 \u062e\u0628\u0631\u0646\u06af\u0627\u0631\u0627\u0646 | \u0622\u062e\u0631\u06cc\u0646 \u0627\u062e\u0628\u0627\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0648 \u062c\u0647\u0627\u0646 | YJC",
           "url": "https://www.yjc.ir/fa/rss/allnews",
           "topic_tags": [
             "general"
@@ -9928,7 +9938,7 @@
     },
     {
       "id": "tabnak",
-      "name": "تابناک | TABNAK",
+      "name": "\u062a\u0627\u0628\u0646\u0627\u06a9 | TABNAK",
       "homepage_url": "https://www.tabnak.ir",
       "country": "Iran",
       "language": null,
@@ -9950,7 +9960,7 @@
       },
       "feeds": [
         {
-          "name": "تابناک | TABNAK",
+          "name": "\u062a\u0627\u0628\u0646\u0627\u06a9 | TABNAK",
           "url": "https://www.tabnak.ir/fa/rss/allnews",
           "topic_tags": [
             "general"
@@ -9964,7 +9974,7 @@
     },
     {
       "id": "isna-news-agency",
-      "name": "خبرگزاری ایسنا | صفحه اصلی |  ISNA News Agency",
+      "name": "\u062e\u0628\u0631\u06af\u0632\u0627\u0631\u06cc \u0627\u06cc\u0633\u0646\u0627 | \u0635\u0641\u062d\u0647 \u0627\u0635\u0644\u06cc |  ISNA News Agency",
       "homepage_url": "https://www.isna.ir",
       "country": "Iran",
       "language": null,
@@ -9986,7 +9996,7 @@
       },
       "feeds": [
         {
-          "name": "خبرگزاری ایسنا | صفحه اصلی |  ISNA News Agency",
+          "name": "\u062e\u0628\u0631\u06af\u0632\u0627\u0631\u06cc \u0627\u06cc\u0633\u0646\u0627 | \u0635\u0641\u062d\u0647 \u0627\u0635\u0644\u06cc |  ISNA News Agency",
           "url": "https://www.isna.ir/rss",
           "topic_tags": [
             "general"
@@ -10000,7 +10010,7 @@
     },
     {
       "id": "mehr-news-agency",
-      "name": "خبرگزاری مهر | اخبار ایران و جهان | Mehr News Agency",
+      "name": "\u062e\u0628\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u0647\u0631 | \u0627\u062e\u0628\u0627\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0648 \u062c\u0647\u0627\u0646 | Mehr News Agency",
       "homepage_url": "https://www.mehrnews.com",
       "country": "Iran",
       "language": null,
@@ -10022,7 +10032,7 @@
       },
       "feeds": [
         {
-          "name": "خبرگزاری مهر | اخبار ایران و جهان | Mehr News Agency",
+          "name": "\u062e\u0628\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u0647\u0631 | \u0627\u062e\u0628\u0627\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0648 \u062c\u0647\u0627\u0646 | Mehr News Agency",
           "url": "https://www.mehrnews.com/rss",
           "topic_tags": [
             "general"
@@ -10036,7 +10046,7 @@
     },
     {
       "id": "khabaronline",
-      "name": "خبرگزاری خبرآنلاین - آخرین اخبار ایران و جهان | Khabaronline",
+      "name": "\u062e\u0628\u0631\u06af\u0632\u0627\u0631\u06cc \u062e\u0628\u0631\u0622\u0646\u0644\u0627\u06cc\u0646 - \u0622\u062e\u0631\u06cc\u0646 \u0627\u062e\u0628\u0627\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0648 \u062c\u0647\u0627\u0646 | Khabaronline",
       "homepage_url": "https://www.khabaronline.ir",
       "country": "Iran",
       "language": null,
@@ -10058,7 +10068,7 @@
       },
       "feeds": [
         {
-          "name": "خبرگزاری خبرآنلاین - آخرین اخبار ایران و جهان | Khabaronline",
+          "name": "\u062e\u0628\u0631\u06af\u0632\u0627\u0631\u06cc \u062e\u0628\u0631\u0622\u0646\u0644\u0627\u06cc\u0646 - \u0622\u062e\u0631\u06cc\u0646 \u0627\u062e\u0628\u0627\u0631 \u0627\u06cc\u0631\u0627\u0646 \u0648 \u062c\u0647\u0627\u0646 | Khabaronline",
           "url": "https://www.khabaronline.ir/rss",
           "topic_tags": [
             "general"
@@ -10827,12 +10837,12 @@
           "topic_tags": [
             "general"
           ],
-          "enabled": false
+          "enabled": true
         }
       ],
       "verified": false,
-      "notes": "Imported from plenaryapp/awesome-rss-feeds countries list on 2026-03-01",
-      "enabled": false
+      "notes": "Imported from plenaryapp/awesome-rss-feeds countries list on 2026-03-01; Enabled after repeated Japan-source probes: sampled items scraped cleanly and were ready for LLM judge.",
+      "enabled": true
     },
     {
       "id": "all-kyodo-news",
@@ -10872,7 +10882,7 @@
     },
     {
       "id": "bridge",
-      "name": "BRIDGE（ブリッジ）テクノロジー＆スタートアップ情報",
+      "name": "BRIDGE\uff08\u30d6\u30ea\u30c3\u30b8\uff09\u30c6\u30af\u30ce\u30ed\u30b8\u30fc\uff06\u30b9\u30bf\u30fc\u30c8\u30a2\u30c3\u30d7\u60c5\u5831",
       "homepage_url": "https://feeds.feedburner.com",
       "country": "Japan",
       "language": null,
@@ -10894,7 +10904,7 @@
       },
       "feeds": [
         {
-          "name": "BRIDGE（ブリッジ）テクノロジー＆スタートアップ情報",
+          "name": "BRIDGE\uff08\u30d6\u30ea\u30c3\u30b8\uff09\u30c6\u30af\u30ce\u30ed\u30b8\u30fc\uff06\u30b9\u30bf\u30fc\u30c8\u30a2\u30c3\u30d7\u60c5\u5831",
           "url": "http://feeds.feedburner.com/SdJapan",
           "topic_tags": [
             "general"
@@ -10944,7 +10954,7 @@
     },
     {
       "id": "exc-lsior-rss",
-      "name": "Excélsior - RSS",
+      "name": "Exc\u00e9lsior - RSS",
       "homepage_url": "https://www.excelsior.com.mx",
       "country": "Mexico",
       "language": null,
@@ -10966,7 +10976,7 @@
       },
       "feeds": [
         {
-          "name": "Excélsior - RSS",
+          "name": "Exc\u00e9lsior - RSS",
           "url": "https://www.excelsior.com.mx/rss.xml",
           "topic_tags": [
             "general"
@@ -11016,7 +11026,7 @@
     },
     {
       "id": "lo-ltimo-en-vanguardia-mx",
-      "name": "Lo último en Vanguardia MX",
+      "name": "Lo \u00faltimo en Vanguardia MX",
       "homepage_url": "https://vanguardia.com.mx",
       "country": "Mexico",
       "language": null,
@@ -11038,7 +11048,7 @@
       },
       "feeds": [
         {
-          "name": "Lo último en Vanguardia MX",
+          "name": "Lo \u00faltimo en Vanguardia MX",
           "url": "https://vanguardia.com.mx/rss.xml",
           "topic_tags": [
             "general"
@@ -11052,7 +11062,7 @@
     },
     {
       "id": "portada-el-siglo-de-torre-n",
-      "name": "Portada, El Siglo de Torreón",
+      "name": "Portada, El Siglo de Torre\u00f3n",
       "homepage_url": "https://www.elsiglodetorreon.com.mx",
       "country": "Mexico",
       "language": null,
@@ -11074,7 +11084,7 @@
       },
       "feeds": [
         {
-          "name": "Portada, El Siglo de Torreón",
+          "name": "Portada, El Siglo de Torre\u00f3n",
           "url": "https://www.elsiglodetorreon.com.mx/index.xml",
           "topic_tags": [
             "general"
@@ -11160,7 +11170,7 @@
     },
     {
       "id": "el-informador-noticias-de-jalisco-m-xico-deportes-entretenimiento",
-      "name": "El Informador :: Noticias de Jalisco, México, Deportes & Entretenimiento",
+      "name": "El Informador :: Noticias de Jalisco, M\u00e9xico, Deportes & Entretenimiento",
       "homepage_url": "https://www.informador.mx",
       "country": "Mexico",
       "language": null,
@@ -11182,7 +11192,7 @@
       },
       "feeds": [
         {
-          "name": "El Informador :: Noticias de Jalisco, México, Deportes & Entretenimiento",
+          "name": "El Informador :: Noticias de Jalisco, M\u00e9xico, Deportes & Entretenimiento",
           "url": "https://www.informador.mx/rss/ultimas-noticias.xml",
           "topic_tags": [
             "general"
@@ -11232,7 +11242,7 @@
     },
     {
       "id": "tu-peri-dico-quequi",
-      "name": "Tu Periódico Quequi",
+      "name": "Tu Peri\u00f3dico Quequi",
       "homepage_url": "https://quequi.com.mx",
       "country": "Mexico",
       "language": null,
@@ -11254,7 +11264,7 @@
       },
       "feeds": [
         {
-          "name": "Tu Periódico Quequi",
+          "name": "Tu Peri\u00f3dico Quequi",
           "url": "https://quequi.com.mx/feed/",
           "topic_tags": [
             "general"
@@ -11844,7 +11854,7 @@
     },
     {
       "id": "the-guardian-nigeria-news-nigeria-and-world-news",
-      "name": "The Guardian Nigeria News – Nigeria and World News",
+      "name": "The Guardian Nigeria News \u2013 Nigeria and World News",
       "homepage_url": "https://guardian.ng",
       "country": "Nigeria",
       "language": null,
@@ -11866,7 +11876,7 @@
       },
       "feeds": [
         {
-          "name": "The Guardian Nigeria News – Nigeria and World News",
+          "name": "The Guardian Nigeria News \u2013 Nigeria and World News",
           "url": "https://guardian.ng/feed/",
           "topic_tags": [
             "general"
@@ -12600,7 +12610,7 @@
     },
     {
       "id": "tempo-the-nation-s-fastest-growing-newspaper",
-      "name": "Tempo – The Nation's Fastest Growing Newspaper",
+      "name": "Tempo \u2013 The Nation's Fastest Growing Newspaper",
       "homepage_url": "https://tempo.com.ph",
       "country": "Philippines",
       "language": null,
@@ -12622,7 +12632,7 @@
       },
       "feeds": [
         {
-          "name": "Tempo – The Nation's Fastest Growing Newspaper",
+          "name": "Tempo \u2013 The Nation's Fastest Growing Newspaper",
           "url": "http://tempo.com.ph/feed/",
           "topic_tags": [
             "general"
@@ -12960,7 +12970,7 @@
     },
     {
       "id": "gazetaprawna-pl-biznes-podatki-prawo-finanse-wiadomo-ci-praca",
-      "name": "GazetaPrawna.pl - biznes, podatki, prawo, finanse, wiadomości, praca",
+      "name": "GazetaPrawna.pl - biznes, podatki, prawo, finanse, wiadomo\u015bci, praca",
       "homepage_url": "https://rss.gazetaprawna.pl",
       "country": "Poland",
       "language": null,
@@ -12982,7 +12992,7 @@
       },
       "feeds": [
         {
-          "name": "GazetaPrawna.pl - biznes, podatki, prawo, finanse, wiadomości, praca",
+          "name": "GazetaPrawna.pl - biznes, podatki, prawo, finanse, wiadomo\u015bci, praca",
           "url": "http://rss.gazetaprawna.pl/GazetaPrawna",
           "topic_tags": [
             "general"
@@ -13104,7 +13114,7 @@
     },
     {
       "id": "lenta-ru",
-      "name": "Lenta.ru : Новости",
+      "name": "Lenta.ru : \u041d\u043e\u0432\u043e\u0441\u0442\u0438",
       "homepage_url": "https://lenta.ru",
       "country": "Russia",
       "language": null,
@@ -13126,7 +13136,7 @@
       },
       "feeds": [
         {
-          "name": "Lenta.ru : Новости",
+          "name": "Lenta.ru : \u041d\u043e\u0432\u043e\u0441\u0442\u0438",
           "url": "https://lenta.ru/rss",
           "topic_tags": [
             "general"
@@ -13140,7 +13150,7 @@
     },
     {
       "id": "ru",
-      "name": "Вести.Ru",
+      "name": "\u0412\u0435\u0441\u0442\u0438.Ru",
       "homepage_url": "https://www.vesti.ru",
       "country": "Russia",
       "language": null,
@@ -13162,7 +13172,7 @@
       },
       "feeds": [
         {
-          "name": "Вести.Ru",
+          "name": "\u0412\u0435\u0441\u0442\u0438.Ru",
           "url": "https://www.vesti.ru/vesti.rss",
           "topic_tags": [
             "general"
@@ -13170,7 +13180,7 @@
           "enabled": false
         },
         {
-          "name": "Газета.Ru - Первая полоса",
+          "name": "\u0413\u0430\u0437\u0435\u0442\u0430.Ru - \u041f\u0435\u0440\u0432\u0430\u044f \u043f\u043e\u043b\u043e\u0441\u0430",
           "url": "https://www.gazeta.ru/export/rss/first.xml",
           "topic_tags": [
             "general"
@@ -13184,7 +13194,7 @@
     },
     {
       "id": "newsru-com",
-      "name": "NEWSru.com :: Главные новости",
+      "name": "NEWSru.com :: \u0413\u043b\u0430\u0432\u043d\u044b\u0435 \u043d\u043e\u0432\u043e\u0441\u0442\u0438",
       "homepage_url": "https://rss.newsru.com",
       "country": "Russia",
       "language": null,
@@ -13206,7 +13216,7 @@
       },
       "feeds": [
         {
-          "name": "NEWSru.com :: Главные новости",
+          "name": "NEWSru.com :: \u0413\u043b\u0430\u0432\u043d\u044b\u0435 \u043d\u043e\u0432\u043e\u0441\u0442\u0438",
           "url": "https://rss.newsru.com/top/big/",
           "topic_tags": [
             "general"
@@ -13832,7 +13842,7 @@
     },
     {
       "id": "el-pa-s-el-peri-dico-global",
-      "name": "EL PAÍS: el periódico global",
+      "name": "EL PA\u00cdS: el peri\u00f3dico global",
       "homepage_url": "https://feeds.elpais.com",
       "country": "Spain",
       "language": null,
@@ -13854,7 +13864,7 @@
       },
       "feeds": [
         {
-          "name": "EL PAÍS: el periódico global",
+          "name": "EL PA\u00cdS: el peri\u00f3dico global",
           "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada",
           "topic_tags": [
             "general"
@@ -13868,7 +13878,7 @@
     },
     {
       "id": "espa-a",
-      "name": "España",
+      "name": "Espa\u00f1a",
       "homepage_url": "https://rss.elconfidencial.com",
       "country": "Spain",
       "language": null,
@@ -13890,7 +13900,7 @@
       },
       "feeds": [
         {
-          "name": "España",
+          "name": "Espa\u00f1a",
           "url": "https://rss.elconfidencial.com/espana/",
           "topic_tags": [
             "general"
@@ -13976,7 +13986,7 @@
     },
     {
       "id": "el-peri-dico-portada",
-      "name": "El Periódico - portada",
+      "name": "El Peri\u00f3dico - portada",
       "homepage_url": "https://www.elperiodico.com",
       "country": "Spain",
       "language": null,
@@ -13998,7 +14008,7 @@
       },
       "feeds": [
         {
-          "name": "El Periódico - portada",
+          "name": "El Peri\u00f3dico - portada",
           "url": "https://www.elperiodico.com/es/rss/rss_portada.xml",
           "topic_tags": [
             "general"
@@ -14156,7 +14166,7 @@
     },
     {
       "id": "korrespondent-net",
-      "name": "Последние новости на сайте korrespondent.net",
+      "name": "\u041f\u043e\u0441\u043b\u0435\u0434\u043d\u0438\u0435 \u043d\u043e\u0432\u043e\u0441\u0442\u0438 \u043d\u0430 \u0441\u0430\u0439\u0442\u0435 korrespondent.net",
       "homepage_url": "https://k.img.com.ua",
       "country": "Ukraine",
       "language": null,
@@ -14178,7 +14188,7 @@
       },
       "feeds": [
         {
-          "name": "Последние новости на сайте korrespondent.net",
+          "name": "\u041f\u043e\u0441\u043b\u0435\u0434\u043d\u0438\u0435 \u043d\u043e\u0432\u043e\u0441\u0442\u0438 \u043d\u0430 \u0441\u0430\u0439\u0442\u0435 korrespondent.net",
           "url": "http://k.img.com.ua/rss/ru/all_news2.0.xml",
           "topic_tags": [
             "general"
@@ -14192,7 +14202,7 @@
     },
     {
       "id": "tsn-ua",
-      "name": "Новини на tsn.ua",
+      "name": "\u041d\u043e\u0432\u0438\u043d\u0438 \u043d\u0430 tsn.ua",
       "homepage_url": "https://tsn.ua",
       "country": "Ukraine",
       "language": null,
@@ -14214,7 +14224,7 @@
       },
       "feeds": [
         {
-          "name": "Новини на tsn.ua",
+          "name": "\u041d\u043e\u0432\u0438\u043d\u0438 \u043d\u0430 tsn.ua",
           "url": "https://tsn.ua/rss/full.rss",
           "topic_tags": [
             "general"
@@ -14264,7 +14274,7 @@
     },
     {
       "id": "ua",
-      "name": "Вести.ua",
+      "name": "\u0412\u0435\u0441\u0442\u0438.ua",
       "homepage_url": "https://vesti.ua",
       "country": "Ukraine",
       "language": null,
@@ -14286,7 +14296,7 @@
       },
       "feeds": [
         {
-          "name": "Вести.ua",
+          "name": "\u0412\u0435\u0441\u0442\u0438.ua",
           "url": "https://vesti.ua/feeds/partners",
           "topic_tags": [
             "general"
@@ -15873,7 +15883,7 @@
     },
     {
       "id": "android-police-android-news-reviews-apps-games-phones-tablets",
-      "name": "Android Police – Android news, reviews, apps, games, phones, tablets",
+      "name": "Android Police \u2013 Android news, reviews, apps, games, phones, tablets",
       "homepage_url": "https://feeds.feedburner.com",
       "country": null,
       "language": null,
@@ -15895,7 +15905,7 @@
       },
       "feeds": [
         {
-          "name": "Android Police – Android news, reviews, apps, games, phones, tablets",
+          "name": "Android Police \u2013 Android news, reviews, apps, games, phones, tablets",
           "url": "http://feeds.feedburner.com/AndroidPolice",
           "topic_tags": [
             "android"
@@ -16961,7 +16971,7 @@
     },
     {
       "id": "architecture-dezeen",
-      "name": "Architecture – Dezeen",
+      "name": "Architecture \u2013 Dezeen",
       "homepage_url": "https://www.dezeen.com",
       "country": null,
       "language": null,
@@ -16983,7 +16993,7 @@
       },
       "feeds": [
         {
-          "name": "Architecture – Dezeen",
+          "name": "Architecture \u2013 Dezeen",
           "url": "https://www.dezeen.com/architecture/feed/",
           "topic_tags": [
             "architecture"
@@ -17069,7 +17079,7 @@
     },
     {
       "id": "design-milkarchitecture-design-milk",
-      "name": "Design MilkArchitecture – Design Milk",
+      "name": "Design MilkArchitecture \u2013 Design Milk",
       "homepage_url": "https://design-milk.com",
       "country": null,
       "language": null,
@@ -17091,7 +17101,7 @@
       },
       "feeds": [
         {
-          "name": "Design MilkArchitecture – Design Milk",
+          "name": "Design MilkArchitecture \u2013 Design Milk",
           "url": "https://design-milk.com/category/architecture/feed/",
           "topic_tags": [
             "architecture"
@@ -17177,7 +17187,7 @@
     },
     {
       "id": "the-architect-s-newspaper",
-      "name": "The Architect’s Newspaper",
+      "name": "The Architect\u2019s Newspaper",
       "homepage_url": "https://archpaper.com",
       "country": null,
       "language": null,
@@ -17199,7 +17209,7 @@
       },
       "feeds": [
         {
-          "name": "The Architect’s Newspaper",
+          "name": "The Architect\u2019s Newspaper",
           "url": "https://archpaper.com/feed",
           "topic_tags": [
             "architecture"
@@ -17213,7 +17223,7 @@
     },
     {
       "id": "architecture-designboom-architecture-design-magazine",
-      "name": "architecture – designboom | architecture & design magazine",
+      "name": "architecture \u2013 designboom | architecture & design magazine",
       "homepage_url": "https://www.designboom.com",
       "country": null,
       "language": null,
@@ -17235,7 +17245,7 @@
       },
       "feeds": [
         {
-          "name": "architecture – designboom | architecture & design magazine",
+          "name": "architecture \u2013 designboom | architecture & design magazine",
           "url": "https://www.designboom.com/architecture/feed/",
           "topic_tags": [
             "architecture"
@@ -17321,7 +17331,7 @@
     },
     {
       "id": "beauty-indian-fashion-blog",
-      "name": "Beauty – Indian Fashion Blog",
+      "name": "Beauty \u2013 Indian Fashion Blog",
       "homepage_url": "https://www.fashionlady.in",
       "country": null,
       "language": null,
@@ -17343,7 +17353,7 @@
       },
       "feeds": [
         {
-          "name": "Beauty – Indian Fashion Blog",
+          "name": "Beauty \u2013 Indian Fashion Blog",
           "url": "https://www.fashionlady.in/category/beauty-tips/feed",
           "topic_tags": [
             "beauty"
@@ -17357,7 +17367,7 @@
     },
     {
       "id": "blog-the-beauty-brains",
-      "name": "Blog – The Beauty Brains",
+      "name": "Blog \u2013 The Beauty Brains",
       "homepage_url": "https://thebeautybrains.com",
       "country": null,
       "language": null,
@@ -17379,7 +17389,7 @@
       },
       "feeds": [
         {
-          "name": "Blog – The Beauty Brains",
+          "name": "Blog \u2013 The Beauty Brains",
           "url": "https://thebeautybrains.com/blog/feed/",
           "topic_tags": [
             "ai"
@@ -17393,7 +17403,7 @@
     },
     {
       "id": "dor",
-      "name": "DORÉ",
+      "name": "DOR\u00c9",
       "homepage_url": "https://www.wearedore.com",
       "country": null,
       "language": null,
@@ -17415,7 +17425,7 @@
       },
       "feeds": [
         {
-          "name": "DORÉ",
+          "name": "DOR\u00c9",
           "url": "https://www.wearedore.com/feed",
           "topic_tags": [
             "beauty"
@@ -17581,7 +17591,7 @@
     },
     {
       "id": "the-yesstylist-asian-fashion-blog-brought-to-you-by-yesstyle-com",
-      "name": "THE YESSTYLIST – Asian Fashion Blog – brought to you by YesStyle.com",
+      "name": "THE YESSTYLIST \u2013 Asian Fashion Blog \u2013 brought to you by YesStyle.com",
       "homepage_url": "https://www.yesstyle.com",
       "country": null,
       "language": null,
@@ -17603,7 +17613,7 @@
       },
       "feeds": [
         {
-          "name": "THE YESSTYLIST – Asian Fashion Blog – brought to you by YesStyle.com",
+          "name": "THE YESSTYLIST \u2013 Asian Fashion Blog \u2013 brought to you by YesStyle.com",
           "url": "https://www.yesstyle.com/blog/category/the-beauty-blog/feed/",
           "topic_tags": [
             "beauty"
@@ -17611,7 +17621,7 @@
           "enabled": false
         },
         {
-          "name": "THE YESSTYLIST – Asian Fashion Blog – brought to you by YesStyle.com",
+          "name": "THE YESSTYLIST \u2013 Asian Fashion Blog \u2013 brought to you by YesStyle.com",
           "url": "https://www.yesstyle.com/blog/category/trend-and-style/feed/",
           "topic_tags": [
             "fashion"
@@ -17805,7 +17815,7 @@
     },
     {
       "id": "page-array-newinbooks",
-      "name": "Page Array – NewInBooks",
+      "name": "Page Array \u2013 NewInBooks",
       "homepage_url": "https://www.newinbooks.com",
       "country": null,
       "language": null,
@@ -17827,7 +17837,7 @@
       },
       "feeds": [
         {
-          "name": "Page Array – NewInBooks",
+          "name": "Page Array \u2013 NewInBooks",
           "url": "https://www.newinbooks.com/feed/",
           "topic_tags": [
             "books"
@@ -19181,7 +19191,7 @@
     },
     {
       "id": "cricket-the-roar",
-      "name": "Cricket – The Roar",
+      "name": "Cricket \u2013 The Roar",
       "homepage_url": "https://www.theroar.com.au",
       "country": null,
       "language": null,
@@ -19203,7 +19213,7 @@
       },
       "feeds": [
         {
-          "name": "Cricket – The Roar",
+          "name": "Cricket \u2013 The Roar",
           "url": "https://www.theroar.com.au/cricket/feed/",
           "topic_tags": [
             "cricket"
@@ -19765,7 +19775,7 @@
     },
     {
       "id": "blog-hackaday",
-      "name": "Blog – Hackaday",
+      "name": "Blog \u2013 Hackaday",
       "homepage_url": "https://hackaday.com",
       "country": null,
       "language": null,
@@ -19787,7 +19797,7 @@
       },
       "feeds": [
         {
-          "name": "Blog – Hackaday",
+          "name": "Blog \u2013 Hackaday",
           "url": "https://hackaday.com/blog/feed/",
           "topic_tags": [
             "diy"
@@ -20161,7 +20171,7 @@
     },
     {
       "id": "fashion-indian-fashion-blog",
-      "name": "Fashion – Indian Fashion Blog",
+      "name": "Fashion \u2013 Indian Fashion Blog",
       "homepage_url": "https://www.fashionlady.in",
       "country": null,
       "language": null,
@@ -20183,7 +20193,7 @@
       },
       "feeds": [
         {
-          "name": "Fashion – Indian Fashion Blog",
+          "name": "Fashion \u2013 Indian Fashion Blog",
           "url": "https://www.fashionlady.in/category/fashion/feed",
           "topic_tags": [
             "fashion"
@@ -20413,7 +20423,7 @@
     },
     {
       "id": "bon-app-tit",
-      "name": "Bon Appétit",
+      "name": "Bon App\u00e9tit",
       "homepage_url": "https://www.youtube.com",
       "country": null,
       "language": null,
@@ -20435,7 +20445,7 @@
       },
       "feeds": [
         {
-          "name": "Bon Appétit",
+          "name": "Bon App\u00e9tit",
           "url": "https://www.youtube.com/feeds/videos.xml?user=BonAppetitDotCom",
           "topic_tags": [
             "food"
@@ -22753,7 +22763,7 @@
     },
     {
       "id": "design-milkinterior-design-design-milk",
-      "name": "Design MilkInterior Design – Design Milk",
+      "name": "Design MilkInterior Design \u2013 Design Milk",
       "homepage_url": "https://design-milk.com",
       "country": null,
       "language": null,
@@ -22775,7 +22785,7 @@
       },
       "feeds": [
         {
-          "name": "Design MilkInterior Design – Design Milk",
+          "name": "Design MilkInterior Design \u2013 Design Milk",
           "url": "https://design-milk.com/category/interior-design/feed/",
           "topic_tags": [
             "interior-design"
@@ -23041,7 +23051,7 @@
     },
     {
       "id": "interiors-dezeen",
-      "name": "Interiors – Dezeen",
+      "name": "Interiors \u2013 Dezeen",
       "homepage_url": "https://www.dezeen.com",
       "country": null,
       "language": null,
@@ -23063,7 +23073,7 @@
       },
       "feeds": [
         {
-          "name": "Interiors – Dezeen",
+          "name": "Interiors \u2013 Dezeen",
           "url": "https://www.dezeen.com/interiors/feed/",
           "topic_tags": [
             "interior-design"
@@ -23401,7 +23411,7 @@
     },
     {
       "id": "design-designboom-architecture-design-magazine",
-      "name": "design – designboom | architecture & design magazine",
+      "name": "design \u2013 designboom | architecture & design magazine",
       "homepage_url": "https://www.designboom.com",
       "country": null,
       "language": null,
@@ -23423,7 +23433,7 @@
       },
       "feeds": [
         {
-          "name": "design – designboom | architecture & design magazine",
+          "name": "design \u2013 designboom | architecture & design magazine",
           "url": "https://www.designboom.com/design/feed",
           "topic_tags": [
             "interior-design"
@@ -24346,7 +24356,7 @@
     },
     {
       "id": "blog-student-loan-hero",
-      "name": "Blog – Student Loan Hero",
+      "name": "Blog \u2013 Student Loan Hero",
       "homepage_url": "https://studentloanhero.com",
       "country": null,
       "language": null,
@@ -24368,7 +24378,7 @@
       },
       "feeds": [
         {
-          "name": "Blog – Student Loan Hero",
+          "name": "Blog \u2013 Student Loan Hero",
           "url": "https://studentloanhero.com/blog/feed",
           "topic_tags": [
             "business"
@@ -24527,7 +24537,7 @@
     },
     {
       "id": "good-financial-cents",
-      "name": "Good Financial Cents®",
+      "name": "Good Financial Cents\u00ae",
       "homepage_url": "https://www.goodfinancialcents.com",
       "country": null,
       "language": null,
@@ -24549,7 +24559,7 @@
       },
       "feeds": [
         {
-          "name": "Good Financial Cents®",
+          "name": "Good Financial Cents\u00ae",
           "url": "https://www.goodfinancialcents.com/feed/",
           "topic_tags": [
             "business"
@@ -24779,7 +24789,7 @@
     },
     {
       "id": "money-saving-mom",
-      "name": "Money Saving Mom®",
+      "name": "Money Saving Mom\u00ae",
       "homepage_url": "https://moneysavingmom.com",
       "country": null,
       "language": null,
@@ -24801,7 +24811,7 @@
       },
       "feeds": [
         {
-          "name": "Money Saving Mom®",
+          "name": "Money Saving Mom\u00ae",
           "url": "https://moneysavingmom.com/feed/",
           "topic_tags": [
             "business"
@@ -25399,7 +25409,7 @@
     },
     {
       "id": "canon-rumors-your-best-source-for-canon-rumors-leaks-and-gossip",
-      "name": "Canon Rumors – Your best source for Canon rumors, leaks and gossip",
+      "name": "Canon Rumors \u2013 Your best source for Canon rumors, leaks and gossip",
       "homepage_url": "https://www.canonrumors.com",
       "country": null,
       "language": null,
@@ -25421,7 +25431,7 @@
       },
       "feeds": [
         {
-          "name": "Canon Rumors – Your best source for Canon rumors, leaks and gossip",
+          "name": "Canon Rumors \u2013 Your best source for Canon rumors, leaks and gossip",
           "url": "https://www.canonrumors.com/feed/",
           "topic_tags": [
             "photography"
@@ -26588,7 +26598,7 @@
     },
     {
       "id": "podcast-software-engineering-daily",
-      "name": "Podcast – Software Engineering Daily",
+      "name": "Podcast \u2013 Software Engineering Daily",
       "homepage_url": "https://softwareengineeringdaily.com",
       "country": null,
       "language": null,
@@ -26610,7 +26620,7 @@
       },
       "feeds": [
         {
-          "name": "Podcast – Software Engineering Daily",
+          "name": "Podcast \u2013 Software Engineering Daily",
           "url": "https://softwareengineeringdaily.com/category/podcast/feed",
           "topic_tags": [
             "technology",
@@ -26697,7 +26707,7 @@
     },
     {
       "id": "programming-the-crazy-programmer",
-      "name": "Programming – The Crazy Programmer",
+      "name": "Programming \u2013 The Crazy Programmer",
       "homepage_url": "https://www.thecrazyprogrammer.com",
       "country": null,
       "language": null,
@@ -26719,7 +26729,7 @@
       },
       "feeds": [
         {
-          "name": "Programming – The Crazy Programmer",
+          "name": "Programming \u2013 The Crazy Programmer",
           "url": "https://www.thecrazyprogrammer.com/category/programming/feed",
           "topic_tags": [
             "technology"
@@ -28150,7 +28160,7 @@
     },
     {
       "id": "this-week-in-science-the-kickass-science-podcast",
-      "name": "This Week in Science – The Kickass Science Podcast",
+      "name": "This Week in Science \u2013 The Kickass Science Podcast",
       "homepage_url": "https://www.twis.org",
       "country": null,
       "language": null,
@@ -28172,7 +28182,7 @@
       },
       "feeds": [
         {
-          "name": "This Week in Science – The Kickass Science Podcast",
+          "name": "This Week in Science \u2013 The Kickass Science Podcast",
           "url": "http://www.twis.org/feed/",
           "topic_tags": [
             "science"
@@ -29050,7 +29060,7 @@
     },
     {
       "id": "product-hunt-the-best-new-products-every-day",
-      "name": "Product Hunt — The best new products, every day",
+      "name": "Product Hunt \u2014 The best new products, every day",
       "homepage_url": "https://www.producthunt.com",
       "country": null,
       "language": null,
@@ -29072,7 +29082,7 @@
       },
       "feeds": [
         {
-          "name": "Product Hunt — The best new products, every day",
+          "name": "Product Hunt \u2014 The best new products, every day",
           "url": "https://www.producthunt.com/feed",
           "topic_tags": [
             "startups"
@@ -29410,7 +29420,7 @@
     },
     {
       "id": "blog-feld-thoughts",
-      "name": "blog – Feld Thoughts",
+      "name": "blog \u2013 Feld Thoughts",
       "homepage_url": "https://feld.com",
       "country": null,
       "language": null,
@@ -29432,7 +29442,7 @@
       },
       "feeds": [
         {
-          "name": "blog – Feld Thoughts",
+          "name": "blog \u2013 Feld Thoughts",
           "url": "https://feld.com/archives/tag/blog/feed",
           "topic_tags": [
             "startups"
@@ -30742,7 +30752,7 @@
     },
     {
       "id": "articles-on-smashing-magazine-for-web-designers-and-developers",
-      "name": "Articles on Smashing Magazine — For Web Designers And Developers",
+      "name": "Articles on Smashing Magazine \u2014 For Web Designers And Developers",
       "homepage_url": "https://www.smashingmagazine.com",
       "country": null,
       "language": null,
@@ -30764,7 +30774,7 @@
       },
       "feeds": [
         {
-          "name": "Articles on Smashing Magazine — For Web Designers And Developers",
+          "name": "Articles on Smashing Magazine \u2014 For Web Designers And Developers",
           "url": "https://www.smashingmagazine.com/feed",
           "topic_tags": [
             "technology"
@@ -30886,7 +30896,7 @@
     },
     {
       "id": "just-creative",
-      "name": "JUST™ Creative",
+      "name": "JUST\u2122 Creative",
       "homepage_url": "https://feeds.feedburner.com",
       "country": null,
       "language": null,
@@ -30908,7 +30918,7 @@
       },
       "feeds": [
         {
-          "name": "JUST™ Creative",
+          "name": "JUST\u2122 Creative",
           "url": "https://feeds.feedburner.com/JustCreativeDesignBlog",
           "topic_tags": [
             "ui---ux"
@@ -30958,7 +30968,7 @@
     },
     {
       "id": "ux-blog-ux-studio",
-      "name": "UX Blog – UX Studio",
+      "name": "UX Blog \u2013 UX Studio",
       "homepage_url": "https://uxstudioteam.com",
       "country": null,
       "language": null,
@@ -30980,7 +30990,7 @@
       },
       "feeds": [
         {
-          "name": "UX Blog – UX Studio",
+          "name": "UX Blog \u2013 UX Studio",
           "url": "https://uxstudioteam.com/ux-blog/feed/",
           "topic_tags": [
             "ui---ux"
@@ -31282,7 +31292,7 @@
     },
     {
       "id": "mozilla-hacks-the-web-developer-blog",
-      "name": "Mozilla Hacks – the Web developer blog",
+      "name": "Mozilla Hacks \u2013 the Web developer blog",
       "homepage_url": "https://hacks.mozilla.org",
       "country": null,
       "language": null,
@@ -31304,7 +31314,7 @@
       },
       "feeds": [
         {
-          "name": "Mozilla Hacks – the Web developer blog",
+          "name": "Mozilla Hacks \u2013 the Web developer blog",
           "url": "https://hacks.mozilla.org/feed/",
           "topic_tags": [
             "technology"
@@ -31714,7 +31724,7 @@
     },
     {
       "id": "pavel-zak-s-dev-blog",
-      "name": "Pavel Zak’s dev blog",
+      "name": "Pavel Zak\u2019s dev blog",
       "homepage_url": "https://nerdyak.tech",
       "country": null,
       "language": null,
@@ -31736,7 +31746,7 @@
       },
       "feeds": [
         {
-          "name": "Pavel Zak’s dev blog",
+          "name": "Pavel Zak\u2019s dev blog",
           "url": "https://nerdyak.tech/feed.xml",
           "topic_tags": [
             "ios-development"
@@ -32007,6 +32017,263 @@
       "verified": false,
       "notes": "Imported from plenaryapp/awesome-rss-feeds recommended list on 2026-03-01",
       "enabled": false
+    },
+    {
+      "id": "propublica",
+      "name": "ProPublica",
+      "homepage_url": "https://www.propublica.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "nonprofit",
+      "feeds": [
+        {
+          "name": "Main Feed",
+          "url": "https://feeds.propublica.org/propublica/main",
+          "topic_tags": [
+            "investigations"
+          ],
+          "enabled": true
+        }
+      ],
+      "notes": "Added after candidate probe on 2026-05-23: 3/3 sampled items scraped and ready for LLM judge.",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "verified": false,
+      "enabled": true
+    },
+    {
+      "id": "the-conversation-us",
+      "name": "The Conversation US",
+      "homepage_url": "https://theconversation.com/us",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "nonprofit",
+      "feeds": [
+        {
+          "name": "Articles",
+          "url": "https://theconversation.com/us/articles.atom",
+          "topic_tags": [
+            "analysis"
+          ],
+          "enabled": true
+        }
+      ],
+      "notes": "Added after candidate probe on 2026-05-23: 3/3 sampled items scraped and ready for LLM judge.",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "verified": false,
+      "enabled": true
+    },
+    {
+      "id": "inside-climate-news",
+      "name": "Inside Climate News",
+      "homepage_url": "https://insideclimatenews.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "nonprofit",
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://insideclimatenews.org/feed/",
+          "topic_tags": [
+            "climate",
+            "environment"
+          ],
+          "enabled": true
+        }
+      ],
+      "notes": "Added after candidate probe on 2026-05-23: 3/3 sampled items scraped and ready for LLM judge.",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "verified": false,
+      "enabled": true
+    },
+    {
+      "id": "grist",
+      "name": "Grist",
+      "homepage_url": "https://grist.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "nonprofit",
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://grist.org/feed/",
+          "topic_tags": [
+            "climate",
+            "environment"
+          ],
+          "enabled": true
+        }
+      ],
+      "notes": "Added after candidate probe on 2026-05-23: 3/3 sampled items scraped and ready for LLM judge.",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "verified": false,
+      "enabled": true
+    },
+    {
+      "id": "stat-news",
+      "name": "STAT News",
+      "homepage_url": "https://www.statnews.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.statnews.com/feed/",
+          "topic_tags": [
+            "health",
+            "science"
+          ],
+          "enabled": true
+        }
+      ],
+      "notes": "Added after candidate probe on 2026-05-23: 3/3 sampled items scraped and ready for LLM judge.",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "verified": false,
+      "enabled": true
+    },
+    {
+      "id": "rest-of-world",
+      "name": "Rest of World",
+      "homepage_url": "https://restofworld.org",
+      "country": "US",
+      "language": "en",
+      "region": "Global",
+      "scope": "international",
+      "ownership": "nonprofit",
+      "feeds": [
+        {
+          "name": "Latest",
+          "url": "https://restofworld.org/feed/latest/",
+          "topic_tags": [
+            "technology",
+            "world"
+          ],
+          "enabled": true
+        }
+      ],
+      "notes": "Added after candidate probe on 2026-05-23: 3/3 sampled items scraped and ready for LLM judge.",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "verified": false,
+      "enabled": true
+    },
+    {
+      "id": "mit-technology-review",
+      "name": "MIT Technology Review",
+      "homepage_url": "https://www.technologyreview.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "international",
+      "ownership": "nonprofit",
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.technologyreview.com/feed/",
+          "topic_tags": [
+            "technology",
+            "science"
+          ],
+          "enabled": true
+        }
+      ],
+      "notes": "Added after candidate probe on 2026-05-23: 3/3 sampled items scraped and ready for LLM judge.",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "verified": false,
+      "enabled": true
     }
   ]
 }

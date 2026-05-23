@@ -85,7 +85,10 @@ class SerializationContractTests(unittest.TestCase):
             question.pop("semantic_class", None)
         lens = Lens.from_dict(payload)
         self.assertTrue(
-            all(question.semantic_class == "existence_good" for question in lens.rubrics[0].questions)
+            all(
+                question.semantic_class == "existence_good"
+                for question in lens.rubrics[0].questions
+            )
         )
 
     def test_score_roundtrip_preserves_question_evidence(self) -> None:
@@ -101,7 +104,9 @@ class SerializationContractTests(unittest.TestCase):
         payload.pop("question_evidence", None)
         score = Score.from_dict(payload)
         self.assertEqual(len(score.question_scores), len(score.question_evidence))
-        self.assertTrue(all(isinstance(entry, str) and entry.strip() for entry in score.question_evidence))
+        self.assertTrue(
+            all(isinstance(entry, str) and entry.strip() for entry in score.question_evidence)
+        )
 
     def test_score_invariant_rejects_evidence_length_mismatch(self) -> None:
         payload = deepcopy(self.valid_scores[0])

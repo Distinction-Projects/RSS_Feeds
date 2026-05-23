@@ -210,6 +210,7 @@ class DigestReliabilityTests(unittest.TestCase):
                 timeout_seconds: float,
                 sleep_seconds: float,
                 user_agent: str,
+                **_: object,
             ) -> dict[str, object]:
                 for item in items:
                     item.scraped = {"title": item.title, "lead_paragraph": f"Lead {item.id}"}
@@ -241,15 +242,26 @@ class DigestReliabilityTests(unittest.TestCase):
             )
 
             with (
-                patch("rss_pipeline.pipeline_digest.fetch_feed_items", side_effect=fake_fetch_feed_items),
-                patch("rss_pipeline.pipeline_digest.enrich_items_with_scrape", side_effect=fake_enrich_items),
-                patch("rss_pipeline.pipeline_digest.resolve_env_value", side_effect=["test-key", "gpt-4.1-mini"]),
+                patch(
+                    "rss_pipeline.pipeline_digest.fetch_feed_items",
+                    side_effect=fake_fetch_feed_items,
+                ),
+                patch(
+                    "rss_pipeline.pipeline_digest.enrich_items_with_scrape",
+                    side_effect=fake_enrich_items,
+                ),
+                patch(
+                    "rss_pipeline.pipeline_digest.resolve_env_value",
+                    side_effect=["test-key", "gpt-4.1-mini"],
+                ),
                 patch("rss_pipeline.pipeline_digest.SQLiteOpenAICache", _FakeDigestCache),
                 patch("rss_pipeline.pipeline_digest.OpenAIService", _FakeDigestService),
             ):
                 result = build_digest(config, repo_root=root)
 
-            payload = json.loads((root / "data" / "rss_openai_daily.json").read_text(encoding="utf-8"))
+            payload = json.loads(
+                (root / "data" / "rss_openai_daily.json").read_text(encoding="utf-8")
+            )
 
             self.assertEqual(result["items"], 3)
             self.assertEqual(result["errors"], 1)
@@ -338,13 +350,37 @@ class ScoreReliabilityTests(unittest.TestCase):
                     "ai_tags": [],
                 }
             )
+            not_ready_item = NewsItem.from_dict(
+                {
+                    "id": "item-3",
+                    "title": "Item 3",
+                    "link": "https://example.com/3",
+                    "summary": "Summary 3",
+                    "published": "2026-04-03T00:00:00Z",
+                    "source_id": "src",
+                    "source_name": "Source",
+                    "feed_name": "Feed",
+                    "feed_url": "https://example.com/feed.xml",
+                    "fetched_at": "2026-04-03T00:00:00Z",
+                    "ai_summary": "AI summary 3",
+                    "ai_tags": ["news"],
+                    "llm_input_status": "review",
+                    "llm_input_reason": "short_scraped_text",
+                    "ready_for_llm_judge": False,
+                }
+            )
 
             with (
                 patch("rss_pipeline.pipeline_score.require_env_value", return_value="test-key"),
                 patch("rss_pipeline.pipeline_score.load_lenses", return_value=[lens]),
                 patch(
                     "rss_pipeline.pipeline_score.load_experiments",
-                    return_value=[(root / "data" / "rss_openai_daily.json", SimpleNamespace(items=[scoreable_item, skipped_item]))],
+                    return_value=[
+                        (
+                            root / "data" / "rss_openai_daily.json",
+                            SimpleNamespace(items=[scoreable_item, skipped_item, not_ready_item]),
+                        )
+                    ],
                 ),
                 patch("rss_pipeline.pipeline_score.SQLiteOpenAICache", _FakeScoreCache),
                 patch("rss_pipeline.pipeline_score.OpenAIService", _FakeScoreService),
@@ -352,6 +388,7 @@ class ScoreReliabilityTests(unittest.TestCase):
                 result = run_scoring(config, repo_root=root)
 
             self.assertEqual(result.scored_items, 1)
+            self.assertEqual(result.skipped_not_llm_ready, 1)
             self.assertEqual(result.skipped_missing_ai_summary, 1)
             self.assertEqual(result.new_scores, 1)
             self.assertEqual(_FakeScoreService.call_count, 1)

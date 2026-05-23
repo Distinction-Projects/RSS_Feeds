@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 import sqlite3
+from collections.abc import Iterator
+from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
@@ -19,8 +21,17 @@ class SQLiteOpenAICache:
         conn.row_factory = sqlite3.Row
         return conn
 
+    @contextmanager
+    def _connection(self) -> Iterator[sqlite3.Connection]:
+        conn = self._connect()
+        try:
+            with conn:
+                yield conn
+        finally:
+            conn.close()
+
     def _initialize(self) -> None:
-        with self._connect() as conn:
+        with self._connection() as conn:
             conn.executescript(
                 """
                 CREATE TABLE IF NOT EXISTS openai_cache (
@@ -75,7 +86,7 @@ class SQLiteOpenAICache:
             )
 
     def get_cached(self, cache_key: str) -> dict[str, Any] | None:
-        with self._connect() as conn:
+        with self._connection() as conn:
             row = conn.execute(
                 "SELECT response_json, hit_count FROM openai_cache WHERE cache_key = ?",
                 (cache_key,),
@@ -106,7 +117,7 @@ class SQLiteOpenAICache:
     ) -> None:
         now = utc_now_iso()
         serialized = json.dumps(response_payload, ensure_ascii=False, sort_keys=True)
-        with self._connect() as conn:
+        with self._connection() as conn:
             conn.execute(
                 """
                 INSERT INTO openai_cache (cache_key, model, request_hash, response_json, created_at, updated_at, hit_count)
@@ -135,7 +146,7 @@ class SQLiteOpenAICache:
         latency_ms: int,
         error: str | None,
     ) -> None:
-        with self._connect() as conn:
+        with self._connection() as conn:
             conn.execute(
                 """
                 INSERT INTO openai_calls (
@@ -176,7 +187,7 @@ class SQLiteOpenAICache:
         lens_name: str | None = None,
         rubric_name: str | None = None,
     ) -> None:
-        with self._connect() as conn:
+        with self._connection() as conn:
             conn.execute(
                 """
                 INSERT INTO prompt_audit (
@@ -205,7 +216,7 @@ class SQLiteOpenAICache:
             )
 
     def prompt_audit_rows(self, run_id: str) -> list[dict[str, Any]]:
-        with self._connect() as conn:
+        with self._connection() as conn:
             rows = conn.execute(
                 "SELECT * FROM prompt_audit WHERE run_id = ? ORDER BY id ASC",
                 (run_id,),
@@ -213,7 +224,7 @@ class SQLiteOpenAICache:
         return [dict(row) for row in rows]
 
     def run_cache_stats(self, run_id: str) -> dict[str, int]:
-        with self._connect() as conn:
+        with self._connection() as conn:
             row = conn.execute(
                 """
                 SELECT

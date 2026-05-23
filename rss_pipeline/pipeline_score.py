@@ -23,6 +23,7 @@ class ScoreRunResult:
     run_id: str
     output: str
     scored_items: int
+    skipped_not_llm_ready: int
     skipped_missing_ai_summary: int
     new_scores: int
     total_records: int
@@ -113,6 +114,16 @@ def _has_scoreable_ai_context(news_item: NewsItem) -> bool:
     return bool(news_item.ai_summary.strip())
 
 
+def _has_explicit_llm_readiness(news_item: NewsItem) -> bool:
+    return news_item.llm_input_status is not None or news_item.ready_for_llm_judge is not None
+
+
+def _is_ready_for_llm_judge(news_item: NewsItem) -> bool:
+    if not _has_explicit_llm_readiness(news_item):
+        return True
+    return news_item.ready_for_llm_judge is True and news_item.llm_input_status == "ready"
+
+
 def run_scoring(
     config: ScoreRunConfig,
     *,
@@ -160,17 +171,22 @@ def run_scoring(
     )
     all_scores = list(existing_scores)
     scored_items = 0
+    skipped_not_llm_ready = 0
     skipped_missing_ai_summary = 0
     new_scores_count = 0
 
     selected_pairs: list[tuple[Path, NewsItem]] = []
     for experiment_path, experiment in experiment_entries:
         selected_items = _select_news_items(experiment.items, news_item_id, news_item_index)
+        ready_items = [
+            news_item for news_item in selected_items if _is_ready_for_llm_judge(news_item)
+        ]
+        skipped_not_llm_ready += max(len(selected_items) - len(ready_items), 0)
         skipped_missing_ai_summary += sum(
-            1 for news_item in selected_items if not _has_scoreable_ai_context(news_item)
+            1 for news_item in ready_items if not _has_scoreable_ai_context(news_item)
         )
         scoreable_items = [
-            news_item for news_item in selected_items if _has_scoreable_ai_context(news_item)
+            news_item for news_item in ready_items if _has_scoreable_ai_context(news_item)
         ]
         selected_pairs.extend((experiment_path, news_item) for news_item in scoreable_items)
 
@@ -182,6 +198,8 @@ def run_scoring(
         experiment=str(experiment_input),
         output=str(output_path),
         selected_items=len(selected_pairs),
+        skipped_not_llm_ready=skipped_not_llm_ready,
+        skipped_missing_ai_summary=skipped_missing_ai_summary,
         existing_records=len(existing_scores),
         lenses=len(lenses_to_use),
         model=config.model,
@@ -282,6 +300,7 @@ def run_scoring(
             run_id=context.run_id,
             duration_seconds=context.duration_seconds,
             scored_items=scored_items,
+            skipped_not_llm_ready=skipped_not_llm_ready,
             skipped_missing_ai_summary=skipped_missing_ai_summary,
             new_scores=new_scores_count,
             total_records=len(all_scores),
@@ -311,6 +330,7 @@ def run_scoring(
         run_id=context.run_id,
         duration_seconds=context.duration_seconds,
         scored_items=scored_items,
+        skipped_not_llm_ready=skipped_not_llm_ready,
         skipped_missing_ai_summary=skipped_missing_ai_summary,
         new_scores=new_scores_count,
         total_records=len(all_scores),
@@ -325,6 +345,7 @@ def run_scoring(
         run_id=context.run_id,
         output=str(output_path),
         scored_items=scored_items,
+        skipped_not_llm_ready=skipped_not_llm_ready,
         skipped_missing_ai_summary=skipped_missing_ai_summary,
         new_scores=new_scores_count,
         total_records=len(all_scores),

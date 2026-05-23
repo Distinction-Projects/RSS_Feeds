@@ -1,0 +1,615 @@
+{
+  "schema_version": "1.0",
+  "status": "pass",
+  "run": {
+    "id": "feed-audit-20260523T063615-4d0049c1b6",
+    "generated_at": "2026-05-23T06:36:15Z",
+    "duration_seconds": 5.381,
+    "command": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/rss_pipeline/cli.py validate feed-audit --output data/analysis/feed_audit/rss_feed_audit.json --archive-history-dir data/analysis/feed_audit/history --max-sources 40 --feeds-per-source 2 --max-items-per-feed 5 --max-feed-fetch-failures 0 --max-missing-rss-content 0 --max-unknown-content-types 0 --max-unsupported-content-types 0"
+  },
+  "generated_at": "2026-05-23T06:36:15Z",
+  "request": {
+    "catalog_path": "feed_catalog/rss_feeds.json",
+    "max_sources": 40,
+    "feeds_per_source": 2,
+    "max_items_per_feed": 5,
+    "timeout_seconds": 20,
+    "source_ids": [],
+    "run_log_dir": "data/analysis/feed_audit/run_logs"
+  },
+  "sources": {
+    "selected_count": 27,
+    "selected": [
+      {
+        "source_id": "bbc-news",
+        "source_name": "BBC News",
+        "feed_name": "Top Stories",
+        "feed_url": "http://feeds.bbci.co.uk/news/rss.xml",
+        "topic_tags": [
+          "general"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "the-guardian",
+        "source_name": "The Guardian",
+        "feed_name": "World",
+        "feed_url": "https://www.theguardian.com/world/rss",
+        "topic_tags": [
+          "world"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "npr",
+        "source_name": "NPR",
+        "feed_name": "News",
+        "feed_url": "https://feeds.npr.org/1001/rss.xml",
+        "topic_tags": [
+          "general"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "pbs-newshour",
+        "source_name": "PBS NewsHour",
+        "feed_name": "Headlines",
+        "feed_url": "https://www.pbs.org/newshour/feeds/rss/headlines",
+        "topic_tags": [
+          "general"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "fox-news",
+        "source_name": "Fox News",
+        "feed_name": "Latest",
+        "feed_url": "http://feeds.foxnews.com/foxnews/latest",
+        "topic_tags": [
+          "general"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "nbc-news",
+        "source_name": "NBC News",
+        "feed_name": "Top Stories",
+        "feed_url": "http://feeds.nbcnews.com/nbcnews/public/news",
+        "topic_tags": [
+          "general"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "cbs-news",
+        "source_name": "CBS News",
+        "feed_name": "Top Stories",
+        "feed_url": "https://www.cbsnews.com/latest/rss/main",
+        "topic_tags": [
+          "general"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "abc-news",
+        "source_name": "ABC News",
+        "feed_name": "Top Stories",
+        "feed_url": "https://abcnews.go.com/abcnews/topstories",
+        "topic_tags": [
+          "general"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "al-jazeera",
+        "source_name": "Al Jazeera",
+        "feed_name": "All News",
+        "feed_url": "https://www.aljazeera.com/xml/rss/all.xml",
+        "topic_tags": [
+          "general"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "dw",
+        "source_name": "DW",
+        "feed_name": "Top Stories",
+        "feed_url": "https://rss.dw.com/rdf/rss-en-all",
+        "topic_tags": [
+          "general"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "cbc-news",
+        "source_name": "CBC News",
+        "feed_name": "World",
+        "feed_url": "https://rss.cbc.ca/lineup/world.xml",
+        "topic_tags": [
+          "world"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "abc-australia",
+        "source_name": "ABC News (Australia)",
+        "feed_name": "Top Stories",
+        "feed_url": "https://www.abc.net.au/news/feed/51120/rss.xml",
+        "topic_tags": [
+          "general"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "the-verge",
+        "source_name": "The Verge",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.theverge.com/rss/index.xml",
+        "topic_tags": [
+          "technology"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "ars-technica",
+        "source_name": "Ars Technica",
+        "feed_name": "All Stories",
+        "feed_url": "http://feeds.arstechnica.com/arstechnica/index",
+        "topic_tags": [
+          "technology"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "techcrunch",
+        "source_name": "TechCrunch",
+        "feed_name": "All Stories",
+        "feed_url": "https://techcrunch.com/feed/",
+        "topic_tags": [
+          "technology",
+          "business"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "cnbc",
+        "source_name": "CNBC",
+        "feed_name": "Top News",
+        "feed_url": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+        "topic_tags": [
+          "general"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "globalnews",
+        "source_name": "GlobalNews",
+        "feed_name": "World",
+        "feed_url": "https://globalnews.ca/world/feed/",
+        "topic_tags": [
+          "world"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "hong-kong-free-press-hkfp",
+        "source_name": "Hong Kong Free Press HKFP",
+        "feed_name": "Hong Kong Free Press HKFP",
+        "feed_url": "https://www.hongkongfp.com/feed/",
+        "topic_tags": [
+          "general"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "the-hindu-home",
+        "source_name": "The Hindu - Home",
+        "feed_name": "The Hindu - Home",
+        "feed_url": "https://www.thehindu.com/feeder/default.rss",
+        "topic_tags": [
+          "general"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "news-on-japan",
+        "source_name": "News On Japan",
+        "feed_name": "News On Japan",
+        "feed_url": "http://www.newsonjapan.com/rss/top.xml",
+        "topic_tags": [
+          "general"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "propublica",
+        "source_name": "ProPublica",
+        "feed_name": "Main Feed",
+        "feed_url": "https://feeds.propublica.org/propublica/main",
+        "topic_tags": [
+          "investigations"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "the-conversation-us",
+        "source_name": "The Conversation US",
+        "feed_name": "Articles",
+        "feed_url": "https://theconversation.com/us/articles.atom",
+        "topic_tags": [
+          "analysis"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "inside-climate-news",
+        "source_name": "Inside Climate News",
+        "feed_name": "All Stories",
+        "feed_url": "https://insideclimatenews.org/feed/",
+        "topic_tags": [
+          "climate",
+          "environment"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "grist",
+        "source_name": "Grist",
+        "feed_name": "All Stories",
+        "feed_url": "https://grist.org/feed/",
+        "topic_tags": [
+          "climate",
+          "environment"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "stat-news",
+        "source_name": "STAT News",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.statnews.com/feed/",
+        "topic_tags": [
+          "health",
+          "science"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "rest-of-world",
+        "source_name": "Rest of World",
+        "feed_name": "Latest",
+        "feed_url": "https://restofworld.org/feed/latest/",
+        "topic_tags": [
+          "technology",
+          "world"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "mit-technology-review",
+        "source_name": "MIT Technology Review",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.technologyreview.com/feed/",
+        "topic_tags": [
+          "technology",
+          "science"
+        ],
+        "scrape_fallback_policy": null
+      }
+    ]
+  },
+  "summary": {
+    "selected_sources": 27,
+    "selected_feeds": 27,
+    "feed_fetch_attempts": 27,
+    "feed_fetch_succeeded": 27,
+    "feed_fetch_failed": 0,
+    "raw_fetched_items": 135,
+    "typical_newsfeed_items": 129,
+    "newsfeed_excluded": 6,
+    "rss_missing_content": 0,
+    "accepted_content_type_filter": 6,
+    "quality_clean_items": 135,
+    "quality_warn_items": 0,
+    "quality_fail_items": 0
+  },
+  "quality_gate_metrics": {
+    "feed_fetch_failed": 0,
+    "missing_rss_content_items": 0,
+    "unknown_content_type_items": 0,
+    "unsupported_content_type_items": 0,
+    "accepted_content_type_filter_items": 6
+  },
+  "status_counts": {
+    "clean": 135
+  },
+  "severity_counts": {
+    "info": 6
+  },
+  "issue_counts": [
+    {
+      "issue": "content_type_filter_accepted",
+      "count": 6
+    }
+  ],
+  "content_type_counts": [
+    {
+      "content_type": "news_article",
+      "count": 124
+    },
+    {
+      "content_type": "video",
+      "count": 6
+    },
+    {
+      "content_type": "analysis",
+      "count": 5
+    }
+  ],
+  "exclusion_reason_counts": [
+    {
+      "reason": "unsupported_content_type:video",
+      "count": 6
+    }
+  ],
+  "top_sources": [
+    {
+      "source": "BBC News",
+      "count": 5
+    },
+    {
+      "source": "The Guardian",
+      "count": 5
+    },
+    {
+      "source": "NPR",
+      "count": 5
+    },
+    {
+      "source": "PBS NewsHour",
+      "count": 5
+    },
+    {
+      "source": "Fox News",
+      "count": 5
+    },
+    {
+      "source": "NBC News",
+      "count": 5
+    },
+    {
+      "source": "CBS News",
+      "count": 5
+    },
+    {
+      "source": "ABC News",
+      "count": 5
+    },
+    {
+      "source": "Al Jazeera",
+      "count": 5
+    },
+    {
+      "source": "DW",
+      "count": 5
+    }
+  ],
+  "top_feeds": [
+    {
+      "feed": "All Stories",
+      "count": 35
+    },
+    {
+      "feed": "Top Stories",
+      "count": 30
+    },
+    {
+      "feed": "World",
+      "count": 15
+    },
+    {
+      "feed": "Latest",
+      "count": 10
+    },
+    {
+      "feed": "News",
+      "count": 5
+    },
+    {
+      "feed": "Headlines",
+      "count": 5
+    },
+    {
+      "feed": "All News",
+      "count": 5
+    },
+    {
+      "feed": "Top News",
+      "count": 5
+    },
+    {
+      "feed": "Hong Kong Free Press HKFP",
+      "count": 5
+    },
+    {
+      "feed": "The Hindu - Home",
+      "count": 5
+    }
+  ],
+  "top_source_issues": [
+    {
+      "source": "ABC News",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "source": "Al Jazeera",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "source": "PBS NewsHour",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "NBC News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    }
+  ],
+  "top_feed_issues": [
+    {
+      "feed": "Top Stories",
+      "issue": "content_type_filter_accepted",
+      "count": 3
+    },
+    {
+      "feed": "All News",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "feed": "Headlines",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    }
+  ],
+  "examples": [
+    {
+      "id": "772fc70e0f28",
+      "title": "Is it time for the U.S. to reassess its Iran strategy?",
+      "source": "PBS NewsHour",
+      "feed": "Headlines",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "56c4ebfc221a",
+      "title": "DHS to require green card applicants to return to home countries to apply",
+      "source": "NBC News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "8106f65ad6f8",
+      "title": "LIVE: ABC News Live",
+      "source": "ABC News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "f464231cb95c",
+      "title": "WATCH: Nine students sent to hospital after school bus crash near Boston",
+      "source": "ABC News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "13e176a9c946",
+      "title": "Trump releases new batch of previously classified UFO files",
+      "source": "Al Jazeera",
+      "feed": "All News",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "4c1cb1e1bd3a",
+      "title": "Over 1.6 million pilgrims arrive in Saudi Arabia for hajj pilgrimage",
+      "source": "Al Jazeera",
+      "feed": "All News",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    }
+  ],
+  "feed_fetch_errors": [],
+  "blocking_issues": [],
+  "warnings": [],
+  "audit": {
+    "catalog_path": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/feed_catalog/rss_feeds.json",
+    "output_path": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/rss_feed_audit.json",
+    "run_log": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20260523T063615-4d0049c1b6.jsonl",
+    "requested_catalog_path": "feed_catalog/rss_feeds.json"
+  },
+  "history_archive": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/history/rss_feed_audit_2026-05-23.json",
+  "quality_gate": {
+    "status": "pass",
+    "thresholds": {
+      "feed_fetch_failed": 0,
+      "missing_rss_content_items": 0,
+      "unknown_content_type_items": 0,
+      "unsupported_content_type_items": 0
+    },
+    "metrics": {
+      "feed_fetch_failed": 0,
+      "missing_rss_content_items": 0,
+      "unknown_content_type_items": 0,
+      "unsupported_content_type_items": 0,
+      "accepted_content_type_filter_items": 6
+    },
+    "violations": []
+  }
+}
