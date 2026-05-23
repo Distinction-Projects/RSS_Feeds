@@ -68,7 +68,7 @@ def digest_build(
     archive_dir: Annotated[Path, typer.Option("--archive-dir")] = Path("data/history"),
     no_archive: Annotated[bool, typer.Option("--no-archive")] = False,
     skip_seen: Annotated[bool, typer.Option("--skip-seen/--no-skip-seen")] = True,
-    max_sources: Annotated[int, typer.Option("--max-sources")] = 32,
+    max_sources: Annotated[int, typer.Option("--max-sources")] = 40,
     feeds_per_source: Annotated[int, typer.Option("--feeds-per-source")] = 1,
     max_items_per_feed: Annotated[int, typer.Option("--max-items-per-feed")] = 3,
     timeout: Annotated[int, typer.Option("--timeout")] = 30,

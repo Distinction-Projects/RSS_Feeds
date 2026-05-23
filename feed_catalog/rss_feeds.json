@@ -32274,6 +32274,454 @@
       },
       "verified": false,
       "enabled": true
+    },
+    {
+      "id": "democracy-now",
+      "name": "Democracy Now!",
+      "homepage_url": "https://www.democracynow.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national/international",
+      "ownership": "nonprofit independent",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Daily Headlines & Stories",
+          "url": "https://www.democracynow.org/democracynow.rss",
+          "topic_tags": [
+            "general",
+            "progressive",
+            "independent"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after outside-norm readiness probe: 2/2 sampled articles ready with full scraped text. Added for progressive independent broadcast perspective; inclusion is for media-comparison coverage, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "the-intercept",
+      "name": "The Intercept",
+      "homepage_url": "https://theintercept.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national/international",
+      "ownership": "nonprofit independent",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://theintercept.com/feed/?lang=en",
+          "topic_tags": [
+            "investigative",
+            "politics"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after outside-norm readiness probe: 2/2 sampled articles ready with full scraped text. Added for adversarial investigative coverage.",
+      "enabled": true
+    },
+    {
+      "id": "jacobin",
+      "name": "Jacobin",
+      "homepage_url": "https://jacobin.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national/international",
+      "ownership": "private magazine",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://jacobin.com/feed",
+          "topic_tags": [
+            "politics",
+            "labor",
+            "socialist"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after outside-norm readiness probe: 2/2 sampled articles ready with full scraped text. Added for socialist/labor perspective.",
+      "enabled": true
+    },
+    {
+      "id": "reason",
+      "name": "Reason",
+      "homepage_url": "https://reason.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "nonprofit foundation",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://reason.com/feed/",
+          "topic_tags": [
+            "politics",
+            "libertarian"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after outside-norm readiness probe: 2/2 sampled articles ready with full scraped text. Added for libertarian perspective.",
+      "enabled": true
+    },
+    {
+      "id": "the-american-conservative",
+      "name": "The American Conservative",
+      "homepage_url": "https://www.theamericanconservative.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national/international",
+      "ownership": "nonprofit institute",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Articles",
+          "url": "https://www.theamericanconservative.com/articles/feed/",
+          "topic_tags": [
+            "politics",
+            "conservative",
+            "foreign-policy"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after outside-norm readiness probe: 2/2 sampled articles ready with full scraped text. Added for traditionalist conservative and restraint-oriented foreign-policy perspective.",
+      "enabled": true
+    },
+    {
+      "id": "responsible-statecraft",
+      "name": "Responsible Statecraft",
+      "homepage_url": "https://responsiblestatecraft.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "international",
+      "ownership": "nonprofit institute publication",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "Latest",
+          "url": "https://responsiblestatecraft.org/feed/",
+          "topic_tags": [
+            "foreign-policy",
+            "anti-interventionist"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after outside-norm readiness probe: 2/2 sampled articles ready with full scraped text. Added for anti-interventionist foreign-policy perspective.",
+      "enabled": true
+    },
+    {
+      "id": "the-federalist",
+      "name": "The Federalist",
+      "homepage_url": "https://thefederalist.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://thefederalist.com/feed/",
+          "topic_tags": [
+            "politics",
+            "conservative"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after outside-norm readiness probe: 2/2 sampled articles ready with full scraped text. Added for conservative commentary perspective.",
+      "enabled": true
+    },
+    {
+      "id": "the-free-press",
+      "name": "The Free Press",
+      "homepage_url": "https://www.thefp.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national/international",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.thefp.com/feed",
+          "topic_tags": [
+            "general",
+            "heterodox"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after outside-norm readiness probe: 2/2 sampled articles ready with full scraped text. Added for heterodox/subscriber-media perspective.",
+      "enabled": true
+    },
+    {
+      "id": "unherd",
+      "name": "UnHerd",
+      "homepage_url": "https://unherd.com",
+      "country": "GBR",
+      "language": "en",
+      "region": "Europe",
+      "scope": "international",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://unherd.com/feed/",
+          "topic_tags": [
+            "general",
+            "heterodox"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after outside-norm readiness probe: 2/2 sampled articles ready with full scraped text. Added for UK heterodox perspective.",
+      "enabled": true
+    },
+    {
+      "id": "zerohedge",
+      "name": "ZeroHedge",
+      "homepage_url": "https://www.zerohedge.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "international",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://feeds.feedburner.com/zerohedge/feed",
+          "topic_tags": [
+            "business",
+            "markets",
+            "heterodox"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after outside-norm readiness probe: 2/2 sampled articles ready with full scraped text. Added for fringe/heterodox markets and geopolitics perspective; inclusion is for comparison, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "mintpress-news",
+      "name": "MintPress News",
+      "homepage_url": "https://www.mintpressnews.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "international",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.mintpressnews.com/feed/",
+          "topic_tags": [
+            "foreign-policy",
+            "alternative"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after outside-norm readiness probe: 2/2 sampled articles ready with full scraped text. Added for alternative foreign-policy perspective; inclusion is for comparison, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "china-daily",
+      "name": "China Daily",
+      "homepage_url": "https://www.chinadaily.com.cn",
+      "country": "CHN",
+      "language": "en",
+      "region": "Asia",
+      "scope": "international",
+      "ownership": "state-owned",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "World",
+          "url": "https://www.chinadaily.com.cn/rss/world_rss.xml",
+          "topic_tags": [
+            "world",
+            "state-media"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after outside-norm readiness probe: sampled article was ready with full scraped text. Added for Chinese state-owned English-language perspective; inclusion is for comparison, not endorsement.",
+      "enabled": true
     }
   ]
 }

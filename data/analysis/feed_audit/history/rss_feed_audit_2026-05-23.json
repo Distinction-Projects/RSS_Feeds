@@ -2,12 +2,12 @@
   "schema_version": "1.0",
   "status": "pass",
   "run": {
-    "id": "feed-audit-20260523T063615-4d0049c1b6",
-    "generated_at": "2026-05-23T06:36:15Z",
-    "duration_seconds": 5.381,
+    "id": "feed-audit-20260523T064306-fcdb297910",
+    "generated_at": "2026-05-23T06:43:06Z",
+    "duration_seconds": 8.914,
     "command": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/rss_pipeline/cli.py validate feed-audit --output data/analysis/feed_audit/rss_feed_audit.json --archive-history-dir data/analysis/feed_audit/history --max-sources 40 --feeds-per-source 2 --max-items-per-feed 5 --max-feed-fetch-failures 0 --max-missing-rss-content 0 --max-unknown-content-types 0 --max-unsupported-content-types 0"
   },
-  "generated_at": "2026-05-23T06:36:15Z",
+  "generated_at": "2026-05-23T06:43:06Z",
   "request": {
     "catalog_path": "feed_catalog/rss_feeds.json",
     "max_sources": 40,
@@ -18,7 +18,7 @@
     "run_log_dir": "data/analysis/feed_audit/run_logs"
   },
   "sources": {
-    "selected_count": 27,
+    "selected_count": 39,
     "selected": [
       {
         "source_id": "bbc-news",
@@ -295,21 +295,157 @@
           "science"
         ],
         "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "democracy-now",
+        "source_name": "Democracy Now!",
+        "feed_name": "Daily Headlines & Stories",
+        "feed_url": "https://www.democracynow.org/democracynow.rss",
+        "topic_tags": [
+          "general",
+          "progressive",
+          "independent"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "the-intercept",
+        "source_name": "The Intercept",
+        "feed_name": "All Stories",
+        "feed_url": "https://theintercept.com/feed/?lang=en",
+        "topic_tags": [
+          "investigative",
+          "politics"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "jacobin",
+        "source_name": "Jacobin",
+        "feed_name": "All Stories",
+        "feed_url": "https://jacobin.com/feed",
+        "topic_tags": [
+          "politics",
+          "labor",
+          "socialist"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "reason",
+        "source_name": "Reason",
+        "feed_name": "All Stories",
+        "feed_url": "https://reason.com/feed/",
+        "topic_tags": [
+          "politics",
+          "libertarian"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "the-american-conservative",
+        "source_name": "The American Conservative",
+        "feed_name": "Articles",
+        "feed_url": "https://www.theamericanconservative.com/articles/feed/",
+        "topic_tags": [
+          "politics",
+          "conservative",
+          "foreign-policy"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "responsible-statecraft",
+        "source_name": "Responsible Statecraft",
+        "feed_name": "Latest",
+        "feed_url": "https://responsiblestatecraft.org/feed/",
+        "topic_tags": [
+          "foreign-policy",
+          "anti-interventionist"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "the-federalist",
+        "source_name": "The Federalist",
+        "feed_name": "All Stories",
+        "feed_url": "https://thefederalist.com/feed/",
+        "topic_tags": [
+          "politics",
+          "conservative"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "the-free-press",
+        "source_name": "The Free Press",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.thefp.com/feed",
+        "topic_tags": [
+          "general",
+          "heterodox"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "unherd",
+        "source_name": "UnHerd",
+        "feed_name": "All Stories",
+        "feed_url": "https://unherd.com/feed/",
+        "topic_tags": [
+          "general",
+          "heterodox"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "zerohedge",
+        "source_name": "ZeroHedge",
+        "feed_name": "All Stories",
+        "feed_url": "https://feeds.feedburner.com/zerohedge/feed",
+        "topic_tags": [
+          "business",
+          "markets",
+          "heterodox"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "mintpress-news",
+        "source_name": "MintPress News",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.mintpressnews.com/feed/",
+        "topic_tags": [
+          "foreign-policy",
+          "alternative"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "china-daily",
+        "source_name": "China Daily",
+        "feed_name": "World",
+        "feed_url": "https://www.chinadaily.com.cn/rss/world_rss.xml",
+        "topic_tags": [
+          "world",
+          "state-media"
+        ],
+        "scrape_fallback_policy": null
       }
     ]
   },
   "summary": {
-    "selected_sources": 27,
-    "selected_feeds": 27,
-    "feed_fetch_attempts": 27,
-    "feed_fetch_succeeded": 27,
+    "selected_sources": 39,
+    "selected_feeds": 39,
+    "feed_fetch_attempts": 39,
+    "feed_fetch_succeeded": 39,
     "feed_fetch_failed": 0,
-    "raw_fetched_items": 135,
-    "typical_newsfeed_items": 129,
+    "raw_fetched_items": 195,
+    "typical_newsfeed_items": 189,
     "newsfeed_excluded": 6,
     "rss_missing_content": 0,
     "accepted_content_type_filter": 6,
-    "quality_clean_items": 135,
+    "quality_clean_items": 195,
     "quality_warn_items": 0,
     "quality_fail_items": 0
   },
@@ -321,7 +457,7 @@
     "accepted_content_type_filter_items": 6
   },
   "status_counts": {
-    "clean": 135
+    "clean": 195
   },
   "severity_counts": {
     "info": 6
@@ -335,7 +471,7 @@
   "content_type_counts": [
     {
       "content_type": "news_article",
-      "count": 124
+      "count": 184
     },
     {
       "content_type": "video",
@@ -397,7 +533,7 @@
   "top_feeds": [
     {
       "feed": "All Stories",
-      "count": 35
+      "count": 75
     },
     {
       "feed": "Top Stories",
@@ -405,10 +541,14 @@
     },
     {
       "feed": "World",
-      "count": 15
+      "count": 20
     },
     {
       "feed": "Latest",
+      "count": 15
+    },
+    {
+      "feed": "Articles",
       "count": 10
     },
     {
@@ -429,10 +569,6 @@
     },
     {
       "feed": "Hong Kong Free Press HKFP",
-      "count": 5
-    },
-    {
-      "feed": "The Hindu - Home",
       "count": 5
     }
   ],
@@ -591,7 +727,7 @@
   "audit": {
     "catalog_path": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/feed_catalog/rss_feeds.json",
     "output_path": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/rss_feed_audit.json",
-    "run_log": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20260523T063615-4d0049c1b6.jsonl",
+    "run_log": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20260523T064306-fcdb297910.jsonl",
     "requested_catalog_path": "feed_catalog/rss_feeds.json"
   },
   "history_archive": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/history/rss_feed_audit_2026-05-23.json",

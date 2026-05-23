@@ -8,7 +8,7 @@ on:
       max_sources:
         description: "Max enabled sources to scan"
         required: false
-        default: "32"
+        default: "40"
       feeds_per_source:
         description: "Feeds per source to scan"
         required: false
@@ -136,9 +136,9 @@ jobs:
           if [ -n "${INPUT_MAX_SOURCES}" ]; then
             MAX_SOURCES="${INPUT_MAX_SOURCES}"
           elif [ "${EVENT_NAME}" = "schedule" ]; then
-            MAX_SOURCES="32"
+            MAX_SOURCES="40"
           else
-            MAX_SOURCES="32"
+            MAX_SOURCES="40"
           fi
 
           if [ -n "${INPUT_FEEDS_PER_SOURCE}" ]; then

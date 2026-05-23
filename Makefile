@@ -120,7 +120,7 @@ check-offline: lint format-check typecheck validate-all
 digest-build: install
 	@$(RSSCTL) digest build \
 		--output data/rss_openai_daily.json \
-		--max-sources 32 \
+		--max-sources 40 \
 		--feeds-per-source 1 \
 		--max-items-per-feed 3
 
