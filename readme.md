@@ -148,7 +148,7 @@ python3 -m rss_pipeline.cli validate quality-history \
 python3 -m rss_pipeline.cli validate feed-audit \
   --output data/analysis/feed_audit/rss_feed_audit.json \
   --archive-history-dir data/analysis/feed_audit/history \
-  --max-sources 64 \
+  --max-sources 72 \
   --feeds-per-source 2 \
   --max-items-per-feed 5 \
   --max-feed-fetch-failures 0 \

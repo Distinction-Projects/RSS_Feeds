@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-05-23",
+  "description": "Curated source baskets for comparative NewsLens analysis. Inclusion is for comparison and coverage diversity, not endorsement.",
+  "groups": [
+    {
+      "id": "progressive_independent",
+      "label": "Progressive / Independent",
+      "selection_reason": "High-signal independent and adversarial reporting with clean RSS and scraped article text.",
+      "primary_source_ids": [
+        "democracy-now",
+        "the-intercept"
+      ],
+      "alternate_source_ids": [
+        "common-dreams",
+        "truthout",
+        "mother-jones"
+      ]
+    },
+    {
+      "id": "hard_right",
+      "label": "Hard-Right / Populist Conservative",
+      "selection_reason": "High-contrast right-wing media sources that passed readiness checks and provide a meaningfully different framing set.",
+      "primary_source_ids": [
+        "gateway-pundit",
+        "american-greatness"
+      ],
+      "alternate_source_ids": [
+        "the-blaze",
+        "the-federalist"
+      ]
+    },
+    {
+      "id": "far_left_socialist",
+      "label": "Far-Left / Socialist",
+      "selection_reason": "Explicitly socialist outlets with clean scraped article bodies and high contrast against mainstream and conservative sources.",
+      "primary_source_ids": [
+        "liberation-news",
+        "world-socialist-web-site"
+      ],
+      "alternate_source_ids": [
+        "left-voice",
+        "socialist-worker-uk",
+        "jacobin"
+      ]
+    },
+    {
+      "id": "indigenous",
+      "label": "Indigenous / Native News",
+      "selection_reason": "Indigenous-focused sources with working feeds and clean article extraction, prioritizing Native-led reporting.",
+      "primary_source_ids": [
+        "ict-news",
+        "native-news-online"
+      ],
+      "alternate_source_ids": [
+        "aptn-news",
+        "indiginews",
+        "underscore-native-news"
+      ]
+    },
+    {
+      "id": "black_press",
+      "label": "Black Press / Black-Focused News",
+      "selection_reason": "Black-led or Black-focused outlets with clean RSS and article extraction, balancing nonprofit/local reporting with historic Black press.",
+      "primary_source_ids": [
+        "capital-b",
+        "afro-news"
+      ],
+      "alternate_source_ids": [
+        "the-grio",
+        "the-root",
+        "atlanta-black-star",
+        "black-agenda-report"
+      ]
+    },
+    {
+      "id": "environmental_climate",
+      "label": "Environmental / Climate",
+      "selection_reason": "Climate, clean-energy, conservation, and environmental accountability sources that produce clean judge-ready article text.",
+      "primary_source_ids": [
+        "carbon-brief",
+        "canary-media"
+      ],
+      "alternate_source_ids": [
+        "mongabay",
+        "yale-climate-connections",
+        "earthjustice",
+        "inside-climate-news",
+        "grist"
+      ]
+    }
+  ]
+}

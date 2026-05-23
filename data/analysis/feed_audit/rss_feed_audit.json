@@ -2,15 +2,15 @@
   "schema_version": "1.0",
   "status": "pass",
   "run": {
-    "id": "feed-audit-20260523T073536-ba32f34668",
-    "generated_at": "2026-05-23T07:35:36Z",
-    "duration_seconds": 19.075,
-    "command": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/rss_pipeline/cli.py validate feed-audit --output data/analysis/feed_audit/rss_feed_audit.json --archive-history-dir data/analysis/feed_audit/history --max-sources 64 --feeds-per-source 2 --max-items-per-feed 5 --max-feed-fetch-failures 0 --max-missing-rss-content 0 --max-unknown-content-types 0 --max-unsupported-content-types 0"
+    "id": "feed-audit-20260523T075120-49dd320b4d",
+    "generated_at": "2026-05-23T07:51:20Z",
+    "duration_seconds": 19.602,
+    "command": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/rss_pipeline/cli.py validate feed-audit --output data/analysis/feed_audit/rss_feed_audit.json --archive-history-dir data/analysis/feed_audit/history --max-sources 72 --feeds-per-source 2 --max-items-per-feed 5 --max-feed-fetch-failures 0 --max-missing-rss-content 0 --max-unknown-content-types 0 --max-unsupported-content-types 0"
   },
-  "generated_at": "2026-05-23T07:35:36Z",
+  "generated_at": "2026-05-23T07:51:20Z",
   "request": {
     "catalog_path": "feed_catalog/rss_feeds.json",
-    "max_sources": 64,
+    "max_sources": 72,
     "feeds_per_source": 2,
     "max_items_per_feed": 5,
     "timeout_seconds": 20,
@@ -18,7 +18,7 @@
     "run_log_dir": "data/analysis/feed_audit/run_logs"
   },
   "sources": {
-    "selected_count": 63,
+    "selected_count": 65,
     "selected": [
       {
         "source_id": "bbc-news",
@@ -433,17 +433,6 @@
         "scrape_fallback_policy": null
       },
       {
-        "source_id": "breitbart",
-        "source_name": "Breitbart",
-        "feed_name": "All Stories",
-        "feed_url": "https://feeds.feedburner.com/breitbart",
-        "topic_tags": [
-          "politics",
-          "hard-right"
-        ],
-        "scrape_fallback_policy": null
-      },
-      {
         "source_id": "gateway-pundit",
         "source_name": "The Gateway Pundit",
         "feed_name": "All Stories",
@@ -699,21 +688,55 @@
           "law"
         ],
         "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "common-dreams",
+        "source_name": "Common Dreams",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.commondreams.org/rss.xml",
+        "topic_tags": [
+          "general",
+          "progressive"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "truthout",
+        "source_name": "Truthout",
+        "feed_name": "All Stories",
+        "feed_url": "https://truthout.org/feed/",
+        "topic_tags": [
+          "general",
+          "progressive"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "mother-jones",
+        "source_name": "Mother Jones",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.motherjones.com/feed/",
+        "topic_tags": [
+          "investigative",
+          "politics",
+          "progressive"
+        ],
+        "scrape_fallback_policy": null
       }
     ]
   },
   "summary": {
-    "selected_sources": 63,
-    "selected_feeds": 63,
-    "feed_fetch_attempts": 63,
-    "feed_fetch_succeeded": 63,
+    "selected_sources": 65,
+    "selected_feeds": 65,
+    "feed_fetch_attempts": 65,
+    "feed_fetch_succeeded": 65,
     "feed_fetch_failed": 0,
-    "raw_fetched_items": 315,
-    "typical_newsfeed_items": 304,
-    "newsfeed_excluded": 11,
+    "raw_fetched_items": 325,
+    "typical_newsfeed_items": 313,
+    "newsfeed_excluded": 12,
     "rss_missing_content": 0,
-    "accepted_content_type_filter": 11,
-    "quality_clean_items": 315,
+    "accepted_content_type_filter": 12,
+    "quality_clean_items": 325,
     "quality_warn_items": 0,
     "quality_fail_items": 0
   },
@@ -722,28 +745,28 @@
     "missing_rss_content_items": 0,
     "unknown_content_type_items": 0,
     "unsupported_content_type_items": 0,
-    "accepted_content_type_filter_items": 11
+    "accepted_content_type_filter_items": 12
   },
   "status_counts": {
-    "clean": 315
+    "clean": 325
   },
   "severity_counts": {
-    "info": 11
+    "info": 12
   },
   "issue_counts": [
     {
       "issue": "content_type_filter_accepted",
-      "count": 11
+      "count": 12
     }
   ],
   "content_type_counts": [
     {
       "content_type": "news_article",
-      "count": 299
+      "count": 308
     },
     {
       "content_type": "video",
-      "count": 10
+      "count": 11
     },
     {
       "content_type": "analysis",
@@ -757,7 +780,7 @@
   "exclusion_reason_counts": [
     {
       "reason": "unsupported_content_type:video",
-      "count": 10
+      "count": 11
     },
     {
       "reason": "unsupported_content_type:live_blog",
@@ -809,7 +832,7 @@
   "top_feeds": [
     {
       "feed": "All Stories",
-      "count": 195
+      "count": 205
     },
     {
       "feed": "Top Stories",
@@ -888,6 +911,11 @@
       "source": "Mongabay",
       "issue": "content_type_filter_accepted",
       "count": 1
+    },
+    {
+      "source": "Mother Jones",
+      "issue": "content_type_filter_accepted",
+      "count": 1
     }
   ],
   "top_feed_issues": [
@@ -899,7 +927,7 @@
     {
       "feed": "All Stories",
       "issue": "content_type_filter_accepted",
-      "count": 2
+      "count": 3
     },
     {
       "feed": "Headlines",
@@ -1100,7 +1128,7 @@
   "audit": {
     "catalog_path": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/feed_catalog/rss_feeds.json",
     "output_path": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/rss_feed_audit.json",
-    "run_log": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20260523T073536-ba32f34668.jsonl",
+    "run_log": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20260523T075120-49dd320b4d.jsonl",
     "requested_catalog_path": "feed_catalog/rss_feeds.json"
   },
   "history_archive": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/history/rss_feed_audit_2026-05-23.json",
@@ -1117,7 +1145,7 @@
       "missing_rss_content_items": 0,
       "unknown_content_type_items": 0,
       "unsupported_content_type_items": 0,
-      "accepted_content_type_filter_items": 11
+      "accepted_content_type_filter_items": 12
     },
     "violations": []
   }

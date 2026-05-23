@@ -32753,12 +32753,12 @@
             "politics",
             "hard-right"
           ],
-          "enabled": true
+          "enabled": false
         }
       ],
       "verified": false,
-      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 5,287 chars. Added for hard-right populist news; inclusion is for comparative media analysis, not endorsement.",
-      "enabled": true
+      "notes": "Held 2026-05-23 after daily-shape probe: third sampled item scraped only 86 chars and failed the strict short-text gate. Keep cataloged as a hard-right candidate, but exclude from regular flow until extraction is fixed.",
+      "enabled": false
     },
     {
       "id": "gateway-pundit",
@@ -33613,6 +33613,118 @@
       ],
       "verified": false,
       "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 8,310 chars. Added for environmental legal advocacy/news; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "common-dreams",
+      "name": "Common Dreams",
+      "homepage_url": "https://www.commondreams.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national/international",
+      "ownership": "nonprofit",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.commondreams.org/rss.xml",
+          "topic_tags": [
+            "general",
+            "progressive"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 for curated progressive/independent comparison basket after outside-norm readiness probe: 2/2 sampled articles ready with full scraped text.",
+      "enabled": true
+    },
+    {
+      "id": "truthout",
+      "name": "Truthout",
+      "homepage_url": "https://truthout.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national/international",
+      "ownership": "nonprofit",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://truthout.org/feed/",
+          "topic_tags": [
+            "general",
+            "progressive"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 for curated progressive/independent comparison basket after outside-norm readiness probe: 2/2 sampled articles ready with full scraped text.",
+      "enabled": true
+    },
+    {
+      "id": "mother-jones",
+      "name": "Mother Jones",
+      "homepage_url": "https://www.motherjones.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national/international",
+      "ownership": "nonprofit",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.motherjones.com/feed/",
+          "topic_tags": [
+            "investigative",
+            "politics",
+            "progressive"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 as progressive investigative alternate after outside-norm readiness probe: sampled news article was ready and sampled video was correctly excluded by content type.",
       "enabled": true
     }
   ]
