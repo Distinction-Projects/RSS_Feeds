@@ -164,6 +164,32 @@ class FeedAuditTests(unittest.TestCase):
                 report["issue_counts"],
             )
             self.assertEqual(report["feed_fetch_errors"][0]["type"], "TimeoutError")
+            self.assertEqual(
+                report["source_health_summary"]["status_counts"],
+                {"healthy": 0, "watch": 1, "hold_candidate": 1},
+            )
+            source_health = {row["source_id"]: row for row in report["source_health"]}
+            self.assertEqual(source_health["source-a"]["status"], "watch")
+            self.assertEqual(
+                source_health["source-a"]["recommended_action"],
+                "review_source_quality",
+            )
+            self.assertEqual(source_health["source-a"]["raw_items"], 3)
+            self.assertEqual(source_health["source-a"]["newsfeed_excluded"], 2)
+            self.assertEqual(
+                source_health["source-a"]["missing_rss_content_items"],
+                1,
+            )
+            self.assertEqual(
+                source_health["source-b"]["status"],
+                "hold_candidate",
+            )
+            self.assertEqual(
+                source_health["source-b"]["recommended_action"],
+                "hold_or_disable_source",
+            )
+            self.assertEqual(source_health["source-b"]["feed_fetch_failed"], 1)
+            self.assertEqual(report["sources_needing_review"][0]["source_id"], "source-b")
 
     def test_evaluate_feed_audit_gates_reports_threshold_violations(self) -> None:
         report = {
@@ -239,6 +265,8 @@ class FeedAuditTests(unittest.TestCase):
                 "feed_fetch_failed",
             )
             self.assertIn("Feed audit:", stdout.getvalue())
+            self.assertIn("Source health:", stdout.getvalue())
+            self.assertIn("Sources needing review:", stdout.getvalue())
 
 
 if __name__ == "__main__":

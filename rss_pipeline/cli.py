@@ -926,6 +926,31 @@ def _print_feed_audit(report: dict[str, object]) -> None:
                         f"{violation.get('actual')} > {violation.get('threshold')}"
                     )
 
+    source_health_summary = report.get("source_health_summary")
+    if isinstance(source_health_summary, dict):
+        status_counts = source_health_summary.get("status_counts")
+        status_values = status_counts if isinstance(status_counts, dict) else {}
+        typer.echo(
+            "Source health: "
+            f"healthy={status_values.get('healthy', 0)} "
+            f"watch={status_values.get('watch', 0)} "
+            f"hold_candidate={status_values.get('hold_candidate', 0)}"
+        )
+
+    review_rows = report.get("sources_needing_review")
+    if isinstance(review_rows, list) and review_rows:
+        typer.echo("Sources needing review:")
+        for row in review_rows[:5]:
+            if not isinstance(row, dict):
+                continue
+            typer.echo(
+                "  - "
+                f"{row.get('source_name')}: "
+                f"status={row.get('status')} "
+                f"action={row.get('recommended_action')} "
+                f"issues={row.get('issue_count', 0)}"
+            )
+
     for label, key, value_name in (
         ("Top issues", "issue_counts", "issue"),
         ("Top content types", "content_type_counts", "content_type"),

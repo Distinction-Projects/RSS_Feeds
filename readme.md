@@ -172,8 +172,10 @@ fetches, unsupported formats, and feed coverage can be compared across runs.
 Feed audit is intentionally RSS-only: it does not scrape article pages and does not call OpenAI.
 Use it to expand catalog coverage safely and inspect feed fetch failures, missing RSS content,
 accepted non-article filters, content-type mix, and source/feed issue examples before raising
-the digest run size. The default feed-audit gate now keeps feed fetch failures, missing RSS
-content, unknown content types, and unresolved unsupported content types at zero.
+the digest run size. It also writes `source_health` rows so sources can be reviewed as
+`healthy`, `watch`, or `hold_candidate` before they become noisy in the normal digest flow.
+The default feed-audit gate now keeps feed fetch failures, missing RSS content, unknown
+content types, and unresolved unsupported content types at zero.
 
 ## Notes
 - Historical files under `data/history/` are not rewritten.
