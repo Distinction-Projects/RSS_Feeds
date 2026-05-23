@@ -40,7 +40,7 @@ on:
       score_max_items:
         description: "Max unscored items to score from digest+history (0 = all pending)"
         required: false
-        default: "72"
+        default: "8"
       force_rescore:
         description: "Force full rescore for selected subset and replace existing scores output"
         required: false
@@ -317,9 +317,9 @@ jobs:
           if [ -n "${INPUT_SCORE_MAX_ITEMS}" ]; then
             SCORE_MAX_ITEMS="${INPUT_SCORE_MAX_ITEMS}"
           elif [ "${EVENT_NAME}" = "schedule" ]; then
-            SCORE_MAX_ITEMS="72"
+            SCORE_MAX_ITEMS="8"
           else
-            SCORE_MAX_ITEMS="72"
+            SCORE_MAX_ITEMS="8"
           fi
 
           export SCORE_MAX_ITEMS
