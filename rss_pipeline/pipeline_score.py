@@ -124,6 +124,14 @@ def _is_ready_for_llm_judge(news_item: NewsItem) -> bool:
     return news_item.ready_for_llm_judge is True and news_item.llm_input_status == "ready"
 
 
+def _load_existing_scores(output_path: Path) -> list[Score]:
+    if not output_path.exists():
+        return []
+    if not output_path.read_text(encoding="utf-8").strip():
+        return []
+    return load_scores(output_path)
+
+
 def run_scoring(
     config: ScoreRunConfig,
     *,
@@ -166,9 +174,7 @@ def run_scoring(
     if not experiment_entries:
         raise ConfigError(f"No matching experiment JSON files found for {experiment_input}")
 
-    existing_scores = (
-        load_scores(output_path) if output_path.exists() and not config.replace_output else []
-    )
+    existing_scores = [] if config.replace_output else _load_existing_scores(output_path)
     all_scores = list(existing_scores)
     scored_items = 0
     skipped_not_llm_ready = 0

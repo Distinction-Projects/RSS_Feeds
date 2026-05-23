@@ -393,6 +393,84 @@ class ScoreReliabilityTests(unittest.TestCase):
             self.assertEqual(result.new_scores, 1)
             self.assertEqual(_FakeScoreService.call_count, 1)
 
+    def test_run_scoring_treats_empty_existing_output_as_no_scores(self) -> None:
+        _FakeScoreService.call_count = 0
+
+        with TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            (root / "data").mkdir(parents=True, exist_ok=True)
+            (root / "data" / "analysis").mkdir(parents=True, exist_ok=True)
+            (root / "data" / "scores.json").write_text("", encoding="utf-8")
+            config = ScoreRunConfig(
+                experiment=Path("data/rss_openai_daily.json"),
+                lenses_path=Path("lenses"),
+                output=Path("data/scores.json"),
+                cache_path=Path("data/cache/openai_cache.sqlite"),
+                prompt_audit_dir=Path("data/analysis/prompt_audit"),
+                replace_output=False,
+            )
+
+            lens = Lens(
+                name="Lens A",
+                summary="Summary",
+                instructions="Instructions",
+                system_prompt="System prompt",
+                user_prompt="User prompt",
+                rubrics=[
+                    Rubric(
+                        name="Rubric A",
+                        questions=[
+                            RubricQuestion(
+                                question="The article provides enough evidence for a claim.",
+                                semantic_class="existence_good",
+                            )
+                        ],
+                        expected_question_count=1,
+                        min_score_per_question=0.0,
+                        max_score_per_question=1.0,
+                    )
+                ],
+            )
+            scoreable_item = NewsItem.from_dict(
+                {
+                    "id": "item-1",
+                    "title": "Item 1",
+                    "link": "https://example.com/1",
+                    "summary": "Summary 1",
+                    "published": "2026-04-03T00:00:00Z",
+                    "source_id": "src",
+                    "source_name": "Source",
+                    "feed_name": "Feed",
+                    "feed_url": "https://example.com/feed.xml",
+                    "fetched_at": "2026-04-03T00:00:00Z",
+                    "ai_summary": "AI summary 1",
+                    "ai_tags": ["news"],
+                }
+            )
+
+            with (
+                patch("rss_pipeline.pipeline_score.require_env_value", return_value="test-key"),
+                patch("rss_pipeline.pipeline_score.load_lenses", return_value=[lens]),
+                patch(
+                    "rss_pipeline.pipeline_score.load_experiments",
+                    return_value=[
+                        (
+                            root / "data" / "rss_openai_daily.json",
+                            SimpleNamespace(items=[scoreable_item]),
+                        )
+                    ],
+                ),
+                patch("rss_pipeline.pipeline_score.SQLiteOpenAICache", _FakeScoreCache),
+                patch("rss_pipeline.pipeline_score.OpenAIService", _FakeScoreService),
+            ):
+                result = run_scoring(config, repo_root=root)
+
+            scores = json.loads((root / "data" / "scores.json").read_text(encoding="utf-8"))
+            self.assertEqual(result.new_scores, 1)
+            self.assertEqual(result.total_records, 1)
+            self.assertEqual(len(scores), 1)
+            self.assertEqual(_FakeScoreService.call_count, 1)
+
     def test_run_scoring_writes_checkpoint_and_run_log_on_failure(self) -> None:
         _FlakyScoreService.call_count = 0
 
