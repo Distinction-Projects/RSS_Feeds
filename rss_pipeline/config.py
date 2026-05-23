@@ -36,7 +36,7 @@ class DigestBuildConfig:
     archive_dir: Path = DEFAULT_HISTORY_DIR
     archive_enabled: bool = True
     skip_seen_items: bool = True
-    max_sources: int = 40
+    max_sources: int = 64
     feeds_per_source: int = 1
     max_items_per_feed: int = 3
     timeout_seconds: int = 30
@@ -63,7 +63,7 @@ class FeedAuditConfig:
     catalog: Path = DEFAULT_CATALOG
     output: Path = DEFAULT_FEED_AUDIT_OUTPUT
     archive_history_dir: Path | None = DEFAULT_FEED_AUDIT_HISTORY_DIR
-    max_sources: int = 40
+    max_sources: int = 64
     feeds_per_source: int = 2
     max_items_per_feed: int = 5
     timeout_seconds: int = 20

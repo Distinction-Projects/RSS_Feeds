@@ -32722,6 +32722,898 @@
       "verified": false,
       "notes": "Enabled 2026-05-23 after outside-norm readiness probe: sampled article was ready with full scraped text. Added for Chinese state-owned English-language perspective; inclusion is for comparison, not endorsement.",
       "enabled": true
+    },
+    {
+      "id": "breitbart",
+      "name": "Breitbart",
+      "homepage_url": "https://www.breitbart.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://feeds.feedburner.com/breitbart",
+          "topic_tags": [
+            "politics",
+            "hard-right"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 5,287 chars. Added for hard-right populist news; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "gateway-pundit",
+      "name": "The Gateway Pundit",
+      "homepage_url": "https://www.thegatewaypundit.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.thegatewaypundit.com/feed/",
+          "topic_tags": [
+            "politics",
+            "hard-right"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 2,952 chars. Added for hard-right/conspiracy-adjacent blog; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "american-greatness",
+      "name": "American Greatness",
+      "homepage_url": "https://amgreatness.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://amgreatness.com/feed/",
+          "topic_tags": [
+            "politics",
+            "hard-right"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 6,897 chars. Added for nationalist conservative commentary; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "the-blaze",
+      "name": "The Blaze",
+      "homepage_url": "https://www.theblaze.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.theblaze.com/feeds/feed.rss",
+          "topic_tags": [
+            "politics",
+            "conservative"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 2,267 chars. Added for conservative media; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "liberation-news",
+      "name": "Liberation News",
+      "homepage_url": "https://www.liberationnews.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national/international",
+      "ownership": "party-affiliated",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.liberationnews.org/feed/",
+          "topic_tags": [
+            "politics",
+            "far-left",
+            "socialist"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 4,740 chars. Added for socialist/PSL outlet; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "world-socialist-web-site",
+      "name": "World Socialist Web Site",
+      "homepage_url": "https://www.wsws.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "international",
+      "ownership": "party-affiliated",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.wsws.org/en/rss.xml",
+          "topic_tags": [
+            "politics",
+            "far-left",
+            "socialist"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 10,536 chars. Added for Trotskyist/socialist international outlet; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "left-voice",
+      "name": "Left Voice",
+      "homepage_url": "https://www.leftvoice.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national/international",
+      "ownership": "collective",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.leftvoice.org/feed/",
+          "topic_tags": [
+            "politics",
+            "far-left",
+            "socialist"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 7,997 chars. Added for socialist outlet; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "socialist-worker-uk",
+      "name": "Socialist Worker UK",
+      "homepage_url": "https://socialistworker.co.uk",
+      "country": "GBR",
+      "language": "en",
+      "region": "Europe",
+      "scope": "national",
+      "ownership": "party-affiliated",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://socialistworker.co.uk/feed/",
+          "topic_tags": [
+            "politics",
+            "far-left",
+            "socialist"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 2,445 chars. Added for socialist weekly; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "native-news-online",
+      "name": "Native News Online",
+      "homepage_url": "https://nativenewsonline.net",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://nativenewsonline.net/feed",
+          "topic_tags": [
+            "indigenous",
+            "native-news"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 3,060 chars. Added for Native American news; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "aptn-news",
+      "name": "APTN News",
+      "homepage_url": "https://www.aptnnews.ca",
+      "country": "CAN",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "Indigenous broadcaster",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.aptnnews.ca/feed/",
+          "topic_tags": [
+            "indigenous",
+            "canada"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; one item was brief but above readiness threshold. Added for Indigenous Canadian broadcaster; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "indiginews",
+      "name": "IndigiNews",
+      "homepage_url": "https://indiginews.com",
+      "country": "CAN",
+      "language": "en",
+      "region": "North America",
+      "scope": "regional",
+      "ownership": "Indigenous-led nonprofit",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://indiginews.com/feed/",
+          "topic_tags": [
+            "indigenous",
+            "canada"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 6,154 chars. Added for Indigenous-led Canadian news; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "ict-news",
+      "name": "ICT",
+      "homepage_url": "https://ictnews.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "nonprofit",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://ictnews.org/feed/",
+          "topic_tags": [
+            "indigenous",
+            "native-news"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: corrected feed passed 2/2 sampled articles ready. Added for Indigenous/Native American news; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "underscore-native-news",
+      "name": "Underscore Native News",
+      "homepage_url": "https://underscore.news",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "regional",
+      "ownership": "nonprofit",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://underscore.news/feed/",
+          "topic_tags": [
+            "indigenous",
+            "local"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: corrected feed passed 2/2 sampled articles ready. Added for Indigenous and rural Pacific Northwest reporting; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "the-grio",
+      "name": "TheGrio",
+      "homepage_url": "https://thegrio.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://thegrio.com/feed/",
+          "topic_tags": [
+            "black-press",
+            "culture"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 1,909 chars. Added for Black-focused news and culture; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "the-root",
+      "name": "The Root",
+      "homepage_url": "https://www.theroot.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.theroot.com/rss",
+          "topic_tags": [
+            "black-press",
+            "culture"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 3,909 chars. Added for Black-focused news and commentary; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "atlanta-black-star",
+      "name": "Atlanta Black Star",
+      "homepage_url": "https://atlantablackstar.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://atlantablackstar.com/feed/",
+          "topic_tags": [
+            "black-press",
+            "culture"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 5,021 chars. Added for Black-focused news and culture; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "capital-b",
+      "name": "Capital B",
+      "homepage_url": "https://capitalbnews.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national/local",
+      "ownership": "nonprofit",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://capitalbnews.org/feed/",
+          "topic_tags": [
+            "black-press",
+            "local"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 5,328 chars. Added for Black-led local/national nonprofit news; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "afro-news",
+      "name": "AFRO News",
+      "homepage_url": "https://afro.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "regional",
+      "ownership": "private",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://afro.com/feed/",
+          "topic_tags": [
+            "black-press",
+            "local"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 6,278 chars. Added for historic Black newspaper; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "black-agenda-report",
+      "name": "Black Agenda Report",
+      "homepage_url": "https://blackagendareport.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national/international",
+      "ownership": "collective",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://blackagendareport.com/rss.xml",
+          "topic_tags": [
+            "black-press",
+            "far-left"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: corrected feed passed 2/2 sampled articles ready. Added for Black left politics/commentary; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "mongabay",
+      "name": "Mongabay",
+      "homepage_url": "https://news.mongabay.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "international",
+      "ownership": "nonprofit",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://news.mongabay.com/feed/",
+          "topic_tags": [
+            "environment",
+            "conservation"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: sample had 1 ready article and 1 correctly excluded video; kept because classifier handled the video cleanly. Added for conservation and environmental science news; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "yale-climate-connections",
+      "name": "Yale Climate Connections",
+      "homepage_url": "https://yaleclimateconnections.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national/international",
+      "ownership": "university/nonprofit",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://yaleclimateconnections.org/feed/",
+          "topic_tags": [
+            "environment",
+            "climate"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 1,720 chars. Added for climate science communication; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "carbon-brief",
+      "name": "Carbon Brief",
+      "homepage_url": "https://www.carbonbrief.org",
+      "country": "GBR",
+      "language": "en",
+      "region": "Europe",
+      "scope": "international",
+      "ownership": "nonprofit",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.carbonbrief.org/feed/",
+          "topic_tags": [
+            "environment",
+            "climate"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 7,828 chars. Added for climate policy and science analysis; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "canary-media",
+      "name": "Canary Media",
+      "homepage_url": "https://www.canarymedia.com",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "nonprofit",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://www.canarymedia.com/rss",
+          "topic_tags": [
+            "environment",
+            "energy"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 2,342 chars. Added for clean-energy transition news; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
+    },
+    {
+      "id": "earthjustice",
+      "name": "Earthjustice",
+      "homepage_url": "https://earthjustice.org",
+      "country": "US",
+      "language": "en",
+      "region": "North America",
+      "scope": "national",
+      "ownership": "nonprofit advocacy",
+      "scores": {
+        "bias_score": null,
+        "local_national_score": null,
+        "descriptive_prescriptive_score": null,
+        "factuality_score": null,
+        "sensationalism_score": null,
+        "subjectivity_score": null,
+        "emotive_language_score": null,
+        "clickbait_score": null,
+        "polarization_score": null,
+        "civility_score": null,
+        "toxicity_score": null
+      },
+      "feeds": [
+        {
+          "name": "All Stories",
+          "url": "https://earthjustice.org/feed",
+          "topic_tags": [
+            "environment",
+            "law"
+          ],
+          "enabled": true
+        }
+      ],
+      "verified": false,
+      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: 2/2 sampled articles ready; min scraped text 8,310 chars. Added for environmental legal advocacy/news; inclusion is for comparative media analysis, not endorsement.",
+      "enabled": true
     }
   ]
 }

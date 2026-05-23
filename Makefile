@@ -16,13 +16,13 @@ FEED_AUDIT ?= data/analysis/feed_audit/rss_feed_audit.json
 FEED_AUDIT_HISTORY_DIR ?= data/analysis/feed_audit/history
 QUALITY_MAX_UNKNOWN_CONTENT_TYPES ?= 0
 QUALITY_MAX_UNSUPPORTED_CONTENT_TYPES ?= 0
-QUALITY_MAX_ACCEPTED_CONTENT_TYPE_FILTERS ?= 7
+QUALITY_MAX_ACCEPTED_CONTENT_TYPE_FILTERS ?= 12
 QUALITY_MAX_SOURCE_BLOCKED ?= 0
 QUALITY_MAX_ACCEPTED_RSS_ONLY_FALLBACK ?= 0
 QUALITY_MAX_LLM_REVIEW_ITEMS ?= 0
 QUALITY_MAX_EMPTY_SCRAPED_TEXT ?= 0
 QUALITY_MAX_SHORT_SCRAPED_TEXT ?= 0
-FEED_AUDIT_MAX_SOURCES ?= 40
+FEED_AUDIT_MAX_SOURCES ?= 64
 FEED_AUDIT_FEEDS_PER_SOURCE ?= 2
 FEED_AUDIT_MAX_ITEMS_PER_FEED ?= 5
 FEED_AUDIT_MAX_FEED_FETCH_FAILURES ?= 0
@@ -120,7 +120,7 @@ check-offline: lint format-check typecheck validate-all
 digest-build: install
 	@$(RSSCTL) digest build \
 		--output data/rss_openai_daily.json \
-		--max-sources 40 \
+		--max-sources 64 \
 		--feeds-per-source 1 \
 		--max-items-per-feed 3
 

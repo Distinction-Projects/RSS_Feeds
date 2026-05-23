@@ -2,15 +2,15 @@
   "schema_version": "1.0",
   "status": "pass",
   "run": {
-    "id": "feed-audit-20260523T064306-fcdb297910",
-    "generated_at": "2026-05-23T06:43:06Z",
-    "duration_seconds": 8.914,
-    "command": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/rss_pipeline/cli.py validate feed-audit --output data/analysis/feed_audit/rss_feed_audit.json --archive-history-dir data/analysis/feed_audit/history --max-sources 40 --feeds-per-source 2 --max-items-per-feed 5 --max-feed-fetch-failures 0 --max-missing-rss-content 0 --max-unknown-content-types 0 --max-unsupported-content-types 0"
+    "id": "feed-audit-20260523T073536-ba32f34668",
+    "generated_at": "2026-05-23T07:35:36Z",
+    "duration_seconds": 19.075,
+    "command": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/rss_pipeline/cli.py validate feed-audit --output data/analysis/feed_audit/rss_feed_audit.json --archive-history-dir data/analysis/feed_audit/history --max-sources 64 --feeds-per-source 2 --max-items-per-feed 5 --max-feed-fetch-failures 0 --max-missing-rss-content 0 --max-unknown-content-types 0 --max-unsupported-content-types 0"
   },
-  "generated_at": "2026-05-23T06:43:06Z",
+  "generated_at": "2026-05-23T07:35:36Z",
   "request": {
     "catalog_path": "feed_catalog/rss_feeds.json",
-    "max_sources": 40,
+    "max_sources": 64,
     "feeds_per_source": 2,
     "max_items_per_feed": 5,
     "timeout_seconds": 20,
@@ -18,7 +18,7 @@
     "run_log_dir": "data/analysis/feed_audit/run_logs"
   },
   "sources": {
-    "selected_count": 39,
+    "selected_count": 63,
     "selected": [
       {
         "source_id": "bbc-news",
@@ -431,21 +431,289 @@
           "state-media"
         ],
         "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "breitbart",
+        "source_name": "Breitbart",
+        "feed_name": "All Stories",
+        "feed_url": "https://feeds.feedburner.com/breitbart",
+        "topic_tags": [
+          "politics",
+          "hard-right"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "gateway-pundit",
+        "source_name": "The Gateway Pundit",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.thegatewaypundit.com/feed/",
+        "topic_tags": [
+          "politics",
+          "hard-right"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "american-greatness",
+        "source_name": "American Greatness",
+        "feed_name": "All Stories",
+        "feed_url": "https://amgreatness.com/feed/",
+        "topic_tags": [
+          "politics",
+          "hard-right"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "the-blaze",
+        "source_name": "The Blaze",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.theblaze.com/feeds/feed.rss",
+        "topic_tags": [
+          "politics",
+          "conservative"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "liberation-news",
+        "source_name": "Liberation News",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.liberationnews.org/feed/",
+        "topic_tags": [
+          "politics",
+          "far-left",
+          "socialist"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "world-socialist-web-site",
+        "source_name": "World Socialist Web Site",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.wsws.org/en/rss.xml",
+        "topic_tags": [
+          "politics",
+          "far-left",
+          "socialist"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "left-voice",
+        "source_name": "Left Voice",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.leftvoice.org/feed/",
+        "topic_tags": [
+          "politics",
+          "far-left",
+          "socialist"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "socialist-worker-uk",
+        "source_name": "Socialist Worker UK",
+        "feed_name": "All Stories",
+        "feed_url": "https://socialistworker.co.uk/feed/",
+        "topic_tags": [
+          "politics",
+          "far-left",
+          "socialist"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "native-news-online",
+        "source_name": "Native News Online",
+        "feed_name": "All Stories",
+        "feed_url": "https://nativenewsonline.net/feed",
+        "topic_tags": [
+          "indigenous",
+          "native-news"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "aptn-news",
+        "source_name": "APTN News",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.aptnnews.ca/feed/",
+        "topic_tags": [
+          "indigenous",
+          "canada"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "indiginews",
+        "source_name": "IndigiNews",
+        "feed_name": "All Stories",
+        "feed_url": "https://indiginews.com/feed/",
+        "topic_tags": [
+          "indigenous",
+          "canada"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "ict-news",
+        "source_name": "ICT",
+        "feed_name": "All Stories",
+        "feed_url": "https://ictnews.org/feed/",
+        "topic_tags": [
+          "indigenous",
+          "native-news"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "underscore-native-news",
+        "source_name": "Underscore Native News",
+        "feed_name": "All Stories",
+        "feed_url": "https://underscore.news/feed/",
+        "topic_tags": [
+          "indigenous",
+          "local"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "the-grio",
+        "source_name": "TheGrio",
+        "feed_name": "All Stories",
+        "feed_url": "https://thegrio.com/feed/",
+        "topic_tags": [
+          "black-press",
+          "culture"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "the-root",
+        "source_name": "The Root",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.theroot.com/rss",
+        "topic_tags": [
+          "black-press",
+          "culture"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "atlanta-black-star",
+        "source_name": "Atlanta Black Star",
+        "feed_name": "All Stories",
+        "feed_url": "https://atlantablackstar.com/feed/",
+        "topic_tags": [
+          "black-press",
+          "culture"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "capital-b",
+        "source_name": "Capital B",
+        "feed_name": "All Stories",
+        "feed_url": "https://capitalbnews.org/feed/",
+        "topic_tags": [
+          "black-press",
+          "local"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "afro-news",
+        "source_name": "AFRO News",
+        "feed_name": "All Stories",
+        "feed_url": "https://afro.com/feed/",
+        "topic_tags": [
+          "black-press",
+          "local"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "black-agenda-report",
+        "source_name": "Black Agenda Report",
+        "feed_name": "All Stories",
+        "feed_url": "https://blackagendareport.com/rss.xml",
+        "topic_tags": [
+          "black-press",
+          "far-left"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "mongabay",
+        "source_name": "Mongabay",
+        "feed_name": "All Stories",
+        "feed_url": "https://news.mongabay.com/feed/",
+        "topic_tags": [
+          "environment",
+          "conservation"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "yale-climate-connections",
+        "source_name": "Yale Climate Connections",
+        "feed_name": "All Stories",
+        "feed_url": "https://yaleclimateconnections.org/feed/",
+        "topic_tags": [
+          "environment",
+          "climate"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "carbon-brief",
+        "source_name": "Carbon Brief",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.carbonbrief.org/feed/",
+        "topic_tags": [
+          "environment",
+          "climate"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "canary-media",
+        "source_name": "Canary Media",
+        "feed_name": "All Stories",
+        "feed_url": "https://www.canarymedia.com/rss",
+        "topic_tags": [
+          "environment",
+          "energy"
+        ],
+        "scrape_fallback_policy": null
+      },
+      {
+        "source_id": "earthjustice",
+        "source_name": "Earthjustice",
+        "feed_name": "All Stories",
+        "feed_url": "https://earthjustice.org/feed",
+        "topic_tags": [
+          "environment",
+          "law"
+        ],
+        "scrape_fallback_policy": null
       }
     ]
   },
   "summary": {
-    "selected_sources": 39,
-    "selected_feeds": 39,
-    "feed_fetch_attempts": 39,
-    "feed_fetch_succeeded": 39,
+    "selected_sources": 63,
+    "selected_feeds": 63,
+    "feed_fetch_attempts": 63,
+    "feed_fetch_succeeded": 63,
     "feed_fetch_failed": 0,
-    "raw_fetched_items": 195,
-    "typical_newsfeed_items": 189,
-    "newsfeed_excluded": 6,
+    "raw_fetched_items": 315,
+    "typical_newsfeed_items": 304,
+    "newsfeed_excluded": 11,
     "rss_missing_content": 0,
-    "accepted_content_type_filter": 6,
-    "quality_clean_items": 195,
+    "accepted_content_type_filter": 11,
+    "quality_clean_items": 315,
     "quality_warn_items": 0,
     "quality_fail_items": 0
   },
@@ -454,38 +722,46 @@
     "missing_rss_content_items": 0,
     "unknown_content_type_items": 0,
     "unsupported_content_type_items": 0,
-    "accepted_content_type_filter_items": 6
+    "accepted_content_type_filter_items": 11
   },
   "status_counts": {
-    "clean": 195
+    "clean": 315
   },
   "severity_counts": {
-    "info": 6
+    "info": 11
   },
   "issue_counts": [
     {
       "issue": "content_type_filter_accepted",
-      "count": 6
+      "count": 11
     }
   ],
   "content_type_counts": [
     {
       "content_type": "news_article",
-      "count": 184
+      "count": 299
     },
     {
       "content_type": "video",
-      "count": 6
+      "count": 10
     },
     {
       "content_type": "analysis",
       "count": 5
+    },
+    {
+      "content_type": "live_blog",
+      "count": 1
     }
   ],
   "exclusion_reason_counts": [
     {
       "reason": "unsupported_content_type:video",
-      "count": 6
+      "count": 10
+    },
+    {
+      "reason": "unsupported_content_type:live_blog",
+      "count": 1
     }
   ],
   "top_sources": [
@@ -533,7 +809,7 @@
   "top_feeds": [
     {
       "feed": "All Stories",
-      "count": 75
+      "count": 195
     },
     {
       "feed": "Top Stories",
@@ -574,12 +850,12 @@
   ],
   "top_source_issues": [
     {
-      "source": "ABC News",
+      "source": "NBC News",
       "issue": "content_type_filter_accepted",
-      "count": 2
+      "count": 3
     },
     {
-      "source": "Al Jazeera",
+      "source": "ABC News",
       "issue": "content_type_filter_accepted",
       "count": 2
     },
@@ -589,7 +865,27 @@
       "count": 1
     },
     {
-      "source": "NBC News",
+      "source": "CBS News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "Al Jazeera",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "ABC News (Australia)",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "The Gateway Pundit",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "Mongabay",
       "issue": "content_type_filter_accepted",
       "count": 1
     }
@@ -598,15 +894,20 @@
     {
       "feed": "Top Stories",
       "issue": "content_type_filter_accepted",
-      "count": 3
+      "count": 7
     },
     {
-      "feed": "All News",
+      "feed": "All Stories",
       "issue": "content_type_filter_accepted",
       "count": 2
     },
     {
       "feed": "Headlines",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "feed": "All News",
       "issue": "content_type_filter_accepted",
       "count": 1
     }
@@ -634,6 +935,60 @@
       "id": "56c4ebfc221a",
       "title": "DHS to require green card applicants to return to home countries to apply",
       "source": "NBC News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "49e71fe02325",
+      "title": "Thousands under evacuation orders in Southern California amid threat of chemical explosion",
+      "source": "NBC News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "69cdfd9b4ee3",
+      "title": "Tulsi Gabbard resigns as director of national intelligence",
+      "source": "NBC News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "5f41ccf351f1",
+      "title": "Listen: The final moments of CBS News Radio",
+      "source": "CBS News",
       "feed": "Top Stories",
       "content_type": "video",
       "include_in_newsfeed": false,
@@ -685,8 +1040,8 @@
       ]
     },
     {
-      "id": "13e176a9c946",
-      "title": "Trump releases new batch of previously classified UFO files",
+      "id": "692c5d9f3634",
+      "title": "Israeli forces attack central Gaza despite ceasefire agreement",
       "source": "Al Jazeera",
       "feed": "All News",
       "content_type": "video",
@@ -703,10 +1058,28 @@
       ]
     },
     {
-      "id": "4c1cb1e1bd3a",
-      "title": "Over 1.6 million pilgrims arrive in Saudi Arabia for hajj pilgrimage",
-      "source": "Al Jazeera",
-      "feed": "All News",
+      "id": "2f8054a2210b",
+      "title": "Live: Dragons looking for relief from worst start to a season in NRL history",
+      "source": "ABC News (Australia)",
+      "feed": "Top Stories",
+      "content_type": "live_blog",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:live_blog",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "live_blog"
+        }
+      ]
+    },
+    {
+      "id": "e407329e8b91",
+      "title": "WATCH: Trump Brings Family of Sheridan Gorman, Teen Murdered by Illegal Alien in Chicago, On Stage at Rally to Deliver Heartbreaking Message to Open Border Lunatics",
+      "source": "The Gateway Pundit",
+      "feed": "All Stories",
       "content_type": "video",
       "include_in_newsfeed": false,
       "newsfeed_exclusion_reason": "unsupported_content_type:video",
@@ -727,7 +1100,7 @@
   "audit": {
     "catalog_path": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/feed_catalog/rss_feeds.json",
     "output_path": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/rss_feed_audit.json",
-    "run_log": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20260523T064306-fcdb297910.jsonl",
+    "run_log": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20260523T073536-ba32f34668.jsonl",
     "requested_catalog_path": "feed_catalog/rss_feeds.json"
   },
   "history_archive": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/history/rss_feed_audit_2026-05-23.json",
@@ -744,7 +1117,7 @@
       "missing_rss_content_items": 0,
       "unknown_content_type_items": 0,
       "unsupported_content_type_items": 0,
-      "accepted_content_type_filter_items": 6
+      "accepted_content_type_filter_items": 11
     },
     "violations": []
   }

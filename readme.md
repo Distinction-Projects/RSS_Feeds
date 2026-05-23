@@ -36,6 +36,10 @@ Package-first RSS + OpenAI pipeline with a single CLI: `rssctl`.
 - Legacy/current digest reviews infer missing `content_type` values, and publish builds
   use the same inference to keep video, newsletter, podcast, gallery, live blog, press
   release, and missing-content items out of the app-facing precomputed newsfeed.
+- The enabled catalog intentionally includes a wider comparison basket across mainstream,
+  public media, investigative, progressive, socialist/far-left, libertarian, conservative,
+  hard-right, Indigenous, Black press, environmental/climate, heterodox, alternative foreign
+  policy, and state-media sources. Inclusion is for comparative media analysis, not endorsement.
 
 ## Core generated outputs
 - Daily digest: `data/rss_openai_daily.json`
@@ -132,7 +136,7 @@ python3 -m rss_pipeline.cli validate quality --digest data/rss_openai_daily.json
   --archive-history-dir data/analysis/quality/history \
   --max-unknown-content-types 0 \
   --max-unsupported-content-types 0 \
-  --max-accepted-content-type-filters 7 \
+  --max-accepted-content-type-filters 12 \
   --max-source-blocked 0 \
   --max-accepted-rss-only-fallback 0 \
   --max-llm-review-items 0 \
@@ -144,7 +148,7 @@ python3 -m rss_pipeline.cli validate quality-history \
 python3 -m rss_pipeline.cli validate feed-audit \
   --output data/analysis/feed_audit/rss_feed_audit.json \
   --archive-history-dir data/analysis/feed_audit/history \
-  --max-sources 40 \
+  --max-sources 64 \
   --feeds-per-source 2 \
   --max-items-per-feed 5 \
   --max-feed-fetch-failures 0 \
