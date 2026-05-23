@@ -33423,12 +33423,12 @@
             "black-press",
             "far-left"
           ],
-          "enabled": true
+          "enabled": false
         }
       ],
       "verified": false,
-      "notes": "Enabled 2026-05-23 after perspective-expansion readiness probe: corrected feed passed 2/2 sampled articles ready. Added for Black left politics/commentary; inclusion is for comparative media analysis, not endorsement.",
-      "enabled": true
+      "notes": "Held 2026-05-23 after GitHub daily workflow feed audit: feed fetch failed in CI with SSL certificate verification error for self-signed certificate. Keep cataloged as a Black left politics/commentary candidate, but exclude from regular flow until feed TLS is reliable.",
+      "enabled": false
     },
     {
       "id": "mongabay",

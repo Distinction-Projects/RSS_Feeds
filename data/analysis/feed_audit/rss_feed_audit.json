@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "status": "warn",
+  "status": "pass",
   "run": {
-    "id": "feed-audit-20260523T080326-d078c89fcf",
-    "generated_at": "2026-05-23T08:03:26Z",
-    "duration_seconds": 26.362,
+    "id": "feed-audit-20260523T081207-4a1d23ba20",
+    "generated_at": "2026-05-23T08:12:07Z",
+    "duration_seconds": 20.896,
     "command": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/rss_pipeline/cli.py validate feed-audit --output data/analysis/feed_audit/rss_feed_audit.json --archive-history-dir data/analysis/feed_audit/history --max-sources 72 --feeds-per-source 2 --max-items-per-feed 5 --max-feed-fetch-failures 0 --max-missing-rss-content 5 --max-unknown-content-types 0 --max-unsupported-content-types 0"
   },
-  "generated_at": "2026-05-23T08:03:26Z",
+  "generated_at": "2026-05-23T08:12:07Z",
   "request": {
     "catalog_path": "feed_catalog/rss_feeds.json",
     "max_sources": 72,
@@ -18,7 +18,7 @@
     "run_log_dir": "data/analysis/feed_audit/run_logs"
   },
   "sources": {
-    "selected_count": 64,
+    "selected_count": 63,
     "selected": [
       {
         "source_id": "bbc-news",
@@ -612,17 +612,6 @@
         "scrape_fallback_policy": null
       },
       {
-        "source_id": "black-agenda-report",
-        "source_name": "Black Agenda Report",
-        "feed_name": "All Stories",
-        "feed_url": "https://blackagendareport.com/rss.xml",
-        "topic_tags": [
-          "black-press",
-          "far-left"
-        ],
-        "scrape_fallback_policy": null
-      },
-      {
         "source_id": "mongabay",
         "source_name": "Mongabay",
         "feed_name": "All Stories",
@@ -714,53 +703,47 @@
     ]
   },
   "summary": {
-    "selected_sources": 64,
-    "selected_feeds": 64,
-    "feed_fetch_attempts": 64,
-    "feed_fetch_succeeded": 64,
+    "selected_sources": 63,
+    "selected_feeds": 63,
+    "feed_fetch_attempts": 63,
+    "feed_fetch_succeeded": 63,
     "feed_fetch_failed": 0,
-    "raw_fetched_items": 320,
-    "typical_newsfeed_items": 307,
+    "raw_fetched_items": 315,
+    "typical_newsfeed_items": 302,
     "newsfeed_excluded": 13,
-    "rss_missing_content": 1,
-    "accepted_content_type_filter": 12,
-    "quality_clean_items": 319,
-    "quality_warn_items": 1,
+    "rss_missing_content": 0,
+    "accepted_content_type_filter": 13,
+    "quality_clean_items": 315,
+    "quality_warn_items": 0,
     "quality_fail_items": 0
   },
   "quality_gate_metrics": {
     "feed_fetch_failed": 0,
-    "missing_rss_content_items": 1,
+    "missing_rss_content_items": 0,
     "unknown_content_type_items": 0,
     "unsupported_content_type_items": 0,
-    "accepted_content_type_filter_items": 12
+    "accepted_content_type_filter_items": 13
   },
   "status_counts": {
-    "clean": 319,
-    "warn": 1
+    "clean": 315
   },
   "severity_counts": {
-    "info": 12,
-    "warn": 1
+    "info": 13
   },
   "issue_counts": [
     {
       "issue": "content_type_filter_accepted",
-      "count": 12
-    },
-    {
-      "issue": "missing_rss_content",
-      "count": 1
+      "count": 13
     }
   ],
   "content_type_counts": [
     {
       "content_type": "news_article",
-      "count": 302
+      "count": 297
     },
     {
       "content_type": "video",
-      "count": 11
+      "count": 12
     },
     {
       "content_type": "analysis",
@@ -769,23 +752,15 @@
     {
       "content_type": "live_blog",
       "count": 1
-    },
-    {
-      "content_type": "missing_content",
-      "count": 1
     }
   ],
   "exclusion_reason_counts": [
     {
       "reason": "unsupported_content_type:video",
-      "count": 11
+      "count": 12
     },
     {
       "reason": "unsupported_content_type:live_blog",
-      "count": 1
-    },
-    {
-      "reason": "missing_rss_content",
       "count": 1
     }
   ],
@@ -834,7 +809,7 @@
   "top_feeds": [
     {
       "feed": "All Stories",
-      "count": 200
+      "count": 195
     },
     {
       "feed": "Top Stories",
@@ -890,6 +865,11 @@
       "count": 1
     },
     {
+      "source": "Fox News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
       "source": "CBS News",
       "issue": "content_type_filter_accepted",
       "count": 1
@@ -902,11 +882,6 @@
     {
       "source": "ABC News (Australia)",
       "issue": "content_type_filter_accepted",
-      "count": 1
-    },
-    {
-      "source": "The Hindu - Home",
-      "issue": "missing_rss_content",
       "count": 1
     },
     {
@@ -942,13 +917,13 @@
       "count": 1
     },
     {
-      "feed": "All News",
+      "feed": "Latest",
       "issue": "content_type_filter_accepted",
       "count": 1
     },
     {
-      "feed": "The Hindu - Home",
-      "issue": "missing_rss_content",
+      "feed": "All News",
+      "issue": "content_type_filter_accepted",
       "count": 1
     }
   ],
@@ -958,6 +933,24 @@
       "title": "Is it time for the U.S. to reassess its Iran strategy?",
       "source": "PBS NewsHour",
       "feed": "Headlines",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "15143266dfee",
+      "title": "WATCH: House Dems unload on Texas Democrat over \u2018demented\u2019 antisemitic comments",
+      "source": "Fox News",
+      "feed": "Latest",
       "content_type": "video",
       "include_in_newsfeed": false,
       "newsfeed_exclusion_reason": "unsupported_content_type:video",
@@ -1114,35 +1107,15 @@
           "detail": "live_blog"
         }
       ]
-    },
-    {
-      "id": "4c0320660f0e",
-      "title": "After minimum wage revision, Karnataka pushes Centre for change in ESI ceiling",
-      "source": "The Hindu - Home",
-      "feed": "The Hindu - Home",
-      "content_type": "missing_content",
-      "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "missing_rss_content",
-      "quality_status": "warn",
-      "flags": [
-        {
-          "code": "missing_rss_content",
-          "severity": "warn",
-          "message": "RSS entry has no summary, description, or content text."
-        }
-      ]
     }
   ],
   "feed_fetch_errors": [],
   "blocking_issues": [],
-  "warnings": [
-    "1 RSS item(s) had no content text",
-    "1 RSS item(s) had warning-level quality flags"
-  ],
+  "warnings": [],
   "audit": {
     "catalog_path": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/feed_catalog/rss_feeds.json",
     "output_path": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/rss_feed_audit.json",
-    "run_log": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20260523T080326-d078c89fcf.jsonl",
+    "run_log": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20260523T081207-4a1d23ba20.jsonl",
     "requested_catalog_path": "feed_catalog/rss_feeds.json"
   },
   "history_archive": "/Users/alexstevens/Documents/GitHub/RSS_Feeds/data/analysis/feed_audit/history/rss_feed_audit_2026-05-23.json",
@@ -1156,10 +1129,10 @@
     },
     "metrics": {
       "feed_fetch_failed": 0,
-      "missing_rss_content_items": 1,
+      "missing_rss_content_items": 0,
       "unknown_content_type_items": 0,
       "unsupported_content_type_items": 0,
-      "accepted_content_type_filter_items": 12
+      "accepted_content_type_filter_items": 13
     },
     "violations": []
   }
