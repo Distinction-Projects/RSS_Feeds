@@ -55,6 +55,7 @@ def build_cleanliness_summary(rows: list[dict[str, Any]], *, limit: int = 10) ->
     stage_counts: Counter[str] = Counter()
     action_counts: Counter[str] = Counter()
     severity_counts: Counter[str] = Counter()
+    issue_group_counts: Counter[tuple[str, str, str]] = Counter()
     source_rows: dict[str, dict[str, Any]] = {}
     feed_rows: dict[str, dict[str, Any]] = {}
 
@@ -99,6 +100,7 @@ def build_cleanliness_summary(rows: list[dict[str, Any]], *, limit: int = 10) ->
             stage_counts[metadata["stage"]] += 1
             action_counts[metadata["recommended_action"]] += 1
             severity_counts[metadata["severity"]] += 1
+            issue_group_counts[(source, feed, code)] += 1
             source_row["reason_counts"][code] += 1
             feed_row["reason_counts"][code] += 1
 
@@ -117,6 +119,7 @@ def build_cleanliness_summary(rows: list[dict[str, Any]], *, limit: int = 10) ->
         "reason_counts": _reason_rows(reason_counts, limit=limit),
         "stage_counts": _counter_rows(stage_counts, "stage", limit),
         "severity_counts": _counter_rows(severity_counts, "severity", limit),
+        "top_issue_groups": _issue_group_rows(issue_group_counts, limit=limit),
         "recommended_action_counts": _counter_rows(
             action_counts,
             "recommended_action",
@@ -288,6 +291,35 @@ def _reason_rows(counter: Counter[str], *, limit: int) -> list[dict[str, Any]]:
             }
         )
     return rows
+
+
+def _issue_group_rows(
+    counter: Counter[tuple[str, str, str]], *, limit: int
+) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for (source, feed, issue), count in counter.items():
+        metadata = issue_metadata(issue)
+        rows.append(
+            {
+                "source": source,
+                "feed": feed,
+                "reason": issue,
+                "count": count,
+                "stage": metadata["stage"],
+                "severity": metadata["severity"],
+                "recommended_action": metadata["recommended_action"],
+            }
+        )
+    rows.sort(
+        key=lambda row: (
+            -_SEVERITY_RANK.get(str(row["severity"]), 1),
+            -int(row["count"]),
+            str(row["source"]),
+            str(row["feed"]),
+            str(row["reason"]),
+        )
+    )
+    return rows[:limit]
 
 
 def _counter_rows(counter: Counter[str], key_name: str, limit: int) -> list[dict[str, Any]]:

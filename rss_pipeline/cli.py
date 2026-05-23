@@ -881,6 +881,7 @@ def _print_quality_review(review: dict[str, object]) -> None:
             f"warn_or_fail={cleanliness.get('warning_or_failure_items', 0)} "
             f"excluded={cleanliness.get('newsfeed_excluded', 0)}"
         )
+        _print_cleanliness_drivers(cleanliness)
 
     gate = review.get("quality_gate")
     if isinstance(gate, dict):
@@ -988,6 +989,7 @@ def _print_feed_audit(report: dict[str, object]) -> None:
             f"warn_or_fail={cleanliness.get('warning_or_failure_items', 0)} "
             f"excluded={cleanliness.get('newsfeed_excluded', 0)}"
         )
+        _print_cleanliness_drivers(cleanliness)
 
     gate = report.get("quality_gate")
     if isinstance(gate, dict):
@@ -1047,6 +1049,24 @@ def _print_feed_audit(report: dict[str, object]) -> None:
         typer.echo(f"Feed audit output: {output_path['output_path']}")
     if report.get("history_archive"):
         typer.echo(f"Feed audit history: {report['history_archive']}")
+
+
+def _print_cleanliness_drivers(cleanliness: dict[object, object]) -> None:
+    rows = cleanliness.get("top_issue_groups")
+    if not isinstance(rows, list) or not rows:
+        return
+    typer.echo("Top cleanliness drivers:")
+    for row in rows[:5]:
+        if not isinstance(row, dict):
+            continue
+        typer.echo(
+            "  - "
+            f"{row.get('source', 'unknown')} / {row.get('feed', 'unknown')}: "
+            f"{row.get('reason', 'unknown')} "
+            f"[{row.get('stage', 'quality_audit')} -> "
+            f"{row.get('recommended_action', 'review_quality_flags')}] "
+            f"x{row.get('count', 0)}"
+        )
 
 
 def _print_source_health_trends(report: dict[str, object]) -> None:

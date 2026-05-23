@@ -346,6 +346,7 @@ class QualityReviewTests(unittest.TestCase):
             )
             self.assertEqual(payload["quality_gate_metrics"]["accepted_rss_only_fallback_items"], 0)
             self.assertIn("Quality review output:", stdout.getvalue())
+            self.assertIn("Top cleanliness drivers:", stdout.getvalue())
 
     def test_validate_quality_cli_can_fail_on_issue(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

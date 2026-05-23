@@ -99,6 +99,18 @@ class DigestQualityReportTests(unittest.TestCase):
             report["cleanliness"]["reason_counts"],
         )
         self.assertIn(
+            {
+                "source": "Source A",
+                "feed": "Top",
+                "reason": "missing_rss_content",
+                "count": 1,
+                "stage": "rss_content",
+                "severity": "warn",
+                "recommended_action": "review_feed_content",
+            },
+            report["cleanliness"]["top_issue_groups"],
+        )
+        self.assertIn(
             "1 article(s) missing RSS content were excluded from typical newsfeed output",
             report["warnings"],
         )
@@ -172,6 +184,18 @@ class DigestQualityReportTests(unittest.TestCase):
                 "recommended_action": "review_feed_availability",
             },
             report["cleanliness"]["reason_counts"],
+        )
+        self.assertIn(
+            {
+                "source": "Source B",
+                "feed": "World",
+                "reason": "feed_fetch_failed",
+                "count": 1,
+                "stage": "feed_fetch",
+                "severity": "warn",
+                "recommended_action": "review_feed_availability",
+            },
+            report["cleanliness"]["top_issue_groups"],
         )
 
     def test_quality_report_warns_for_filtered_duplicates_and_scrape_failures(self) -> None:

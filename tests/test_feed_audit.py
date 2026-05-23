@@ -168,6 +168,18 @@ class FeedAuditTests(unittest.TestCase):
                 },
                 report["cleanliness"]["reason_counts"],
             )
+            self.assertIn(
+                {
+                    "source": "Source B",
+                    "feed": "World",
+                    "reason": "feed_fetch_failed",
+                    "count": 1,
+                    "stage": "feed_fetch",
+                    "severity": "warn",
+                    "recommended_action": "review_feed_availability",
+                },
+                report["cleanliness"]["top_issue_groups"],
+            )
             self.assertEqual(report["quality_gate_metrics"]["feed_fetch_failed"], 1)
             self.assertEqual(
                 report["quality_gate_metrics"]["accepted_content_type_filter_items"],
@@ -334,6 +346,7 @@ class FeedAuditTests(unittest.TestCase):
                 "feed_fetch_failed",
             )
             self.assertIn("Feed audit:", stdout.getvalue())
+            self.assertIn("Top cleanliness drivers:", stdout.getvalue())
             self.assertIn("Source health:", stdout.getvalue())
             self.assertIn("Sources needing review:", stdout.getvalue())
 
