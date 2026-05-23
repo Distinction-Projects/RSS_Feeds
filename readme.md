@@ -174,8 +174,9 @@ Use it to expand catalog coverage safely and inspect feed fetch failures, missin
 accepted non-article filters, content-type mix, and source/feed issue examples before raising
 the digest run size. It also writes `source_health` rows so sources can be reviewed as
 `healthy`, `watch`, or `hold_candidate` before they become noisy in the normal digest flow.
-The default feed-audit gate now keeps feed fetch failures, missing RSS content, unknown
-content types, and unresolved unsupported content types at zero.
+The default feed-audit gate now keeps feed fetch failures, unknown content types, and
+unresolved unsupported content types at zero, while allowing a small number of flagged
+missing-content RSS items that are excluded from normal newsfeed output.
 
 ## Notes
 - Historical files under `data/history/` are not rewritten.
