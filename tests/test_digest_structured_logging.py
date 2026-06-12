@@ -210,6 +210,10 @@ class DigestStructuredLoggingTests(unittest.TestCase):
                 payload["quality_report"]["item_quality"]["status_counts"], {"warn": 1}
             )
             self.assertEqual(payload["quality_report"]["llm_review_items"], 1)
+            self.assertEqual(
+                payload["quality_report"]["cleanliness"]["warning_or_failure_items"], 1
+            )
+            self.assertEqual(payload["audit"]["cleanliness"]["observable_issue_items"], 1)
 
             events = _read_jsonl(run_log_path)
             event_names = [str(event["event"]) for event in events]
@@ -225,8 +229,13 @@ class DigestStructuredLoggingTests(unittest.TestCase):
             self.assertIn("article_scoring_skipped", event_names)
             self.assertIn("article_quality_assessed", event_names)
             self.assertIn("quality_summary", event_names)
+            self.assertIn("cleanliness_summary", event_names)
             self.assertIn("json_validation_succeeded", event_names)
             self.assertEqual(events[-1]["event"], "run_completed")
+            cleanliness_event = next(
+                event for event in events if event["event"] == "cleanliness_summary"
+            )
+            self.assertEqual(cleanliness_event["warning_or_failure_items"], 1)
             self.assertTrue(all(event["run_id"] == result["run_id"] for event in events))
             self.assertTrue(all(isinstance(event.get("logged_at"), str) for event in events))
 

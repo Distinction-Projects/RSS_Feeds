@@ -6,6 +6,11 @@ from pathlib import Path
 from typing import Any
 
 from .artifact_store import archive_json, write_json
+from .cleanliness import (
+    build_cleanliness_summary,
+    digest_item_cleanliness_row,
+    feed_error_cleanliness_row,
+)
 from .config import FeedAuditConfig
 from .errors import ConfigError
 from .logging import StructuredRunLogger, get_logger
@@ -22,6 +27,15 @@ from .quality_diagnostics import apply_item_quality_audit
 from .workflow_runtime import RunContext, command_line
 
 logger = get_logger(__name__)
+
+
+SOURCE_HEALTH_STATUSES = ("healthy", "watch", "hold_candidate")
+SOURCE_HEALTH_ACTIONS = (
+    "keep",
+    "review_source_mix",
+    "review_source_quality",
+    "hold_or_disable_source",
+)
 
 
 def _counter_rows(counter: Counter[str], key_name: str, limit: int) -> list[dict[str, Any]]:
@@ -57,6 +71,60 @@ def _item_feed_label(item: DigestItem) -> str:
 
 def _item_source_label(item: DigestItem) -> str:
     return item.source.name or item.source.id or "unknown"
+
+
+def _source_key(source_id: Any, source_name: Any) -> str:
+    return compact_whitespace(source_id) or compact_whitespace(source_name) or "unknown"
+
+
+def _source_health_row(
+    rows: dict[str, dict[str, Any]],
+    issue_counters: dict[str, Counter[str]],
+    *,
+    source_id: Any,
+    source_name: Any,
+) -> dict[str, Any]:
+    key = _source_key(source_id, source_name)
+    if key not in rows:
+        rows[key] = {
+            "source_id": compact_whitespace(source_id) or key,
+            "source_name": compact_whitespace(source_name) or compact_whitespace(source_id) or key,
+            "selected_feeds": 0,
+            "feed_fetch_failed": 0,
+            "raw_items": 0,
+            "typical_newsfeed_items": 0,
+            "newsfeed_excluded": 0,
+            "quality_clean_items": 0,
+            "quality_warn_items": 0,
+            "quality_fail_items": 0,
+            "missing_rss_content_items": 0,
+            "accepted_content_type_filter_items": 0,
+            "info_issue_count": 0,
+            "warn_issue_count": 0,
+            "fail_issue_count": 0,
+        }
+        issue_counters[key] = Counter()
+    return rows[key]
+
+
+def _source_health_status(row: dict[str, Any], issue_count: int) -> tuple[str, str]:
+    if _safe_int(row.get("feed_fetch_failed")) or _safe_int(row.get("quality_fail_items")):
+        return "hold_candidate", "hold_or_disable_source"
+    if _safe_int(row.get("warn_issue_count")) or _safe_int(row.get("fail_issue_count")):
+        return "watch", "review_source_quality"
+    if issue_count or _safe_int(row.get("newsfeed_excluded")):
+        return "watch", "review_source_mix"
+    return "healthy", "keep"
+
+
+def _source_health_sort_key(row: dict[str, Any]) -> tuple[int, int, int, str]:
+    status_rank = {"hold_candidate": 0, "watch": 1, "healthy": 2}
+    return (
+        status_rank.get(str(row.get("status")), 3),
+        -_safe_int(row.get("feed_fetch_failed")),
+        -_safe_int(row.get("issue_count")),
+        str(row.get("source_name")),
+    )
 
 
 def _feed_error_payload(
@@ -268,6 +336,7 @@ def run_feed_audit(
             status=report["status"],
             **report["summary"],
         )
+        audit_logger.event("cleanliness_summary", **report["cleanliness"])
         audit_logger.event("run_completed", duration_seconds=context.duration_seconds)
 
     write_json(output_path, report)
@@ -309,6 +378,8 @@ def build_feed_audit_report(
     feed_issue_counts: Counter[tuple[str, str]] = Counter()
     content_type_counts: Counter[str] = Counter()
     exclusion_reason_counts: Counter[str] = Counter()
+    source_health_rows: dict[str, dict[str, Any]] = {}
+    source_health_issue_counts: dict[str, Counter[str]] = {}
     examples: list[dict[str, Any]] = []
 
     typical_newsfeed_items = 0
@@ -316,41 +387,71 @@ def build_feed_audit_report(
     rss_missing_content = 0
     accepted_content_type_filter = 0
 
+    for feed_row in feeds:
+        row = _source_health_row(
+            source_health_rows,
+            source_health_issue_counts,
+            source_id=feed_row.get("source_id"),
+            source_name=feed_row.get("source_name"),
+        )
+        row["selected_feeds"] += 1
+
     for item in items:
-        source = _item_source_label(item)
-        feed = _item_feed_label(item)
+        source_label = _item_source_label(item)
+        feed_label = _item_feed_label(item)
         content_type = item.content_type or "unknown"
         status_counts[item.quality_status or "clean"] += 1
-        source_item_counts[source] += 1
-        feed_item_counts[feed] += 1
+        source_item_counts[source_label] += 1
+        feed_item_counts[feed_label] += 1
         content_type_counts[content_type] += 1
+        source_row = _source_health_row(
+            source_health_rows,
+            source_health_issue_counts,
+            source_id=item.source.id,
+            source_name=item.source.name,
+        )
+        source_issue_counter = source_health_issue_counts[
+            _source_key(item.source.id, item.source.name)
+        ]
+        source_row["raw_items"] += 1
+        source_row[f"quality_{item.quality_status or 'clean'}_items"] = (
+            _safe_int(source_row.get(f"quality_{item.quality_status or 'clean'}_items")) + 1
+        )
 
         if item.include_in_newsfeed:
             typical_newsfeed_items += 1
+            source_row["typical_newsfeed_items"] += 1
         else:
             newsfeed_excluded += 1
+            source_row["newsfeed_excluded"] += 1
             reason = item.newsfeed_exclusion_reason or "newsfeed_excluded"
             exclusion_reason_counts[reason] += 1
             if reason == "missing_rss_content":
                 rss_missing_content += 1
+                source_row["missing_rss_content_items"] += 1
             if reason.startswith("unsupported_content_type:"):
                 accepted_content_type_filter += 1
+                source_row["accepted_content_type_filter_items"] += 1
 
         for flag in item.quality_flags:
             code = compact_whitespace(flag.get("code")) or "unknown_quality_issue"
             severity = compact_whitespace(flag.get("severity")) or "warn"
             issue_counts[code] += 1
             severity_counts[severity] += 1
-            source_issue_counts[(source, code)] += 1
-            feed_issue_counts[(feed, code)] += 1
+            source_issue_counts[(source_label, code)] += 1
+            feed_issue_counts[(feed_label, code)] += 1
+            source_issue_counter[code] += 1
+            severity_key = f"{severity}_issue_count"
+            if severity_key in source_row:
+                source_row[severity_key] += 1
 
         if item.quality_flags and len(examples) < limit:
             examples.append(
                 {
                     "id": item.id,
                     "title": item.title,
-                    "source": source,
-                    "feed": feed,
+                    "source": source_label,
+                    "feed": feed_label,
                     "content_type": content_type,
                     "include_in_newsfeed": item.include_in_newsfeed,
                     "newsfeed_exclusion_reason": item.newsfeed_exclusion_reason,
@@ -360,16 +461,27 @@ def build_feed_audit_report(
             )
 
     for error in feed_errors:
-        source = compact_whitespace(error.get("source_name")) or compact_whitespace(
+        error_source_label = compact_whitespace(error.get("source_name")) or compact_whitespace(
             error.get("source_id")
         )
-        feed = compact_whitespace(error.get("feed_name")) or compact_whitespace(
+        error_feed_label = compact_whitespace(error.get("feed_name")) or compact_whitespace(
             error.get("feed_url")
         )
-        source_issue_counts[(source or "unknown", "feed_fetch_failed")] += 1
-        feed_issue_counts[(feed or "unknown", "feed_fetch_failed")] += 1
+        source_issue_counts[(error_source_label or "unknown", "feed_fetch_failed")] += 1
+        feed_issue_counts[(error_feed_label or "unknown", "feed_fetch_failed")] += 1
         issue_counts["feed_fetch_failed"] += 1
         severity_counts["warn"] += 1
+        source_row = _source_health_row(
+            source_health_rows,
+            source_health_issue_counts,
+            source_id=error.get("source_id"),
+            source_name=error.get("source_name"),
+        )
+        source_row["feed_fetch_failed"] += 1
+        source_row["warn_issue_count"] += 1
+        source_health_issue_counts[_source_key(error.get("source_id"), error.get("source_name"))][
+            "feed_fetch_failed"
+        ] += 1
 
     summary = {
         "selected_sources": len({feed["source_id"] for feed in feeds}),
@@ -401,7 +513,38 @@ def build_feed_audit_report(
     if status_counts.get("warn", 0) > 0:
         warnings.append(f"{status_counts['warn']} RSS item(s) had warning-level quality flags")
 
+    source_health: list[dict[str, Any]] = []
+    for key, row in source_health_rows.items():
+        source_issue_counter = source_health_issue_counts.get(key, Counter())
+        issue_count = sum(source_issue_counter.values())
+        status, recommended_action = _source_health_status(row, issue_count)
+        denominator = max(
+            _safe_int(row.get("raw_items")) + _safe_int(row.get("feed_fetch_failed")), 1
+        )
+        source_health.append(
+            {
+                **row,
+                "issue_count": issue_count,
+                "issue_rate": round(issue_count / denominator, 4),
+                "status": status,
+                "recommended_action": recommended_action,
+                "issue_counts": _counter_rows(source_issue_counter, "issue", limit),
+            }
+        )
+    source_health.sort(key=_source_health_sort_key)
+    source_health_status_counts = Counter(str(row["status"]) for row in source_health)
+    source_health_action_counts = Counter(str(row["recommended_action"]) for row in source_health)
+    review_source_rows = [
+        row for row in source_health if row["status"] in {"watch", "hold_candidate"}
+    ]
+    sources_needing_review = review_source_rows[:limit]
+
     status = "fail" if blocking_issues else "warn" if warnings else "pass"
+    cleanliness = build_cleanliness_summary(
+        [digest_item_cleanliness_row(item) for item in items]
+        + [feed_error_cleanliness_row(error) for error in feed_errors],
+        limit=limit,
+    )
     return {
         "schema_version": "1.0",
         "status": status,
@@ -425,6 +568,21 @@ def build_feed_audit_report(
         ),
         "status_counts": dict(status_counts),
         "severity_counts": dict(severity_counts),
+        "source_health_summary": {
+            "total_sources": len(source_health),
+            "status_counts": {
+                status_name: source_health_status_counts.get(status_name, 0)
+                for status_name in SOURCE_HEALTH_STATUSES
+            },
+            "action_counts": {
+                action: source_health_action_counts.get(action, 0)
+                for action in SOURCE_HEALTH_ACTIONS
+            },
+            "review_sources": len(review_source_rows),
+        },
+        "source_health": source_health,
+        "sources_needing_review": sources_needing_review,
+        "cleanliness": cleanliness,
         "issue_counts": _counter_rows(issue_counts, "issue", limit),
         "content_type_counts": _counter_rows(content_type_counts, "content_type", limit),
         "exclusion_reason_counts": _counter_rows(exclusion_reason_counts, "reason", limit),

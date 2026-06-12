@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections import Counter
 from typing import Any
 
+from .cleanliness import build_cleanliness_summary
 from .content_classifier import (
     NEWSLENS_INELIGIBLE_CONTENT_TYPES,
     classify_item_payload_content_type,
@@ -429,6 +430,7 @@ def build_digest_quality_review(payload: dict[str, Any], *, limit: int = 10) -> 
     llm_flag_counts: Counter[str] = Counter()
     llm_source_status_counts: Counter[tuple[str, str]] = Counter()
     examples: list[dict[str, Any]] = []
+    cleanliness_rows: list[dict[str, Any]] = []
 
     for item in items:
         flags = quality_flags_from_item_payload(item)
@@ -450,6 +452,21 @@ def build_digest_quality_review(payload: dict[str, Any], *, limit: int = 10) -> 
         if exclusion_reason:
             exclusion_reason_counts[exclusion_reason] += 1
 
+        include_in_newsfeed = False if exclusion_reason else item.get("include_in_newsfeed", True)
+        cleanliness_rows.append(
+            {
+                "id": compact_whitespace(item.get("id")),
+                "title": compact_whitespace(item.get("title")),
+                "source": source,
+                "feed": feed,
+                "content_type": content_type,
+                "include_in_newsfeed": include_in_newsfeed,
+                "newsfeed_exclusion_reason": exclusion_reason or None,
+                "quality_status": status,
+                "flags": flags,
+            }
+        )
+
         for flag in flags:
             code = compact_whitespace(flag.get("code")) or "unknown_quality_issue"
             severity = compact_whitespace(flag.get("severity")) or "warn"
@@ -469,9 +486,7 @@ def build_digest_quality_review(payload: dict[str, Any], *, limit: int = 10) -> 
                     "source": source,
                     "feed": feed,
                     "content_type": content_type,
-                    "include_in_newsfeed": False
-                    if exclusion_reason
-                    else item.get("include_in_newsfeed", True),
+                    "include_in_newsfeed": include_in_newsfeed,
                     "newsfeed_exclusion_reason": exclusion_reason or None,
                     "llm_input_status": llm_readiness.status,
                     "llm_input_reason": llm_readiness.reason,
@@ -520,6 +535,7 @@ def build_digest_quality_review(payload: dict[str, Any], *, limit: int = 10) -> 
         "status_counts": dict(status_counts),
         "severity_counts": dict(severity_counts),
         "quality_gate_metrics": quality_gate_metrics,
+        "cleanliness": build_cleanliness_summary(cleanliness_rows, limit=limit),
         "llm_input_status_counts": _counter_rows(llm_status_counts, "status", limit),
         "llm_input_reason_counts": _counter_rows(llm_reason_counts, "reason", limit),
         "llm_input_flag_counts": _counter_rows(llm_flag_counts, "flag", limit),

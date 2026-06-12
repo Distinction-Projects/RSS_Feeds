@@ -44,6 +44,16 @@ class ContentClassifierTests(unittest.TestCase):
         self.assertEqual(result.content_type, "video")
         self.assertFalse(result.newslens_eligible)
 
+    def test_rss_content_signal_labels_video_story_as_ineligible(self) -> None:
+        result = _classify(
+            "Daily briefing",
+            rss_content="Watch the video for the latest briefing from officials.",
+        )
+
+        self.assertEqual(result.content_type, "video")
+        self.assertFalse(result.newslens_eligible)
+        self.assertTrue(any(signal.startswith("rss_content:") for signal in result.matched_signals))
+
     def test_podcast_story_is_labeled_and_ineligible(self) -> None:
         result = _classify("Podcast: The week in policy", feed_name="Podcasts")
 
@@ -74,11 +84,37 @@ class ContentClassifierTests(unittest.TestCase):
         self.assertEqual(result.content_type, "video")
         self.assertFalse(result.newslens_eligible)
 
+    def test_item_payload_classifier_uses_content_text_for_type_labels(self) -> None:
+        result = classify_item_payload_content_type(
+            {
+                "title": "Morning update",
+                "link": "https://example.com/story",
+                "content": "Podcast episode transcript and audio notes.",
+                "source_name": "Example Source",
+                "feed_name": "Latest",
+                "topic_tags": "news,world",
+            }
+        )
+
+        self.assertEqual(result.content_type, "podcast")
+        self.assertFalse(result.newslens_eligible)
+        self.assertTrue(any(signal.startswith("rss_content:") for signal in result.matched_signals))
+
     def test_opinion_is_labeled_but_kept_eligible(self) -> None:
         result = _classify("Opinion: Congress should revisit the proposal")
 
         self.assertEqual(result.content_type, "opinion")
         self.assertTrue(result.newslens_eligible)
+
+    def test_rss_content_signal_labels_analysis_story_as_eligible(self) -> None:
+        result = _classify(
+            "Policy changes expected this week",
+            rss_content="Analysis: why it matters for families and local budgets.",
+        )
+
+        self.assertEqual(result.content_type, "analysis")
+        self.assertTrue(result.newslens_eligible)
+        self.assertTrue(any(signal.startswith("rss_content:") for signal in result.matched_signals))
 
     def test_default_story_is_news_article(self) -> None:
         result = _classify("Officials announce new policy")
