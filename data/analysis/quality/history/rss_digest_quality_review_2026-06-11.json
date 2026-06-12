@@ -1,0 +1,544 @@
+{
+  "status": "pass",
+  "generated_at": "2026-06-11T16:59:42Z",
+  "run_id": "digest-20260611T165942-f9c1fdf43d",
+  "total_items": 178,
+  "issue_item_count": 0,
+  "status_counts": {
+    "clean": 178
+  },
+  "severity_counts": {
+    "info": 10
+  },
+  "quality_gate_metrics": {
+    "unknown_content_type_items": 0,
+    "unsupported_content_type_items": 0,
+    "accepted_content_type_filter_items": 10,
+    "source_blocked_items": 0,
+    "accepted_rss_only_fallback_items": 0,
+    "llm_ready_items": 168,
+    "llm_review_items": 0,
+    "llm_excluded_items": 10,
+    "llm_rss_fallback_items": 0,
+    "empty_scraped_text_items": 0,
+    "short_scraped_text_items": 0
+  },
+  "llm_input_status_counts": [
+    {
+      "status": "ready",
+      "count": 168
+    },
+    {
+      "status": "exclude",
+      "count": 10
+    }
+  ],
+  "llm_input_reason_counts": [
+    {
+      "reason": "scraped_text_ready",
+      "count": 168
+    },
+    {
+      "reason": "unsupported_content_type:video",
+      "count": 6
+    },
+    {
+      "reason": "unsupported_content_type:live_blog",
+      "count": 2
+    },
+    {
+      "reason": "unsupported_content_type:newsletter",
+      "count": 1
+    },
+    {
+      "reason": "unsupported_content_type:photo_gallery",
+      "count": 1
+    }
+  ],
+  "llm_input_flag_counts": [
+    {
+      "flag": "excluded_from_llm_judge",
+      "count": 10
+    }
+  ],
+  "issue_counts": [
+    {
+      "issue": "content_type_filter_accepted",
+      "count": 10
+    }
+  ],
+  "content_type_counts": [
+    {
+      "content_type": "news_article",
+      "count": 163
+    },
+    {
+      "content_type": "video",
+      "count": 6
+    },
+    {
+      "content_type": "analysis",
+      "count": 3
+    },
+    {
+      "content_type": "live_blog",
+      "count": 2
+    },
+    {
+      "content_type": "opinion",
+      "count": 2
+    },
+    {
+      "content_type": "newsletter",
+      "count": 1
+    },
+    {
+      "content_type": "photo_gallery",
+      "count": 1
+    }
+  ],
+  "exclusion_reason_counts": [
+    {
+      "reason": "unsupported_content_type:video",
+      "count": 6
+    },
+    {
+      "reason": "unsupported_content_type:live_blog",
+      "count": 2
+    },
+    {
+      "reason": "unsupported_content_type:newsletter",
+      "count": 1
+    },
+    {
+      "reason": "unsupported_content_type:photo_gallery",
+      "count": 1
+    }
+  ],
+  "top_sources": [
+    {
+      "source": "Al Jazeera",
+      "count": 3
+    },
+    {
+      "source": "Fox News",
+      "count": 1
+    },
+    {
+      "source": "NBC News",
+      "count": 1
+    },
+    {
+      "source": "CBS News",
+      "count": 1
+    },
+    {
+      "source": "ABC News",
+      "count": 1
+    },
+    {
+      "source": "ABC News (Australia)",
+      "count": 1
+    },
+    {
+      "source": "APTN News",
+      "count": 1
+    },
+    {
+      "source": "Atlanta Black Star",
+      "count": 1
+    }
+  ],
+  "top_feeds": [
+    {
+      "feed": "Top Stories",
+      "count": 4
+    },
+    {
+      "feed": "All News",
+      "count": 3
+    },
+    {
+      "feed": "All Stories",
+      "count": 2
+    },
+    {
+      "feed": "Latest",
+      "count": 1
+    }
+  ],
+  "top_source_issues": [
+    {
+      "source": "Al Jazeera",
+      "issue": "content_type_filter_accepted",
+      "count": 3
+    },
+    {
+      "source": "Fox News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "NBC News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "CBS News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "ABC News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "ABC News (Australia)",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "APTN News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "Atlanta Black Star",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    }
+  ],
+  "top_feed_issues": [
+    {
+      "feed": "Top Stories",
+      "issue": "content_type_filter_accepted",
+      "count": 4
+    },
+    {
+      "feed": "All News",
+      "issue": "content_type_filter_accepted",
+      "count": 3
+    },
+    {
+      "feed": "All Stories",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "feed": "Latest",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    }
+  ],
+  "top_content_type_issues": [
+    {
+      "content_type": "video",
+      "issue": "content_type_filter_accepted",
+      "count": 6
+    },
+    {
+      "content_type": "live_blog",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "content_type": "newsletter",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "content_type": "photo_gallery",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    }
+  ],
+  "top_llm_input_source_statuses": [
+    {
+      "source": "BBC News",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "The Guardian",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "NPR",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "Al Jazeera",
+      "status": "exclude",
+      "count": 3
+    },
+    {
+      "source": "DW",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "CBC News",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "The Verge",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "Ars Technica",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "TechCrunch",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "CNBC",
+      "status": "ready",
+      "count": 3
+    }
+  ],
+  "examples": [
+    {
+      "id": "fd730587b606",
+      "title": "Fox News \u2018Antisemitism Exposed\u2019 Newsletter: Batya explains why Jews became politically 'homeless'",
+      "source": "Fox News",
+      "feed": "Latest",
+      "content_type": "newsletter",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:newsletter",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:newsletter",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 4834,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "newsletter"
+        }
+      ]
+    },
+    {
+      "id": "ff91e90a6009",
+      "title": "Fears of All Out War Grow as US-Iran Strikes Continue to Intensify",
+      "source": "NBC News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 481,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "78354f9d5f38",
+      "title": "Investors prepare to gamble on huge AI companies going public",
+      "source": "CBS News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 72,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "15db685e6761",
+      "title": "Iran live updates: Trump says US will hit Iran 'very hard tonight'",
+      "source": "ABC News",
+      "feed": "Top Stories",
+      "content_type": "live_blog",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:live_blog",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:live_blog",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 4459,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "live_blog"
+        }
+      ]
+    },
+    {
+      "id": "30e532ccf503",
+      "title": "Gold is now the top reserve asset. Is dollar dominance at risk?",
+      "source": "Al Jazeera",
+      "feed": "All News",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 738,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "135227831b71",
+      "title": "Stephen Miller\u2019s War",
+      "source": "Al Jazeera",
+      "feed": "All News",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 1517,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "9abb2d6ca923",
+      "title": "Bahrain releases footage of damage caused by intercepted Iranian drones",
+      "source": "Al Jazeera",
+      "feed": "All News",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 357,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "22fdbdf01d5c",
+      "title": "Live: Trump threatens US will hit Iran 'very hard' and take Kharg Island",
+      "source": "ABC News (Australia)",
+      "feed": "Top Stories",
+      "content_type": "live_blog",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:live_blog",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:live_blog",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 4580,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "live_blog"
+        }
+      ]
+    },
+    {
+      "id": "cf1acb18f7af",
+      "title": "New Ottawa art gallery exhibit showcases northern Indigenous artists from around the world",
+      "source": "APTN News",
+      "feed": "All Stories",
+      "content_type": "photo_gallery",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:photo_gallery",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:photo_gallery",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 2669,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "photo_gallery"
+        }
+      ]
+    },
+    {
+      "id": "86e593b387d9",
+      "title": "\u2018Keep Your Hands to Yourself!\u2019: Two Florida Women Start a Fight in a Publix Parking Lot, One Left in an Ambulance, the Other In Handcuffs, Video Shows",
+      "source": "Atlanta Black Star",
+      "feed": "All Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 2269,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    }
+  ],
+  "quality_gate": {
+    "status": "pass",
+    "thresholds": {
+      "unknown_content_type_items": 0,
+      "unsupported_content_type_items": 0,
+      "accepted_content_type_filter_items": 12,
+      "source_blocked_items": 0,
+      "accepted_rss_only_fallback_items": 0,
+      "llm_review_items": 0,
+      "empty_scraped_text_items": 0,
+      "short_scraped_text_items": 0
+    },
+    "metrics": {
+      "unknown_content_type_items": 0,
+      "unsupported_content_type_items": 0,
+      "accepted_content_type_filter_items": 10,
+      "source_blocked_items": 0,
+      "accepted_rss_only_fallback_items": 0,
+      "llm_review_items": 0,
+      "empty_scraped_text_items": 0,
+      "short_scraped_text_items": 0
+    },
+    "violations": []
+  }
+}

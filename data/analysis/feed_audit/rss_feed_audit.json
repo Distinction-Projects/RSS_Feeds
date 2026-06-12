@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "status": "warn",
+  "status": "pass",
   "run": {
-    "id": "feed-audit-20260523T144531-7760f06d21",
-    "generated_at": "2026-05-23T14:45:31Z",
-    "duration_seconds": 25.24,
+    "id": "feed-audit-20260611T170607-fa3acfda1b",
+    "generated_at": "2026-06-11T17:06:07Z",
+    "duration_seconds": 19.771,
     "command": "/home/runner/work/RSS_Feeds/RSS_Feeds/rss_pipeline/cli.py validate feed-audit --output data/analysis/feed_audit/rss_feed_audit.json --archive-history-dir data/analysis/feed_audit/history --max-sources 72 --feeds-per-source 2 --max-items-per-feed 5 --max-feed-fetch-failures 0 --max-missing-rss-content 5 --max-unknown-content-types 0 --max-unsupported-content-types 0"
   },
-  "generated_at": "2026-05-23T14:45:31Z",
+  "generated_at": "2026-06-11T17:06:07Z",
   "request": {
     "catalog_path": "feed_catalog/rss_feeds.json",
     "max_sources": 72,
@@ -708,48 +708,42 @@
     "feed_fetch_attempts": 63,
     "feed_fetch_succeeded": 63,
     "feed_fetch_failed": 0,
-    "raw_fetched_items": 315,
-    "typical_newsfeed_items": 297,
-    "newsfeed_excluded": 18,
-    "rss_missing_content": 3,
-    "accepted_content_type_filter": 15,
-    "quality_clean_items": 312,
-    "quality_warn_items": 3,
+    "raw_fetched_items": 310,
+    "typical_newsfeed_items": 294,
+    "newsfeed_excluded": 16,
+    "rss_missing_content": 0,
+    "accepted_content_type_filter": 16,
+    "quality_clean_items": 310,
+    "quality_warn_items": 0,
     "quality_fail_items": 0
   },
   "quality_gate_metrics": {
     "feed_fetch_failed": 0,
-    "missing_rss_content_items": 3,
+    "missing_rss_content_items": 0,
     "unknown_content_type_items": 0,
     "unsupported_content_type_items": 0,
-    "accepted_content_type_filter_items": 15
+    "accepted_content_type_filter_items": 16
   },
   "status_counts": {
-    "clean": 312,
-    "warn": 3
+    "clean": 310
   },
   "severity_counts": {
-    "info": 15,
-    "warn": 3
+    "info": 16
   },
   "issue_counts": [
     {
       "issue": "content_type_filter_accepted",
-      "count": 15
-    },
-    {
-      "issue": "missing_rss_content",
-      "count": 3
+      "count": 16
     }
   ],
   "content_type_counts": [
     {
       "content_type": "news_article",
-      "count": 288
+      "count": 286
     },
     {
       "content_type": "video",
-      "count": 15
+      "count": 10
     },
     {
       "content_type": "analysis",
@@ -757,21 +751,45 @@
     },
     {
       "content_type": "opinion",
-      "count": 4
+      "count": 3
     },
     {
-      "content_type": "missing_content",
-      "count": 3
+      "content_type": "newsletter",
+      "count": 2
+    },
+    {
+      "content_type": "live_blog",
+      "count": 2
+    },
+    {
+      "content_type": "photo_gallery",
+      "count": 1
+    },
+    {
+      "content_type": "podcast",
+      "count": 1
     }
   ],
   "exclusion_reason_counts": [
     {
       "reason": "unsupported_content_type:video",
-      "count": 15
+      "count": 10
     },
     {
-      "reason": "missing_rss_content",
-      "count": 3
+      "reason": "unsupported_content_type:newsletter",
+      "count": 2
+    },
+    {
+      "reason": "unsupported_content_type:live_blog",
+      "count": 2
+    },
+    {
+      "reason": "unsupported_content_type:photo_gallery",
+      "count": 1
+    },
+    {
+      "reason": "unsupported_content_type:podcast",
+      "count": 1
     }
   ],
   "top_sources": [
@@ -785,10 +803,6 @@
     },
     {
       "source": "NPR",
-      "count": 5
-    },
-    {
-      "source": "PBS NewsHour",
       "count": 5
     },
     {
@@ -813,6 +827,10 @@
     },
     {
       "source": "DW",
+      "count": 5
+    },
+    {
+      "source": "CBC News",
       "count": 5
     }
   ],
@@ -842,10 +860,6 @@
       "count": 5
     },
     {
-      "feed": "Headlines",
-      "count": 5
-    },
-    {
       "feed": "All News",
       "count": 5
     },
@@ -856,56 +870,60 @@
     {
       "feed": "Hong Kong Free Press HKFP",
       "count": 5
+    },
+    {
+      "feed": "The Hindu - Home",
+      "count": 5
     }
   ],
   "top_source_issues": [
     {
-      "source": "CBS News",
+      "source": "Al Jazeera",
       "issue": "content_type_filter_accepted",
       "count": 4
     },
     {
-      "source": "The Hindu - Home",
-      "issue": "missing_rss_content",
+      "source": "ABC News",
+      "issue": "content_type_filter_accepted",
       "count": 3
+    },
+    {
+      "source": "CBS News",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "source": "NPR",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "Fox News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
     },
     {
       "source": "NBC News",
       "issue": "content_type_filter_accepted",
-      "count": 2
+      "count": 1
     },
     {
-      "source": "ABC News",
-      "issue": "content_type_filter_accepted",
-      "count": 2
-    },
-    {
-      "source": "PBS NewsHour",
+      "source": "ABC News (Australia)",
       "issue": "content_type_filter_accepted",
       "count": 1
     },
     {
-      "source": "Al Jazeera",
+      "source": "APTN News",
       "issue": "content_type_filter_accepted",
       "count": 1
     },
     {
-      "source": "DW",
+      "source": "Atlanta Black Star",
       "issue": "content_type_filter_accepted",
       "count": 1
     },
     {
-      "source": "The Verge",
-      "issue": "content_type_filter_accepted",
-      "count": 1
-    },
-    {
-      "source": "The Blaze",
-      "issue": "content_type_filter_accepted",
-      "count": 1
-    },
-    {
-      "source": "Mongabay",
+      "source": "Truthout",
       "issue": "content_type_filter_accepted",
       "count": 1
     }
@@ -914,51 +932,69 @@
     {
       "feed": "Top Stories",
       "issue": "content_type_filter_accepted",
-      "count": 9
+      "count": 7
     },
     {
-      "feed": "All Stories",
+      "feed": "All News",
       "issue": "content_type_filter_accepted",
       "count": 4
     },
     {
-      "feed": "The Hindu - Home",
-      "issue": "missing_rss_content",
+      "feed": "All Stories",
+      "issue": "content_type_filter_accepted",
       "count": 3
     },
     {
-      "feed": "Headlines",
+      "feed": "News",
       "issue": "content_type_filter_accepted",
       "count": 1
     },
     {
-      "feed": "All News",
+      "feed": "Latest",
       "issue": "content_type_filter_accepted",
       "count": 1
     }
   ],
   "examples": [
     {
-      "id": "772fc70e0f28",
-      "title": "Is it time for the U.S. to reassess its Iran strategy?",
-      "source": "PBS NewsHour",
-      "feed": "Headlines",
-      "content_type": "video",
+      "id": "92026ceed301",
+      "title": "U.S. launches second day of Iran strikes. And, World Cup facts to know before kickoff",
+      "source": "NPR",
+      "feed": "News",
+      "content_type": "newsletter",
       "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "newsfeed_exclusion_reason": "unsupported_content_type:newsletter",
       "quality_status": "clean",
       "flags": [
         {
           "code": "content_type_filter_accepted",
           "severity": "info",
           "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
-          "detail": "video"
+          "detail": "newsletter"
         }
       ]
     },
     {
-      "id": "94d9beccbea1",
-      "title": "Greenlanders protest against Trump as the U.S. opens new consulate",
+      "id": "fd730587b606",
+      "title": "Fox News \u2018Antisemitism Exposed\u2019 Newsletter: Batya explains why Jews became politically 'homeless'",
+      "source": "Fox News",
+      "feed": "Latest",
+      "content_type": "newsletter",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:newsletter",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "newsletter"
+        }
+      ]
+    },
+    {
+      "id": "ff91e90a6009",
+      "title": "Fears of All Out War Grow as US-Iran Strikes Continue to Intensify",
       "source": "NBC News",
       "feed": "Top Stories",
       "content_type": "video",
@@ -975,26 +1011,8 @@
       ]
     },
     {
-      "id": "56c4ebfc221a",
-      "title": "DHS to require green card applicants to return to home countries to apply",
-      "source": "NBC News",
-      "feed": "Top Stories",
-      "content_type": "video",
-      "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "unsupported_content_type:video",
-      "quality_status": "clean",
-      "flags": [
-        {
-          "code": "content_type_filter_accepted",
-          "severity": "info",
-          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
-          "detail": "video"
-        }
-      ]
-    },
-    {
-      "id": "33fae8002a76",
-      "title": "Money expert answers some of your top finance questions",
+      "id": "6a0d5f5b2cab",
+      "title": "The Panini Sticker Phenomenon | 60 Minutes Archive",
       "source": "CBS News",
       "feed": "Top Stories",
       "content_type": "video",
@@ -1011,44 +1029,8 @@
       ]
     },
     {
-      "id": "5c48dc4b3796",
-      "title": "SpaceX launches revamped Super Heavy-Starship rocket ahead of IPO",
-      "source": "CBS News",
-      "feed": "Top Stories",
-      "content_type": "video",
-      "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "unsupported_content_type:video",
-      "quality_status": "clean",
-      "flags": [
-        {
-          "code": "content_type_filter_accepted",
-          "severity": "info",
-          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
-          "detail": "video"
-        }
-      ]
-    },
-    {
-      "id": "31757368b63f",
-      "title": "U.S. tightens Ebola travel restrictions as new cases emerge abroad",
-      "source": "CBS News",
-      "feed": "Top Stories",
-      "content_type": "video",
-      "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "unsupported_content_type:video",
-      "quality_status": "clean",
-      "flags": [
-        {
-          "code": "content_type_filter_accepted",
-          "severity": "info",
-          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
-          "detail": "video"
-        }
-      ]
-    },
-    {
-      "id": "115bdd06bc0d",
-      "title": "Woman allegedly opens fire outside Raleigh courthouse, hospitalizes 2 lawyers",
+      "id": "78354f9d5f38",
+      "title": "Investors prepare to gamble on huge AI companies going public",
       "source": "CBS News",
       "feed": "Top Stories",
       "content_type": "video",
@@ -1083,8 +1065,26 @@
       ]
     },
     {
-      "id": "c79d5248911c",
-      "title": "WATCH: America Strong: Colorado firefighters rescue family's dog trapped under deck",
+      "id": "15db685e6761",
+      "title": "Iran live updates: Trump says US will hit Iran 'very hard tonight'",
+      "source": "ABC News",
+      "feed": "Top Stories",
+      "content_type": "live_blog",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:live_blog",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "live_blog"
+        }
+      ]
+    },
+    {
+      "id": "6f4102ae0edc",
+      "title": "WATCH: Hurricanes, Golden Knights to face off in Game 5 of Stanley Cup Finals",
       "source": "ABC News",
       "feed": "Top Stories",
       "content_type": "video",
@@ -1101,8 +1101,26 @@
       ]
     },
     {
-      "id": "1e92e8a46c34",
-      "title": "Israeli air strike pounds southern Lebanon leaving many injured",
+      "id": "30e532ccf503",
+      "title": "Gold is now the top reserve asset. Is dollar dominance at risk?",
+      "source": "Al Jazeera",
+      "feed": "All News",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "135227831b71",
+      "title": "Stephen Miller\u2019s War",
       "source": "Al Jazeera",
       "feed": "All News",
       "content_type": "video",
@@ -1121,17 +1139,14 @@
   ],
   "feed_fetch_errors": [],
   "blocking_issues": [],
-  "warnings": [
-    "3 RSS item(s) had no content text",
-    "3 RSS item(s) had warning-level quality flags"
-  ],
+  "warnings": [],
   "audit": {
     "catalog_path": "/home/runner/work/RSS_Feeds/RSS_Feeds/feed_catalog/rss_feeds.json",
     "output_path": "/home/runner/work/RSS_Feeds/RSS_Feeds/data/analysis/feed_audit/rss_feed_audit.json",
-    "run_log": "/home/runner/work/RSS_Feeds/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20260523T144531-7760f06d21.jsonl",
+    "run_log": "/home/runner/work/RSS_Feeds/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20260611T170607-fa3acfda1b.jsonl",
     "requested_catalog_path": "feed_catalog/rss_feeds.json"
   },
-  "history_archive": "/home/runner/work/RSS_Feeds/RSS_Feeds/data/analysis/feed_audit/history/rss_feed_audit_2026-05-23.json",
+  "history_archive": "/home/runner/work/RSS_Feeds/RSS_Feeds/data/analysis/feed_audit/history/rss_feed_audit_2026-06-11.json",
   "quality_gate": {
     "status": "pass",
     "thresholds": {
@@ -1142,10 +1157,10 @@
     },
     "metrics": {
       "feed_fetch_failed": 0,
-      "missing_rss_content_items": 3,
+      "missing_rss_content_items": 0,
       "unknown_content_type_items": 0,
       "unsupported_content_type_items": 0,
-      "accepted_content_type_filter_items": 15
+      "accepted_content_type_filter_items": 16
     },
     "violations": []
   }

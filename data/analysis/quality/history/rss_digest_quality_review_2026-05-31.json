@@ -1,0 +1,447 @@
+{
+  "status": "warn",
+  "generated_at": "2026-05-31T14:52:55Z",
+  "run_id": "digest-20260531T145255-f837819715",
+  "total_items": 178,
+  "issue_item_count": 1,
+  "status_counts": {
+    "clean": 177,
+    "warn": 1
+  },
+  "severity_counts": {
+    "info": 6,
+    "warn": 1
+  },
+  "quality_gate_metrics": {
+    "unknown_content_type_items": 0,
+    "unsupported_content_type_items": 0,
+    "accepted_content_type_filter_items": 6,
+    "source_blocked_items": 0,
+    "accepted_rss_only_fallback_items": 0,
+    "llm_ready_items": 171,
+    "llm_review_items": 0,
+    "llm_excluded_items": 7,
+    "llm_rss_fallback_items": 0,
+    "empty_scraped_text_items": 0,
+    "short_scraped_text_items": 0
+  },
+  "llm_input_status_counts": [
+    {
+      "status": "ready",
+      "count": 171
+    },
+    {
+      "status": "exclude",
+      "count": 7
+    }
+  ],
+  "llm_input_reason_counts": [
+    {
+      "reason": "scraped_text_ready",
+      "count": 171
+    },
+    {
+      "reason": "unsupported_content_type:video",
+      "count": 6
+    },
+    {
+      "reason": "missing_rss_content",
+      "count": 1
+    }
+  ],
+  "llm_input_flag_counts": [
+    {
+      "flag": "excluded_from_llm_judge",
+      "count": 7
+    }
+  ],
+  "issue_counts": [
+    {
+      "issue": "content_type_filter_accepted",
+      "count": 6
+    },
+    {
+      "issue": "missing_rss_content",
+      "count": 1
+    }
+  ],
+  "content_type_counts": [
+    {
+      "content_type": "news_article",
+      "count": 165
+    },
+    {
+      "content_type": "video",
+      "count": 6
+    },
+    {
+      "content_type": "analysis",
+      "count": 3
+    },
+    {
+      "content_type": "opinion",
+      "count": 2
+    },
+    {
+      "content_type": "missing_content",
+      "count": 1
+    },
+    {
+      "content_type": "interview",
+      "count": 1
+    }
+  ],
+  "exclusion_reason_counts": [
+    {
+      "reason": "unsupported_content_type:video",
+      "count": 6
+    },
+    {
+      "reason": "missing_rss_content",
+      "count": 1
+    }
+  ],
+  "top_sources": [
+    {
+      "source": "BBC News",
+      "count": 1
+    },
+    {
+      "source": "NBC News",
+      "count": 1
+    },
+    {
+      "source": "CBS News",
+      "count": 1
+    },
+    {
+      "source": "Al Jazeera",
+      "count": 1
+    },
+    {
+      "source": "The Hindu - Home",
+      "count": 1
+    },
+    {
+      "source": "The Gateway Pundit",
+      "count": 1
+    },
+    {
+      "source": "Mongabay",
+      "count": 1
+    }
+  ],
+  "top_feeds": [
+    {
+      "feed": "Top Stories",
+      "count": 3
+    },
+    {
+      "feed": "All Stories",
+      "count": 2
+    },
+    {
+      "feed": "All News",
+      "count": 1
+    },
+    {
+      "feed": "The Hindu - Home",
+      "count": 1
+    }
+  ],
+  "top_source_issues": [
+    {
+      "source": "BBC News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "NBC News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "CBS News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "Al Jazeera",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "The Hindu - Home",
+      "issue": "missing_rss_content",
+      "count": 1
+    },
+    {
+      "source": "The Gateway Pundit",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "Mongabay",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    }
+  ],
+  "top_feed_issues": [
+    {
+      "feed": "Top Stories",
+      "issue": "content_type_filter_accepted",
+      "count": 3
+    },
+    {
+      "feed": "All Stories",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "feed": "All News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "feed": "The Hindu - Home",
+      "issue": "missing_rss_content",
+      "count": 1
+    }
+  ],
+  "top_content_type_issues": [
+    {
+      "content_type": "video",
+      "issue": "content_type_filter_accepted",
+      "count": 6
+    },
+    {
+      "content_type": "missing_content",
+      "issue": "missing_rss_content",
+      "count": 1
+    }
+  ],
+  "top_llm_input_source_statuses": [
+    {
+      "source": "The Guardian",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "NPR",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "PBS NewsHour",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "Fox News",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "DW",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "CBC News",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "ABC News (Australia)",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "The Verge",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "Ars Technica",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "TechCrunch",
+      "status": "ready",
+      "count": 3
+    }
+  ],
+  "examples": [
+    {
+      "id": "1a76ca25fa0b",
+      "title": "Watch: Key moments from Nicola Sturgeon's interview with Laura Kuenssberg",
+      "source": "BBC News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 2757,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "c5bc7a4717c5",
+      "title": "Mike Pence says GOP \u2018lost our way\u2019 after nominating Ken Paxton \u2018but Democrats have lost their mind\u2019",
+      "source": "NBC News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 333,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "a35ed30c8766",
+      "title": "Nature: Cactus blooms in Arizona",
+      "source": "CBS News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 72,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "a15ac356fe6b",
+      "title": "Protesters want to send \u2018fascists to Mars\u2019 aboard mock rocket",
+      "source": "Al Jazeera",
+      "feed": "All News",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 368,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "ddb2a031ac6b",
+      "title": "Youth allegedly stabbed to death at Palluruthy",
+      "source": "The Hindu - Home",
+      "feed": "The Hindu - Home",
+      "content_type": "missing_content",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "missing_rss_content",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "missing_rss_content",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 2442,
+      "flags": [
+        {
+          "code": "missing_rss_content",
+          "severity": "warn",
+          "message": "RSS entry has no summary, description, or content text."
+        }
+      ]
+    },
+    {
+      "id": "13a6634afc65",
+      "title": "Spencer Pratt BURIES Liberal \u2018Reporter\u2019 with a Harsh Reality Check After Media Hack Suggests He\u2019s Running for LA Mayor Just to \u201cPromote His Brand\u201d (VIDEO)",
+      "source": "The Gateway Pundit",
+      "feed": "All Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 3627,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "595e1768ded2",
+      "title": "What is happening to Thailand\u2019s famous giant nets",
+      "source": "Mongabay",
+      "feed": "All Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 3282,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    }
+  ],
+  "quality_gate": {
+    "status": "pass",
+    "thresholds": {
+      "unknown_content_type_items": 0,
+      "unsupported_content_type_items": 0,
+      "accepted_content_type_filter_items": 12,
+      "source_blocked_items": 0,
+      "accepted_rss_only_fallback_items": 0,
+      "llm_review_items": 0,
+      "empty_scraped_text_items": 0,
+      "short_scraped_text_items": 0
+    },
+    "metrics": {
+      "unknown_content_type_items": 0,
+      "unsupported_content_type_items": 0,
+      "accepted_content_type_filter_items": 6,
+      "source_blocked_items": 0,
+      "accepted_rss_only_fallback_items": 0,
+      "llm_review_items": 0,
+      "empty_scraped_text_items": 0,
+      "short_scraped_text_items": 0
+    },
+    "violations": []
+  }
+}

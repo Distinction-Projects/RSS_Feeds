@@ -1,26 +1,24 @@
 {
-  "status": "warn",
-  "generated_at": "2026-05-23T14:42:36Z",
-  "run_id": "digest-20260523T144236-d005742942",
-  "total_items": 68,
-  "issue_item_count": 2,
+  "status": "pass",
+  "generated_at": "2026-06-11T16:59:42Z",
+  "run_id": "digest-20260611T165942-f9c1fdf43d",
+  "total_items": 178,
+  "issue_item_count": 0,
   "status_counts": {
-    "clean": 66,
-    "warn": 2
+    "clean": 178
   },
   "severity_counts": {
-    "info": 5,
-    "warn": 2
+    "info": 10
   },
   "quality_gate_metrics": {
     "unknown_content_type_items": 0,
     "unsupported_content_type_items": 0,
-    "accepted_content_type_filter_items": 5,
+    "accepted_content_type_filter_items": 10,
     "source_blocked_items": 0,
     "accepted_rss_only_fallback_items": 0,
-    "llm_ready_items": 61,
+    "llm_ready_items": 168,
     "llm_review_items": 0,
-    "llm_excluded_items": 7,
+    "llm_excluded_items": 10,
     "llm_rss_fallback_items": 0,
     "empty_scraped_text_items": 0,
     "short_scraped_text_items": 0
@@ -28,90 +26,126 @@
   "llm_input_status_counts": [
     {
       "status": "ready",
-      "count": 61
+      "count": 168
     },
     {
       "status": "exclude",
-      "count": 7
+      "count": 10
     }
   ],
   "llm_input_reason_counts": [
     {
       "reason": "scraped_text_ready",
-      "count": 61
+      "count": 168
     },
     {
       "reason": "unsupported_content_type:video",
-      "count": 5
+      "count": 6
     },
     {
-      "reason": "missing_rss_content",
+      "reason": "unsupported_content_type:live_blog",
       "count": 2
+    },
+    {
+      "reason": "unsupported_content_type:newsletter",
+      "count": 1
+    },
+    {
+      "reason": "unsupported_content_type:photo_gallery",
+      "count": 1
     }
   ],
   "llm_input_flag_counts": [
     {
       "flag": "excluded_from_llm_judge",
-      "count": 7
+      "count": 10
     }
   ],
   "issue_counts": [
     {
       "issue": "content_type_filter_accepted",
-      "count": 5
-    },
-    {
-      "issue": "missing_rss_content",
-      "count": 2
+      "count": 10
     }
   ],
   "content_type_counts": [
     {
       "content_type": "news_article",
-      "count": 57
+      "count": 163
     },
     {
       "content_type": "video",
-      "count": 5
+      "count": 6
+    },
+    {
+      "content_type": "analysis",
+      "count": 3
+    },
+    {
+      "content_type": "live_blog",
+      "count": 2
     },
     {
       "content_type": "opinion",
-      "count": 4
+      "count": 2
     },
     {
-      "content_type": "missing_content",
-      "count": 2
+      "content_type": "newsletter",
+      "count": 1
+    },
+    {
+      "content_type": "photo_gallery",
+      "count": 1
     }
   ],
   "exclusion_reason_counts": [
     {
       "reason": "unsupported_content_type:video",
-      "count": 5
+      "count": 6
     },
     {
-      "reason": "missing_rss_content",
+      "reason": "unsupported_content_type:live_blog",
       "count": 2
+    },
+    {
+      "reason": "unsupported_content_type:newsletter",
+      "count": 1
+    },
+    {
+      "reason": "unsupported_content_type:photo_gallery",
+      "count": 1
     }
   ],
   "top_sources": [
     {
-      "source": "CBS News",
-      "count": 2
+      "source": "Al Jazeera",
+      "count": 3
     },
     {
-      "source": "The Hindu - Home",
-      "count": 2
+      "source": "Fox News",
+      "count": 1
     },
     {
       "source": "NBC News",
       "count": 1
     },
     {
-      "source": "DW",
+      "source": "CBS News",
       "count": 1
     },
     {
-      "source": "The Blaze",
+      "source": "ABC News",
+      "count": 1
+    },
+    {
+      "source": "ABC News (Australia)",
+      "count": 1
+    },
+    {
+      "source": "APTN News",
+      "count": 1
+    },
+    {
+      "source": "Atlanta Black Star",
       "count": 1
     }
   ],
@@ -121,24 +155,28 @@
       "count": 4
     },
     {
-      "feed": "The Hindu - Home",
-      "count": 2
+      "feed": "All News",
+      "count": 3
     },
     {
       "feed": "All Stories",
+      "count": 2
+    },
+    {
+      "feed": "Latest",
       "count": 1
     }
   ],
   "top_source_issues": [
     {
-      "source": "CBS News",
+      "source": "Al Jazeera",
       "issue": "content_type_filter_accepted",
-      "count": 2
+      "count": 3
     },
     {
-      "source": "The Hindu - Home",
-      "issue": "missing_rss_content",
-      "count": 2
+      "source": "Fox News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
     },
     {
       "source": "NBC News",
@@ -146,12 +184,27 @@
       "count": 1
     },
     {
-      "source": "DW",
+      "source": "CBS News",
       "issue": "content_type_filter_accepted",
       "count": 1
     },
     {
-      "source": "The Blaze",
+      "source": "ABC News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "ABC News (Australia)",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "APTN News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "Atlanta Black Star",
       "issue": "content_type_filter_accepted",
       "count": 1
     }
@@ -163,12 +216,17 @@
       "count": 4
     },
     {
-      "feed": "The Hindu - Home",
-      "issue": "missing_rss_content",
-      "count": 2
+      "feed": "All News",
+      "issue": "content_type_filter_accepted",
+      "count": 3
     },
     {
       "feed": "All Stories",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "feed": "Latest",
       "issue": "content_type_filter_accepted",
       "count": 1
     }
@@ -177,27 +235,52 @@
     {
       "content_type": "video",
       "issue": "content_type_filter_accepted",
-      "count": 5
+      "count": 6
     },
     {
-      "content_type": "missing_content",
-      "issue": "missing_rss_content",
+      "content_type": "live_blog",
+      "issue": "content_type_filter_accepted",
       "count": 2
+    },
+    {
+      "content_type": "newsletter",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "content_type": "photo_gallery",
+      "issue": "content_type_filter_accepted",
+      "count": 1
     }
   ],
   "top_llm_input_source_statuses": [
+    {
+      "source": "BBC News",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "The Guardian",
+      "status": "ready",
+      "count": 3
+    },
     {
       "source": "NPR",
       "status": "ready",
       "count": 3
     },
     {
-      "source": "Fox News",
+      "source": "Al Jazeera",
+      "status": "exclude",
+      "count": 3
+    },
+    {
+      "source": "DW",
       "status": "ready",
       "count": 3
     },
     {
-      "source": "Al Jazeera",
+      "source": "CBC News",
       "status": "ready",
       "count": 3
     },
@@ -207,40 +290,46 @@
       "count": 3
     },
     {
+      "source": "Ars Technica",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "TechCrunch",
+      "status": "ready",
+      "count": 3
+    },
+    {
       "source": "CNBC",
       "status": "ready",
       "count": 3
-    },
-    {
-      "source": "ZeroHedge",
-      "status": "ready",
-      "count": 3
-    },
-    {
-      "source": "The Gateway Pundit",
-      "status": "ready",
-      "count": 3
-    },
-    {
-      "source": "Atlanta Black Star",
-      "status": "ready",
-      "count": 3
-    },
-    {
-      "source": "Mother Jones",
-      "status": "ready",
-      "count": 3
-    },
-    {
-      "source": "BBC News",
-      "status": "ready",
-      "count": 2
     }
   ],
   "examples": [
     {
-      "id": "94d9beccbea1",
-      "title": "Greenlanders protest against Trump as the U.S. opens new consulate",
+      "id": "fd730587b606",
+      "title": "Fox News \u2018Antisemitism Exposed\u2019 Newsletter: Batya explains why Jews became politically 'homeless'",
+      "source": "Fox News",
+      "feed": "Latest",
+      "content_type": "newsletter",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:newsletter",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:newsletter",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 4834,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "newsletter"
+        }
+      ]
+    },
+    {
+      "id": "ff91e90a6009",
+      "title": "Fears of All Out War Grow as US-Iran Strikes Continue to Intensify",
       "source": "NBC News",
       "feed": "Top Stories",
       "content_type": "video",
@@ -249,7 +338,7 @@
       "llm_input_status": "exclude",
       "llm_input_reason": "unsupported_content_type:video",
       "ready_for_llm_judge": false,
-      "scraped_text_chars": 377,
+      "scraped_text_chars": 481,
       "flags": [
         {
           "code": "content_type_filter_accepted",
@@ -260,8 +349,8 @@
       ]
     },
     {
-      "id": "5c48dc4b3796",
-      "title": "SpaceX launches revamped Super Heavy-Starship rocket ahead of IPO",
+      "id": "78354f9d5f38",
+      "title": "Investors prepare to gamble on huge AI companies going public",
       "source": "CBS News",
       "feed": "Top Stories",
       "content_type": "video",
@@ -281,17 +370,38 @@
       ]
     },
     {
-      "id": "31757368b63f",
-      "title": "U.S. tightens Ebola travel restrictions as new cases emerge abroad",
-      "source": "CBS News",
+      "id": "15db685e6761",
+      "title": "Iran live updates: Trump says US will hit Iran 'very hard tonight'",
+      "source": "ABC News",
       "feed": "Top Stories",
+      "content_type": "live_blog",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:live_blog",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:live_blog",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 4459,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "live_blog"
+        }
+      ]
+    },
+    {
+      "id": "30e532ccf503",
+      "title": "Gold is now the top reserve asset. Is dollar dominance at risk?",
+      "source": "Al Jazeera",
+      "feed": "All News",
       "content_type": "video",
       "include_in_newsfeed": false,
       "newsfeed_exclusion_reason": "unsupported_content_type:video",
       "llm_input_status": "exclude",
       "llm_input_reason": "unsupported_content_type:video",
       "ready_for_llm_judge": false,
-      "scraped_text_chars": 72,
+      "scraped_text_chars": 738,
       "flags": [
         {
           "code": "content_type_filter_accepted",
@@ -302,17 +412,17 @@
       ]
     },
     {
-      "id": "5b2f1207ea70",
-      "title": "France bans Israel minister Ben-Gvir after flotilla video",
-      "source": "DW",
-      "feed": "Top Stories",
+      "id": "135227831b71",
+      "title": "Stephen Miller\u2019s War",
+      "source": "Al Jazeera",
+      "feed": "All News",
       "content_type": "video",
       "include_in_newsfeed": false,
       "newsfeed_exclusion_reason": "unsupported_content_type:video",
       "llm_input_status": "exclude",
       "llm_input_reason": "unsupported_content_type:video",
       "ready_for_llm_judge": false,
-      "scraped_text_chars": 1749,
+      "scraped_text_chars": 1517,
       "flags": [
         {
           "code": "content_type_filter_accepted",
@@ -323,49 +433,72 @@
       ]
     },
     {
-      "id": "0e7aa95fc800",
-      "title": "Man found dead with throat injuries in Ashok Nagar",
-      "source": "The Hindu - Home",
-      "feed": "The Hindu - Home",
-      "content_type": "missing_content",
+      "id": "9abb2d6ca923",
+      "title": "Bahrain releases footage of damage caused by intercepted Iranian drones",
+      "source": "Al Jazeera",
+      "feed": "All News",
+      "content_type": "video",
       "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "missing_rss_content",
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
       "llm_input_status": "exclude",
-      "llm_input_reason": "missing_rss_content",
+      "llm_input_reason": "unsupported_content_type:video",
       "ready_for_llm_judge": false,
-      "scraped_text_chars": 3062,
+      "scraped_text_chars": 357,
       "flags": [
         {
-          "code": "missing_rss_content",
-          "severity": "warn",
-          "message": "RSS entry has no summary, description, or content text."
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
         }
       ]
     },
     {
-      "id": "193d6e2f6cad",
-      "title": "Rise in IBD cases among youngsters; doctors suggest to eat homemade food",
-      "source": "The Hindu - Home",
-      "feed": "The Hindu - Home",
-      "content_type": "missing_content",
+      "id": "22fdbdf01d5c",
+      "title": "Live: Trump threatens US will hit Iran 'very hard' and take Kharg Island",
+      "source": "ABC News (Australia)",
+      "feed": "Top Stories",
+      "content_type": "live_blog",
       "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "missing_rss_content",
+      "newsfeed_exclusion_reason": "unsupported_content_type:live_blog",
       "llm_input_status": "exclude",
-      "llm_input_reason": "missing_rss_content",
+      "llm_input_reason": "unsupported_content_type:live_blog",
       "ready_for_llm_judge": false,
-      "scraped_text_chars": 4165,
+      "scraped_text_chars": 4580,
       "flags": [
         {
-          "code": "missing_rss_content",
-          "severity": "warn",
-          "message": "RSS entry has no summary, description, or content text."
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "live_blog"
         }
       ]
     },
     {
-      "id": "07b2757a6fe2",
-      "title": "Gaming grandmom gets swatted during livestream meant to raise money for cancer bills \u2014 and remains defiant",
-      "source": "The Blaze",
+      "id": "cf1acb18f7af",
+      "title": "New Ottawa art gallery exhibit showcases northern Indigenous artists from around the world",
+      "source": "APTN News",
+      "feed": "All Stories",
+      "content_type": "photo_gallery",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:photo_gallery",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:photo_gallery",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 2669,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "photo_gallery"
+        }
+      ]
+    },
+    {
+      "id": "86e593b387d9",
+      "title": "\u2018Keep Your Hands to Yourself!\u2019: Two Florida Women Start a Fight in a Publix Parking Lot, One Left in an Ambulance, the Other In Handcuffs, Video Shows",
+      "source": "Atlanta Black Star",
       "feed": "All Stories",
       "content_type": "video",
       "include_in_newsfeed": false,
@@ -373,7 +506,7 @@
       "llm_input_status": "exclude",
       "llm_input_reason": "unsupported_content_type:video",
       "ready_for_llm_judge": false,
-      "scraped_text_chars": 2396,
+      "scraped_text_chars": 2269,
       "flags": [
         {
           "code": "content_type_filter_accepted",
@@ -399,7 +532,7 @@
     "metrics": {
       "unknown_content_type_items": 0,
       "unsupported_content_type_items": 0,
-      "accepted_content_type_filter_items": 5,
+      "accepted_content_type_filter_items": 10,
       "source_blocked_items": 0,
       "accepted_rss_only_fallback_items": 0,
       "llm_review_items": 0,

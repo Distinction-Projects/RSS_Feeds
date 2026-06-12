@@ -1,0 +1,413 @@
+{
+  "status": "warn",
+  "generated_at": "2026-06-06T14:50:39Z",
+  "run_id": "digest-20260606T145039-9cb9e8e032",
+  "total_items": 130,
+  "issue_item_count": 1,
+  "status_counts": {
+    "clean": 129,
+    "warn": 1
+  },
+  "severity_counts": {
+    "info": 5,
+    "warn": 1
+  },
+  "quality_gate_metrics": {
+    "unknown_content_type_items": 0,
+    "unsupported_content_type_items": 0,
+    "accepted_content_type_filter_items": 5,
+    "source_blocked_items": 0,
+    "accepted_rss_only_fallback_items": 0,
+    "llm_ready_items": 124,
+    "llm_review_items": 0,
+    "llm_excluded_items": 6,
+    "llm_rss_fallback_items": 0,
+    "empty_scraped_text_items": 0,
+    "short_scraped_text_items": 0
+  },
+  "llm_input_status_counts": [
+    {
+      "status": "ready",
+      "count": 124
+    },
+    {
+      "status": "exclude",
+      "count": 6
+    }
+  ],
+  "llm_input_reason_counts": [
+    {
+      "reason": "scraped_text_ready",
+      "count": 124
+    },
+    {
+      "reason": "unsupported_content_type:video",
+      "count": 5
+    },
+    {
+      "reason": "missing_rss_content",
+      "count": 1
+    }
+  ],
+  "llm_input_flag_counts": [
+    {
+      "flag": "excluded_from_llm_judge",
+      "count": 6
+    }
+  ],
+  "issue_counts": [
+    {
+      "issue": "content_type_filter_accepted",
+      "count": 5
+    },
+    {
+      "issue": "missing_rss_content",
+      "count": 1
+    }
+  ],
+  "content_type_counts": [
+    {
+      "content_type": "news_article",
+      "count": 120
+    },
+    {
+      "content_type": "video",
+      "count": 5
+    },
+    {
+      "content_type": "opinion",
+      "count": 3
+    },
+    {
+      "content_type": "analysis",
+      "count": 1
+    },
+    {
+      "content_type": "missing_content",
+      "count": 1
+    }
+  ],
+  "exclusion_reason_counts": [
+    {
+      "reason": "unsupported_content_type:video",
+      "count": 5
+    },
+    {
+      "reason": "missing_rss_content",
+      "count": 1
+    }
+  ],
+  "top_sources": [
+    {
+      "source": "NBC News",
+      "count": 1
+    },
+    {
+      "source": "CBS News",
+      "count": 1
+    },
+    {
+      "source": "Al Jazeera",
+      "count": 1
+    },
+    {
+      "source": "The Hindu - Home",
+      "count": 1
+    },
+    {
+      "source": "The Gateway Pundit",
+      "count": 1
+    },
+    {
+      "source": "ICT",
+      "count": 1
+    }
+  ],
+  "top_feeds": [
+    {
+      "feed": "Top Stories",
+      "count": 2
+    },
+    {
+      "feed": "All Stories",
+      "count": 2
+    },
+    {
+      "feed": "All News",
+      "count": 1
+    },
+    {
+      "feed": "The Hindu - Home",
+      "count": 1
+    }
+  ],
+  "top_source_issues": [
+    {
+      "source": "NBC News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "CBS News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "Al Jazeera",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "The Hindu - Home",
+      "issue": "missing_rss_content",
+      "count": 1
+    },
+    {
+      "source": "The Gateway Pundit",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "ICT",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    }
+  ],
+  "top_feed_issues": [
+    {
+      "feed": "Top Stories",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "feed": "All Stories",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "feed": "All News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "feed": "The Hindu - Home",
+      "issue": "missing_rss_content",
+      "count": 1
+    }
+  ],
+  "top_content_type_issues": [
+    {
+      "content_type": "video",
+      "issue": "content_type_filter_accepted",
+      "count": 5
+    },
+    {
+      "content_type": "missing_content",
+      "issue": "missing_rss_content",
+      "count": 1
+    }
+  ],
+  "top_llm_input_source_statuses": [
+    {
+      "source": "BBC News",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "NPR",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "PBS NewsHour",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "Fox News",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "DW",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "CBC News",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "ABC News (Australia)",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "The Verge",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "Ars Technica",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "TechCrunch",
+      "status": "ready",
+      "count": 3
+    }
+  ],
+  "examples": [
+    {
+      "id": "12015685e160",
+      "title": "Exclusive: Trump says Iran hasn't made a deal because \u2018they\u2019re strong\u2019 and \u2018proud\u2019",
+      "source": "NBC News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 224,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "665309a54b0e",
+      "title": "Cond\u00e9 Nast Traveler's summer travel guide",
+      "source": "CBS News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 72,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "e309eff4130e",
+      "title": "Lebanon and Israel\u2019s perpetual war machine",
+      "source": "Al Jazeera",
+      "feed": "All News",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 1782,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "5f52cf011099",
+      "title": "Kodagu clamps down on heavy truck traffic during monsoon",
+      "source": "The Hindu - Home",
+      "feed": "The Hindu - Home",
+      "content_type": "missing_content",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "missing_rss_content",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "missing_rss_content",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 3580,
+      "flags": [
+        {
+          "code": "missing_rss_content",
+          "severity": "warn",
+          "message": "RSS entry has no summary, description, or content text."
+        }
+      ]
+    },
+    {
+      "id": "db098644430a",
+      "title": "FAFO: Leftist Rioter Receives Instant Karma After Jumping in Front of Fast-Moving Vehicle Outside ICE Detention Facility in New Jersey (VIDEO)",
+      "source": "The Gateway Pundit",
+      "feed": "All Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 3509,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "93cbdc742ad6",
+      "title": "Video: Awakening a tradition within",
+      "source": "ICT",
+      "feed": "All Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 4079,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    }
+  ],
+  "quality_gate": {
+    "status": "pass",
+    "thresholds": {
+      "unknown_content_type_items": 0,
+      "unsupported_content_type_items": 0,
+      "accepted_content_type_filter_items": 12,
+      "source_blocked_items": 0,
+      "accepted_rss_only_fallback_items": 0,
+      "llm_review_items": 0,
+      "empty_scraped_text_items": 0,
+      "short_scraped_text_items": 0
+    },
+    "metrics": {
+      "unknown_content_type_items": 0,
+      "unsupported_content_type_items": 0,
+      "accepted_content_type_filter_items": 5,
+      "source_blocked_items": 0,
+      "accepted_rss_only_fallback_items": 0,
+      "llm_review_items": 0,
+      "empty_scraped_text_items": 0,
+      "short_scraped_text_items": 0
+    },
+    "violations": []
+  }
+}

@@ -1,0 +1,589 @@
+{
+  "status": "warn",
+  "generated_at": "2026-06-04T16:27:15Z",
+  "run_id": "digest-20260604T162715-a39235e2d5",
+  "total_items": 179,
+  "issue_item_count": 1,
+  "status_counts": {
+    "clean": 178,
+    "warn": 1
+  },
+  "severity_counts": {
+    "info": 10,
+    "warn": 1
+  },
+  "quality_gate_metrics": {
+    "unknown_content_type_items": 0,
+    "unsupported_content_type_items": 0,
+    "accepted_content_type_filter_items": 10,
+    "source_blocked_items": 0,
+    "accepted_rss_only_fallback_items": 0,
+    "llm_ready_items": 169,
+    "llm_review_items": 0,
+    "llm_excluded_items": 10,
+    "llm_rss_fallback_items": 0,
+    "empty_scraped_text_items": 0,
+    "short_scraped_text_items": 0
+  },
+  "llm_input_status_counts": [
+    {
+      "status": "ready",
+      "count": 169
+    },
+    {
+      "status": "exclude",
+      "count": 10
+    }
+  ],
+  "llm_input_reason_counts": [
+    {
+      "reason": "scraped_text_ready",
+      "count": 169
+    },
+    {
+      "reason": "unsupported_content_type:video",
+      "count": 6
+    },
+    {
+      "reason": "unsupported_content_type:photo_gallery",
+      "count": 2
+    },
+    {
+      "reason": "unsupported_content_type:newsletter",
+      "count": 1
+    },
+    {
+      "reason": "unsupported_content_type:live_blog",
+      "count": 1
+    }
+  ],
+  "llm_input_flag_counts": [
+    {
+      "flag": "excluded_from_llm_judge",
+      "count": 10
+    }
+  ],
+  "issue_counts": [
+    {
+      "issue": "content_type_filter_accepted",
+      "count": 10
+    },
+    {
+      "issue": "source_server_error",
+      "count": 1
+    }
+  ],
+  "content_type_counts": [
+    {
+      "content_type": "news_article",
+      "count": 163
+    },
+    {
+      "content_type": "video",
+      "count": 6
+    },
+    {
+      "content_type": "analysis",
+      "count": 5
+    },
+    {
+      "content_type": "photo_gallery",
+      "count": 2
+    },
+    {
+      "content_type": "newsletter",
+      "count": 1
+    },
+    {
+      "content_type": "live_blog",
+      "count": 1
+    },
+    {
+      "content_type": "interview",
+      "count": 1
+    }
+  ],
+  "exclusion_reason_counts": [
+    {
+      "reason": "unsupported_content_type:video",
+      "count": 6
+    },
+    {
+      "reason": "unsupported_content_type:photo_gallery",
+      "count": 2
+    },
+    {
+      "reason": "unsupported_content_type:newsletter",
+      "count": 1
+    },
+    {
+      "reason": "unsupported_content_type:live_blog",
+      "count": 1
+    }
+  ],
+  "top_sources": [
+    {
+      "source": "CBS News",
+      "count": 2
+    },
+    {
+      "source": "Hong Kong Free Press HKFP",
+      "count": 2
+    },
+    {
+      "source": "The Hindu - Home",
+      "count": 2
+    },
+    {
+      "source": "Fox News",
+      "count": 1
+    },
+    {
+      "source": "NBC News",
+      "count": 1
+    },
+    {
+      "source": "ABC News",
+      "count": 1
+    },
+    {
+      "source": "Al Jazeera",
+      "count": 1
+    },
+    {
+      "source": "Underscore Native News",
+      "count": 1
+    }
+  ],
+  "top_feeds": [
+    {
+      "feed": "Top Stories",
+      "count": 4
+    },
+    {
+      "feed": "Hong Kong Free Press HKFP",
+      "count": 2
+    },
+    {
+      "feed": "The Hindu - Home",
+      "count": 2
+    },
+    {
+      "feed": "Latest",
+      "count": 1
+    },
+    {
+      "feed": "All News",
+      "count": 1
+    },
+    {
+      "feed": "All Stories",
+      "count": 1
+    }
+  ],
+  "top_source_issues": [
+    {
+      "source": "CBS News",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "source": "Hong Kong Free Press HKFP",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "source": "Fox News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "NBC News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "ABC News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "Al Jazeera",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "The Hindu - Home",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "source": "The Hindu - Home",
+      "issue": "source_server_error",
+      "count": 1
+    },
+    {
+      "source": "Underscore Native News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    }
+  ],
+  "top_feed_issues": [
+    {
+      "feed": "Top Stories",
+      "issue": "content_type_filter_accepted",
+      "count": 4
+    },
+    {
+      "feed": "Hong Kong Free Press HKFP",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "feed": "Latest",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "feed": "All News",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "feed": "The Hindu - Home",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "feed": "The Hindu - Home",
+      "issue": "source_server_error",
+      "count": 1
+    },
+    {
+      "feed": "All Stories",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    }
+  ],
+  "top_content_type_issues": [
+    {
+      "content_type": "video",
+      "issue": "content_type_filter_accepted",
+      "count": 6
+    },
+    {
+      "content_type": "photo_gallery",
+      "issue": "content_type_filter_accepted",
+      "count": 2
+    },
+    {
+      "content_type": "newsletter",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "content_type": "live_blog",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "content_type": "video",
+      "issue": "source_server_error",
+      "count": 1
+    }
+  ],
+  "top_llm_input_source_statuses": [
+    {
+      "source": "BBC News",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "The Guardian",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "NPR",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "PBS NewsHour",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "DW",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "CBC News",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "ABC News (Australia)",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "The Verge",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "Ars Technica",
+      "status": "ready",
+      "count": 3
+    },
+    {
+      "source": "TechCrunch",
+      "status": "ready",
+      "count": 3
+    }
+  ],
+  "examples": [
+    {
+      "id": "b977a3f7c299",
+      "title": "Fox News \u2018Antisemitism Exposed\u2019 Newsletter: Piker unleashes on Israel after ban from UK",
+      "source": "Fox News",
+      "feed": "Latest",
+      "content_type": "newsletter",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:newsletter",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:newsletter",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 4474,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "newsletter"
+        }
+      ]
+    },
+    {
+      "id": "93ceb9b26980",
+      "title": "House Votes to Restrain Trump\u2019s War Powers",
+      "source": "NBC News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 598,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "d12ac0ac34fb",
+      "title": "Breaking down Todd Blanche's law career as Trump prepares to nominate him for attorney general post",
+      "source": "CBS News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 72,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "b2917cfa0b76",
+      "title": "Parents stay in Japan after son Weston Higginbotham goes missing during family trip",
+      "source": "CBS News",
+      "feed": "Top Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 72,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "f3ed6e7a7d93",
+      "title": "Iran live updates: Trump calls GOP backers of war powers resolution 'grandstanders'",
+      "source": "ABC News",
+      "feed": "Top Stories",
+      "content_type": "live_blog",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:live_blog",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:live_blog",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 5552,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "live_blog"
+        }
+      ]
+    },
+    {
+      "id": "7b763ef05c9d",
+      "title": "The making of Sudan\u2019s RSF",
+      "source": "Al Jazeera",
+      "feed": "All News",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 451,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "de196731db76",
+      "title": "In Pictures: Foreign missions in Hong Kong mark Tiananmen crackdown with candles, social media tributes",
+      "source": "Hong Kong Free Press HKFP",
+      "feed": "Hong Kong Free Press HKFP",
+      "content_type": "photo_gallery",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:photo_gallery",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:photo_gallery",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 5560,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "photo_gallery"
+        }
+      ]
+    },
+    {
+      "id": "228411566096",
+      "title": "In Pictures: Activists stopped near ex-vigil site amid large police deployment on Tiananmen crackdown anniversary",
+      "source": "Hong Kong Free Press HKFP",
+      "feed": "Hong Kong Free Press HKFP",
+      "content_type": "photo_gallery",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:photo_gallery",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:photo_gallery",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 8939,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "photo_gallery"
+        }
+      ]
+    },
+    {
+      "id": "ace08f17378d",
+      "title": "Watch: DMK to boycott June 8 INDIA bloc meeting over Congress \u2018betrayal\u2019",
+      "source": "The Hindu - Home",
+      "feed": "The Hindu - Home",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 0,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        },
+        {
+          "code": "source_server_error",
+          "severity": "warn",
+          "message": "Article source returned a server error.",
+          "detail": "HTTP Error 500: Internal Server Error"
+        }
+      ]
+    },
+    {
+      "id": "09dc8c571ecf",
+      "title": "Video: Awakening a Tradition Within",
+      "source": "Underscore Native News",
+      "feed": "All Stories",
+      "content_type": "video",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "llm_input_status": "exclude",
+      "llm_input_reason": "unsupported_content_type:video",
+      "ready_for_llm_judge": false,
+      "scraped_text_chars": 3053,
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "video"
+        }
+      ]
+    }
+  ],
+  "quality_gate": {
+    "status": "pass",
+    "thresholds": {
+      "unknown_content_type_items": 0,
+      "unsupported_content_type_items": 0,
+      "accepted_content_type_filter_items": 12,
+      "source_blocked_items": 0,
+      "accepted_rss_only_fallback_items": 0,
+      "llm_review_items": 0,
+      "empty_scraped_text_items": 0,
+      "short_scraped_text_items": 0
+    },
+    "metrics": {
+      "unknown_content_type_items": 0,
+      "unsupported_content_type_items": 0,
+      "accepted_content_type_filter_items": 10,
+      "source_blocked_items": 0,
+      "accepted_rss_only_fallback_items": 0,
+      "llm_review_items": 0,
+      "empty_scraped_text_items": 0,
+      "short_scraped_text_items": 0
+    },
+    "violations": []
+  }
+}
