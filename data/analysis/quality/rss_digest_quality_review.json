@@ -23,6 +23,440 @@
     "empty_scraped_text_items": 0,
     "short_scraped_text_items": 0
   },
+  "cleanliness": {
+    "total_observations": 178,
+    "total_items": 178,
+    "clean_newsfeed_items": 168,
+    "clean_newsfeed_rate": 0.9438,
+    "observable_issue_items": 10,
+    "observable_issue_rate": 0.0562,
+    "warning_or_failure_items": 0,
+    "warning_or_failure_rate": 0.0,
+    "info_only_items": 10,
+    "newsfeed_excluded": 10,
+    "newsfeed_exclusion_rate": 0.0562,
+    "reason_counts": [
+      {
+        "reason": "content_type_filter_accepted",
+        "count": 10,
+        "stage": "content_type_filter",
+        "severity": "info",
+        "recommended_action": "review_source_mix"
+      }
+    ],
+    "stage_counts": [
+      {
+        "stage": "content_type_filter",
+        "count": 10
+      }
+    ],
+    "severity_counts": [
+      {
+        "severity": "info",
+        "count": 10
+      }
+    ],
+    "top_issue_groups": [
+      {
+        "source": "Al Jazeera",
+        "feed": "All News",
+        "reason": "content_type_filter_accepted",
+        "count": 3,
+        "stage": "content_type_filter",
+        "severity": "info",
+        "recommended_action": "review_source_mix"
+      },
+      {
+        "source": "ABC News",
+        "feed": "Top Stories",
+        "reason": "content_type_filter_accepted",
+        "count": 1,
+        "stage": "content_type_filter",
+        "severity": "info",
+        "recommended_action": "review_source_mix"
+      },
+      {
+        "source": "ABC News (Australia)",
+        "feed": "Top Stories",
+        "reason": "content_type_filter_accepted",
+        "count": 1,
+        "stage": "content_type_filter",
+        "severity": "info",
+        "recommended_action": "review_source_mix"
+      },
+      {
+        "source": "APTN News",
+        "feed": "All Stories",
+        "reason": "content_type_filter_accepted",
+        "count": 1,
+        "stage": "content_type_filter",
+        "severity": "info",
+        "recommended_action": "review_source_mix"
+      },
+      {
+        "source": "Atlanta Black Star",
+        "feed": "All Stories",
+        "reason": "content_type_filter_accepted",
+        "count": 1,
+        "stage": "content_type_filter",
+        "severity": "info",
+        "recommended_action": "review_source_mix"
+      },
+      {
+        "source": "CBS News",
+        "feed": "Top Stories",
+        "reason": "content_type_filter_accepted",
+        "count": 1,
+        "stage": "content_type_filter",
+        "severity": "info",
+        "recommended_action": "review_source_mix"
+      },
+      {
+        "source": "Fox News",
+        "feed": "Latest",
+        "reason": "content_type_filter_accepted",
+        "count": 1,
+        "stage": "content_type_filter",
+        "severity": "info",
+        "recommended_action": "review_source_mix"
+      },
+      {
+        "source": "NBC News",
+        "feed": "Top Stories",
+        "reason": "content_type_filter_accepted",
+        "count": 1,
+        "stage": "content_type_filter",
+        "severity": "info",
+        "recommended_action": "review_source_mix"
+      }
+    ],
+    "recommended_action_counts": [
+      {
+        "recommended_action": "review_source_mix",
+        "count": 10
+      }
+    ],
+    "top_sources": [
+      {
+        "source": "Al Jazeera",
+        "total_items": 3,
+        "clean_newsfeed_items": 0,
+        "observable_issue_items": 3,
+        "observable_issue_rate": 1.0,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 3,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 3,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "source": "ABC News",
+        "total_items": 2,
+        "clean_newsfeed_items": 1,
+        "observable_issue_items": 1,
+        "observable_issue_rate": 0.5,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 1,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 1,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "source": "ABC News (Australia)",
+        "total_items": 3,
+        "clean_newsfeed_items": 2,
+        "observable_issue_items": 1,
+        "observable_issue_rate": 0.3333,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 1,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 1,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "source": "APTN News",
+        "total_items": 3,
+        "clean_newsfeed_items": 2,
+        "observable_issue_items": 1,
+        "observable_issue_rate": 0.3333,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 1,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 1,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "source": "Atlanta Black Star",
+        "total_items": 3,
+        "clean_newsfeed_items": 2,
+        "observable_issue_items": 1,
+        "observable_issue_rate": 0.3333,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 1,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 1,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "source": "CBS News",
+        "total_items": 3,
+        "clean_newsfeed_items": 2,
+        "observable_issue_items": 1,
+        "observable_issue_rate": 0.3333,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 1,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 1,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "source": "Fox News",
+        "total_items": 3,
+        "clean_newsfeed_items": 2,
+        "observable_issue_items": 1,
+        "observable_issue_rate": 0.3333,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 1,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 1,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "source": "NBC News",
+        "total_items": 3,
+        "clean_newsfeed_items": 2,
+        "observable_issue_items": 1,
+        "observable_issue_rate": 0.3333,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 1,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 1,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "source": "AFRO News",
+        "total_items": 3,
+        "clean_newsfeed_items": 3,
+        "observable_issue_items": 0,
+        "observable_issue_rate": 0.0,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 0,
+        "top_reasons": []
+      },
+      {
+        "source": "American Greatness",
+        "total_items": 3,
+        "clean_newsfeed_items": 3,
+        "observable_issue_items": 0,
+        "observable_issue_rate": 0.0,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 0,
+        "top_reasons": []
+      }
+    ],
+    "top_feeds": [
+      {
+        "feed": "Top Stories",
+        "total_items": 17,
+        "clean_newsfeed_items": 13,
+        "observable_issue_items": 4,
+        "observable_issue_rate": 0.2353,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 4,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 4,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "feed": "All News",
+        "total_items": 3,
+        "clean_newsfeed_items": 0,
+        "observable_issue_items": 3,
+        "observable_issue_rate": 1.0,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 3,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 3,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "feed": "All Stories",
+        "total_items": 113,
+        "clean_newsfeed_items": 111,
+        "observable_issue_items": 2,
+        "observable_issue_rate": 0.0177,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 2,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 2,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "feed": "Latest",
+        "total_items": 9,
+        "clean_newsfeed_items": 8,
+        "observable_issue_items": 1,
+        "observable_issue_rate": 0.1111,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 1,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 1,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "feed": "Articles",
+        "total_items": 6,
+        "clean_newsfeed_items": 6,
+        "observable_issue_items": 0,
+        "observable_issue_rate": 0.0,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 0,
+        "top_reasons": []
+      },
+      {
+        "feed": "Daily Headlines & Stories",
+        "total_items": 3,
+        "clean_newsfeed_items": 3,
+        "observable_issue_items": 0,
+        "observable_issue_rate": 0.0,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 0,
+        "top_reasons": []
+      },
+      {
+        "feed": "Hong Kong Free Press HKFP",
+        "total_items": 3,
+        "clean_newsfeed_items": 3,
+        "observable_issue_items": 0,
+        "observable_issue_rate": 0.0,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 0,
+        "top_reasons": []
+      },
+      {
+        "feed": "Main Feed",
+        "total_items": 3,
+        "clean_newsfeed_items": 3,
+        "observable_issue_items": 0,
+        "observable_issue_rate": 0.0,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 0,
+        "top_reasons": []
+      },
+      {
+        "feed": "News",
+        "total_items": 3,
+        "clean_newsfeed_items": 3,
+        "observable_issue_items": 0,
+        "observable_issue_rate": 0.0,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 0,
+        "top_reasons": []
+      },
+      {
+        "feed": "News On Japan",
+        "total_items": 3,
+        "clean_newsfeed_items": 3,
+        "observable_issue_items": 0,
+        "observable_issue_rate": 0.0,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 0,
+        "top_reasons": []
+      }
+    ]
+  },
   "llm_input_status_counts": [
     {
       "status": "ready",
