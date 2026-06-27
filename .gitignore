@@ -16,6 +16,7 @@ data/analysis/quality/history/*_probe_*.json
 !data/analysis/feed_audit/
 data/analysis/feed_audit/*
 !data/analysis/feed_audit/rss_feed_audit.json
+!data/analysis/feed_audit/source_health_trends.json
 !data/analysis/feed_audit/history/
 data/analysis/feed_audit/history/*
 !data/analysis/feed_audit/history/rss_feed_audit_*.json
