@@ -17,6 +17,7 @@ from .content_classifier import (
 from .workflow_runtime import utc_now_iso
 
 _HISTORY_FILENAME_PATTERN = re.compile(r"^rss_openai_daily_(\d{4}-\d{2}-\d{2})\.json$")
+_LLM_READY_STATUS = "ready"
 
 
 def _load_json(path: Path, *, default: Any) -> Any:
@@ -295,6 +296,13 @@ def _newsfeed_exclusion_reason(item: dict[str, Any]) -> str | None:
         return "missing_rss_content"
     if content_type in NEWSLENS_INELIGIBLE_CONTENT_TYPES:
         return f"unsupported_content_type:{content_type}"
+
+    llm_status = str(item.get("llm_input_status") or "").strip()
+    ready_for_llm = item.get("ready_for_llm_judge")
+    if llm_status and (llm_status != _LLM_READY_STATUS or ready_for_llm is False):
+        return f"llm_input_not_ready:{llm_status}"
+    if ready_for_llm is False:
+        return "llm_input_not_ready:not_ready"
 
     return None
 

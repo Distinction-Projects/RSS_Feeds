@@ -29,9 +29,9 @@ class PipelinePublishTests(unittest.TestCase):
             output_path = repo_root / "data/processed/rss_openai_precomputed.json"
             payload = json.loads(output_path.read_text(encoding="utf-8"))
             self.assertEqual(payload["schema_version"], "1.1")
-            self.assertEqual(payload["summary"]["digest_articles"], 5)
+            self.assertEqual(payload["summary"]["digest_articles"], 6)
             self.assertEqual(payload["summary"]["digest_articles_included"], 2)
-            self.assertEqual(payload["summary"]["digest_articles_excluded"], 3)
+            self.assertEqual(payload["summary"]["digest_articles_excluded"], 4)
             self.assertEqual(payload["summary"]["excluded_missing_content"], 1)
             self.assertEqual(payload["summary"]["excluded_unsupported_content_type"], 2)
             self.assertEqual(payload["summary"]["lens_scored_articles"], 1)
@@ -64,6 +64,7 @@ class PipelinePublishTests(unittest.TestCase):
             self.assertNotIn("fixture-empty", article_map)
             self.assertNotIn("fixture-video", article_map)
             self.assertNotIn("fixture-legacy-video", article_map)
+            self.assertNotIn("fixture-llm-review", article_map)
             scored_article = article_map["fixture-1"]
             unscored_article = article_map["fixture-2"]
 
@@ -193,6 +194,30 @@ class PipelinePublishTests(unittest.TestCase):
                     "scraped": None,
                     "scrape_error": None,
                     "audit": {},
+                },
+                {
+                    "id": "fixture-llm-review",
+                    "title": "Fixture Review Story",
+                    "link": "https://example.com/fixture-review",
+                    "published": "2026-04-04T17:00:00Z",
+                    "summary": "Review summary.",
+                    "ai_summary": "",
+                    "ai_tags": [],
+                    "topic_tags": ["policy"],
+                    "content_type": "news_article",
+                    "source": {"id": "source-3", "name": "Source Three"},
+                    "feed": {"name": "Feed Three", "url": "https://example.com/feed-3.xml"},
+                    "scraped": None,
+                    "scrape_error": "HTTP Error 403: Forbidden",
+                    "llm_input_status": "review",
+                    "llm_input_reason": "scrape_failed_no_llm_input",
+                    "ready_for_llm_judge": False,
+                    "audit": {
+                        "scrape": {
+                            "status": "failed",
+                            "error": "HTTP Error 403: Forbidden",
+                        }
+                    },
                 },
             ],
         }
