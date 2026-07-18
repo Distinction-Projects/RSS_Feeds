@@ -1,40 +1,17 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-17T14:55:50Z",
+  "generated_at": "2026-07-18T14:27:04Z",
   "status": "pass",
-  "snapshot_count": 19,
-  "source_health_snapshot_count": 10,
+  "snapshot_count": 20,
+  "source_health_snapshot_count": 11,
   "source_count": 63,
   "latest": {
     "path": "/home/runner/work/RSS_Feeds/RSS_Feeds/data/analysis/feed_audit/rss_feed_audit.json",
-    "generated_at": "2026-07-17T14:55:24Z",
-    "run_id": "feed-audit-20260717T145524-28f0ba7b87",
+    "generated_at": "2026-07-18T14:26:43Z",
+    "run_id": "feed-audit-20260718T142643-5191d077d8",
     "status": "warn",
     "source_health_available": true,
     "source_health": [
-      {
-        "source_id": "nbc-news",
-        "source_name": "NBC News",
-        "selected_feeds": 1,
-        "feed_fetch_failed": 0,
-        "raw_items": 5,
-        "typical_newsfeed_items": 0,
-        "newsfeed_excluded": 5,
-        "quality_warn_items": 0,
-        "quality_fail_items": 0,
-        "info_issue_count": 5,
-        "warn_issue_count": 0,
-        "fail_issue_count": 0,
-        "missing_rss_content_items": 0,
-        "accepted_content_type_filter_items": 5,
-        "issue_count": 5,
-        "issue_rate": 1.0,
-        "status": "watch",
-        "recommended_action": "review_source_mix",
-        "issue_counts": {
-          "content_type_filter_accepted": 5
-        }
-      },
       {
         "source_id": "carbon-brief",
         "source_name": "Carbon Brief",
@@ -105,8 +82,31 @@
         }
       },
       {
-        "source_id": "hong-kong-free-press-hkfp",
-        "source_name": "Hong Kong Free Press HKFP",
+        "source_id": "mother-jones",
+        "source_name": "Mother Jones",
+        "selected_feeds": 1,
+        "feed_fetch_failed": 0,
+        "raw_items": 5,
+        "typical_newsfeed_items": 1,
+        "newsfeed_excluded": 4,
+        "quality_warn_items": 0,
+        "quality_fail_items": 0,
+        "info_issue_count": 4,
+        "warn_issue_count": 0,
+        "fail_issue_count": 0,
+        "missing_rss_content_items": 0,
+        "accepted_content_type_filter_items": 4,
+        "issue_count": 4,
+        "issue_rate": 0.8,
+        "status": "watch",
+        "recommended_action": "review_source_mix",
+        "issue_counts": {
+          "content_type_filter_accepted": 4
+        }
+      },
+      {
+        "source_id": "abc-news",
+        "source_name": "ABC News",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -128,8 +128,8 @@
         }
       },
       {
-        "source_id": "the-conversation-us",
-        "source_name": "The Conversation US",
+        "source_id": "atlanta-black-star",
+        "source_name": "Atlanta Black Star",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -174,8 +174,55 @@
         }
       },
       {
-        "source_id": "abc-news",
-        "source_name": "ABC News",
+        "source_id": "the-hindu-home",
+        "source_name": "The Hindu - Home",
+        "selected_feeds": 1,
+        "feed_fetch_failed": 0,
+        "raw_items": 5,
+        "typical_newsfeed_items": 2,
+        "newsfeed_excluded": 3,
+        "quality_warn_items": 2,
+        "quality_fail_items": 0,
+        "info_issue_count": 1,
+        "warn_issue_count": 2,
+        "fail_issue_count": 0,
+        "missing_rss_content_items": 2,
+        "accepted_content_type_filter_items": 1,
+        "issue_count": 3,
+        "issue_rate": 0.6,
+        "status": "watch",
+        "recommended_action": "review_source_quality",
+        "issue_counts": {
+          "missing_rss_content": 2,
+          "content_type_filter_accepted": 1
+        }
+      },
+      {
+        "source_id": "the-intercept",
+        "source_name": "The Intercept",
+        "selected_feeds": 1,
+        "feed_fetch_failed": 0,
+        "raw_items": 5,
+        "typical_newsfeed_items": 2,
+        "newsfeed_excluded": 3,
+        "quality_warn_items": 0,
+        "quality_fail_items": 0,
+        "info_issue_count": 3,
+        "warn_issue_count": 0,
+        "fail_issue_count": 0,
+        "missing_rss_content_items": 0,
+        "accepted_content_type_filter_items": 3,
+        "issue_count": 3,
+        "issue_rate": 0.6,
+        "status": "watch",
+        "recommended_action": "review_source_mix",
+        "issue_counts": {
+          "content_type_filter_accepted": 3
+        }
+      },
+      {
+        "source_id": "afro-news",
+        "source_name": "AFRO News",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -197,26 +244,26 @@
         }
       },
       {
-        "source_id": "aptn-news",
-        "source_name": "APTN News",
+        "source_id": "cbc-news",
+        "source_name": "CBC News",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
         "typical_newsfeed_items": 3,
         "newsfeed_excluded": 2,
-        "quality_warn_items": 0,
+        "quality_warn_items": 2,
         "quality_fail_items": 0,
-        "info_issue_count": 2,
-        "warn_issue_count": 0,
+        "info_issue_count": 0,
+        "warn_issue_count": 2,
         "fail_issue_count": 0,
-        "missing_rss_content_items": 0,
-        "accepted_content_type_filter_items": 2,
+        "missing_rss_content_items": 2,
+        "accepted_content_type_filter_items": 0,
         "issue_count": 2,
         "issue_rate": 0.4,
         "status": "watch",
-        "recommended_action": "review_source_mix",
+        "recommended_action": "review_source_quality",
         "issue_counts": {
-          "content_type_filter_accepted": 2
+          "missing_rss_content": 2
         }
       },
       {
@@ -266,31 +313,8 @@
         }
       },
       {
-        "source_id": "mother-jones",
-        "source_name": "Mother Jones",
-        "selected_feeds": 1,
-        "feed_fetch_failed": 0,
-        "raw_items": 5,
-        "typical_newsfeed_items": 3,
-        "newsfeed_excluded": 2,
-        "quality_warn_items": 0,
-        "quality_fail_items": 0,
-        "info_issue_count": 2,
-        "warn_issue_count": 0,
-        "fail_issue_count": 0,
-        "missing_rss_content_items": 0,
-        "accepted_content_type_filter_items": 2,
-        "issue_count": 2,
-        "issue_rate": 0.4,
-        "status": "watch",
-        "recommended_action": "review_source_mix",
-        "issue_counts": {
-          "content_type_filter_accepted": 2
-        }
-      },
-      {
-        "source_id": "npr",
-        "source_name": "NPR",
+        "source_id": "grist",
+        "source_name": "Grist",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -335,8 +359,8 @@
         }
       },
       {
-        "source_id": "stat-news",
-        "source_name": "STAT News",
+        "source_id": "the-blaze",
+        "source_name": "The Blaze",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -358,8 +382,8 @@
         }
       },
       {
-        "source_id": "the-intercept",
-        "source_name": "The Intercept",
+        "source_id": "the-conversation-us",
+        "source_name": "The Conversation US",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -381,26 +405,49 @@
         }
       },
       {
-        "source_id": "afro-news",
-        "source_name": "AFRO News",
+        "source_id": "truthout",
+        "source_name": "Truthout",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
-        "typical_newsfeed_items": 4,
-        "newsfeed_excluded": 1,
+        "typical_newsfeed_items": 3,
+        "newsfeed_excluded": 2,
         "quality_warn_items": 0,
         "quality_fail_items": 0,
-        "info_issue_count": 1,
+        "info_issue_count": 2,
         "warn_issue_count": 0,
         "fail_issue_count": 0,
         "missing_rss_content_items": 0,
-        "accepted_content_type_filter_items": 1,
-        "issue_count": 1,
-        "issue_rate": 0.2,
+        "accepted_content_type_filter_items": 2,
+        "issue_count": 2,
+        "issue_rate": 0.4,
         "status": "watch",
         "recommended_action": "review_source_mix",
         "issue_counts": {
-          "content_type_filter_accepted": 1
+          "content_type_filter_accepted": 2
+        }
+      },
+      {
+        "source_id": "underscore-native-news",
+        "source_name": "Underscore Native News",
+        "selected_feeds": 1,
+        "feed_fetch_failed": 0,
+        "raw_items": 5,
+        "typical_newsfeed_items": 3,
+        "newsfeed_excluded": 2,
+        "quality_warn_items": 0,
+        "quality_fail_items": 0,
+        "info_issue_count": 2,
+        "warn_issue_count": 0,
+        "fail_issue_count": 0,
+        "missing_rss_content_items": 0,
+        "accepted_content_type_filter_items": 2,
+        "issue_count": 2,
+        "issue_rate": 0.4,
+        "status": "watch",
+        "recommended_action": "review_source_mix",
+        "issue_counts": {
+          "content_type_filter_accepted": 2
         }
       },
       {
@@ -427,8 +474,8 @@
         }
       },
       {
-        "source_id": "atlanta-black-star",
-        "source_name": "Atlanta Black Star",
+        "source_id": "canary-media",
+        "source_name": "Canary Media",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -450,8 +497,8 @@
         }
       },
       {
-        "source_id": "grist",
-        "source_name": "Grist",
+        "source_id": "hong-kong-free-press-hkfp",
+        "source_name": "Hong Kong Free Press HKFP",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -519,6 +566,52 @@
         }
       },
       {
+        "source_id": "mongabay",
+        "source_name": "Mongabay",
+        "selected_feeds": 1,
+        "feed_fetch_failed": 0,
+        "raw_items": 5,
+        "typical_newsfeed_items": 4,
+        "newsfeed_excluded": 1,
+        "quality_warn_items": 0,
+        "quality_fail_items": 0,
+        "info_issue_count": 1,
+        "warn_issue_count": 0,
+        "fail_issue_count": 0,
+        "missing_rss_content_items": 0,
+        "accepted_content_type_filter_items": 1,
+        "issue_count": 1,
+        "issue_rate": 0.2,
+        "status": "watch",
+        "recommended_action": "review_source_mix",
+        "issue_counts": {
+          "content_type_filter_accepted": 1
+        }
+      },
+      {
+        "source_id": "nbc-news",
+        "source_name": "NBC News",
+        "selected_feeds": 1,
+        "feed_fetch_failed": 0,
+        "raw_items": 5,
+        "typical_newsfeed_items": 4,
+        "newsfeed_excluded": 1,
+        "quality_warn_items": 0,
+        "quality_fail_items": 0,
+        "info_issue_count": 1,
+        "warn_issue_count": 0,
+        "fail_issue_count": 0,
+        "missing_rss_content_items": 0,
+        "accepted_content_type_filter_items": 1,
+        "issue_count": 1,
+        "issue_rate": 0.2,
+        "status": "watch",
+        "recommended_action": "review_source_mix",
+        "issue_counts": {
+          "content_type_filter_accepted": 1
+        }
+      },
+      {
         "source_id": "reason",
         "source_name": "Reason",
         "selected_feeds": 1,
@@ -565,8 +658,8 @@
         }
       },
       {
-        "source_id": "the-blaze",
-        "source_name": "The Blaze",
+        "source_id": "stat-news",
+        "source_name": "STAT News",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -611,29 +704,6 @@
         }
       },
       {
-        "source_id": "the-hindu-home",
-        "source_name": "The Hindu - Home",
-        "selected_feeds": 1,
-        "feed_fetch_failed": 0,
-        "raw_items": 5,
-        "typical_newsfeed_items": 4,
-        "newsfeed_excluded": 1,
-        "quality_warn_items": 1,
-        "quality_fail_items": 0,
-        "info_issue_count": 0,
-        "warn_issue_count": 1,
-        "fail_issue_count": 0,
-        "missing_rss_content_items": 1,
-        "accepted_content_type_filter_items": 0,
-        "issue_count": 1,
-        "issue_rate": 0.2,
-        "status": "watch",
-        "recommended_action": "review_source_quality",
-        "issue_counts": {
-          "missing_rss_content": 1
-        }
-      },
-      {
         "source_id": "the-root",
         "source_name": "The Root",
         "selected_feeds": 1,
@@ -657,8 +727,8 @@
         }
       },
       {
-        "source_id": "the-verge",
-        "source_name": "The Verge",
+        "source_id": "the-grio",
+        "source_name": "TheGrio",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -680,31 +750,8 @@
         }
       },
       {
-        "source_id": "underscore-native-news",
-        "source_name": "Underscore Native News",
-        "selected_feeds": 1,
-        "feed_fetch_failed": 0,
-        "raw_items": 5,
-        "typical_newsfeed_items": 4,
-        "newsfeed_excluded": 1,
-        "quality_warn_items": 0,
-        "quality_fail_items": 0,
-        "info_issue_count": 1,
-        "warn_issue_count": 0,
-        "fail_issue_count": 0,
-        "missing_rss_content_items": 0,
-        "accepted_content_type_filter_items": 1,
-        "issue_count": 1,
-        "issue_rate": 0.2,
-        "status": "watch",
-        "recommended_action": "review_source_mix",
-        "issue_counts": {
-          "content_type_filter_accepted": 1
-        }
-      },
-      {
-        "source_id": "zerohedge",
-        "source_name": "ZeroHedge",
+        "source_id": "unherd",
+        "source_name": "UnHerd",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -728,6 +775,27 @@
       {
         "source_id": "abc-australia",
         "source_name": "ABC News (Australia)",
+        "selected_feeds": 1,
+        "feed_fetch_failed": 0,
+        "raw_items": 5,
+        "typical_newsfeed_items": 5,
+        "newsfeed_excluded": 0,
+        "quality_warn_items": 0,
+        "quality_fail_items": 0,
+        "info_issue_count": 0,
+        "warn_issue_count": 0,
+        "fail_issue_count": 0,
+        "missing_rss_content_items": 0,
+        "accepted_content_type_filter_items": 0,
+        "issue_count": 0,
+        "issue_rate": 0.0,
+        "status": "healthy",
+        "recommended_action": "keep",
+        "issue_counts": {}
+      },
+      {
+        "source_id": "aptn-news",
+        "source_name": "APTN News",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -810,27 +878,6 @@
         "issue_counts": {}
       },
       {
-        "source_id": "cbc-news",
-        "source_name": "CBC News",
-        "selected_feeds": 1,
-        "feed_fetch_failed": 0,
-        "raw_items": 5,
-        "typical_newsfeed_items": 5,
-        "newsfeed_excluded": 0,
-        "quality_warn_items": 0,
-        "quality_fail_items": 0,
-        "info_issue_count": 0,
-        "warn_issue_count": 0,
-        "fail_issue_count": 0,
-        "missing_rss_content_items": 0,
-        "accepted_content_type_filter_items": 0,
-        "issue_count": 0,
-        "issue_rate": 0.0,
-        "status": "healthy",
-        "recommended_action": "keep",
-        "issue_counts": {}
-      },
-      {
         "source_id": "cbs-news",
         "source_name": "CBS News",
         "selected_feeds": 1,
@@ -854,27 +901,6 @@
       {
         "source_id": "cnbc",
         "source_name": "CNBC",
-        "selected_feeds": 1,
-        "feed_fetch_failed": 0,
-        "raw_items": 5,
-        "typical_newsfeed_items": 5,
-        "newsfeed_excluded": 0,
-        "quality_warn_items": 0,
-        "quality_fail_items": 0,
-        "info_issue_count": 0,
-        "warn_issue_count": 0,
-        "fail_issue_count": 0,
-        "missing_rss_content_items": 0,
-        "accepted_content_type_filter_items": 0,
-        "issue_count": 0,
-        "issue_rate": 0.0,
-        "status": "healthy",
-        "recommended_action": "keep",
-        "issue_counts": {}
-      },
-      {
-        "source_id": "canary-media",
-        "source_name": "Canary Media",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -1104,8 +1130,8 @@
         "issue_counts": {}
       },
       {
-        "source_id": "mongabay",
-        "source_name": "Mongabay",
+        "source_id": "npr",
+        "source_name": "NPR",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -1293,50 +1319,8 @@
         "issue_counts": {}
       },
       {
-        "source_id": "the-grio",
-        "source_name": "TheGrio",
-        "selected_feeds": 1,
-        "feed_fetch_failed": 0,
-        "raw_items": 5,
-        "typical_newsfeed_items": 5,
-        "newsfeed_excluded": 0,
-        "quality_warn_items": 0,
-        "quality_fail_items": 0,
-        "info_issue_count": 0,
-        "warn_issue_count": 0,
-        "fail_issue_count": 0,
-        "missing_rss_content_items": 0,
-        "accepted_content_type_filter_items": 0,
-        "issue_count": 0,
-        "issue_rate": 0.0,
-        "status": "healthy",
-        "recommended_action": "keep",
-        "issue_counts": {}
-      },
-      {
-        "source_id": "truthout",
-        "source_name": "Truthout",
-        "selected_feeds": 1,
-        "feed_fetch_failed": 0,
-        "raw_items": 5,
-        "typical_newsfeed_items": 5,
-        "newsfeed_excluded": 0,
-        "quality_warn_items": 0,
-        "quality_fail_items": 0,
-        "info_issue_count": 0,
-        "warn_issue_count": 0,
-        "fail_issue_count": 0,
-        "missing_rss_content_items": 0,
-        "accepted_content_type_filter_items": 0,
-        "issue_count": 0,
-        "issue_rate": 0.0,
-        "status": "healthy",
-        "recommended_action": "keep",
-        "issue_counts": {}
-      },
-      {
-        "source_id": "unherd",
-        "source_name": "UnHerd",
+        "source_id": "the-verge",
+        "source_name": "The Verge",
         "selected_feeds": 1,
         "feed_fetch_failed": 0,
         "raw_items": 5,
@@ -1396,838 +1380,132 @@
         "status": "healthy",
         "recommended_action": "keep",
         "issue_counts": {}
+      },
+      {
+        "source_id": "zerohedge",
+        "source_name": "ZeroHedge",
+        "selected_feeds": 1,
+        "feed_fetch_failed": 0,
+        "raw_items": 5,
+        "typical_newsfeed_items": 5,
+        "newsfeed_excluded": 0,
+        "quality_warn_items": 0,
+        "quality_fail_items": 0,
+        "info_issue_count": 0,
+        "warn_issue_count": 0,
+        "fail_issue_count": 0,
+        "missing_rss_content_items": 0,
+        "accepted_content_type_filter_items": 0,
+        "issue_count": 0,
+        "issue_rate": 0.0,
+        "status": "healthy",
+        "recommended_action": "keep",
+        "issue_counts": {}
       }
     ]
   },
   "latest_status_counts": {
-    "healthy": 32,
-    "watch": 31,
+    "healthy": 30,
+    "watch": 33,
     "hold_candidate": 0,
     "unknown": 0
   },
   "attention_summary": {
     "hold_candidates": 0,
-    "watch_sources": 31,
-    "degraded_sources": 12,
-    "improved_sources": 14
+    "watch_sources": 33,
+    "degraded_sources": 15,
+    "improved_sources": 8
   },
   "sources_needing_attention": [
     {
-      "source_id": "nbc-news",
-      "source_name": "NBC News",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 5,
-      "latest_issue_rate": 1.0,
-      "latest_newsfeed_excluded": 5,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 5,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 33,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 33,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 33,
-      "status_counts": {
-        "healthy": 0,
-        "watch": 10,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 33
-        }
-      ]
-    },
-    {
-      "source_id": "hong-kong-free-press-hkfp",
-      "source_name": "Hong Kong Free Press HKFP",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 3,
-      "latest_issue_rate": 0.6,
-      "latest_newsfeed_excluded": 3,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 3,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 9,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 9,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 9,
-      "status_counts": {
-        "healthy": 5,
-        "watch": 5,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 9
-        }
-      ]
-    },
-    {
-      "source_id": "the-conversation-us",
-      "source_name": "The Conversation US",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 3,
-      "latest_issue_rate": 0.6,
-      "latest_newsfeed_excluded": 3,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 3,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 5,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 5,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 5,
-      "status_counts": {
-        "healthy": 7,
-        "watch": 3,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 5
-        }
-      ]
-    },
-    {
-      "source_id": "gateway-pundit",
-      "source_name": "The Gateway Pundit",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 3,
-      "latest_issue_rate": 0.6,
-      "latest_newsfeed_excluded": 3,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 3,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 17,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 17,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 17,
-      "status_counts": {
-        "healthy": 1,
-        "watch": 9,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 17
-        }
-      ]
-    },
-    {
-      "source_id": "npr",
-      "source_name": "NPR",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 2,
-      "latest_issue_rate": 0.4,
-      "latest_newsfeed_excluded": 2,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 2,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 6,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 6,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 6,
-      "status_counts": {
-        "healthy": 5,
-        "watch": 5,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 6
-        }
-      ]
-    },
-    {
-      "source_id": "the-intercept",
-      "source_name": "The Intercept",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 2,
-      "latest_issue_rate": 0.4,
-      "latest_newsfeed_excluded": 2,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 2,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 19,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 19,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 19,
-      "status_counts": {
-        "healthy": 1,
-        "watch": 9,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 19
-        }
-      ]
-    },
-    {
-      "source_id": "ars-technica",
-      "source_name": "Ars Technica",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 7,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 7,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 7,
-      "status_counts": {
-        "healthy": 3,
-        "watch": 7,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 7
-        }
-      ]
-    },
-    {
-      "source_id": "grist",
-      "source_name": "Grist",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 2,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 2,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 2,
-      "status_counts": {
-        "healthy": 8,
-        "watch": 2,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "source_id": "ict-news",
-      "source_name": "ICT",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 11,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 11,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 11,
-      "status_counts": {
-        "healthy": 2,
-        "watch": 8,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 11
-        }
-      ]
-    },
-    {
-      "source_id": "the-blaze",
-      "source_name": "The Blaze",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 9,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 9,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 9,
-      "status_counts": {
-        "healthy": 4,
-        "watch": 6,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 9
-        }
-      ]
-    }
-  ],
-  "hold_candidates": [],
-  "degraded_sources": [
-    {
-      "source_id": "nbc-news",
-      "source_name": "NBC News",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 5,
-      "latest_issue_rate": 1.0,
-      "latest_newsfeed_excluded": 5,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 5,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 33,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 33,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 33,
-      "status_counts": {
-        "healthy": 0,
-        "watch": 10,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 33
-        }
-      ]
-    },
-    {
-      "source_id": "hong-kong-free-press-hkfp",
-      "source_name": "Hong Kong Free Press HKFP",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 3,
-      "latest_issue_rate": 0.6,
-      "latest_newsfeed_excluded": 3,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 3,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 9,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 9,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 9,
-      "status_counts": {
-        "healthy": 5,
-        "watch": 5,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 9
-        }
-      ]
-    },
-    {
-      "source_id": "the-conversation-us",
-      "source_name": "The Conversation US",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 3,
-      "latest_issue_rate": 0.6,
-      "latest_newsfeed_excluded": 3,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 3,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 5,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 5,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 5,
-      "status_counts": {
-        "healthy": 7,
-        "watch": 3,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 5
-        }
-      ]
-    },
-    {
-      "source_id": "gateway-pundit",
-      "source_name": "The Gateway Pundit",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 3,
-      "latest_issue_rate": 0.6,
-      "latest_newsfeed_excluded": 3,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 3,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 17,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 17,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 17,
-      "status_counts": {
-        "healthy": 1,
-        "watch": 9,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 17
-        }
-      ]
-    },
-    {
-      "source_id": "npr",
-      "source_name": "NPR",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 2,
-      "latest_issue_rate": 0.4,
-      "latest_newsfeed_excluded": 2,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 2,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 6,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 6,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 6,
-      "status_counts": {
-        "healthy": 5,
-        "watch": 5,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 6
-        }
-      ]
-    },
-    {
-      "source_id": "the-intercept",
-      "source_name": "The Intercept",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 2,
-      "latest_issue_rate": 0.4,
-      "latest_newsfeed_excluded": 2,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 2,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 19,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 19,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 19,
-      "status_counts": {
-        "healthy": 1,
-        "watch": 9,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 19
-        }
-      ]
-    },
-    {
-      "source_id": "ars-technica",
-      "source_name": "Ars Technica",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 7,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 7,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 7,
-      "status_counts": {
-        "healthy": 3,
-        "watch": 7,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 7
-        }
-      ]
-    },
-    {
-      "source_id": "grist",
-      "source_name": "Grist",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 2,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 2,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 2,
-      "status_counts": {
-        "healthy": 8,
-        "watch": 2,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "source_id": "ict-news",
-      "source_name": "ICT",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 11,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 11,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 11,
-      "status_counts": {
-        "healthy": 2,
-        "watch": 8,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 11
-        }
-      ]
-    },
-    {
-      "source_id": "the-blaze",
-      "source_name": "The Blaze",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 9,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 9,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 9,
-      "status_counts": {
-        "healthy": 4,
-        "watch": 6,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 9
-        }
-      ]
-    }
-  ],
-  "improved_sources": [
-    {
       "source_id": "the-hindu-home",
       "source_name": "The Hindu - Home",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "watch",
-      "trend": "improved",
+      "trend": "worse",
       "recommended_action": "review_source_quality",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
+      "latest_issue_count": 3,
+      "latest_issue_rate": 0.6,
+      "latest_newsfeed_excluded": 3,
       "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 0,
-      "latest_warn_issue_count": 1,
+      "latest_info_issue_count": 1,
+      "latest_warn_issue_count": 2,
       "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 1,
-      "total_issue_count": 26,
+      "latest_missing_rss_content_items": 2,
+      "total_issue_count": 29,
       "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 1,
-      "total_warn_issue_count": 25,
+      "total_info_issue_count": 2,
+      "total_warn_issue_count": 27,
       "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 25,
-      "total_accepted_content_type_filter_items": 1,
+      "total_missing_rss_content_items": 27,
+      "total_accepted_content_type_filter_items": 2,
       "status_counts": {
         "healthy": 0,
-        "watch": 10,
+        "watch": 11,
         "hold_candidate": 0,
         "unknown": 0
       },
       "issue_counts": [
         {
           "issue": "missing_rss_content",
-          "count": 25
+          "count": 27
         },
         {
           "issue": "content_type_filter_accepted",
-          "count": 1
+          "count": 2
         }
       ]
     },
     {
-      "source_id": "carbon-brief",
-      "source_name": "Carbon Brief",
-      "snapshot_count": 10,
+      "source_id": "cbc-news",
+      "source_name": "CBC News",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_quality",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 0,
+      "latest_warn_issue_count": 2,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 2,
+      "total_issue_count": 6,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 0,
+      "total_warn_issue_count": 6,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 6,
+      "total_accepted_content_type_filter_items": 0,
+      "status_counts": {
+        "healthy": 6,
+        "watch": 5,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "missing_rss_content",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "source_id": "mother-jones",
+      "source_name": "Mother Jones",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "watch",
-      "trend": "improved",
+      "trend": "worse",
       "recommended_action": "review_source_mix",
       "latest_issue_count": 4,
       "latest_issue_rate": 0.8,
@@ -2237,15 +1515,129 @@
       "latest_warn_issue_count": 0,
       "latest_fail_issue_count": 0,
       "latest_missing_rss_content_items": 0,
-      "total_issue_count": 33,
+      "total_issue_count": 21,
       "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 33,
+      "total_info_issue_count": 21,
       "total_warn_issue_count": 0,
       "total_fail_issue_count": 0,
       "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 33,
+      "total_accepted_content_type_filter_items": 21,
       "status_counts": {
         "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 21
+        }
+      ]
+    },
+    {
+      "source_id": "abc-news",
+      "source_name": "ABC News",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 3,
+      "latest_issue_rate": 0.6,
+      "latest_newsfeed_excluded": 3,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 3,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 27,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 27,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 27,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 27
+        }
+      ]
+    },
+    {
+      "source_id": "atlanta-black-star",
+      "source_name": "Atlanta Black Star",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 3,
+      "latest_issue_rate": 0.6,
+      "latest_newsfeed_excluded": 3,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 3,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 26,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 26,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 26,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 26
+        }
+      ]
+    },
+    {
+      "source_id": "the-intercept",
+      "source_name": "The Intercept",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 3,
+      "latest_issue_rate": 0.6,
+      "latest_newsfeed_excluded": 3,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 3,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 22,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 22,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 22,
+      "status_counts": {
+        "healthy": 1,
         "watch": 10,
         "hold_candidate": 0,
         "unknown": 0
@@ -2253,16 +1645,557 @@
       "issue_counts": [
         {
           "issue": "content_type_filter_accepted",
-          "count": 33
+          "count": 22
         }
       ]
     },
     {
-      "source_id": "aptn-news",
-      "source_name": "APTN News",
-      "snapshot_count": 10,
+      "source_id": "afro-news",
+      "source_name": "AFRO News",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 15,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 15,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 15,
+      "status_counts": {
+        "healthy": 1,
+        "watch": 10,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 15
+        }
+      ]
+    },
+    {
+      "source_id": "grist",
+      "source_name": "Grist",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 4,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 4,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 4,
+      "status_counts": {
+        "healthy": 8,
+        "watch": 3,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "source_id": "the-blaze",
+      "source_name": "The Blaze",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 11,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 11,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 11,
+      "status_counts": {
+        "healthy": 4,
+        "watch": 7,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 11
+        }
+      ]
+    },
+    {
+      "source_id": "truthout",
+      "source_name": "Truthout",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 7,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 7,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 7,
+      "status_counts": {
+        "healthy": 5,
+        "watch": 6,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 7
+        }
+      ]
+    }
+  ],
+  "hold_candidates": [],
+  "degraded_sources": [
+    {
+      "source_id": "the-hindu-home",
+      "source_name": "The Hindu - Home",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_quality",
+      "latest_issue_count": 3,
+      "latest_issue_rate": 0.6,
+      "latest_newsfeed_excluded": 3,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 1,
+      "latest_warn_issue_count": 2,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 2,
+      "total_issue_count": 29,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 2,
+      "total_warn_issue_count": 27,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 27,
+      "total_accepted_content_type_filter_items": 2,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "missing_rss_content",
+          "count": 27
+        },
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "source_id": "cbc-news",
+      "source_name": "CBC News",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_quality",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 0,
+      "latest_warn_issue_count": 2,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 2,
+      "total_issue_count": 6,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 0,
+      "total_warn_issue_count": 6,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 6,
+      "total_accepted_content_type_filter_items": 0,
+      "status_counts": {
+        "healthy": 6,
+        "watch": 5,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "missing_rss_content",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "source_id": "mother-jones",
+      "source_name": "Mother Jones",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 4,
+      "latest_issue_rate": 0.8,
+      "latest_newsfeed_excluded": 4,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 4,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 21,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 21,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 21,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 21
+        }
+      ]
+    },
+    {
+      "source_id": "abc-news",
+      "source_name": "ABC News",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 3,
+      "latest_issue_rate": 0.6,
+      "latest_newsfeed_excluded": 3,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 3,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 27,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 27,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 27,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 27
+        }
+      ]
+    },
+    {
+      "source_id": "atlanta-black-star",
+      "source_name": "Atlanta Black Star",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 3,
+      "latest_issue_rate": 0.6,
+      "latest_newsfeed_excluded": 3,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 3,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 26,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 26,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 26,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 26
+        }
+      ]
+    },
+    {
+      "source_id": "the-intercept",
+      "source_name": "The Intercept",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 3,
+      "latest_issue_rate": 0.6,
+      "latest_newsfeed_excluded": 3,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 3,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 22,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 22,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 22,
+      "status_counts": {
+        "healthy": 1,
+        "watch": 10,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 22
+        }
+      ]
+    },
+    {
+      "source_id": "afro-news",
+      "source_name": "AFRO News",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 15,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 15,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 15,
+      "status_counts": {
+        "healthy": 1,
+        "watch": 10,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 15
+        }
+      ]
+    },
+    {
+      "source_id": "grist",
+      "source_name": "Grist",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 4,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 4,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 4,
+      "status_counts": {
+        "healthy": 8,
+        "watch": 3,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "source_id": "the-blaze",
+      "source_name": "The Blaze",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 11,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 11,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 11,
+      "status_counts": {
+        "healthy": 4,
+        "watch": 7,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 11
+        }
+      ]
+    },
+    {
+      "source_id": "truthout",
+      "source_name": "Truthout",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 7,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 7,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 7,
+      "status_counts": {
+        "healthy": 5,
+        "watch": 6,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 7
+        }
+      ]
+    }
+  ],
+  "improved_sources": [
+    {
+      "source_id": "the-conversation-us",
+      "source_name": "The Conversation US",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "watch",
       "trend": "improved",
@@ -2272,6 +2205,158 @@
       "latest_newsfeed_excluded": 2,
       "latest_feed_fetch_failed": 0,
       "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 7,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 7,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 7,
+      "status_counts": {
+        "healthy": 7,
+        "watch": 4,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "source_id": "hong-kong-free-press-hkfp",
+      "source_name": "Hong Kong Free Press HKFP",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "improved",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 1,
+      "latest_issue_rate": 0.2,
+      "latest_newsfeed_excluded": 1,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 1,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 10,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 10,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 10,
+      "status_counts": {
+        "healthy": 5,
+        "watch": 6,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "source_id": "nbc-news",
+      "source_name": "NBC News",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "improved",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 1,
+      "latest_issue_rate": 0.2,
+      "latest_newsfeed_excluded": 1,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 1,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 34,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 34,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 34,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 34
+        }
+      ]
+    },
+    {
+      "source_id": "stat-news",
+      "source_name": "STAT News",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "improved",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 1,
+      "latest_issue_rate": 0.2,
+      "latest_newsfeed_excluded": 1,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 1,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 17,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 17,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 17,
+      "status_counts": {
+        "healthy": 1,
+        "watch": 10,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 17
+        }
+      ]
+    },
+    {
+      "source_id": "aptn-news",
+      "source_name": "APTN News",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "healthy",
+      "trend": "improved",
+      "recommended_action": "keep",
+      "latest_issue_count": 0,
+      "latest_issue_rate": 0.0,
+      "latest_newsfeed_excluded": 0,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 0,
       "latest_warn_issue_count": 0,
       "latest_fail_issue_count": 0,
       "latest_missing_rss_content_items": 0,
@@ -2283,7 +2368,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 14,
       "status_counts": {
-        "healthy": 1,
+        "healthy": 2,
         "watch": 9,
         "hold_candidate": 0,
         "unknown": 0
@@ -2296,201 +2381,11 @@
       ]
     },
     {
-      "source_id": "mother-jones",
-      "source_name": "Mother Jones",
-      "snapshot_count": 10,
+      "source_id": "npr",
+      "source_name": "NPR",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "improved",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 2,
-      "latest_issue_rate": 0.4,
-      "latest_newsfeed_excluded": 2,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 2,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 17,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 17,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 17,
-      "status_counts": {
-        "healthy": 0,
-        "watch": 10,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 17
-        }
-      ]
-    },
-    {
-      "source_id": "atlanta-black-star",
-      "source_name": "Atlanta Black Star",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "improved",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 23,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 23,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 23,
-      "status_counts": {
-        "healthy": 0,
-        "watch": 10,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 23
-        }
-      ]
-    },
-    {
-      "source_id": "reason",
-      "source_name": "Reason",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "improved",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 13,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 13,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 13,
-      "status_counts": {
-        "healthy": 3,
-        "watch": 7,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 13
-        }
-      ]
-    },
-    {
-      "source_id": "al-jazeera",
-      "source_name": "Al Jazeera",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "healthy",
-      "trend": "improved",
-      "recommended_action": "keep",
-      "latest_issue_count": 0,
-      "latest_issue_rate": 0.0,
-      "latest_newsfeed_excluded": 0,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 0,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 13,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 13,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 13,
-      "status_counts": {
-        "healthy": 3,
-        "watch": 7,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 13
-        }
-      ]
-    },
-    {
-      "source_id": "cbs-news",
-      "source_name": "CBS News",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "healthy",
-      "trend": "improved",
-      "recommended_action": "keep",
-      "latest_issue_count": 0,
-      "latest_issue_rate": 0.0,
-      "latest_newsfeed_excluded": 0,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 0,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 18,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 18,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 18,
-      "status_counts": {
-        "healthy": 2,
-        "watch": 8,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 18
-        }
-      ]
-    },
-    {
-      "source_id": "canary-media",
-      "source_name": "Canary Media",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "healthy",
       "trend": "improved",
@@ -2511,8 +2406,8 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 6,
       "status_counts": {
-        "healthy": 4,
-        "watch": 6,
+        "healthy": 6,
+        "watch": 5,
         "hold_candidate": 0,
         "unknown": 0
       },
@@ -2524,11 +2419,11 @@
       ]
     },
     {
-      "source_id": "common-dreams",
-      "source_name": "Common Dreams",
-      "snapshot_count": 10,
+      "source_id": "the-verge",
+      "source_name": "The Verge",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "healthy",
       "trend": "improved",
@@ -2538,6 +2433,544 @@
       "latest_newsfeed_excluded": 0,
       "latest_feed_fetch_failed": 0,
       "latest_info_issue_count": 0,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 15,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 15,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 15,
+      "status_counts": {
+        "healthy": 2,
+        "watch": 9,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 15
+        }
+      ]
+    },
+    {
+      "source_id": "zerohedge",
+      "source_name": "ZeroHedge",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "healthy",
+      "trend": "improved",
+      "recommended_action": "keep",
+      "latest_issue_count": 0,
+      "latest_issue_rate": 0.0,
+      "latest_newsfeed_excluded": 0,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 0,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 7,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 7,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 7,
+      "status_counts": {
+        "healthy": 5,
+        "watch": 6,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 7
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "the-hindu-home",
+      "source_name": "The Hindu - Home",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_quality",
+      "latest_issue_count": 3,
+      "latest_issue_rate": 0.6,
+      "latest_newsfeed_excluded": 3,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 1,
+      "latest_warn_issue_count": 2,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 2,
+      "total_issue_count": 29,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 2,
+      "total_warn_issue_count": 27,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 27,
+      "total_accepted_content_type_filter_items": 2,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "missing_rss_content",
+          "count": 27
+        },
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "source_id": "cbc-news",
+      "source_name": "CBC News",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_quality",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 0,
+      "latest_warn_issue_count": 2,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 2,
+      "total_issue_count": 6,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 0,
+      "total_warn_issue_count": 6,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 6,
+      "total_accepted_content_type_filter_items": 0,
+      "status_counts": {
+        "healthy": 6,
+        "watch": 5,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "missing_rss_content",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "source_id": "mother-jones",
+      "source_name": "Mother Jones",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 4,
+      "latest_issue_rate": 0.8,
+      "latest_newsfeed_excluded": 4,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 4,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 21,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 21,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 21,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 21
+        }
+      ]
+    },
+    {
+      "source_id": "abc-news",
+      "source_name": "ABC News",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 3,
+      "latest_issue_rate": 0.6,
+      "latest_newsfeed_excluded": 3,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 3,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 27,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 27,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 27,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 27
+        }
+      ]
+    },
+    {
+      "source_id": "atlanta-black-star",
+      "source_name": "Atlanta Black Star",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 3,
+      "latest_issue_rate": 0.6,
+      "latest_newsfeed_excluded": 3,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 3,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 26,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 26,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 26,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 26
+        }
+      ]
+    },
+    {
+      "source_id": "the-intercept",
+      "source_name": "The Intercept",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 3,
+      "latest_issue_rate": 0.6,
+      "latest_newsfeed_excluded": 3,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 3,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 22,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 22,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 22,
+      "status_counts": {
+        "healthy": 1,
+        "watch": 10,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 22
+        }
+      ]
+    },
+    {
+      "source_id": "afro-news",
+      "source_name": "AFRO News",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 15,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 15,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 15,
+      "status_counts": {
+        "healthy": 1,
+        "watch": 10,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 15
+        }
+      ]
+    },
+    {
+      "source_id": "grist",
+      "source_name": "Grist",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 4,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 4,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 4,
+      "status_counts": {
+        "healthy": 8,
+        "watch": 3,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "source_id": "the-blaze",
+      "source_name": "The Blaze",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 11,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 11,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 11,
+      "status_counts": {
+        "healthy": 4,
+        "watch": 7,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 11
+        }
+      ]
+    },
+    {
+      "source_id": "truthout",
+      "source_name": "Truthout",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 7,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 7,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 7,
+      "status_counts": {
+        "healthy": 5,
+        "watch": 6,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "source_id": "underscore-native-news",
+      "source_name": "Underscore Native News",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 25,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 25,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 25,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 25
+        }
+      ]
+    },
+    {
+      "source_id": "canary-media",
+      "source_name": "Canary Media",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 1,
+      "latest_issue_rate": 0.2,
+      "latest_newsfeed_excluded": 1,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 1,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 7,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 7,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 7,
+      "status_counts": {
+        "healthy": 4,
+        "watch": 7,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "source_id": "mongabay",
+      "source_name": "Mongabay",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "watch",
+      "trend": "worse",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 1,
+      "latest_issue_rate": 0.2,
+      "latest_newsfeed_excluded": 1,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 1,
       "latest_warn_issue_count": 0,
       "latest_fail_issue_count": 0,
       "latest_missing_rss_content_items": 0,
@@ -2550,7 +2983,7 @@
       "total_accepted_content_type_filter_items": 8,
       "status_counts": {
         "healthy": 5,
-        "watch": 5,
+        "watch": 6,
         "hold_candidate": 0,
         "unknown": 0
       },
@@ -2560,243 +2993,13 @@
           "count": 8
         }
       ]
-    }
-  ],
-  "sources": [
-    {
-      "source_id": "nbc-news",
-      "source_name": "NBC News",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 5,
-      "latest_issue_rate": 1.0,
-      "latest_newsfeed_excluded": 5,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 5,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 33,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 33,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 33,
-      "status_counts": {
-        "healthy": 0,
-        "watch": 10,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 33
-        }
-      ]
     },
     {
-      "source_id": "hong-kong-free-press-hkfp",
-      "source_name": "Hong Kong Free Press HKFP",
-      "snapshot_count": 10,
+      "source_id": "the-grio",
+      "source_name": "TheGrio",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 3,
-      "latest_issue_rate": 0.6,
-      "latest_newsfeed_excluded": 3,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 3,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 9,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 9,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 9,
-      "status_counts": {
-        "healthy": 5,
-        "watch": 5,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 9
-        }
-      ]
-    },
-    {
-      "source_id": "the-conversation-us",
-      "source_name": "The Conversation US",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 3,
-      "latest_issue_rate": 0.6,
-      "latest_newsfeed_excluded": 3,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 3,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 5,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 5,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 5,
-      "status_counts": {
-        "healthy": 7,
-        "watch": 3,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 5
-        }
-      ]
-    },
-    {
-      "source_id": "gateway-pundit",
-      "source_name": "The Gateway Pundit",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 3,
-      "latest_issue_rate": 0.6,
-      "latest_newsfeed_excluded": 3,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 3,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 17,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 17,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 17,
-      "status_counts": {
-        "healthy": 1,
-        "watch": 9,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 17
-        }
-      ]
-    },
-    {
-      "source_id": "npr",
-      "source_name": "NPR",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 2,
-      "latest_issue_rate": 0.4,
-      "latest_newsfeed_excluded": 2,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 2,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 6,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 6,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 6,
-      "status_counts": {
-        "healthy": 5,
-        "watch": 5,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 6
-        }
-      ]
-    },
-    {
-      "source_id": "the-intercept",
-      "source_name": "The Intercept",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 2,
-      "latest_issue_rate": 0.4,
-      "latest_newsfeed_excluded": 2,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 2,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 19,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 19,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 19,
-      "status_counts": {
-        "healthy": 1,
-        "watch": 9,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 19
-        }
-      ]
-    },
-    {
-      "source_id": "ars-technica",
-      "source_name": "Ars Technica",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "watch",
       "trend": "worse",
@@ -2809,91 +3012,15 @@
       "latest_warn_issue_count": 0,
       "latest_fail_issue_count": 0,
       "latest_missing_rss_content_items": 0,
-      "total_issue_count": 7,
+      "total_issue_count": 12,
       "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 7,
+      "total_info_issue_count": 12,
       "total_warn_issue_count": 0,
       "total_fail_issue_count": 0,
       "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 7,
+      "total_accepted_content_type_filter_items": 12,
       "status_counts": {
         "healthy": 3,
-        "watch": 7,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 7
-        }
-      ]
-    },
-    {
-      "source_id": "grist",
-      "source_name": "Grist",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 2,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 2,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 2,
-      "status_counts": {
-        "healthy": 8,
-        "watch": 2,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "source_id": "ict-news",
-      "source_name": "ICT",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 11,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 11,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 11,
-      "status_counts": {
-        "healthy": 2,
         "watch": 8,
         "hold_candidate": 0,
         "unknown": 0
@@ -2901,16 +3028,16 @@
       "issue_counts": [
         {
           "issue": "content_type_filter_accepted",
-          "count": 11
+          "count": 12
         }
       ]
     },
     {
-      "source_id": "the-blaze",
-      "source_name": "The Blaze",
-      "snapshot_count": 10,
+      "source_id": "unherd",
+      "source_name": "UnHerd",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "watch",
       "trend": "worse",
@@ -2931,8 +3058,8 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 9,
       "status_counts": {
-        "healthy": 4,
-        "watch": 6,
+        "healthy": 3,
+        "watch": 8,
         "hold_candidate": 0,
         "unknown": 0
       },
@@ -2944,167 +3071,11 @@
       ]
     },
     {
-      "source_id": "the-root",
-      "source_name": "The Root",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 2,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 2,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 2,
-      "status_counts": {
-        "healthy": 8,
-        "watch": 2,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "source_id": "zerohedge",
-      "source_name": "ZeroHedge",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "watch",
-      "trend": "worse",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 7,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 7,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 7,
-      "status_counts": {
-        "healthy": 4,
-        "watch": 6,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 7
-        }
-      ]
-    },
-    {
-      "source_id": "the-hindu-home",
-      "source_name": "The Hindu - Home",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "improved",
-      "recommended_action": "review_source_quality",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 0,
-      "latest_warn_issue_count": 1,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 1,
-      "total_issue_count": 26,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 1,
-      "total_warn_issue_count": 25,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 25,
-      "total_accepted_content_type_filter_items": 1,
-      "status_counts": {
-        "healthy": 0,
-        "watch": 10,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "missing_rss_content",
-          "count": 25
-        },
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 1
-        }
-      ]
-    },
-    {
       "source_id": "carbon-brief",
       "source_name": "Carbon Brief",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "improved",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 4,
-      "latest_issue_rate": 0.8,
-      "latest_newsfeed_excluded": 4,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 4,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 33,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 33,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 33,
-      "status_counts": {
-        "healthy": 0,
-        "watch": 10,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 33
-        }
-      ]
-    },
-    {
-      "source_id": "mit-technology-review",
-      "source_name": "MIT Technology Review",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "watch",
       "trend": "unchanged",
@@ -3117,23 +3088,61 @@
       "latest_warn_issue_count": 0,
       "latest_fail_issue_count": 0,
       "latest_missing_rss_content_items": 0,
-      "total_issue_count": 32,
+      "total_issue_count": 37,
       "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 31,
-      "total_warn_issue_count": 1,
+      "total_info_issue_count": 37,
+      "total_warn_issue_count": 0,
       "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 1,
-      "total_accepted_content_type_filter_items": 31,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 37,
       "status_counts": {
         "healthy": 0,
-        "watch": 10,
+        "watch": 11,
         "hold_candidate": 0,
         "unknown": 0
       },
       "issue_counts": [
         {
           "issue": "content_type_filter_accepted",
-          "count": 31
+          "count": 37
+        }
+      ]
+    },
+    {
+      "source_id": "mit-technology-review",
+      "source_name": "MIT Technology Review",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "unchanged",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 4,
+      "latest_issue_rate": 0.8,
+      "latest_newsfeed_excluded": 4,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 4,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 36,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 35,
+      "total_warn_issue_count": 1,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 1,
+      "total_accepted_content_type_filter_items": 35,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 35
         },
         {
           "issue": "missing_rss_content",
@@ -3144,9 +3153,9 @@
     {
       "source_id": "mintpress-news",
       "source_name": "MintPress News",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "watch",
       "trend": "unchanged",
@@ -3159,117 +3168,41 @@
       "latest_warn_issue_count": 0,
       "latest_fail_issue_count": 0,
       "latest_missing_rss_content_items": 0,
-      "total_issue_count": 44,
+      "total_issue_count": 48,
       "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 44,
+      "total_info_issue_count": 48,
       "total_warn_issue_count": 0,
       "total_fail_issue_count": 0,
       "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 44,
+      "total_accepted_content_type_filter_items": 48,
       "status_counts": {
         "healthy": 0,
-        "watch": 10,
+        "watch": 11,
         "hold_candidate": 0,
         "unknown": 0
       },
       "issue_counts": [
         {
           "issue": "content_type_filter_accepted",
-          "count": 44
+          "count": 48
         }
       ]
     },
     {
-      "source_id": "abc-news",
-      "source_name": "ABC News",
-      "snapshot_count": 10,
+      "source_id": "gateway-pundit",
+      "source_name": "The Gateway Pundit",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "watch",
       "trend": "unchanged",
       "recommended_action": "review_source_mix",
-      "latest_issue_count": 2,
-      "latest_issue_rate": 0.4,
-      "latest_newsfeed_excluded": 2,
+      "latest_issue_count": 3,
+      "latest_issue_rate": 0.6,
+      "latest_newsfeed_excluded": 3,
       "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 2,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 24,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 24,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 24,
-      "status_counts": {
-        "healthy": 0,
-        "watch": 10,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 24
-        }
-      ]
-    },
-    {
-      "source_id": "aptn-news",
-      "source_name": "APTN News",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "improved",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 2,
-      "latest_issue_rate": 0.4,
-      "latest_newsfeed_excluded": 2,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 2,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 14,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 14,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 14,
-      "status_counts": {
-        "healthy": 1,
-        "watch": 9,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 14
-        }
-      ]
-    },
-    {
-      "source_id": "china-daily",
-      "source_name": "China Daily",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "unchanged",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 2,
-      "latest_issue_rate": 0.4,
-      "latest_newsfeed_excluded": 2,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 2,
+      "latest_info_issue_count": 3,
       "latest_warn_issue_count": 0,
       "latest_fail_issue_count": 0,
       "latest_missing_rss_content_items": 0,
@@ -3281,7 +3214,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 20,
       "status_counts": {
-        "healthy": 0,
+        "healthy": 1,
         "watch": 10,
         "hold_candidate": 0,
         "unknown": 0
@@ -3294,11 +3227,49 @@
       ]
     },
     {
+      "source_id": "china-daily",
+      "source_name": "China Daily",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "unchanged",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 22,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 22,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 22,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 22
+        }
+      ]
+    },
+    {
       "source_id": "fox-news",
       "source_name": "Fox News",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "watch",
       "trend": "unchanged",
@@ -3308,234 +3279,6 @@
       "latest_newsfeed_excluded": 2,
       "latest_feed_fetch_failed": 0,
       "latest_info_issue_count": 2,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 16,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 16,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 16,
-      "status_counts": {
-        "healthy": 1,
-        "watch": 9,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 16
-        }
-      ]
-    },
-    {
-      "source_id": "mother-jones",
-      "source_name": "Mother Jones",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "improved",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 2,
-      "latest_issue_rate": 0.4,
-      "latest_newsfeed_excluded": 2,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 2,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 17,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 17,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 17,
-      "status_counts": {
-        "healthy": 0,
-        "watch": 10,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 17
-        }
-      ]
-    },
-    {
-      "source_id": "propublica",
-      "source_name": "ProPublica",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "unchanged",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 2,
-      "latest_issue_rate": 0.4,
-      "latest_newsfeed_excluded": 2,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 2,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 16,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 16,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 16,
-      "status_counts": {
-        "healthy": 2,
-        "watch": 8,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 16
-        }
-      ]
-    },
-    {
-      "source_id": "stat-news",
-      "source_name": "STAT News",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "unchanged",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 2,
-      "latest_issue_rate": 0.4,
-      "latest_newsfeed_excluded": 2,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 2,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 16,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 16,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 16,
-      "status_counts": {
-        "healthy": 1,
-        "watch": 9,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 16
-        }
-      ]
-    },
-    {
-      "source_id": "afro-news",
-      "source_name": "AFRO News",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "unchanged",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 13,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 13,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 13,
-      "status_counts": {
-        "healthy": 1,
-        "watch": 9,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 13
-        }
-      ]
-    },
-    {
-      "source_id": "atlanta-black-star",
-      "source_name": "Atlanta Black Star",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "improved",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 23,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 23,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 23,
-      "status_counts": {
-        "healthy": 0,
-        "watch": 10,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 23
-        }
-      ]
-    },
-    {
-      "source_id": "indiginews",
-      "source_name": "IndigiNews",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "watch",
-      "trend": "unchanged",
-      "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
       "latest_warn_issue_count": 0,
       "latest_fail_issue_count": 0,
       "latest_missing_rss_content_items": 0,
@@ -3547,7 +3290,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 18,
       "status_counts": {
-        "healthy": 0,
+        "healthy": 1,
         "watch": 10,
         "hold_candidate": 0,
         "unknown": 0
@@ -3560,49 +3303,87 @@
       ]
     },
     {
-      "source_id": "reason",
-      "source_name": "Reason",
-      "snapshot_count": 10,
+      "source_id": "propublica",
+      "source_name": "ProPublica",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "watch",
-      "trend": "improved",
+      "trend": "unchanged",
       "recommended_action": "review_source_mix",
-      "latest_issue_count": 1,
-      "latest_issue_rate": 0.2,
-      "latest_newsfeed_excluded": 1,
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
       "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 1,
+      "latest_info_issue_count": 2,
       "latest_warn_issue_count": 0,
       "latest_fail_issue_count": 0,
       "latest_missing_rss_content_items": 0,
-      "total_issue_count": 13,
+      "total_issue_count": 18,
       "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 13,
+      "total_info_issue_count": 18,
       "total_warn_issue_count": 0,
       "total_fail_issue_count": 0,
       "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 13,
+      "total_accepted_content_type_filter_items": 18,
       "status_counts": {
-        "healthy": 3,
-        "watch": 7,
+        "healthy": 2,
+        "watch": 9,
         "hold_candidate": 0,
         "unknown": 0
       },
       "issue_counts": [
         {
           "issue": "content_type_filter_accepted",
-          "count": 13
+          "count": 18
         }
       ]
     },
     {
-      "source_id": "responsible-statecraft",
-      "source_name": "Responsible Statecraft",
-      "snapshot_count": 10,
+      "source_id": "the-conversation-us",
+      "source_name": "The Conversation US",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "improved",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 2,
+      "latest_issue_rate": 0.4,
+      "latest_newsfeed_excluded": 2,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 2,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 7,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 7,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 7,
+      "status_counts": {
+        "healthy": 7,
+        "watch": 4,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "source_id": "ars-technica",
+      "source_name": "Ars Technica",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "watch",
       "trend": "unchanged",
@@ -3615,32 +3396,70 @@
       "latest_warn_issue_count": 0,
       "latest_fail_issue_count": 0,
       "latest_missing_rss_content_items": 0,
-      "total_issue_count": 5,
+      "total_issue_count": 8,
       "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 5,
+      "total_info_issue_count": 8,
       "total_warn_issue_count": 0,
       "total_fail_issue_count": 0,
       "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 5,
+      "total_accepted_content_type_filter_items": 8,
       "status_counts": {
-        "healthy": 6,
-        "watch": 4,
+        "healthy": 3,
+        "watch": 8,
         "hold_candidate": 0,
         "unknown": 0
       },
       "issue_counts": [
         {
           "issue": "content_type_filter_accepted",
-          "count": 5
+          "count": 8
         }
       ]
     },
     {
-      "source_id": "the-free-press",
-      "source_name": "The Free Press",
-      "snapshot_count": 10,
+      "source_id": "hong-kong-free-press-hkfp",
+      "source_name": "Hong Kong Free Press HKFP",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "improved",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 1,
+      "latest_issue_rate": 0.2,
+      "latest_newsfeed_excluded": 1,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 1,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 10,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 10,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 10,
+      "status_counts": {
+        "healthy": 5,
+        "watch": 6,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "source_id": "ict-news",
+      "source_name": "ICT",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "watch",
       "trend": "unchanged",
@@ -3661,7 +3480,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 12,
       "status_counts": {
-        "healthy": 1,
+        "healthy": 2,
         "watch": 9,
         "hold_candidate": 0,
         "unknown": 0
@@ -3674,11 +3493,11 @@
       ]
     },
     {
-      "source_id": "the-verge",
-      "source_name": "The Verge",
-      "snapshot_count": 10,
+      "source_id": "indiginews",
+      "source_name": "IndigiNews",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "watch",
       "trend": "unchanged",
@@ -3691,32 +3510,70 @@
       "latest_warn_issue_count": 0,
       "latest_fail_issue_count": 0,
       "latest_missing_rss_content_items": 0,
-      "total_issue_count": 15,
+      "total_issue_count": 19,
       "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 15,
+      "total_info_issue_count": 19,
       "total_warn_issue_count": 0,
       "total_fail_issue_count": 0,
       "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 15,
+      "total_accepted_content_type_filter_items": 19,
       "status_counts": {
-        "healthy": 1,
-        "watch": 9,
+        "healthy": 0,
+        "watch": 11,
         "hold_candidate": 0,
         "unknown": 0
       },
       "issue_counts": [
         {
           "issue": "content_type_filter_accepted",
-          "count": 15
+          "count": 19
         }
       ]
     },
     {
-      "source_id": "underscore-native-news",
-      "source_name": "Underscore Native News",
-      "snapshot_count": 10,
+      "source_id": "nbc-news",
+      "source_name": "NBC News",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "improved",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 1,
+      "latest_issue_rate": 0.2,
+      "latest_newsfeed_excluded": 1,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 1,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 34,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 34,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 34,
+      "status_counts": {
+        "healthy": 0,
+        "watch": 11,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 34
+        }
+      ]
+    },
+    {
+      "source_id": "reason",
+      "source_name": "Reason",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "watch",
       "trend": "unchanged",
@@ -3729,15 +3586,91 @@
       "latest_warn_issue_count": 0,
       "latest_fail_issue_count": 0,
       "latest_missing_rss_content_items": 0,
-      "total_issue_count": 23,
+      "total_issue_count": 14,
       "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 23,
+      "total_info_issue_count": 14,
       "total_warn_issue_count": 0,
       "total_fail_issue_count": 0,
       "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 23,
+      "total_accepted_content_type_filter_items": 14,
       "status_counts": {
-        "healthy": 0,
+        "healthy": 3,
+        "watch": 8,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 14
+        }
+      ]
+    },
+    {
+      "source_id": "responsible-statecraft",
+      "source_name": "Responsible Statecraft",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "unchanged",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 1,
+      "latest_issue_rate": 0.2,
+      "latest_newsfeed_excluded": 1,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 1,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 6,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 6,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 6,
+      "status_counts": {
+        "healthy": 6,
+        "watch": 5,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "source_id": "stat-news",
+      "source_name": "STAT News",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "improved",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 1,
+      "latest_issue_rate": 0.2,
+      "latest_newsfeed_excluded": 1,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 1,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 17,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 17,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 17,
+      "status_counts": {
+        "healthy": 1,
         "watch": 10,
         "hold_candidate": 0,
         "unknown": 0
@@ -3745,16 +3678,92 @@
       "issue_counts": [
         {
           "issue": "content_type_filter_accepted",
-          "count": 23
+          "count": 17
+        }
+      ]
+    },
+    {
+      "source_id": "the-free-press",
+      "source_name": "The Free Press",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "unchanged",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 1,
+      "latest_issue_rate": 0.2,
+      "latest_newsfeed_excluded": 1,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 1,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 13,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 13,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 13,
+      "status_counts": {
+        "healthy": 1,
+        "watch": 10,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 13
+        }
+      ]
+    },
+    {
+      "source_id": "the-root",
+      "source_name": "The Root",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "watch",
+      "trend": "unchanged",
+      "recommended_action": "review_source_mix",
+      "latest_issue_count": 1,
+      "latest_issue_rate": 0.2,
+      "latest_newsfeed_excluded": 1,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 1,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 3,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 3,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 3,
+      "status_counts": {
+        "healthy": 8,
+        "watch": 3,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 3
         }
       ]
     },
     {
       "source_id": "abc-australia",
       "source_name": "ABC News (Australia)",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -3775,7 +3784,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 3,
       "status_counts": {
-        "healthy": 7,
+        "healthy": 8,
         "watch": 3,
         "hold_candidate": 0,
         "unknown": 0
@@ -3788,14 +3797,52 @@
       ]
     },
     {
-      "source_id": "al-jazeera",
-      "source_name": "Al Jazeera",
-      "snapshot_count": 10,
+      "source_id": "aptn-news",
+      "source_name": "APTN News",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "healthy",
       "trend": "improved",
+      "recommended_action": "keep",
+      "latest_issue_count": 0,
+      "latest_issue_rate": 0.0,
+      "latest_newsfeed_excluded": 0,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 0,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 14,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 14,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 14,
+      "status_counts": {
+        "healthy": 2,
+        "watch": 9,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 14
+        }
+      ]
+    },
+    {
+      "source_id": "al-jazeera",
+      "source_name": "Al Jazeera",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "healthy",
+      "trend": "unchanged",
       "recommended_action": "keep",
       "latest_issue_count": 0,
       "latest_issue_rate": 0.0,
@@ -3813,7 +3860,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 13,
       "status_counts": {
-        "healthy": 3,
+        "healthy": 4,
         "watch": 7,
         "hold_candidate": 0,
         "unknown": 0
@@ -3828,9 +3875,9 @@
     {
       "source_id": "american-greatness",
       "source_name": "American Greatness",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -3851,7 +3898,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 1,
       "status_counts": {
-        "healthy": 9,
+        "healthy": 10,
         "watch": 1,
         "hold_candidate": 0,
         "unknown": 0
@@ -3866,9 +3913,9 @@
     {
       "source_id": "bbc-news",
       "source_name": "BBC News",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -3889,7 +3936,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 0,
       "status_counts": {
-        "healthy": 10,
+        "healthy": 11,
         "watch": 0,
         "hold_candidate": 0,
         "unknown": 0
@@ -3897,52 +3944,14 @@
       "issue_counts": []
     },
     {
-      "source_id": "cbc-news",
-      "source_name": "CBC News",
-      "snapshot_count": 10,
+      "source_id": "cbs-news",
+      "source_name": "CBS News",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
-      "recommended_action": "keep",
-      "latest_issue_count": 0,
-      "latest_issue_rate": 0.0,
-      "latest_newsfeed_excluded": 0,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 0,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 4,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 0,
-      "total_warn_issue_count": 4,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 4,
-      "total_accepted_content_type_filter_items": 0,
-      "status_counts": {
-        "healthy": 6,
-        "watch": 4,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "missing_rss_content",
-          "count": 4
-        }
-      ]
-    },
-    {
-      "source_id": "cbs-news",
-      "source_name": "CBS News",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "healthy",
-      "trend": "improved",
       "recommended_action": "keep",
       "latest_issue_count": 0,
       "latest_issue_rate": 0.0,
@@ -3960,7 +3969,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 18,
       "status_counts": {
-        "healthy": 2,
+        "healthy": 3,
         "watch": 8,
         "hold_candidate": 0,
         "unknown": 0
@@ -3975,9 +3984,9 @@
     {
       "source_id": "cnbc",
       "source_name": "CNBC",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -3998,7 +4007,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 0,
       "status_counts": {
-        "healthy": 10,
+        "healthy": 11,
         "watch": 0,
         "hold_candidate": 0,
         "unknown": 0
@@ -4006,49 +4015,11 @@
       "issue_counts": []
     },
     {
-      "source_id": "canary-media",
-      "source_name": "Canary Media",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "healthy",
-      "trend": "improved",
-      "recommended_action": "keep",
-      "latest_issue_count": 0,
-      "latest_issue_rate": 0.0,
-      "latest_newsfeed_excluded": 0,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 0,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 6,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 6,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 6,
-      "status_counts": {
-        "healthy": 4,
-        "watch": 6,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 6
-        }
-      ]
-    },
-    {
       "source_id": "capital-b",
       "source_name": "Capital B",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -4069,7 +4040,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 1,
       "status_counts": {
-        "healthy": 9,
+        "healthy": 10,
         "watch": 1,
         "hold_candidate": 0,
         "unknown": 0
@@ -4084,12 +4055,225 @@
     {
       "source_id": "common-dreams",
       "source_name": "Common Dreams",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
       "latest_status": "healthy",
-      "trend": "improved",
+      "trend": "unchanged",
+      "recommended_action": "keep",
+      "latest_issue_count": 0,
+      "latest_issue_rate": 0.0,
+      "latest_newsfeed_excluded": 0,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 0,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 8,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 8,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 8,
+      "status_counts": {
+        "healthy": 6,
+        "watch": 5,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "source_id": "dw",
+      "source_name": "DW",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "healthy",
+      "trend": "unchanged",
+      "recommended_action": "keep",
+      "latest_issue_count": 0,
+      "latest_issue_rate": 0.0,
+      "latest_newsfeed_excluded": 0,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 0,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 0,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 0,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 0,
+      "status_counts": {
+        "healthy": 11,
+        "watch": 0,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": []
+    },
+    {
+      "source_id": "democracy-now",
+      "source_name": "Democracy Now!",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "healthy",
+      "trend": "unchanged",
+      "recommended_action": "keep",
+      "latest_issue_count": 0,
+      "latest_issue_rate": 0.0,
+      "latest_newsfeed_excluded": 0,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 0,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 1,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 1,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 1,
+      "status_counts": {
+        "healthy": 10,
+        "watch": 1,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "source_id": "earthjustice",
+      "source_name": "Earthjustice",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "healthy",
+      "trend": "unchanged",
+      "recommended_action": "keep",
+      "latest_issue_count": 0,
+      "latest_issue_rate": 0.0,
+      "latest_newsfeed_excluded": 0,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 0,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 0,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 0,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 0,
+      "status_counts": {
+        "healthy": 11,
+        "watch": 0,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": []
+    },
+    {
+      "source_id": "globalnews",
+      "source_name": "GlobalNews",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "healthy",
+      "trend": "unchanged",
+      "recommended_action": "keep",
+      "latest_issue_count": 0,
+      "latest_issue_rate": 0.0,
+      "latest_newsfeed_excluded": 0,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 0,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 0,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 0,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 0,
+      "status_counts": {
+        "healthy": 11,
+        "watch": 0,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": []
+    },
+    {
+      "source_id": "inside-climate-news",
+      "source_name": "Inside Climate News",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "healthy",
+      "trend": "unchanged",
+      "recommended_action": "keep",
+      "latest_issue_count": 0,
+      "latest_issue_rate": 0.0,
+      "latest_newsfeed_excluded": 0,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 0,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 1,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 1,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 1,
+      "status_counts": {
+        "healthy": 10,
+        "watch": 1,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "source_id": "jacobin",
+      "source_name": "Jacobin",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "healthy",
+      "latest_status": "healthy",
+      "trend": "unchanged",
       "recommended_action": "keep",
       "latest_issue_count": 0,
       "latest_issue_rate": 0.0,
@@ -4108,219 +4292,6 @@
       "total_accepted_content_type_filter_items": 8,
       "status_counts": {
         "healthy": 5,
-        "watch": 5,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 8
-        }
-      ]
-    },
-    {
-      "source_id": "dw",
-      "source_name": "DW",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "healthy",
-      "trend": "unchanged",
-      "recommended_action": "keep",
-      "latest_issue_count": 0,
-      "latest_issue_rate": 0.0,
-      "latest_newsfeed_excluded": 0,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 0,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 0,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 0,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 0,
-      "status_counts": {
-        "healthy": 10,
-        "watch": 0,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": []
-    },
-    {
-      "source_id": "democracy-now",
-      "source_name": "Democracy Now!",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "healthy",
-      "trend": "unchanged",
-      "recommended_action": "keep",
-      "latest_issue_count": 0,
-      "latest_issue_rate": 0.0,
-      "latest_newsfeed_excluded": 0,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 0,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 1,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 1,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 1,
-      "status_counts": {
-        "healthy": 9,
-        "watch": 1,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 1
-        }
-      ]
-    },
-    {
-      "source_id": "earthjustice",
-      "source_name": "Earthjustice",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "healthy",
-      "trend": "unchanged",
-      "recommended_action": "keep",
-      "latest_issue_count": 0,
-      "latest_issue_rate": 0.0,
-      "latest_newsfeed_excluded": 0,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 0,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 0,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 0,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 0,
-      "status_counts": {
-        "healthy": 10,
-        "watch": 0,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": []
-    },
-    {
-      "source_id": "globalnews",
-      "source_name": "GlobalNews",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "healthy",
-      "trend": "unchanged",
-      "recommended_action": "keep",
-      "latest_issue_count": 0,
-      "latest_issue_rate": 0.0,
-      "latest_newsfeed_excluded": 0,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 0,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 0,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 0,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 0,
-      "status_counts": {
-        "healthy": 10,
-        "watch": 0,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": []
-    },
-    {
-      "source_id": "inside-climate-news",
-      "source_name": "Inside Climate News",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
-      "latest_status": "healthy",
-      "trend": "unchanged",
-      "recommended_action": "keep",
-      "latest_issue_count": 0,
-      "latest_issue_rate": 0.0,
-      "latest_newsfeed_excluded": 0,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 0,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 1,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 1,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 1,
-      "status_counts": {
-        "healthy": 9,
-        "watch": 1,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 1
-        }
-      ]
-    },
-    {
-      "source_id": "jacobin",
-      "source_name": "Jacobin",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "healthy",
-      "trend": "improved",
-      "recommended_action": "keep",
-      "latest_issue_count": 0,
-      "latest_issue_rate": 0.0,
-      "latest_newsfeed_excluded": 0,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 0,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 8,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 8,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 8,
-      "status_counts": {
-        "healthy": 4,
         "watch": 6,
         "hold_candidate": 0,
         "unknown": 0
@@ -4335,9 +4306,9 @@
     {
       "source_id": "left-voice",
       "source_name": "Left Voice",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -4358,7 +4329,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 4,
       "status_counts": {
-        "healthy": 6,
+        "healthy": 7,
         "watch": 4,
         "hold_candidate": 0,
         "unknown": 0
@@ -4373,9 +4344,9 @@
     {
       "source_id": "liberation-news",
       "source_name": "Liberation News",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -4396,7 +4367,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 0,
       "status_counts": {
-        "healthy": 10,
+        "healthy": 11,
         "watch": 0,
         "hold_candidate": 0,
         "unknown": 0
@@ -4404,14 +4375,14 @@
       "issue_counts": []
     },
     {
-      "source_id": "mongabay",
-      "source_name": "Mongabay",
-      "snapshot_count": 10,
+      "source_id": "npr",
+      "source_name": "NPR",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "healthy",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
       "latest_status": "healthy",
-      "trend": "unchanged",
+      "trend": "improved",
       "recommended_action": "keep",
       "latest_issue_count": 0,
       "latest_issue_rate": 0.0,
@@ -4421,15 +4392,15 @@
       "latest_warn_issue_count": 0,
       "latest_fail_issue_count": 0,
       "latest_missing_rss_content_items": 0,
-      "total_issue_count": 7,
+      "total_issue_count": 6,
       "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 7,
+      "total_info_issue_count": 6,
       "total_warn_issue_count": 0,
       "total_fail_issue_count": 0,
       "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 7,
+      "total_accepted_content_type_filter_items": 6,
       "status_counts": {
-        "healthy": 5,
+        "healthy": 6,
         "watch": 5,
         "hold_candidate": 0,
         "unknown": 0
@@ -4437,16 +4408,16 @@
       "issue_counts": [
         {
           "issue": "content_type_filter_accepted",
-          "count": 7
+          "count": 6
         }
       ]
     },
     {
       "source_id": "native-news-online",
       "source_name": "Native News Online",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -4467,7 +4438,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 3,
       "status_counts": {
-        "healthy": 7,
+        "healthy": 8,
         "watch": 3,
         "hold_candidate": 0,
         "unknown": 0
@@ -4482,9 +4453,9 @@
     {
       "source_id": "news-on-japan",
       "source_name": "News On Japan",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -4505,7 +4476,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 0,
       "status_counts": {
-        "healthy": 10,
+        "healthy": 11,
         "watch": 0,
         "hold_candidate": 0,
         "unknown": 0
@@ -4515,9 +4486,9 @@
     {
       "source_id": "pbs-newshour",
       "source_name": "PBS NewsHour",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -4538,7 +4509,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 0,
       "status_counts": {
-        "healthy": 10,
+        "healthy": 11,
         "watch": 0,
         "hold_candidate": 0,
         "unknown": 0
@@ -4548,9 +4519,9 @@
     {
       "source_id": "rest-of-world",
       "source_name": "Rest of World",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -4571,7 +4542,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 0,
       "status_counts": {
-        "healthy": 10,
+        "healthy": 11,
         "watch": 0,
         "hold_candidate": 0,
         "unknown": 0
@@ -4581,9 +4552,9 @@
     {
       "source_id": "techcrunch",
       "source_name": "TechCrunch",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -4604,7 +4575,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 2,
       "status_counts": {
-        "healthy": 8,
+        "healthy": 9,
         "watch": 2,
         "hold_candidate": 0,
         "unknown": 0
@@ -4619,9 +4590,9 @@
     {
       "source_id": "the-american-conservative",
       "source_name": "The American Conservative",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -4642,7 +4613,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 3,
       "status_counts": {
-        "healthy": 7,
+        "healthy": 8,
         "watch": 3,
         "hold_candidate": 0,
         "unknown": 0
@@ -4657,9 +4628,9 @@
     {
       "source_id": "the-federalist",
       "source_name": "The Federalist",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -4680,7 +4651,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 0,
       "status_counts": {
-        "healthy": 10,
+        "healthy": 11,
         "watch": 0,
         "hold_candidate": 0,
         "unknown": 0
@@ -4690,9 +4661,9 @@
     {
       "source_id": "the-guardian",
       "source_name": "The Guardian",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -4713,7 +4684,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 0,
       "status_counts": {
-        "healthy": 10,
+        "healthy": 11,
         "watch": 0,
         "hold_candidate": 0,
         "unknown": 0
@@ -4721,11 +4692,11 @@
       "issue_counts": []
     },
     {
-      "source_id": "the-grio",
-      "source_name": "TheGrio",
-      "snapshot_count": 10,
+      "source_id": "the-verge",
+      "source_name": "The Verge",
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "watch",
       "latest_status": "healthy",
       "trend": "improved",
@@ -4738,108 +4709,32 @@
       "latest_warn_issue_count": 0,
       "latest_fail_issue_count": 0,
       "latest_missing_rss_content_items": 0,
-      "total_issue_count": 11,
+      "total_issue_count": 15,
       "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 11,
+      "total_info_issue_count": 15,
       "total_warn_issue_count": 0,
       "total_fail_issue_count": 0,
       "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 11,
+      "total_accepted_content_type_filter_items": 15,
       "status_counts": {
-        "healthy": 3,
-        "watch": 7,
+        "healthy": 2,
+        "watch": 9,
         "hold_candidate": 0,
         "unknown": 0
       },
       "issue_counts": [
         {
           "issue": "content_type_filter_accepted",
-          "count": 11
-        }
-      ]
-    },
-    {
-      "source_id": "truthout",
-      "source_name": "Truthout",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "healthy",
-      "trend": "improved",
-      "recommended_action": "keep",
-      "latest_issue_count": 0,
-      "latest_issue_rate": 0.0,
-      "latest_newsfeed_excluded": 0,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 0,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 5,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 5,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 5,
-      "status_counts": {
-        "healthy": 5,
-        "watch": 5,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 5
-        }
-      ]
-    },
-    {
-      "source_id": "unherd",
-      "source_name": "UnHerd",
-      "snapshot_count": 10,
-      "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
-      "previous_status": "watch",
-      "latest_status": "healthy",
-      "trend": "improved",
-      "recommended_action": "keep",
-      "latest_issue_count": 0,
-      "latest_issue_rate": 0.0,
-      "latest_newsfeed_excluded": 0,
-      "latest_feed_fetch_failed": 0,
-      "latest_info_issue_count": 0,
-      "latest_warn_issue_count": 0,
-      "latest_fail_issue_count": 0,
-      "latest_missing_rss_content_items": 0,
-      "total_issue_count": 8,
-      "total_feed_fetch_failed": 0,
-      "total_info_issue_count": 8,
-      "total_warn_issue_count": 0,
-      "total_fail_issue_count": 0,
-      "total_missing_rss_content_items": 0,
-      "total_accepted_content_type_filter_items": 8,
-      "status_counts": {
-        "healthy": 3,
-        "watch": 7,
-        "hold_candidate": 0,
-        "unknown": 0
-      },
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 8
+          "count": 15
         }
       ]
     },
     {
       "source_id": "world-socialist-web-site",
       "source_name": "World Socialist Web Site",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -4860,7 +4755,7 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 0,
       "status_counts": {
-        "healthy": 10,
+        "healthy": 11,
         "watch": 0,
         "hold_candidate": 0,
         "unknown": 0
@@ -4870,9 +4765,9 @@
     {
       "source_id": "yale-climate-connections",
       "source_name": "Yale Climate Connections",
-      "snapshot_count": 10,
+      "snapshot_count": 11,
       "first_seen": "2026-06-12T23:30:54Z",
-      "latest_seen": "2026-07-17T14:55:24Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
       "previous_status": "healthy",
       "latest_status": "healthy",
       "trend": "unchanged",
@@ -4893,12 +4788,50 @@
       "total_missing_rss_content_items": 0,
       "total_accepted_content_type_filter_items": 0,
       "status_counts": {
-        "healthy": 10,
+        "healthy": 11,
         "watch": 0,
         "hold_candidate": 0,
         "unknown": 0
       },
       "issue_counts": []
+    },
+    {
+      "source_id": "zerohedge",
+      "source_name": "ZeroHedge",
+      "snapshot_count": 11,
+      "first_seen": "2026-06-12T23:30:54Z",
+      "latest_seen": "2026-07-18T14:26:43Z",
+      "previous_status": "watch",
+      "latest_status": "healthy",
+      "trend": "improved",
+      "recommended_action": "keep",
+      "latest_issue_count": 0,
+      "latest_issue_rate": 0.0,
+      "latest_newsfeed_excluded": 0,
+      "latest_feed_fetch_failed": 0,
+      "latest_info_issue_count": 0,
+      "latest_warn_issue_count": 0,
+      "latest_fail_issue_count": 0,
+      "latest_missing_rss_content_items": 0,
+      "total_issue_count": 7,
+      "total_feed_fetch_failed": 0,
+      "total_info_issue_count": 7,
+      "total_warn_issue_count": 0,
+      "total_fail_issue_count": 0,
+      "total_missing_rss_content_items": 0,
+      "total_accepted_content_type_filter_items": 7,
+      "status_counts": {
+        "healthy": 5,
+        "watch": 6,
+        "hold_candidate": 0,
+        "unknown": 0
+      },
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 7
+        }
+      ]
     }
   ],
   "load_errors": []
