@@ -4,6 +4,7 @@ import csv
 import json
 import re
 from collections import defaultdict
+from copy import deepcopy
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -28,6 +29,39 @@ def _load_json(path: Path, *, default: Any) -> Any:
     except (json.JSONDecodeError, OSError):
         return default
     return payload
+
+
+def retain_published_annotations(articles: list[dict[str, Any]], previous: dict[str, Any]) -> int:
+    """Retain aggregate annotations, not rubric responses, after cache eviction."""
+    previous_rows = previous.get("articles", [])
+    if not isinstance(previous_rows, list):
+        return 0
+    by_id = {
+        row.get("id"): row
+        for row in previous_rows
+        if isinstance(row, dict) and isinstance(row.get("id"), str) and row.get("id")
+    }
+    retained = 0
+    for article in articles:
+        old = by_id.get(article.get("id"))
+        if not isinstance(old, dict):
+            continue
+        # Stable IDs alone do not guarantee the annotated article text is unchanged.
+        if any(
+            article.get(key) != old.get(key)
+            for key in ("title", "link", "summary", "ai_summary", "scraped")
+        ):
+            continue
+        current_score = article.get("score")
+        if isinstance(current_score, dict) and current_score.get("lens_scores"):
+            continue
+        old_score = old.get("score")
+        if not isinstance(old_score, dict) or not old_score.get("lens_scores"):
+            continue
+        article["score"] = deepcopy(old_score)
+        article["score"].setdefault("annotation_published_at", previous.get("generated_at"))
+        retained += 1
+    return retained
 
 
 def _analysis_payload(analysis_root: Path) -> dict[str, Any]:
@@ -457,6 +491,15 @@ def build_precomputed_payload(config: PublishBuildConfig, *, repo_root: Path) ->
     if config.max_articles is not None and config.max_articles >= 0:
         precomputed_articles = precomputed_articles[: config.max_articles]
 
+    previous = _load_json(output_path, default={})
+    retained_annotations = retain_published_annotations(
+        precomputed_articles, previous if isinstance(previous, dict) else {}
+    )
+    analysis_payload["annotation_continuity"] = {
+        "retained_articles": retained_annotations,
+        "note": "Retained article aggregates keep their publication date; analysis artifacts describe the current scoring file only.",
+    }
+
     output_payload = {
         "schema_version": "1.1",
         "generated_at": utc_now_iso(),
@@ -496,6 +539,7 @@ def build_precomputed_payload(config: PublishBuildConfig, *, repo_root: Path) ->
             "lens_scored_articles": sum(
                 1 for row in precomputed_articles if row["score"]["lens_scores"]
             ),
+            "retained_scored_articles": retained_annotations,
         },
         "analysis": analysis_payload,
         "articles": precomputed_articles,

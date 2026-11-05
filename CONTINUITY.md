@@ -4,6 +4,7 @@ Use this file to capture high-level progress milestones, the state of the latest
 
 - 2026-11-05: Recovery of stalled publication: the September 18 job generated its digest but failed the broader audit because two unavailable feeds exceeded a zero-failure gate. Added opt-in partial-outage handling for daily publication: at least 80% of audited feeds must succeed and eligible articles must exist; content gates and strict standalone audits are unchanged. Feed failure counts/warnings stay in audit artifacts. Added regression tests and bounded job/audit timeouts. The existing sibling checkout's untracked source-health artifact was not modified.
 - 2026-11-05: Offline validation now uses the canonical fixture for quality gates; the daily job still checks its actual output before publishing. Current committed digest compatibility remains part of `validate all`.
+- 2026-11-05: GitHub scoring caches had expired during inactivity. Publisher now retains unchanged articles' previously published lens aggregates with original publication provenance, while new aggregates take precedence. It does not reconstruct question-level responses or revive removed articles. Regression tests cover cache eviction, changed text, repeated publication and current-score precedence.
 
 - 2026-01-28: Added a Codex configuration so the agent can keep full access and delay automatic compaction of project docs.
 - 2026-02-04: Updated daily RSS OpenAI workflow to commit archive snapshots (`data/history/rss_openai_daily_YYYY-MM-DD.json`) alongside `data/rss_openai_daily.json`.
