@@ -196,6 +196,14 @@ is exceeded. Standalone audits remain strict unless this option is explicitly su
 `--fail-on-issue` also retains its strict behavior. No article-content eligibility rule
 is relaxed by this availability policy.
 
+Publication retains previously published article-level lens aggregates when the article text
+is unchanged and no new aggregate exists. This prevents an expired Actions scoring cache
+from erasing earlier annotations. Retained scores carry `annotation_published_at`, not the
+current collection date. New scores take precedence; removed, ineligible, or changed articles
+are not resurrected. This does not recover question-level answers or claim that the current
+scoring-file analysis covers retained annotations; NewsLens recomputes its derived views from
+the published article aggregates.
+
 ## Notes
 - Historical files under `data/history/` are not rewritten.
 - `load_experiment.py` remains backward-compatible in compat mode for legacy snapshots.

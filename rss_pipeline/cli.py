@@ -371,6 +371,7 @@ def validate_all() -> None:
             "tests/test_feed_audit.py",
             "tests/test_llm_readiness.py",
             "tests/test_normalization.py",
+            "tests/test_publication_continuity.py",
             "tests/test_quality_diagnostics.py",
             "tests/test_quality_history.py",
             "tests/test_quality_report.py",
