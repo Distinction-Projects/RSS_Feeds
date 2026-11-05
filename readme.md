@@ -187,6 +187,15 @@ The default feed-audit gate now keeps feed fetch failures, unknown content types
 unresolved unsupported content types at zero, while allowing a small number of flagged
 missing-content RSS items that are excluded from normal newsfeed output.
 
+The daily publication workflow opts into `--allow-partial-feed-failures` with
+`--min-feed-success-rate 0.80`. Individual feed outages remain visible as gate warnings
+and in source-health history, but do not block eligible articles from healthy feeds.
+Publication still fails if fewer than 80% of feeds succeed, no eligible RSS articles
+remain, the audit has a blocking failure, or any configured content-quality threshold
+is exceeded. Standalone audits remain strict unless this option is explicitly supplied;
+`--fail-on-issue` also retains its strict behavior. No article-content eligibility rule
+is relaxed by this availability policy.
+
 ## Notes
 - Historical files under `data/history/` are not rewritten.
 - `load_experiment.py` remains backward-compatible in compat mode for legacy snapshots.

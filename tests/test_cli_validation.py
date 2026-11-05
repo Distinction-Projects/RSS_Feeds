@@ -6,6 +6,7 @@ import unittest
 from contextlib import redirect_stdout
 from io import StringIO
 from pathlib import Path
+from unittest.mock import patch
 
 from rss_pipeline.cli import run_cli
 
@@ -44,6 +45,24 @@ def _legacy_digest_payload() -> dict[str, object]:
 
 
 class CliValidationTests(unittest.TestCase):
+    def test_validate_all_uses_fixture_for_offline_quality_gate(self) -> None:
+        with patch("rss_pipeline.cli.subprocess.run") as run:
+            with redirect_stdout(StringIO()):
+                exit_code = run_cli(["validate", "all"])
+
+        self.assertEqual(exit_code, 0)
+        commands = [call.args[0] for call in run.call_args_list]
+        quality_command = next(command for command in commands if "quality" in command)
+        digest_index = quality_command.index("--digest") + 1
+        self.assertEqual(quality_command[digest_index], "tests/fixtures/canonical_digest.json")
+        self.assertTrue(
+            any(
+                command[-1] == "data/rss_openai_daily.json"
+                and str(command[1]).endswith("load_experiment.py")
+                for command in commands
+            )
+        )
+
     def test_validate_digest_accepts_legacy_payload_in_compat_mode(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             digest_path = Path(temp_dir) / "legacy_digest.json"
