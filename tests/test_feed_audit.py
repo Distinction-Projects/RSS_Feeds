@@ -123,6 +123,109 @@ def _fake_fetch_feed_items(
 
 
 class FeedAuditTests(unittest.TestCase):
+    @staticmethod
+    def partial_report(*, attempts=63, succeeded=61, eligible=254, status="warn", **metrics):
+        return {
+            "status": status,
+            "summary": {
+                "feed_fetch_attempts": attempts,
+                "feed_fetch_succeeded": succeeded,
+                "typical_newsfeed_items": eligible,
+            },
+            "quality_gate_metrics": {"feed_fetch_failed": attempts - succeeded, **metrics},
+        }
+
+    def test_partial_feed_outage_warns_without_erasing_failed_feed_count(self):
+        report = self.partial_report()
+        strict = evaluate_feed_audit_gates(report, max_feed_fetch_failures=0)
+        self.assertEqual(strict["status"], "fail")
+        gate = evaluate_feed_audit_gates(
+            report, max_feed_fetch_failures=0, allow_partial_feed_failures=True
+        )
+        self.assertEqual(gate["status"], "warn")
+        self.assertEqual(gate["violations"], [])
+        self.assertEqual(gate["warnings"][0]["metric"], "feed_fetch_failed")
+        self.assertEqual(gate["metrics"]["feed_fetch_failed"], 2)
+        self.assertEqual(gate["thresholds"]["min_feed_success_rate"], 0.8)
+
+    def test_partial_outage_policy_still_blocks_bad_coverage_and_empty_results(self):
+        reports = [
+            self.partial_report(succeeded=49),
+            self.partial_report(succeeded=0, eligible=0),
+            self.partial_report(attempts=0, succeeded=0, eligible=0),
+            self.partial_report(eligible=0),
+            self.partial_report(status="fail"),
+            self.partial_report(succeeded=64),
+            {"quality_gate_metrics": {"feed_fetch_failed": 2}},
+        ]
+        for report in reports:
+            with self.subTest(report=report):
+                gate = evaluate_feed_audit_gates(
+                    report, max_feed_fetch_failures=0, allow_partial_feed_failures=True
+                )
+                self.assertEqual(gate["status"], "fail")
+                self.assertTrue(gate["violations"])
+
+    def test_partial_outage_policy_never_waives_content_thresholds(self):
+        for metric, option in [
+            ("missing_rss_content_items", "max_missing_rss_content"),
+            ("unknown_content_type_items", "max_unknown_content_types"),
+            ("unsupported_content_type_items", "max_unsupported_content_types"),
+            ("accepted_content_type_filter_items", "max_accepted_content_type_filters"),
+        ]:
+            with self.subTest(metric=metric):
+                gate = evaluate_feed_audit_gates(
+                    self.partial_report(**{metric: 1}),
+                    max_feed_fetch_failures=0,
+                    allow_partial_feed_failures=True,
+                    **{option: 0},
+                )
+                self.assertEqual(gate["status"], "fail")
+                self.assertIn(metric, [row["metric"] for row in gate["violations"]])
+
+    def test_invalid_success_rate_is_rejected(self):
+        for rate in [0, -0.1, 1.1, float("nan")]:
+            with self.subTest(rate=rate), self.assertRaises(ValueError):
+                evaluate_feed_audit_gates(self.partial_report(), min_feed_success_rate=rate)
+
+    def test_partial_outage_cli_succeeds_and_retains_coverage_warning(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            catalog_path = root / "catalog.json"
+            output = root / "audit.json"
+            catalog_path.write_text(json.dumps(_catalog_payload()), encoding="utf-8")
+            stdout = StringIO()
+            with (
+                patch(
+                    "rss_pipeline.feed_audit.fetch_feed_items", side_effect=_fake_fetch_feed_items
+                ),
+                redirect_stdout(stdout),
+            ):
+                code = run_cli(
+                    [
+                        "validate",
+                        "feed-audit",
+                        "--catalog",
+                        str(catalog_path),
+                        "--output",
+                        str(output),
+                        "--archive-history-dir",
+                        str(root / "history"),
+                        "--run-log-dir",
+                        str(root / "logs"),
+                        "--max-feed-fetch-failures",
+                        "0",
+                        "--allow-partial-feed-failures",
+                        "--min-feed-success-rate",
+                        "0.5",
+                    ]
+                )
+            self.assertEqual(code, 0)
+            report = json.loads(output.read_text(encoding="utf-8"))
+            self.assertEqual(report["quality_gate"]["status"], "warn")
+            self.assertEqual(report["summary"]["feed_fetch_failed"], 1)
+            self.assertIn("Coverage warnings", stdout.getvalue())
+
     def test_run_feed_audit_summarizes_feed_and_item_quality(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)

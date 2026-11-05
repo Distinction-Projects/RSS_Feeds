@@ -168,7 +168,11 @@ def evaluate_feed_audit_gates(
     max_unknown_content_types: int | None = None,
     max_unsupported_content_types: int | None = None,
     max_accepted_content_type_filters: int | None = None,
+    allow_partial_feed_failures: bool = False,
+    min_feed_success_rate: float = 0.8,
 ) -> dict[str, Any]:
+    if not 0 < min_feed_success_rate <= 1:
+        raise ValueError("min_feed_success_rate must be greater than 0 and at most 1")
     raw_metrics = report.get("quality_gate_metrics")
     metric_values = raw_metrics if isinstance(raw_metrics, dict) else {}
     checks = {
@@ -178,7 +182,7 @@ def evaluate_feed_audit_gates(
         "unsupported_content_type_items": max_unsupported_content_types,
         "accepted_content_type_filter_items": max_accepted_content_type_filters,
     }
-    thresholds = {
+    thresholds: dict[str, int | float] = {
         key: value for key, value in checks.items() if isinstance(value, int) and value >= 0
     }
     violations: list[dict[str, Any]] = []
@@ -194,8 +198,59 @@ def evaluate_feed_audit_gates(
                 }
             )
 
+    warnings: list[dict[str, Any]] = []
+    if allow_partial_feed_failures:
+        raw_summary = report.get("summary")
+        summary = raw_summary if isinstance(raw_summary, dict) else {}
+        attempts = _safe_int(summary.get("feed_fetch_attempts"))
+        succeeded = _safe_int(summary.get("feed_fetch_succeeded"))
+        failed = _safe_int(metric_values.get("feed_fetch_failed"))
+        eligible = _safe_int(summary.get("typical_newsfeed_items"))
+        success_rate = succeeded / attempts if attempts > 0 else 0.0
+        coverage_valid = (
+            attempts > 0 and 0 <= succeeded <= attempts and succeeded + failed == attempts
+        )
+        thresholds["min_feed_success_rate"] = min_feed_success_rate
+        thresholds["min_eligible_items"] = 1
+        if not coverage_valid or success_rate < min_feed_success_rate:
+            violations.append(
+                {
+                    "metric": "feed_success_rate",
+                    "actual": success_rate,
+                    "threshold": min_feed_success_rate,
+                    "message": f"feed success rate {succeeded}/{attempts} is invalid or below {min_feed_success_rate:.0%}",
+                }
+            )
+        if eligible < 1:
+            violations.append(
+                {
+                    "metric": "eligible_items",
+                    "actual": eligible,
+                    "threshold": 1,
+                    "message": "feed audit produced no eligible newsfeed items",
+                }
+            )
+        if report.get("status") == "fail":
+            violations.append(
+                {
+                    "metric": "audit_status",
+                    "actual": "fail",
+                    "threshold": "pass or warn",
+                    "message": "feed audit contains blocking item or collection failures",
+                }
+            )
+        # Only transport availability can degrade gracefully; content checks stay blocking.
+        if (
+            coverage_valid
+            and success_rate >= min_feed_success_rate
+            and eligible > 0
+            and report.get("status") != "fail"
+        ):
+            warnings = [row for row in violations if row["metric"] == "feed_fetch_failed"]
+            violations = [row for row in violations if row["metric"] != "feed_fetch_failed"]
+
     return {
-        "status": "fail" if violations else "pass",
+        "status": "fail" if violations else "warn" if warnings else "pass",
         "thresholds": thresholds,
         "metrics": {
             "feed_fetch_failed": _safe_int(metric_values.get("feed_fetch_failed")),
@@ -211,6 +266,7 @@ def evaluate_feed_audit_gates(
             ),
         },
         "violations": violations,
+        "warnings": warnings,
     }
 
 
