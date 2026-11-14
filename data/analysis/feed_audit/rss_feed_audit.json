@@ -2,12 +2,12 @@
   "schema_version": "1.0",
   "status": "warn",
   "run": {
-    "id": "feed-audit-20261113T203322-92d12d94ea",
-    "generated_at": "2026-11-13T20:33:22Z",
-    "duration_seconds": 17.176,
+    "id": "feed-audit-20261114T184722-d5c4ec1f68",
+    "generated_at": "2026-11-14T18:47:22Z",
+    "duration_seconds": 15.992,
     "command": "/home/runner/work/RSS_Feeds/RSS_Feeds/rss_pipeline/cli.py validate feed-audit --output data/analysis/feed_audit/rss_feed_audit.json --archive-history-dir data/analysis/feed_audit/history --max-sources 72 --feeds-per-source 2 --max-items-per-feed 5 --max-feed-fetch-failures 0 --allow-partial-feed-failures --min-feed-success-rate 0.80 --max-missing-rss-content 5 --max-unknown-content-types 0 --max-unsupported-content-types 0"
   },
-  "generated_at": "2026-11-13T20:33:22Z",
+  "generated_at": "2026-11-14T18:47:22Z",
   "request": {
     "catalog_path": "feed_catalog/rss_feeds.json",
     "max_sources": 72,
@@ -709,42 +709,43 @@
     "feed_fetch_succeeded": 60,
     "feed_fetch_failed": 3,
     "raw_fetched_items": 295,
-    "typical_newsfeed_items": 250,
-    "newsfeed_excluded": 45,
-    "rss_missing_content": 0,
-    "accepted_content_type_filter": 45,
-    "quality_clean_items": 295,
-    "quality_warn_items": 0,
+    "typical_newsfeed_items": 248,
+    "newsfeed_excluded": 47,
+    "rss_missing_content": 3,
+    "accepted_content_type_filter": 44,
+    "quality_clean_items": 292,
+    "quality_warn_items": 3,
     "quality_fail_items": 0
   },
   "quality_gate_metrics": {
     "feed_fetch_failed": 3,
-    "missing_rss_content_items": 0,
+    "missing_rss_content_items": 3,
     "unknown_content_type_items": 0,
     "unsupported_content_type_items": 0,
-    "accepted_content_type_filter_items": 45
+    "accepted_content_type_filter_items": 44
   },
   "status_counts": {
-    "clean": 295
+    "clean": 292,
+    "warn": 3
   },
   "severity_counts": {
-    "info": 45,
-    "warn": 3
+    "info": 44,
+    "warn": 6
   },
   "source_health_summary": {
     "total_sources": 63,
     "status_counts": {
-      "healthy": 36,
-      "watch": 24,
+      "healthy": 33,
+      "watch": 27,
       "hold_candidate": 3
     },
     "action_counts": {
-      "keep": 36,
-      "review_source_mix": 24,
-      "review_source_quality": 0,
+      "keep": 33,
+      "review_source_mix": 25,
+      "review_source_quality": 2,
       "hold_or_disable_source": 3
     },
-    "review_sources": 27
+    "review_sources": 30
   },
   "source_health": [
     {
@@ -829,6 +830,87 @@
       ]
     },
     {
+      "source_id": "gateway-pundit",
+      "source_name": "The Gateway Pundit",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 1,
+      "newsfeed_excluded": 4,
+      "quality_clean_items": 5,
+      "quality_warn_items": 0,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 0,
+      "accepted_content_type_filter_items": 4,
+      "info_issue_count": 4,
+      "warn_issue_count": 0,
+      "fail_issue_count": 0,
+      "issue_count": 4,
+      "issue_rate": 0.8,
+      "status": "watch",
+      "recommended_action": "review_source_mix",
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "source_id": "abc-news",
+      "source_name": "ABC News",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 2,
+      "newsfeed_excluded": 3,
+      "quality_clean_items": 5,
+      "quality_warn_items": 0,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 0,
+      "accepted_content_type_filter_items": 3,
+      "info_issue_count": 3,
+      "warn_issue_count": 0,
+      "fail_issue_count": 0,
+      "issue_count": 3,
+      "issue_rate": 0.6,
+      "status": "watch",
+      "recommended_action": "review_source_mix",
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "source_id": "atlanta-black-star",
+      "source_name": "Atlanta Black Star",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 2,
+      "newsfeed_excluded": 3,
+      "quality_clean_items": 5,
+      "quality_warn_items": 0,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 0,
+      "accepted_content_type_filter_items": 3,
+      "info_issue_count": 3,
+      "warn_issue_count": 0,
+      "fail_issue_count": 0,
+      "issue_count": 3,
+      "issue_rate": 0.6,
+      "status": "watch",
+      "recommended_action": "review_source_mix",
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 3
+        }
+      ]
+    },
+    {
       "source_id": "mit-technology-review",
       "source_name": "MIT Technology Review",
       "selected_feeds": 1,
@@ -883,8 +965,8 @@
       ]
     },
     {
-      "source_id": "the-blaze",
-      "source_name": "The Blaze",
+      "source_id": "the-intercept",
+      "source_name": "The Intercept",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -910,35 +992,8 @@
       ]
     },
     {
-      "source_id": "the-verge",
-      "source_name": "The Verge",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 2,
-      "newsfeed_excluded": 3,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 3,
-      "info_issue_count": 3,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 3,
-      "issue_rate": 0.6,
-      "status": "watch",
-      "recommended_action": "review_source_mix",
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 3
-        }
-      ]
-    },
-    {
-      "source_id": "abc-news",
-      "source_name": "ABC News",
+      "source_id": "canary-media",
+      "source_name": "Canary Media",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -964,89 +1019,8 @@
       ]
     },
     {
-      "source_id": "al-jazeera",
-      "source_name": "Al Jazeera",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 3,
-      "newsfeed_excluded": 2,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 2,
-      "info_issue_count": 2,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 2,
-      "issue_rate": 0.4,
-      "status": "watch",
-      "recommended_action": "review_source_mix",
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "source_id": "atlanta-black-star",
-      "source_name": "Atlanta Black Star",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 3,
-      "newsfeed_excluded": 2,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 2,
-      "info_issue_count": 2,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 2,
-      "issue_rate": 0.4,
-      "status": "watch",
-      "recommended_action": "review_source_mix",
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "source_id": "fox-news",
-      "source_name": "Fox News",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 3,
-      "newsfeed_excluded": 2,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 2,
-      "info_issue_count": 2,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 2,
-      "issue_rate": 0.4,
-      "status": "watch",
-      "recommended_action": "review_source_mix",
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "source_id": "ict-news",
-      "source_name": "ICT",
+      "source_id": "hong-kong-free-press-hkfp",
+      "source_name": "Hong Kong Free Press HKFP",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -1126,87 +1100,6 @@
       ]
     },
     {
-      "source_id": "nbc-news",
-      "source_name": "NBC News",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 3,
-      "newsfeed_excluded": 2,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 2,
-      "info_issue_count": 2,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 2,
-      "issue_rate": 0.4,
-      "status": "watch",
-      "recommended_action": "review_source_mix",
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "source_id": "reason",
-      "source_name": "Reason",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 3,
-      "newsfeed_excluded": 2,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 2,
-      "info_issue_count": 2,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 2,
-      "issue_rate": 0.4,
-      "status": "watch",
-      "recommended_action": "review_source_mix",
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "source_id": "stat-news",
-      "source_name": "STAT News",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 3,
-      "newsfeed_excluded": 2,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 2,
-      "info_issue_count": 2,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 2,
-      "issue_rate": 0.4,
-      "status": "watch",
-      "recommended_action": "review_source_mix",
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 2
-        }
-      ]
-    },
-    {
       "source_id": "the-conversation-us",
       "source_name": "The Conversation US",
       "selected_feeds": 1,
@@ -1234,8 +1127,35 @@
       ]
     },
     {
-      "source_id": "the-intercept",
-      "source_name": "The Intercept",
+      "source_id": "the-hindu-home",
+      "source_name": "The Hindu - Home",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 3,
+      "newsfeed_excluded": 2,
+      "quality_clean_items": 3,
+      "quality_warn_items": 2,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 2,
+      "accepted_content_type_filter_items": 0,
+      "info_issue_count": 0,
+      "warn_issue_count": 2,
+      "fail_issue_count": 0,
+      "issue_count": 2,
+      "issue_rate": 0.4,
+      "status": "watch",
+      "recommended_action": "review_source_quality",
+      "issue_counts": [
+        {
+          "issue": "missing_rss_content",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "source_id": "the-verge",
+      "source_name": "The Verge",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -1261,35 +1181,8 @@
       ]
     },
     {
-      "source_id": "zerohedge",
-      "source_name": "ZeroHedge",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 3,
-      "newsfeed_excluded": 2,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 2,
-      "info_issue_count": 2,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 2,
-      "issue_rate": 0.4,
-      "status": "watch",
-      "recommended_action": "review_source_mix",
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "source_id": "bbc-news",
-      "source_name": "BBC News",
+      "source_id": "abc-australia",
+      "source_name": "ABC News (Australia)",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -1315,8 +1208,8 @@
       ]
     },
     {
-      "source_id": "canary-media",
-      "source_name": "Canary Media",
+      "source_id": "al-jazeera",
+      "source_name": "Al Jazeera",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -1342,8 +1235,143 @@
       ]
     },
     {
-      "source_id": "hong-kong-free-press-hkfp",
-      "source_name": "Hong Kong Free Press HKFP",
+      "source_id": "cbc-news",
+      "source_name": "CBC News",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 4,
+      "newsfeed_excluded": 1,
+      "quality_clean_items": 4,
+      "quality_warn_items": 1,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 1,
+      "accepted_content_type_filter_items": 0,
+      "info_issue_count": 0,
+      "warn_issue_count": 1,
+      "fail_issue_count": 0,
+      "issue_count": 1,
+      "issue_rate": 0.2,
+      "status": "watch",
+      "recommended_action": "review_source_quality",
+      "issue_counts": [
+        {
+          "issue": "missing_rss_content",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "source_id": "cbs-news",
+      "source_name": "CBS News",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 4,
+      "newsfeed_excluded": 1,
+      "quality_clean_items": 5,
+      "quality_warn_items": 0,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 0,
+      "accepted_content_type_filter_items": 1,
+      "info_issue_count": 1,
+      "warn_issue_count": 0,
+      "fail_issue_count": 0,
+      "issue_count": 1,
+      "issue_rate": 0.2,
+      "status": "watch",
+      "recommended_action": "review_source_mix",
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "source_id": "capital-b",
+      "source_name": "Capital B",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 4,
+      "newsfeed_excluded": 1,
+      "quality_clean_items": 5,
+      "quality_warn_items": 0,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 0,
+      "accepted_content_type_filter_items": 1,
+      "info_issue_count": 1,
+      "warn_issue_count": 0,
+      "fail_issue_count": 0,
+      "issue_count": 1,
+      "issue_rate": 0.2,
+      "status": "watch",
+      "recommended_action": "review_source_mix",
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "source_id": "fox-news",
+      "source_name": "Fox News",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 4,
+      "newsfeed_excluded": 1,
+      "quality_clean_items": 5,
+      "quality_warn_items": 0,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 0,
+      "accepted_content_type_filter_items": 1,
+      "info_issue_count": 1,
+      "warn_issue_count": 0,
+      "fail_issue_count": 0,
+      "issue_count": 1,
+      "issue_rate": 0.2,
+      "status": "watch",
+      "recommended_action": "review_source_mix",
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "source_id": "grist",
+      "source_name": "Grist",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 4,
+      "newsfeed_excluded": 1,
+      "quality_clean_items": 5,
+      "quality_warn_items": 0,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 0,
+      "accepted_content_type_filter_items": 1,
+      "info_issue_count": 1,
+      "warn_issue_count": 0,
+      "fail_issue_count": 0,
+      "issue_count": 1,
+      "issue_rate": 0.2,
+      "status": "watch",
+      "recommended_action": "review_source_mix",
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "source_id": "ict-news",
+      "source_name": "ICT",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -1423,8 +1451,8 @@
       ]
     },
     {
-      "source_id": "the-grio",
-      "source_name": "TheGrio",
+      "source_id": "nbc-news",
+      "source_name": "NBC News",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -1450,8 +1478,8 @@
       ]
     },
     {
-      "source_id": "truthout",
-      "source_name": "Truthout",
+      "source_id": "the-blaze",
+      "source_name": "The Blaze",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -1477,26 +1505,58 @@
       ]
     },
     {
-      "source_id": "abc-australia",
-      "source_name": "ABC News (Australia)",
+      "source_id": "the-root",
+      "source_name": "The Root",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
-      "typical_newsfeed_items": 5,
-      "newsfeed_excluded": 0,
+      "typical_newsfeed_items": 4,
+      "newsfeed_excluded": 1,
       "quality_clean_items": 5,
       "quality_warn_items": 0,
       "quality_fail_items": 0,
       "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 0,
-      "info_issue_count": 0,
+      "accepted_content_type_filter_items": 1,
+      "info_issue_count": 1,
       "warn_issue_count": 0,
       "fail_issue_count": 0,
-      "issue_count": 0,
-      "issue_rate": 0.0,
-      "status": "healthy",
-      "recommended_action": "keep",
-      "issue_counts": []
+      "issue_count": 1,
+      "issue_rate": 0.2,
+      "status": "watch",
+      "recommended_action": "review_source_mix",
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "source_id": "zerohedge",
+      "source_name": "ZeroHedge",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 4,
+      "newsfeed_excluded": 1,
+      "quality_clean_items": 5,
+      "quality_warn_items": 0,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 0,
+      "accepted_content_type_filter_items": 1,
+      "info_issue_count": 1,
+      "warn_issue_count": 0,
+      "fail_issue_count": 0,
+      "issue_count": 1,
+      "issue_rate": 0.2,
+      "status": "watch",
+      "recommended_action": "review_source_mix",
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 1
+        }
+      ]
     },
     {
       "source_id": "aptn-news",
@@ -1565,30 +1625,8 @@
       "issue_counts": []
     },
     {
-      "source_id": "cbc-news",
-      "source_name": "CBC News",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 5,
-      "newsfeed_excluded": 0,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 0,
-      "info_issue_count": 0,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 0,
-      "issue_rate": 0.0,
-      "status": "healthy",
-      "recommended_action": "keep",
-      "issue_counts": []
-    },
-    {
-      "source_id": "cbs-news",
-      "source_name": "CBS News",
+      "source_id": "bbc-news",
+      "source_name": "BBC News",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -1611,28 +1649,6 @@
     {
       "source_id": "cnbc",
       "source_name": "CNBC",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 5,
-      "newsfeed_excluded": 0,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 0,
-      "info_issue_count": 0,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 0,
-      "issue_rate": 0.0,
-      "status": "healthy",
-      "recommended_action": "keep",
-      "issue_counts": []
-    },
-    {
-      "source_id": "capital-b",
-      "source_name": "Capital B",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -1765,28 +1781,6 @@
     {
       "source_id": "globalnews",
       "source_name": "GlobalNews",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 5,
-      "newsfeed_excluded": 0,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 0,
-      "info_issue_count": 0,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 0,
-      "issue_rate": 0.0,
-      "status": "healthy",
-      "recommended_action": "keep",
-      "issue_counts": []
-    },
-    {
-      "source_id": "grist",
-      "source_name": "Grist",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -1983,6 +1977,28 @@
       "issue_counts": []
     },
     {
+      "source_id": "reason",
+      "source_name": "Reason",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 5,
+      "newsfeed_excluded": 0,
+      "quality_clean_items": 5,
+      "quality_warn_items": 0,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 0,
+      "accepted_content_type_filter_items": 0,
+      "info_issue_count": 0,
+      "warn_issue_count": 0,
+      "fail_issue_count": 0,
+      "issue_count": 0,
+      "issue_rate": 0.0,
+      "status": "healthy",
+      "recommended_action": "keep",
+      "issue_counts": []
+    },
+    {
       "source_id": "responsible-statecraft",
       "source_name": "Responsible Statecraft",
       "selected_feeds": 1,
@@ -2007,6 +2023,28 @@
     {
       "source_id": "rest-of-world",
       "source_name": "Rest of World",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 5,
+      "newsfeed_excluded": 0,
+      "quality_clean_items": 5,
+      "quality_warn_items": 0,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 0,
+      "accepted_content_type_filter_items": 0,
+      "info_issue_count": 0,
+      "warn_issue_count": 0,
+      "fail_issue_count": 0,
+      "issue_count": 0,
+      "issue_rate": 0.0,
+      "status": "healthy",
+      "recommended_action": "keep",
+      "issue_counts": []
+    },
+    {
+      "source_id": "stat-news",
+      "source_name": "STAT News",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -2115,28 +2153,6 @@
       "issue_counts": []
     },
     {
-      "source_id": "gateway-pundit",
-      "source_name": "The Gateway Pundit",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 5,
-      "newsfeed_excluded": 0,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 0,
-      "info_issue_count": 0,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 0,
-      "issue_rate": 0.0,
-      "status": "healthy",
-      "recommended_action": "keep",
-      "issue_counts": []
-    },
-    {
       "source_id": "the-guardian",
       "source_name": "The Guardian",
       "selected_feeds": 1,
@@ -2159,8 +2175,8 @@
       "issue_counts": []
     },
     {
-      "source_id": "the-hindu-home",
-      "source_name": "The Hindu - Home",
+      "source_id": "the-grio",
+      "source_name": "TheGrio",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -2181,8 +2197,8 @@
       "issue_counts": []
     },
     {
-      "source_id": "the-root",
-      "source_name": "The Root",
+      "source_id": "truthout",
+      "source_name": "Truthout",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -2352,6 +2368,87 @@
       ]
     },
     {
+      "source_id": "gateway-pundit",
+      "source_name": "The Gateway Pundit",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 1,
+      "newsfeed_excluded": 4,
+      "quality_clean_items": 5,
+      "quality_warn_items": 0,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 0,
+      "accepted_content_type_filter_items": 4,
+      "info_issue_count": 4,
+      "warn_issue_count": 0,
+      "fail_issue_count": 0,
+      "issue_count": 4,
+      "issue_rate": 0.8,
+      "status": "watch",
+      "recommended_action": "review_source_mix",
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "source_id": "abc-news",
+      "source_name": "ABC News",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 2,
+      "newsfeed_excluded": 3,
+      "quality_clean_items": 5,
+      "quality_warn_items": 0,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 0,
+      "accepted_content_type_filter_items": 3,
+      "info_issue_count": 3,
+      "warn_issue_count": 0,
+      "fail_issue_count": 0,
+      "issue_count": 3,
+      "issue_rate": 0.6,
+      "status": "watch",
+      "recommended_action": "review_source_mix",
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "source_id": "atlanta-black-star",
+      "source_name": "Atlanta Black Star",
+      "selected_feeds": 1,
+      "feed_fetch_failed": 0,
+      "raw_items": 5,
+      "typical_newsfeed_items": 2,
+      "newsfeed_excluded": 3,
+      "quality_clean_items": 5,
+      "quality_warn_items": 0,
+      "quality_fail_items": 0,
+      "missing_rss_content_items": 0,
+      "accepted_content_type_filter_items": 3,
+      "info_issue_count": 3,
+      "warn_issue_count": 0,
+      "fail_issue_count": 0,
+      "issue_count": 3,
+      "issue_rate": 0.6,
+      "status": "watch",
+      "recommended_action": "review_source_mix",
+      "issue_counts": [
+        {
+          "issue": "content_type_filter_accepted",
+          "count": 3
+        }
+      ]
+    },
+    {
       "source_id": "mit-technology-review",
       "source_name": "MIT Technology Review",
       "selected_feeds": 1,
@@ -2406,8 +2503,8 @@
       ]
     },
     {
-      "source_id": "the-blaze",
-      "source_name": "The Blaze",
+      "source_id": "the-intercept",
+      "source_name": "The Intercept",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -2433,89 +2530,8 @@
       ]
     },
     {
-      "source_id": "the-verge",
-      "source_name": "The Verge",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 2,
-      "newsfeed_excluded": 3,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 3,
-      "info_issue_count": 3,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 3,
-      "issue_rate": 0.6,
-      "status": "watch",
-      "recommended_action": "review_source_mix",
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 3
-        }
-      ]
-    },
-    {
-      "source_id": "abc-news",
-      "source_name": "ABC News",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 3,
-      "newsfeed_excluded": 2,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 2,
-      "info_issue_count": 2,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 2,
-      "issue_rate": 0.4,
-      "status": "watch",
-      "recommended_action": "review_source_mix",
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "source_id": "al-jazeera",
-      "source_name": "Al Jazeera",
-      "selected_feeds": 1,
-      "feed_fetch_failed": 0,
-      "raw_items": 5,
-      "typical_newsfeed_items": 3,
-      "newsfeed_excluded": 2,
-      "quality_clean_items": 5,
-      "quality_warn_items": 0,
-      "quality_fail_items": 0,
-      "missing_rss_content_items": 0,
-      "accepted_content_type_filter_items": 2,
-      "info_issue_count": 2,
-      "warn_issue_count": 0,
-      "fail_issue_count": 0,
-      "issue_count": 2,
-      "issue_rate": 0.4,
-      "status": "watch",
-      "recommended_action": "review_source_mix",
-      "issue_counts": [
-        {
-          "issue": "content_type_filter_accepted",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "source_id": "atlanta-black-star",
-      "source_name": "Atlanta Black Star",
+      "source_id": "canary-media",
+      "source_name": "Canary Media",
       "selected_feeds": 1,
       "feed_fetch_failed": 0,
       "raw_items": 5,
@@ -2544,22 +2560,29 @@
   "cleanliness": {
     "total_observations": 298,
     "total_items": 298,
-    "clean_newsfeed_items": 250,
-    "clean_newsfeed_rate": 0.8389,
-    "observable_issue_items": 48,
-    "observable_issue_rate": 0.1611,
-    "warning_or_failure_items": 3,
-    "warning_or_failure_rate": 0.0101,
-    "info_only_items": 45,
-    "newsfeed_excluded": 45,
-    "newsfeed_exclusion_rate": 0.151,
+    "clean_newsfeed_items": 248,
+    "clean_newsfeed_rate": 0.8322,
+    "observable_issue_items": 50,
+    "observable_issue_rate": 0.1678,
+    "warning_or_failure_items": 6,
+    "warning_or_failure_rate": 0.0201,
+    "info_only_items": 44,
+    "newsfeed_excluded": 47,
+    "newsfeed_exclusion_rate": 0.1577,
     "reason_counts": [
       {
         "reason": "content_type_filter_accepted",
-        "count": 45,
+        "count": 44,
         "stage": "content_type_filter",
         "severity": "info",
         "recommended_action": "review_source_mix"
+      },
+      {
+        "reason": "missing_rss_content",
+        "count": 3,
+        "stage": "rss_content",
+        "severity": "warn",
+        "recommended_action": "review_feed_content"
       },
       {
         "reason": "feed_fetch_failed",
@@ -2572,7 +2595,11 @@
     "stage_counts": [
       {
         "stage": "content_type_filter",
-        "count": 45
+        "count": 44
+      },
+      {
+        "stage": "rss_content",
+        "count": 3
       },
       {
         "stage": "feed_fetch",
@@ -2582,14 +2609,23 @@
     "severity_counts": [
       {
         "severity": "info",
-        "count": 45
+        "count": 44
       },
       {
         "severity": "warn",
-        "count": 3
+        "count": 6
       }
     ],
     "top_issue_groups": [
+      {
+        "source": "The Hindu - Home",
+        "feed": "The Hindu - Home",
+        "reason": "missing_rss_content",
+        "count": 2,
+        "stage": "rss_content",
+        "severity": "warn",
+        "recommended_action": "review_feed_content"
+      },
       {
         "source": "AFRO News",
         "feed": "All Stories",
@@ -2598,6 +2634,15 @@
         "stage": "feed_fetch",
         "severity": "warn",
         "recommended_action": "review_feed_availability"
+      },
+      {
+        "source": "CBC News",
+        "feed": "World",
+        "reason": "missing_rss_content",
+        "count": 1,
+        "stage": "rss_content",
+        "severity": "warn",
+        "recommended_action": "review_feed_content"
       },
       {
         "source": "China Daily",
@@ -2618,6 +2663,33 @@
         "recommended_action": "review_feed_availability"
       },
       {
+        "source": "The Gateway Pundit",
+        "feed": "All Stories",
+        "reason": "content_type_filter_accepted",
+        "count": 4,
+        "stage": "content_type_filter",
+        "severity": "info",
+        "recommended_action": "review_source_mix"
+      },
+      {
+        "source": "ABC News",
+        "feed": "Top Stories",
+        "reason": "content_type_filter_accepted",
+        "count": 3,
+        "stage": "content_type_filter",
+        "severity": "info",
+        "recommended_action": "review_source_mix"
+      },
+      {
+        "source": "Atlanta Black Star",
+        "feed": "All Stories",
+        "reason": "content_type_filter_accepted",
+        "count": 3,
+        "stage": "content_type_filter",
+        "severity": "info",
+        "recommended_action": "review_source_mix"
+      },
+      {
         "source": "MIT Technology Review",
         "feed": "All Stories",
         "reason": "content_type_filter_accepted",
@@ -2634,57 +2706,16 @@
         "stage": "content_type_filter",
         "severity": "info",
         "recommended_action": "review_source_mix"
-      },
-      {
-        "source": "The Blaze",
-        "feed": "All Stories",
-        "reason": "content_type_filter_accepted",
-        "count": 3,
-        "stage": "content_type_filter",
-        "severity": "info",
-        "recommended_action": "review_source_mix"
-      },
-      {
-        "source": "The Verge",
-        "feed": "All Stories",
-        "reason": "content_type_filter_accepted",
-        "count": 3,
-        "stage": "content_type_filter",
-        "severity": "info",
-        "recommended_action": "review_source_mix"
-      },
-      {
-        "source": "ABC News",
-        "feed": "Top Stories",
-        "reason": "content_type_filter_accepted",
-        "count": 2,
-        "stage": "content_type_filter",
-        "severity": "info",
-        "recommended_action": "review_source_mix"
-      },
-      {
-        "source": "Al Jazeera",
-        "feed": "All News",
-        "reason": "content_type_filter_accepted",
-        "count": 2,
-        "stage": "content_type_filter",
-        "severity": "info",
-        "recommended_action": "review_source_mix"
-      },
-      {
-        "source": "Atlanta Black Star",
-        "feed": "All Stories",
-        "reason": "content_type_filter_accepted",
-        "count": 2,
-        "stage": "content_type_filter",
-        "severity": "info",
-        "recommended_action": "review_source_mix"
       }
     ],
     "recommended_action_counts": [
       {
         "recommended_action": "review_source_mix",
-        "count": 45
+        "count": 44
+      },
+      {
+        "recommended_action": "review_feed_content",
+        "count": 3
       },
       {
         "recommended_action": "review_feed_availability",
@@ -2692,6 +2723,44 @@
       }
     ],
     "top_sources": [
+      {
+        "source": "The Hindu - Home",
+        "total_items": 5,
+        "clean_newsfeed_items": 3,
+        "observable_issue_items": 2,
+        "observable_issue_rate": 0.4,
+        "warning_or_failure_items": 2,
+        "warning_or_failure_rate": 0.4,
+        "newsfeed_excluded": 2,
+        "top_reasons": [
+          {
+            "reason": "missing_rss_content",
+            "count": 2,
+            "stage": "rss_content",
+            "severity": "warn",
+            "recommended_action": "review_feed_content"
+          }
+        ]
+      },
+      {
+        "source": "CBC News",
+        "total_items": 5,
+        "clean_newsfeed_items": 4,
+        "observable_issue_items": 1,
+        "observable_issue_rate": 0.2,
+        "warning_or_failure_items": 1,
+        "warning_or_failure_rate": 0.2,
+        "newsfeed_excluded": 1,
+        "top_reasons": [
+          {
+            "reason": "missing_rss_content",
+            "count": 1,
+            "stage": "rss_content",
+            "severity": "warn",
+            "recommended_action": "review_feed_content"
+          }
+        ]
+      },
       {
         "source": "AFRO News",
         "total_items": 1,
@@ -2750,6 +2819,63 @@
         ]
       },
       {
+        "source": "The Gateway Pundit",
+        "total_items": 5,
+        "clean_newsfeed_items": 1,
+        "observable_issue_items": 4,
+        "observable_issue_rate": 0.8,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 4,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 4,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "source": "ABC News",
+        "total_items": 5,
+        "clean_newsfeed_items": 2,
+        "observable_issue_items": 3,
+        "observable_issue_rate": 0.6,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 3,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 3,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "source": "Atlanta Black Star",
+        "total_items": 5,
+        "clean_newsfeed_items": 2,
+        "observable_issue_items": 3,
+        "observable_issue_rate": 0.6,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 3,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 3,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
         "source": "MIT Technology Review",
         "total_items": 5,
         "clean_newsfeed_items": 2,
@@ -2786,117 +2912,22 @@
             "recommended_action": "review_source_mix"
           }
         ]
-      },
-      {
-        "source": "The Blaze",
-        "total_items": 5,
-        "clean_newsfeed_items": 2,
-        "observable_issue_items": 3,
-        "observable_issue_rate": 0.6,
-        "warning_or_failure_items": 0,
-        "warning_or_failure_rate": 0.0,
-        "newsfeed_excluded": 3,
-        "top_reasons": [
-          {
-            "reason": "content_type_filter_accepted",
-            "count": 3,
-            "stage": "content_type_filter",
-            "severity": "info",
-            "recommended_action": "review_source_mix"
-          }
-        ]
-      },
-      {
-        "source": "The Verge",
-        "total_items": 5,
-        "clean_newsfeed_items": 2,
-        "observable_issue_items": 3,
-        "observable_issue_rate": 0.6,
-        "warning_or_failure_items": 0,
-        "warning_or_failure_rate": 0.0,
-        "newsfeed_excluded": 3,
-        "top_reasons": [
-          {
-            "reason": "content_type_filter_accepted",
-            "count": 3,
-            "stage": "content_type_filter",
-            "severity": "info",
-            "recommended_action": "review_source_mix"
-          }
-        ]
-      },
-      {
-        "source": "ABC News",
-        "total_items": 5,
-        "clean_newsfeed_items": 3,
-        "observable_issue_items": 2,
-        "observable_issue_rate": 0.4,
-        "warning_or_failure_items": 0,
-        "warning_or_failure_rate": 0.0,
-        "newsfeed_excluded": 2,
-        "top_reasons": [
-          {
-            "reason": "content_type_filter_accepted",
-            "count": 2,
-            "stage": "content_type_filter",
-            "severity": "info",
-            "recommended_action": "review_source_mix"
-          }
-        ]
-      },
-      {
-        "source": "Al Jazeera",
-        "total_items": 5,
-        "clean_newsfeed_items": 3,
-        "observable_issue_items": 2,
-        "observable_issue_rate": 0.4,
-        "warning_or_failure_items": 0,
-        "warning_or_failure_rate": 0.0,
-        "newsfeed_excluded": 2,
-        "top_reasons": [
-          {
-            "reason": "content_type_filter_accepted",
-            "count": 2,
-            "stage": "content_type_filter",
-            "severity": "info",
-            "recommended_action": "review_source_mix"
-          }
-        ]
-      },
-      {
-        "source": "Atlanta Black Star",
-        "total_items": 5,
-        "clean_newsfeed_items": 3,
-        "observable_issue_items": 2,
-        "observable_issue_rate": 0.4,
-        "warning_or_failure_items": 0,
-        "warning_or_failure_rate": 0.0,
-        "newsfeed_excluded": 2,
-        "top_reasons": [
-          {
-            "reason": "content_type_filter_accepted",
-            "count": 2,
-            "stage": "content_type_filter",
-            "severity": "info",
-            "recommended_action": "review_source_mix"
-          }
-        ]
       }
     ],
     "top_feeds": [
       {
         "feed": "All Stories",
         "total_items": 187,
-        "clean_newsfeed_items": 155,
-        "observable_issue_items": 32,
-        "observable_issue_rate": 0.1711,
+        "clean_newsfeed_items": 156,
+        "observable_issue_items": 31,
+        "observable_issue_rate": 0.1658,
         "warning_or_failure_items": 2,
         "warning_or_failure_rate": 0.0107,
-        "newsfeed_excluded": 30,
+        "newsfeed_excluded": 29,
         "top_reasons": [
           {
             "reason": "content_type_filter_accepted",
-            "count": 30,
+            "count": 29,
             "stage": "content_type_filter",
             "severity": "info",
             "recommended_action": "review_source_mix"
@@ -2911,15 +2942,41 @@
         ]
       },
       {
+        "feed": "The Hindu - Home",
+        "total_items": 5,
+        "clean_newsfeed_items": 3,
+        "observable_issue_items": 2,
+        "observable_issue_rate": 0.4,
+        "warning_or_failure_items": 2,
+        "warning_or_failure_rate": 0.4,
+        "newsfeed_excluded": 2,
+        "top_reasons": [
+          {
+            "reason": "missing_rss_content",
+            "count": 2,
+            "stage": "rss_content",
+            "severity": "warn",
+            "recommended_action": "review_feed_content"
+          }
+        ]
+      },
+      {
         "feed": "World",
         "total_items": 16,
-        "clean_newsfeed_items": 15,
-        "observable_issue_items": 1,
-        "observable_issue_rate": 0.0625,
-        "warning_or_failure_items": 1,
-        "warning_or_failure_rate": 0.0625,
-        "newsfeed_excluded": 0,
+        "clean_newsfeed_items": 14,
+        "observable_issue_items": 2,
+        "observable_issue_rate": 0.125,
+        "warning_or_failure_items": 2,
+        "warning_or_failure_rate": 0.125,
+        "newsfeed_excluded": 1,
         "top_reasons": [
+          {
+            "reason": "missing_rss_content",
+            "count": 1,
+            "stage": "rss_content",
+            "severity": "warn",
+            "recommended_action": "review_feed_content"
+          },
           {
             "reason": "feed_fetch_failed",
             "count": 1,
@@ -2932,16 +2989,16 @@
       {
         "feed": "Top Stories",
         "total_items": 30,
-        "clean_newsfeed_items": 25,
-        "observable_issue_items": 5,
-        "observable_issue_rate": 0.1667,
+        "clean_newsfeed_items": 24,
+        "observable_issue_items": 6,
+        "observable_issue_rate": 0.2,
         "warning_or_failure_items": 0,
         "warning_or_failure_rate": 0.0,
-        "newsfeed_excluded": 5,
+        "newsfeed_excluded": 6,
         "top_reasons": [
           {
             "reason": "content_type_filter_accepted",
-            "count": 5,
+            "count": 6,
             "stage": "content_type_filter",
             "severity": "info",
             "recommended_action": "review_source_mix"
@@ -2961,25 +3018,6 @@
           {
             "reason": "content_type_filter_accepted",
             "count": 3,
-            "stage": "content_type_filter",
-            "severity": "info",
-            "recommended_action": "review_source_mix"
-          }
-        ]
-      },
-      {
-        "feed": "All News",
-        "total_items": 5,
-        "clean_newsfeed_items": 3,
-        "observable_issue_items": 2,
-        "observable_issue_rate": 0.4,
-        "warning_or_failure_items": 0,
-        "warning_or_failure_rate": 0.0,
-        "newsfeed_excluded": 2,
-        "top_reasons": [
-          {
-            "reason": "content_type_filter_accepted",
-            "count": 2,
             "stage": "content_type_filter",
             "severity": "info",
             "recommended_action": "review_source_mix"
@@ -3006,11 +3044,11 @@
         ]
       },
       {
-        "feed": "Latest",
-        "total_items": 15,
-        "clean_newsfeed_items": 13,
+        "feed": "Hong Kong Free Press HKFP",
+        "total_items": 5,
+        "clean_newsfeed_items": 3,
         "observable_issue_items": 2,
-        "observable_issue_rate": 0.1333,
+        "observable_issue_rate": 0.4,
         "warning_or_failure_items": 0,
         "warning_or_failure_rate": 0.0,
         "newsfeed_excluded": 2,
@@ -3025,11 +3063,30 @@
         ]
       },
       {
-        "feed": "Hong Kong Free Press HKFP",
+        "feed": "All News",
         "total_items": 5,
         "clean_newsfeed_items": 4,
         "observable_issue_items": 1,
         "observable_issue_rate": 0.2,
+        "warning_or_failure_items": 0,
+        "warning_or_failure_rate": 0.0,
+        "newsfeed_excluded": 1,
+        "top_reasons": [
+          {
+            "reason": "content_type_filter_accepted",
+            "count": 1,
+            "stage": "content_type_filter",
+            "severity": "info",
+            "recommended_action": "review_source_mix"
+          }
+        ]
+      },
+      {
+        "feed": "Latest",
+        "total_items": 15,
+        "clean_newsfeed_items": 14,
+        "observable_issue_items": 1,
+        "observable_issue_rate": 0.0667,
         "warning_or_failure_items": 0,
         "warning_or_failure_rate": 0.0,
         "newsfeed_excluded": 1,
@@ -3053,24 +3110,17 @@
         "warning_or_failure_rate": 0.0,
         "newsfeed_excluded": 0,
         "top_reasons": []
-      },
-      {
-        "feed": "News",
-        "total_items": 5,
-        "clean_newsfeed_items": 5,
-        "observable_issue_items": 0,
-        "observable_issue_rate": 0.0,
-        "warning_or_failure_items": 0,
-        "warning_or_failure_rate": 0.0,
-        "newsfeed_excluded": 0,
-        "top_reasons": []
       }
     ]
   },
   "issue_counts": [
     {
       "issue": "content_type_filter_accepted",
-      "count": 45
+      "count": 44
+    },
+    {
+      "issue": "missing_rss_content",
+      "count": 3
     },
     {
       "issue": "feed_fetch_failed",
@@ -3080,45 +3130,73 @@
   "content_type_counts": [
     {
       "content_type": "news_article",
-      "count": 202
+      "count": 205
     },
     {
       "content_type": "video",
-      "count": 30
+      "count": 26
     },
     {
       "content_type": "analysis",
-      "count": 25
-    },
-    {
-      "content_type": "opinion",
-      "count": 15
-    },
-    {
-      "content_type": "podcast",
-      "count": 8
+      "count": 20
     },
     {
       "content_type": "interview",
-      "count": 8
+      "count": 13
+    },
+    {
+      "content_type": "opinion",
+      "count": 10
+    },
+    {
+      "content_type": "podcast",
+      "count": 7
     },
     {
       "content_type": "newsletter",
-      "count": 7
+      "count": 5
+    },
+    {
+      "content_type": "missing_content",
+      "count": 3
+    },
+    {
+      "content_type": "press_release",
+      "count": 3
+    },
+    {
+      "content_type": "photo_gallery",
+      "count": 2
     }
   ],
   "exclusion_reason_counts": [
     {
       "reason": "unsupported_content_type:video",
-      "count": 30
+      "count": 26
     },
     {
       "reason": "unsupported_content_type:podcast",
-      "count": 8
+      "count": 7
     },
     {
       "reason": "unsupported_content_type:newsletter",
-      "count": 7
+      "count": 5
+    },
+    {
+      "reason": "missing_rss_content",
+      "count": 3
+    },
+    {
+      "reason": "unsupported_content_type:press_release",
+      "count": 3
+    },
+    {
+      "reason": "unsupported_content_type:photo_gallery",
+      "count": 2
+    },
+    {
+      "reason": "unsupported_content_type:live_blog",
+      "count": 1
     }
   ],
   "top_sources": [
@@ -3207,7 +3285,12 @@
   ],
   "top_source_issues": [
     {
-      "source": "The Verge",
+      "source": "The Gateway Pundit",
+      "issue": "content_type_filter_accepted",
+      "count": 4
+    },
+    {
+      "source": "ABC News",
       "issue": "content_type_filter_accepted",
       "count": 3
     },
@@ -3222,37 +3305,32 @@
       "count": 3
     },
     {
-      "source": "The Blaze",
+      "source": "The Intercept",
       "issue": "content_type_filter_accepted",
       "count": 3
     },
     {
-      "source": "Fox News",
+      "source": "Atlanta Black Star",
+      "issue": "content_type_filter_accepted",
+      "count": 3
+    },
+    {
+      "source": "The Verge",
       "issue": "content_type_filter_accepted",
       "count": 2
     },
     {
-      "source": "NBC News",
+      "source": "Hong Kong Free Press HKFP",
       "issue": "content_type_filter_accepted",
       "count": 2
     },
     {
-      "source": "ABC News",
-      "issue": "content_type_filter_accepted",
-      "count": 2
-    },
-    {
-      "source": "Al Jazeera",
-      "issue": "content_type_filter_accepted",
+      "source": "The Hindu - Home",
+      "issue": "missing_rss_content",
       "count": 2
     },
     {
       "source": "The Conversation US",
-      "issue": "content_type_filter_accepted",
-      "count": 2
-    },
-    {
-      "source": "STAT News",
       "issue": "content_type_filter_accepted",
       "count": 2
     }
@@ -3261,12 +3339,12 @@
     {
       "feed": "All Stories",
       "issue": "content_type_filter_accepted",
-      "count": 30
+      "count": 29
     },
     {
       "feed": "Top Stories",
       "issue": "content_type_filter_accepted",
-      "count": 5
+      "count": 6
     },
     {
       "feed": "Main Feed",
@@ -3274,13 +3352,13 @@
       "count": 3
     },
     {
-      "feed": "Latest",
+      "feed": "Hong Kong Free Press HKFP",
       "issue": "content_type_filter_accepted",
       "count": 2
     },
     {
-      "feed": "All News",
-      "issue": "content_type_filter_accepted",
+      "feed": "The Hindu - Home",
+      "issue": "missing_rss_content",
       "count": 2
     },
     {
@@ -3294,56 +3372,25 @@
       "count": 2
     },
     {
-      "feed": "Hong Kong Free Press HKFP",
+      "feed": "Latest",
+      "issue": "content_type_filter_accepted",
+      "count": 1
+    },
+    {
+      "feed": "All News",
       "issue": "content_type_filter_accepted",
       "count": 1
     },
     {
       "feed": "World",
-      "issue": "feed_fetch_failed",
+      "issue": "missing_rss_content",
       "count": 1
     }
   ],
   "examples": [
     {
-      "id": "53e9c7470217",
-      "title": "Watch: BBC undercover reporter is offered fake art and awards for talent visa",
-      "source": "BBC News",
-      "feed": "Top Stories",
-      "content_type": "video",
-      "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "unsupported_content_type:video",
-      "quality_status": "clean",
-      "flags": [
-        {
-          "code": "content_type_filter_accepted",
-          "severity": "info",
-          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
-          "detail": "video"
-        }
-      ]
-    },
-    {
-      "id": "fcee763f18b8",
-      "title": "'Hunting Wives\u2019 star Malin Akerman ditches LA lifestyle for \u2018dream\u2019 of raising son like it\u2019s the 1950s",
-      "source": "Fox News",
-      "feed": "Latest",
-      "content_type": "podcast",
-      "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "unsupported_content_type:podcast",
-      "quality_status": "clean",
-      "flags": [
-        {
-          "code": "content_type_filter_accepted",
-          "severity": "info",
-          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
-          "detail": "podcast"
-        }
-      ]
-    },
-    {
-      "id": "15fbf5faad37",
-      "title": "Kirk Herbstreit serving steak to his dog at an NYC restaurant has Craig Carton fuming mad",
+      "id": "09dd915fab64",
+      "title": "New prostate cancer guidelines urge men to start screening at specific age",
       "source": "Fox News",
       "feed": "Latest",
       "content_type": "video",
@@ -3360,8 +3407,8 @@
       ]
     },
     {
-      "id": "89b04b997263",
-      "title": "Commerce Secretary Lutnick agrees to testify about Nvidia",
+      "id": "a49d24206e4b",
+      "title": "SpaceX historic test flight takes off",
       "source": "NBC News",
       "feed": "Top Stories",
       "content_type": "video",
@@ -3378,9 +3425,9 @@
       ]
     },
     {
-      "id": "decff37c48a8",
-      "title": "Microsoft says major outage was due to 'a network capacity upgrade'",
-      "source": "NBC News",
+      "id": "ada67b6b8de3",
+      "title": "The Corn Rake Witness | Post Mortem",
+      "source": "CBS News",
       "feed": "Top Stories",
       "content_type": "video",
       "include_in_newsfeed": false,
@@ -3392,12 +3439,30 @@
           "severity": "info",
           "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
           "detail": "video"
+        }
+      ]
+    },
+    {
+      "id": "179234caa52d",
+      "title": "FAA ground stop live updates: 'Zero evidence of anything nefarious,' FAA head says",
+      "source": "ABC News",
+      "feed": "Top Stories",
+      "content_type": "live_blog",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:live_blog",
+      "quality_status": "clean",
+      "flags": [
+        {
+          "code": "content_type_filter_accepted",
+          "severity": "info",
+          "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
+          "detail": "live_blog"
         }
       ]
     },
     {
       "id": "8106f65ad6f8",
-      "title": "LIVE: Tanker, riverboat collide near Port of New Orleans: ABC News Live",
+      "title": "LIVE: ABC News Live",
       "source": "ABC News",
       "feed": "Top Stories",
       "content_type": "video",
@@ -3414,8 +3479,8 @@
       ]
     },
     {
-      "id": "5a67f7e0c853",
-      "title": "WATCH: 41-year-old firefighter\u2019s life saved by heart transplant",
+      "id": "1f10ad0e429a",
+      "title": "WATCH: Heartwarming update on Punch the Monkey",
       "source": "ABC News",
       "feed": "Top Stories",
       "content_type": "video",
@@ -3432,8 +3497,8 @@
       ]
     },
     {
-      "id": "8d31a9abe30f",
-      "title": "Migrants risk deadly route to Spain\u2019s Canary Islands",
+      "id": "d130a0051004",
+      "title": "Rising costs and arrests fuel protests in Central African Republic",
       "source": "Al Jazeera",
       "feed": "All News",
       "content_type": "video",
@@ -3450,26 +3515,43 @@
       ]
     },
     {
-      "id": "fe3f63c8c61d",
-      "title": "IRGC says tanker caught fire after hitting mines in Strait of Hormuz",
-      "source": "Al Jazeera",
-      "feed": "All News",
-      "content_type": "video",
+      "id": "4e9237c45d2c",
+      "title": "Copper wire replacement caused air traffic control issue that grounded flights across U.S.: White House",
+      "source": "CBC News",
+      "feed": "World",
+      "content_type": "missing_content",
       "include_in_newsfeed": false,
-      "newsfeed_exclusion_reason": "unsupported_content_type:video",
+      "newsfeed_exclusion_reason": "missing_rss_content",
+      "quality_status": "warn",
+      "flags": [
+        {
+          "code": "missing_rss_content",
+          "severity": "warn",
+          "message": "RSS entry has no summary, description, or content text."
+        }
+      ]
+    },
+    {
+      "id": "a203087a65fd",
+      "title": "Artists relish flying the flag for WA's biggest remote community",
+      "source": "ABC News (Australia)",
+      "feed": "Top Stories",
+      "content_type": "photo_gallery",
+      "include_in_newsfeed": false,
+      "newsfeed_exclusion_reason": "unsupported_content_type:photo_gallery",
       "quality_status": "clean",
       "flags": [
         {
           "code": "content_type_filter_accepted",
           "severity": "info",
           "message": "Story content type is not eligible for NewsLens and was excluded from normal output.",
-          "detail": "video"
+          "detail": "photo_gallery"
         }
       ]
     },
     {
-      "id": "9263917b1726",
-      "title": "CMF\u2019s milk carton-shaped Bluetooth speaker is down to a new low price",
+      "id": "99406ea83173",
+      "title": "Here are our favorite deals from REI\u2019s giant Holiday Sale",
       "source": "The Verge",
       "feed": "All Stories",
       "content_type": "podcast",
@@ -3495,7 +3577,7 @@
       "feed_url": "https://www.chinadaily.com.cn/rss/world_rss.xml",
       "type": "HTTPError",
       "error": "HTTP Error 404: Not Found",
-      "duration_seconds": 0.401
+      "duration_seconds": 0.669
     },
     {
       "stage": "feed_fetch",
@@ -3505,7 +3587,7 @@
       "feed_url": "https://underscore.news/feed/",
       "type": "HTTPError",
       "error": "HTTP Error 403: Forbidden",
-      "duration_seconds": 0.157
+      "duration_seconds": 0.054
     },
     {
       "stage": "feed_fetch",
@@ -3514,21 +3596,23 @@
       "feed_name": "All Stories",
       "feed_url": "https://afro.com/feed/",
       "type": "HTTPError",
-      "error": "HTTP Error 404: Not Found",
-      "duration_seconds": 0.463
+      "error": "HTTP Error 403: Forbidden",
+      "duration_seconds": 0.165
     }
   ],
   "blocking_issues": [],
   "warnings": [
-    "3 feed fetch(es) failed"
+    "3 feed fetch(es) failed",
+    "3 RSS item(s) had no content text",
+    "3 RSS item(s) had warning-level quality flags"
   ],
   "audit": {
     "catalog_path": "/home/runner/work/RSS_Feeds/RSS_Feeds/feed_catalog/rss_feeds.json",
     "output_path": "/home/runner/work/RSS_Feeds/RSS_Feeds/data/analysis/feed_audit/rss_feed_audit.json",
-    "run_log": "/home/runner/work/RSS_Feeds/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20261113T203322-92d12d94ea.jsonl",
+    "run_log": "/home/runner/work/RSS_Feeds/RSS_Feeds/data/analysis/feed_audit/run_logs/feed-audit-20261114T184722-d5c4ec1f68.jsonl",
     "requested_catalog_path": "feed_catalog/rss_feeds.json"
   },
-  "history_archive": "/home/runner/work/RSS_Feeds/RSS_Feeds/data/analysis/feed_audit/history/rss_feed_audit_2026-11-13.json",
+  "history_archive": "/home/runner/work/RSS_Feeds/RSS_Feeds/data/analysis/feed_audit/history/rss_feed_audit_2026-11-14.json",
   "quality_gate": {
     "status": "warn",
     "thresholds": {
@@ -3541,10 +3625,10 @@
     },
     "metrics": {
       "feed_fetch_failed": 3,
-      "missing_rss_content_items": 0,
+      "missing_rss_content_items": 3,
       "unknown_content_type_items": 0,
       "unsupported_content_type_items": 0,
-      "accepted_content_type_filter_items": 45
+      "accepted_content_type_filter_items": 44
     },
     "violations": [],
     "warnings": [
